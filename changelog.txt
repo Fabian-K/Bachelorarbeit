@@ -1,0 +1,4 @@
+- inputtec codierung von latin 1 auf utf8
+
+
+wa-konfiguration several changes
