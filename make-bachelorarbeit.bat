@@ -8,6 +8,6 @@ cls
 echo creating git commit...
 "C:\Program Files (x86)\Git\bin\git.exe" config user.name "Fabian Kajzar"
 "C:\Program Files (x86)\Git\bin\git.exe" config user.email "fabiankajzar@googlemail.com"
-"C:\Program Files (x86)\Git\bin\git.exe" commit -a
+"C:\Program Files (x86)\Git\bin\git.exe" commit -a --message=automatic
 "C:\Program Files (x86)\Git\bin\git.exe" log -1 --name-status
 pause 
