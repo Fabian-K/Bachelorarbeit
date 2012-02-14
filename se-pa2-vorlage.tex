@@ -1,28 +1,25 @@
-%
+% --------------------------------------------------------------------------------------------------------------
 % Einlesen der .sty-Dateien
-%
+% --------------------------------------------------------------------------------------------------------------
 \input{se-wa-input-styles}
 
-%
+% --------------------------------------------------------------------------------------------------------------
 % Individuelle Konfiguration des Dokumentes
-%
+% --------------------------------------------------------------------------------------------------------------
 \input{wa-konfiguration}
 
-%
+% --------------------------------------------------------------------------------------------------------------
 % Individuelle Definition von Abk\"urzungen, Symbolen und eventuell Glossareintr\"agen
-%
+% --------------------------------------------------------------------------------------------------------------
 \input{wa-abkuerzungen} 
-
-\usepackage{bibgerm}
 
 \begin{document}
 
 \newcommand{\version}{0.1}
 
+% --------------------------------------------------------------------------------------------------------------
 % Erzeugung des Titelblatts
-%
-%
-%
+% --------------------------------------------------------------------------------------------------------------
 \seTitelblattZweiteProjektarbeit[
 firmenlogo=images/sap-logo,
 firmenlogoDeltaX=-13,
@@ -45,61 +42,37 @@ bearbeitungszeitraumBis=4. Mai 2012,
 sperrvermerk=nein
 ]
 
-
-
+% --------------------------------------------------------------------------------------------------------------
 % Erzeugung der Kurzfassung; Verfasser, Firma und Thema werden automatisch \"ubernommen
-%
-% Der optionale Parameter kann verwendet werden, um f\"ur das Thema der Arbeit eine 
-% andere Formatierung vorzunehmen; das sollte in der Regel nicht erforderlich sein;
-% ausserdem besteht die Gefahr inkonsistenter Titel auf dem Titelblatt und in der 
-% Kurzfassung
-%
-\seKurzfassung{} % dieses Kommando sollte standardm\"assig verwendet werden
-%\seKurzfassung[\LaTeX-Layoutvorlage zur Anfertigung der zweiten Projektarbeit (Version \version)]{}
+% --------------------------------------------------------------------------------------------------------------
+\seKurzfassung{}
 
 % Beispiel f\"ur ein Kapitel, dass vor dem Einleitungskapitel kommt, z. B. ein Vorwort oder eine Danksagung
 %\seKapitelVorEinleitung{Vorwort}
 
-%\input{se-pa2-vorwort}
-
-
+% --------------------------------------------------------------------------------------------------------------
 % Ausgabe des Inhaltsverzeichnisses
-%
-%
-\seInhaltsverzeichnis[%
+% --------------------------------------------------------------------------------------------------------------
+\seInhaltsverzeichnis[
 einrueckung=ja,
 gliederungsebenen=4
 ]
 
-
-
+% --------------------------------------------------------------------------------------------------------------
 % Ausgabe der verschiedenen Verzeichnisse
-% abk: Abk\"urzungsverzeichnis
-% sym: Symbolverzeichnis
-% abb: Abbildungsverzeichnis
-% tab: Tabellenverzeichnis
-% prg: Listingverzeichnis
-%
-%
-% Achtung: Abk\"urzungs- und Symbolverzeichnis werden nur ausgegeben, wenn mindest ein Symbol bzw. 
-%                mindestens eine Abk\"urzung in der Arbeit verwendet wurden
-%
-%
-% gliederungsebene:
-% -- section: die Verzeichnisse werden einem Kapitel "Verzeichnisse" untergliedert
-% -- chapter: die Verzeichnisse sind jeweils eigene Kapitel
-% imInhaltsverzeichnis: ja/nein -- Sollen die Verzeichnisse im Inhaltsverzeichnis enthalten sein?
+% --------------------------------------------------------------------------------------------------------------
 \seVerzeichnisse[gliederungsebene=section,imInhaltsverzeichnis=ja]{abk}{sym}{abb}{tab}{prg}
 
 
+% --------------------------------------------------------------------------------------------------------------
+% Vorbereitung für Inhalt der Arbeit
+% --------------------------------------------------------------------------------------------------------------
+\pagenumbering{arabic}
 
-
-
-
-% Erstes eigentliches Kapitel der Arbeit; typischerweise das Einleitungskapitel;
-% hier muss wieder auf die Nummierung mit arabischen Seitenzahlen umgestellt werden
-%
-\chapter{Einleitung}\pagenumbering{arabic}
+% --------------------------------------------------------------------------------------------------------------
+% Inhalt der Arbeit
+% --------------------------------------------------------------------------------------------------------------
+\chapter{Einleitung}
 
 
 test \seFootcite{vgl.}{S.5}{test}
@@ -117,9 +90,9 @@ test \seFootcite{vgl.}{S.5}{test}
 
 
 
+% --------------------------------------------------------------------------------------------------------------
 % Anhang der Arbeit
-% 
-%
+% --------------------------------------------------------------------------------------------------------------
 \seAppendix{}
 \chapter{Einige wichtige \LaTeX{}-Kommandos}
 
@@ -137,62 +110,27 @@ minor change
 
 \input{se-hinweise-installation}
 
-%
+% --------------------------------------------------------------------------------------------------------------
 %  Erzeugung eines Glossars
-%
-% Achtung: Das Glossar wird nur ausgegeben, wenn mindestens ein Eintrag in der Arbeit 
-%                definiert wurde
-%
-%
+% --------------------------------------------------------------------------------------------------------------
 \newpage
 \sePrintGlossary{}
 
 
-%
+% --------------------------------------------------------------------------------------------------------------
 % Literaturverzeichnisses
-%
-%\newpage
+% --------------------------------------------------------------------------------------------------------------
 \sePrintBibliography{}
 
 \input{se-test-literaturverzeichnis}
 
-
-%
-% Festlegung des grundlegenden Formatierungsstils des Literaturverzeichnis
-%
 \bibliographystyle{mystyle}
-
-% Eigentliche Ausgabe der in der Arbeit verwendeten Quellen
-%
-%
-% Angabe der bib-Dateien, in denen die Quellen beschrieben sind;
-% die Angabe geht davon aus, dass eine wa.bib-Datei in demselben 
-% Verzeichnis liegt, wie se-pa1-vorlage.tex
-%
 \seBibliography{wa}
 
 
-%
+% --------------------------------------------------------------------------------------------------------------
 % Erzeugung der ehrenw\"ortlichen Erkl\"arung
-%
-% Der optionale Parameter kann verwendet werden, um f\"ur das Thema der Arbeit eine 
-% andere Formatierung vorzunehmen; das sollte in der Regel nicht erforderlich sein;
-% ausserdem besteht die Gefahr inkonsistenter Titel auf dem Titelblatt und in der 
-% ehrenw\"ortlichen Erkl\"arung
-%
-%\seEhrenwoertlicheErklaerung{} % dieses Kommando sollte standardm\"assig verwendet werden
-\seEhrenwoertlicheErklaerung[\LaTeX-Layoutvorlage zur Anfertigung der\\ zweiten Projektarbeit (Version \version)]{}
-
+% --------------------------------------------------------------------------------------------------------------
+\seEhrenwoertlicheErklaerung{}
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
