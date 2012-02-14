@@ -1,3 +1,4 @@
+@echo off
 echo compiling latex...
 call make-projektarbeit.bat se-pa2-vorlage
 cls
