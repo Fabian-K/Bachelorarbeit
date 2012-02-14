@@ -1,4 +1,7 @@
+echo compiling latex...
 call make-projektarbeit.bat se-pa2-vorlage
+cls
+echo creating git commit...
 "C:\Program Files (x86)\Git\bin\git.exe" config user.name "Fabian Kajzar"
 "C:\Program Files (x86)\Git\bin\git.exe" config user.email "fabiankajzar@googlemail.com"
 "C:\Program Files (x86)\Git\bin\git.exe" commit -m "automatic build commit" -a
