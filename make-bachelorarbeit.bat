@@ -11,4 +11,3 @@ echo creating git commit...
 "C:\Program Files (x86)\Git\bin\git.exe" config user.email "fabiankajzar@googlemail.com"
 "C:\Program Files (x86)\Git\bin\git.exe" commit -a -m autocommit -e
 "C:\Program Files (x86)\Git\bin\git.exe" log -1 --name-status
-pause
