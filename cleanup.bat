@@ -24,3 +24,4 @@ DEL *.synctex.gz
 DEL *.lop
 DEL *.syg
 DEL *.syi
+DEL *.url
