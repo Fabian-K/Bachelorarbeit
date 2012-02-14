@@ -5,7 +5,8 @@ cls
 echo cleaning up...
 call cleanup.bat
 cls
-"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Adobe Reader X" se-pa2-vorlage.pdf
+echo please review changes and close the pdf to commit or reset changes
+"C:\Program Files (x86)\Adobe\Reader 10.0\Reader\AcroRd32.exe" se-pa2-vorlage.pdf
 echo creating git commit...
 "C:\Program Files (x86)\Git\bin\git.exe" config user.name "Fabian Kajzar"
 "C:\Program Files (x86)\Git\bin\git.exe" config user.email "fabiankajzar@googlemail.com"
