@@ -42,10 +42,15 @@ bearbeitungszeitraumBis=4. Mai 2012,
 sperrvermerk=nein
 ]
 
+\pagenumbering{Roman}
+\setcounter{page}{0}
+
 % --------------------------------------------------------------------------------------------------------------
 % Erzeugung der Kurzfassung; Verfasser, Firma und Thema werden automatisch \"ubernommen
 % --------------------------------------------------------------------------------------------------------------
 \seKurzfassung{}
+
+\glsresetall
 
 % Beispiel f\"ur ein Kapitel, dass vor dem Einleitungskapitel kommt, z. B. ein Vorwort oder eine Danksagung
 %\seKapitelVorEinleitung{Vorwort}
@@ -94,6 +99,11 @@ test \seFootcite{vgl.}{S.5}{test}
 % Anhang der Arbeit
 % --------------------------------------------------------------------------------------------------------------
 \seAppendix{}
+
+
+\pagenumbering{Roman}
+\setcounter{page}{7}
+
 \chapter{Einige wichtige \LaTeX{}-Kommandos}
 
 minor change
