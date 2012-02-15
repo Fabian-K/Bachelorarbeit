@@ -104,7 +104,7 @@ Festplatte & 1.000.000 CPU-Zyklen \\ \hline
 \end{tabular} 
 \caption[Vergleich der Zugriffszeiten von Speicher]{Vergleich der Zugriffszeiten von Speicher\label{table:zugriff}\protect \footnotemark}
 \end{table}
-\footnotetext{\seCite{vgl.}{S.12}{newDB-bluebook}}
+\footnotetext{\seCite{vgl.}{S.12}{test}}
 
 \section{Glossar}
 Das hier ist ein Eintrag im Glossar: \gls{glos:test}
@@ -132,10 +132,16 @@ SELECT * FROM FLIGHTINFO WHERE CLASS = 'Y' OR CLASS = 'C'.
 \end{programm}
 
 \section{Zitat}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\footnote{\seCite{vgl.}{S.7}{cc-hmd} \seCite{und}{S.4}{cc-iif}}
+Einfaches Zitat in Fußnote.\seFootcite{vgl.}{S.4}{test} Komplexer Zitierter Text in Fußnote.\footnote{\seCite{vgl.}{S.7}{test} \seCite{und}{S.4}{test}}
 
 \section{Formel}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Text $\int\limits_a^b {\frac{d}{dx}F(x)dx} = F(b)-F(a)$ der inline mit einer Formel steht ..der inline mit einer Formel steht ..der inline mit einer Formel steht
+
+Es gehen auch numerierte Formeln:
+\begin{equation}
+\int\limits_a^b {\frac{d}{dx}F(x)dx} = F(b)-F(a)
+\end{equation}
+die dann zentriert dargestellt weredn
 
 \section{Footnote}
 Kurzer Text vor der Fußnote.\footnote{eine ganz normale Fußnote, reiner Text...} Kurzer Text nach der Fußnote.
