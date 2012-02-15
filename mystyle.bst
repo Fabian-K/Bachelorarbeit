@@ -252,7 +252,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { nameptr #1 >
-        { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ smallcaps 't :=
+        { s nameptr "{ll~}{vv~}{, ff}{, jj}" format.name$ smallcaps 't :=
           namesleft #1 >
             { ", " * t * }
             { numnames #2 >
