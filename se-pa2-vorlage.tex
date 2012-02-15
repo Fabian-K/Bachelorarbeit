@@ -104,7 +104,7 @@ Festplatte & 1.000.000 CPU-Zyklen \\ \hline
 \end{tabular} 
 \caption[Vergleich der Zugriffszeiten von Speicher]{Vergleich der Zugriffszeiten von Speicher\label{table:zugriff}\protect \footnotemark}
 \end{table}
-\footnotetext{\seCite{vgl.}{S.12}{PK.2011}}
+\footnotetext{footnotetext...}
 
 \section{Glossar}
 Das hier ist ein Eintrag im Glossar: \gls{glos:test}
@@ -132,7 +132,8 @@ SELECT * FROM FLIGHTINFO WHERE CLASS = 'Y' OR CLASS = 'C'.
 \end{programm}
 
 \section{Zitat}
-Einfaches Zitat in Fußnote.\seFootcite{vgl.}{S.4}{Gol.2012} Komplexer Zitierter Text in Fußnote.\footnote{\seCite{vgl.}{S.7}{PK.2011} \seCite{und}{S.4}{PK.2011}}
+Einfaches Zitat in Fußnote.\seFootcite{vgl.}{S.4}{Kaj.12} Komplexer Zitierter Text in Fußnote.\footnote{\seCite{vgl.}{S.7}{Kaj.12b} \seCite{und}{S.4}{Gol.12}}
+Noch ein Zitat\seFootcite{vgl.}{S.4}{KU.12}
 
 \section{Formel}
 Text $\int\limits_a^b {\frac{d}{dx}F(x)dx} = F(b)-F(a)$ der inline mit einer Formel steht ..der inline mit einer Formel steht ..der inline mit einer Formel steht
@@ -164,7 +165,6 @@ Inhalt des Anhangs
 % -------------------------------------------------------------------------------------
 \newpage
 \sePrintGlossary{}
-
 
 % -------------------------------------------------------------------------------------
 % Literaturverzeichnisses
