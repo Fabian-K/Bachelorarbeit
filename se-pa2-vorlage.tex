@@ -77,20 +77,71 @@ gliederungsebenen=4
 % --------------------------------------------------------------------------------------------------------------
 % Inhalt der Arbeit
 % --------------------------------------------------------------------------------------------------------------
-\chapter{Einleitung}
+\chapter{Testkapitel}
 
+\section{Bild}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/sap-logo.png}
+\caption[Umfang der Cloud-Angebote als Venn-Diagramm]{Umfang der Cloud-Angebote als Venn-Diagramm, eigene Darstellung\label{fig:grundlagen:venn}}
+\end{figure}
 
-Testquelle: \seFootcite{vgl.}{S.5}{test}
+\section{Tabelle}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-\chapter{Zweites Kapitle}
+\begin{table}[htbp]%
+\centering%
+\begin{tabular}{| p{3cm} | p{5cm} |}
+\hline
+Speicher & Zugriffszeit \\
+\hline
+\hline
+L1 Cache & ca. 4 CPU-Zyklen  \\ \hline
+Hauptspeicher & 100 - 400 CPU-Zyklen \\ \hline
+Festplatte & 1.000.000 CPU-Zyklen \\ \hline
+\end{tabular} 
+\caption[Vergleich der Zugriffszeiten von Speicher]{Vergleich der Zugriffszeiten von Speicher\label{table:zugriff}\protect \footnotemark}
+\end{table}
+\footnotetext{\seCite{vgl.}{S.12}{newDB-bluebook}}
 
-ein weiteres Kapitel
+\section{Glossar}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+\section{Abkürzung}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+\section{Listing}
+Ein Beispielprogramm mit ABAP Syntax-Highlighting ist in \vref{hello} zu sehen.
+
+\begin{programm}[htbp]
+\begin{lstlisting}
+REPORT TEST.
+
+DATA LASTNAME TYPE STRING.
+
+WRITE 'Hello World'.
+REPLACE 'A' WITH 'B' INTO LASTNAME.
+
+SELECT * FROM FLIGHTINFO WHERE CLASS = 'Y' OR CLASS = 'C'.
+\end{lstlisting}
+\caption{Die Klasse \texttt{HelloDHBW}\label{hello}}
+\end{programm}
+
+\section{Zitat}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\footnote{\seCite{vgl.}{S.7}{cc-hmd} \seCite{und}{S.4}{cc-iif}}
+
+\section{Formel}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+\section{Footnote}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\footnote{eine ganz normale Fußnote, reiner Text...} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 % --------------------------------------------------------------------------------------------------------------
 % Anhang der Arbeit
 % --------------------------------------------------------------------------------------------------------------
 \seAppendix{}
-
 
 \pagenumbering{Roman}
 \setcounter{page}{7}
