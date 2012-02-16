@@ -679,6 +679,9 @@ zug\"anglich gemacht werden.
 %
 \newcommand{\sePrintProgrammverzeichnis}{%
 \ifthenelse{\equal{\sePrgNewpage}{ja}}{\newpage}{}%
+\ifthenelse{\equal{\seVerzeichnisseToc}{ja}}{%
+\ifthenelse{\equal{\seVerzeichnisebene}{section}}{\addcontentsline{toc}{section}{\seProgrammeVerzeichnisname}}{}%
+}{}%
 \ifthenelse{\equal{\sePrgAbstandVerzeichnis}{}}{}{\vspace{\sePrgAbstandVerzeichnis}}%
 \begingroup
 \ifthenelse{\equal{\sePrgPnumwidth}{xxx}}{}{\renewcommand{\@pnumwidth}{\sePrgPnumwidth}}
