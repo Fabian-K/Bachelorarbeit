@@ -25,3 +25,4 @@ DEL *.lop
 DEL *.syg
 DEL *.syi
 DEL *.url
+DEL *.slg
