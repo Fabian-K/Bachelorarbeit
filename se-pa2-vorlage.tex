@@ -107,133 +107,58 @@ Das Zahlungsmittelbedarfsrisiko, auch originäres Liquiditätsrisiko genannt, be
 
 \section{Liquiditätsrisikomanagement}
 
-\newpage
-
 \chapter{SAP LRM und Xcelsius}
 \section{Einleitung}
 \section{SAP LRM}
 \subsection{Funktionen}
-\newpage
 \subsection{Architektur}
+\subsubsection{NGAP}
 \newpage
+\subsubsection{HANA}
+Die \gls{HANA} ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum Anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von \gls{HANA} ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
+
+Der Kern der \gls{HANA} bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS}en auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{TODO}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Die zeilenbasierte Organisation ist von Vorteil, wenn auf einzelne Datensätze komplett zugegriffen werden soll, die spaltenbasierte Organisation ist bei Tabellen mit einer hohen Anzahl an Spalten und bei spaltenbasierten Operationen wie der Aggregation oder der Suche überlegen. Durch die Unterstützung von beiden Organisationsformen kann die jeweils beste Form gewählt werden.\seFootcite{vgl.}{S.13f}{Kle.10}
+
+Veränderungen in einem Datensatz einer Tabelle können auf Wunsch nicht in dem Eintrag der Tabelle direkt geändert, sondern nur die Differenzen an die Tabelle angefügt werden. Dadurch bleibt die Information, wie sich der Datensatz im Laufe der Zeit verändert hat, erhalten und kann in späteren Auswertungen als weitere Information hinzugezogen werden. Zusätzlich ist das Anfügen der Veränderung schneller durchzuführen wie die Veränderung des bestehenden Datensatzes.\seFootcite{vgl.}{S.109f}{PZ.11}
+
+Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von \gls{HANA} entwickelt werden, versucht, ein Teil der Anwendungslogik schon auf der Datenbank selbst zu berechnen.\seFootcite{vgl.}{S.155f}{PZ.11} Erreicht wird dies durch die Erweiterung der Abfragesprache \gls{SQL} zu \gls{glos:sqlscript}. Mit \gls{glos:sqlscript} ist es unter Anderem durch das Hinzufügen von Datentypen, Prozeduren und Operationen möglich, Anwendungslogig abzubilden. Diese Berechnungen können von der Datenbank durch Parallelisierung sehr schnell durchgeführt werden.\seFootcite{vgl.}{S.9f}{SQLScript.11} Als Resultat kann die Datenübertragung zwischen dem \gls{DBMS} und der Anwendung verringert werden, da nur noch das Ergebnis und nicht die Datensätze, auf denen das Ergebnis basiert, übertragen werden muss und die Komplexität der Anwendung verringert werden, da ein Teil der Logik von dem \gls{DBMS} übernommen wird.
+
+
+\subsubsection{Oberon}
 \subsection{Berechnungskomponente}
-\newpage
 \section{Xcelsius}
 \subsection{Grundprinzip}
-\newpage
 \subsection{Funktionen}
-\newpage
 \subsection{Architektur}
-\newpage
 \subsection{Erweiterungsmöglichkeiten}
-\newpage
 \section{Zusammenfassung}
 
 \chapter{Anforderung}
 \section{Einleitung}
 \section{Ziel}
-\newpage
 \section{Anwendungsfälle}
-\newpage
 \section{Zusammenfassung}
 
 \chapter{Umsetzungsmöglichkeiten}
 \section{Einleitung}
 \section{WebService}
-\newpage
 \section{Zusammenfassung}
 
 \chapter{Umsetzung}
 \section{Einleitung}
 \section{Analyse}
-\newpage
 \section{Entwurf}
-\newpage
 \section{Implementierung}
-\newpage
 \section{Zusammenfassung}
 
 \chapter{Evaluation}
 \section{Einleitung}
 \section{Möglichkeiten}
-\newpage
 \section{Vergleich}
-\newpage
 \section{Performance}
-\newpage
 \section{Zusammenfassung}
 
 \chapter{Zusammenfassung}
-
-%\chapter{Testkapitel}
-
-%\section{Bild}
-
-%\begin{figure}[h]
-%\centering
-%\setlength{\unitlength}{1mm}
-%\includegraphics[width=15cm]{images/sap-logo.png}
-%\caption[Umfang der Cloud-Angebote als Venn-Diagramm]{Umfang der Cloud-Angebote als Venn-Diagramm, eigene %Darstellung\label{fig:grundlagen:venn}}
-%\end{figure}
-
-%\section{Tabelle}
-
-%\begin{table}[htbp]%
-%\centering%
-%\begin{tabular}{| p{3cm} | p{5cm} |}
-%\hline
-%Speicher & Zugriffszeit \\
-%\hline
-%\hline
-%L1 Cache & ca. 4 CPU-Zyklen  \\ \hline
-%Hauptspeicher & 100 - 400 CPU-Zyklen \\ \hline
-%Festplatte & 1.000.000 CPU-Zyklen \\ \hline
-%\end{tabular} 
-%\caption[Vergleich der Zugriffszeiten von Speicher]{Vergleich der Zugriffszeiten von Speicher\label{table:zugriff}\protect \footnotemark}
-%\end{table}
-%\footnotetext{footnotetext...}
-
-%\section{Glossar}
-%Das hier ist ein Eintrag im Glossar: \gls{glos:test}
-
-%\section{Abkürzung und Symbol}
-%1. Verwendung einer Abkürzung \gls{test}
-%2. Verwendung der gleichen Abkürzung \gls{test}
-%Symbol: \gls{symb:pi}
-
-%\section{Listing}
-%Ein Beispielprogramm mit ABAP Syntax-Highlighting ist in \vref{hello} zu sehen.
-
-%\begin{programm}[htbp]
-%\begin{lstlisting}
-%REPORT TEST.
-
-%DATA LASTNAME TYPE STRING.
-
-%WRITE 'Hello World'.
-%REPLACE 'A' WITH 'B' INTO LASTNAME.
-
-%SELECT * FROM FLIGHTINFO WHERE CLASS = 'Y' OR CLASS = 'C'.
-%\end{lstlisting}
-%\caption{Die Klasse \texttt{HelloDHBW}\label{hello}}
-%\end{programm}
-
-%\section{Zitat}
-%Einfaches Zitat in Fußnote.\seFootcite{vgl.}{S.4}{Kaj.12a} Komplexer Zitierter Text in Fußnote.%\footnote{\seCite{vgl.}{S.7}{Kaj.12b} \seCite{und}{S.4}{Gol.12}}
-%Noch ein Zitat\seFootcite{vgl.}{S.4}{KU.12}
-%Noch ein Zitat mit drei autoren\seFootcite{vgl.}{S.4}{KMS.08}
-
-%\section{Formel}
-%Text $\int\limits_a^b {\frac{d}{dx}F(x)dx} = F(b)-F(a)$ der inline mit einer Formel steht ..der inline mit einer Formel steht ..der inline mit einer Formel steht
-
-%Es gehen auch numerierte Formeln:
-%\begin{equation}
-%\int\limits_a^b {\frac{d}{dx}F(x)dx} = F(b)-F(a)
-%\end{equation}
-%die dann zentriert dargestellt weredn
-
-%\section{Footnote}
-%Kurzer Text vor der Fußnote.\footnote{eine ganz normale Fußnote, reiner Text...} Kurzer Text nach der Fußnote.
 
 
 % -------------------------------------------------------------------------------------
