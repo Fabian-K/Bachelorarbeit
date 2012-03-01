@@ -128,7 +128,16 @@ In der aktuellen Entwicklung spielt Basel III eine wichtige Rolle. Durch Basel I
 \section{SAP LRM}
 \subsection{Funktionen}
 \subsection{Architektur}
+\newpage
 \subsubsection{NGAP}
+Die \gls{NGAP} stellt die Technologische Grundlage für SAP LRM dar. Sie ist eine Plattform für in ABAP geschriebene Business-Anwendungen und soll eine moderne Alternative zu dem SAP NV AS bieten. Entscheidende Merkmale ist die Nutzung von \gls{HANA} im ABAP-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse basierenden Entwicklungsumgebung und die vereinfachte Unterstützung von REST-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
+
+Für viele Anwendungen der SAP stellt der NetWeaver Application Server die Grundlage dar. Er hat sich als ausgereifte und verlässliche Plattform erweisen, die Sowohl einen Java- als auch einen ABAP Stack besitzt und in Verbindung mit vielen Betriebssystemen und Datenbanken genutzt werden kann. Durch die Unterstützung der beiden Programmiersprachen und der Betriebssysteme und Datenbanken ist das Thema Kompatibilität bei der Weiterentwicklung ein entscheidendes Merkmal. Dadurch wird die Komplexität von Erweiterungen deutlich erhöht und durch die lange Entwicklungszeit des SAP NetWeaver Application Server sind Codeteile bis zu 20 Jahre alt.\footnote{\seCite{vgl.}{}{NGAP-V2} \seCite{und}{S.1}{NGAP-FS}}
+
+Diese Nachteile sind der Grund für die Entwicklung der \gls{NGAP}. Der \gls{NGAP} ist eine seperate Codelinie, die ursprünlgich auf dem NW AS in der Version 7.2 basiert. Die wichtigesten Veränderungen sind das Entfernen des kompletten Java-Stacks, die Verschlankung des zugrundeliegenden Kernels und des ABAP-Stacks. Der Kernel wurde komplett restrukturiert, weiter modularisiert und die Unterstützung auf wenige Betriebssysteme und die Datenbank von \gls{HANA} als einzige Datenbank reduziert. Durch den Wegfall der Kompatibilitätsanforderungen konnten große Teile des ABAP-Stacks entfernt oder vereinfacht werden.\seFootcite{vgl.}{}{NGAP-V1} Des weiteren wurde zum ersten mal ein durchgehendes API für die Programmierung von Anwendungen auf basis der \gls{NGAP} eingeführt. Dadurch sind interne Änderungen an der \gls{NGAP} möglich, ohne die Anwendungen anpassen zu müssen.\seFootcite{vgl.}{}{NGAP-V2} Insgesamt konnten durch die Änderungen die Anzahl der Codelinien um 60\% reduziert werden. Dadurch ergeben sich Vorteile in der Wartung da potentiell weniger Fehler enthalten sein können.\footnote{\seCite{vgl.}{}{NGAP-V2} \seCite{und}{S.1}{NGAP-FS}}
+
+Zusammengefasst bietet die \gls{NGAP} eine einfacherer Möglichkeit für die Entwicklung von Anwendungen in Verbindung von aktuellen Inovationen wie z.B. \gls{HANA} oder dem Anschluss von mobilen Clients auf Basis von REST-Webservices.
+
 \newpage
 \subsubsection{HANA}
 Die \gls{HANA} ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum Anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von \gls{HANA} ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
@@ -201,12 +210,12 @@ Inhalt des Anhangs
 \sePrintBibliography{}
 
 
-\nocite{Bar.08} % Bar muss als Collection einmal im Verzeichniss auftreten!
-\nocite{Rom.10} % Rom muss als Collection einmal im Verzeichniss auftreten!
-\nocite{Zer.10} % Rom muss als Collection einmal im Verzeichniss auftreten!
-\nocite{Hof.11} % Rom muss als Collection einmal im Verzeichniss auftreten!
-\nocite{Eve.08} % Rom muss als Collection einmal im Verzeichniss auftreten!
-\nocite{LiqV} % Rom muss als Collection einmal im Verzeichniss auftreten!
+% Sammelwerke, die in der Grundform vorkommen sollten!
+\nocite{Bar.08}
+\nocite{Rom.10}
+\nocite{Zer.10}
+\nocite{Hof.11}
+\nocite{Eve.08}
 
 \bibliographystyle{sty/bibliothek-style}
 \seBibliography{literatur}
