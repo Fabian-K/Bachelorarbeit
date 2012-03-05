@@ -81,8 +81,6 @@ gliederungsebenen=4
 \pagenumbering{arabic}
 
 \chapter{Grundlagen}
-
-\newpage
 \section{Liquidität}
 
 Der Begriff der Liquidität ist weit verbreitet und im allgemeinen Sprachgebrauch festgesetzt. Allerdings ist eine eindeutige Definition des Begriffs schwierig, da Liquidität sehr vielschichtig ist, mehrere Dimensionen besitzt und die jeweilige Bedeutung von der Perspektive der Betrachtung abhängt.\footnote{\seCite{vgl.}{S.3}{Dur.11} \seCite{und}{S.13}{Bar-A.08}} Für diese Arbeit ist vor allem die betriebswirtschaftliche Sicht auf Liquidität entscheidend, die volkswirtschaftliche Sicht wird daher nicht näher erläutert.\seFootcite{vgl.}{S.10}{Zer-A.10}
@@ -95,7 +93,6 @@ Die langfristige Liquidität bezeichnet die Fähigkeit langfristige Refinanzieru
 
 Die Folgen der Liquidität können weitreichend sein. Probleme mit sowohl der kurzfristigen als auch der langfristigen Liquidität können zu einem Reputationsverlust führen. Gerade bei Banken hat dies schwere Auswirkungen, da Fremdkapitalgeber das Vertrauen in die Bank verlieren. Dies wiederum hat Auswirkungen auf die Passiv-Seite der Bilanz, viel Fremdkapital wird verloren gehen. Im schlimmsten Fall, wenn die Bank ihren Zahlungsverpflichtung nicht mehr nachkommen kann, muss sie Insolvenz anmelden.\footnote{\seCite{vgl.}{S.4}{Dur.11} \seCite{und}{S.65}{Rom-B.10}}
 
-\newpage
 \section{Liquiditätsrisiko}
 Die Finanzinstitute haben in der Vergangenheit dem Liquiditätsrisiko keine besondere Bedeutung zugewandt. Ob ein Institut das Risiko gesondert behandelt hat oder nicht konnte frei gewählt werden. Erst im Jahr 2007, als die Grundstückspreise in den USA zusammengebrochen sind und dadurch viele Banken in Liquiditätsschwierigkeiten gekommen sind, rückte die Behandlung des Liquiditätsrisikos in den Fokus - nicht zuletzt durch die Pleite der Lehman Brothers Bank.\footnote{\seCite{vgl.}{S.5}{Bar-A.08} \seCite{und}{S.37}{Rom-A.10}}
 
@@ -109,7 +106,6 @@ Das Liquiditätsanpassungsrisiko beinhaltet grundsätzlich Risiken aufgrund von 
 Das Zahlungsmittelbedarfsrisiko, auch originäres Liquiditätsrisiko genannt, beruht im Gegensatz zu dem Liquiditätsspannungsrisiko auf den Abflüssen von Liquidität. Es wird hauptsächlich das Terminrisiko und das Abrufrisiko unterschieden.\footnote{\seCite{vgl.}{S.7f}{Dur.11} \seCite{und}{S.12}{Zer-A.10}} Das Terminrisiko resultiert aus verspäteten Zahlungseingängen, genauer gesagt aus außerplanmäßigen Prolongationen von Aktivgeschäften über die vereinbarte Kapitalbindungsdauer hinaus.\footnote{\seCite{vgl.}{S.12}{Poh.08} \seCite{und}{S.51}{Zer.05}}. Ein Beispiel ist die Verlängerung eines Kredites, da der Kreditnehmer die Tilgung oder die Zinsen des Kredites nicht bezahlen kann.\seFootcite{vgl.}{S.10}{Dur.11} Das Abrufrisiko beruht auf einer unerwarteten Ausnutzung von zugesagten Kreditlinien. Hier findet ein Liquiditätsabfluss in unerwarteter Höhe statt.\seFootcite{vgl.}{S.513f}{SLK.08} Der bekannteste und zugleich extremste Fall des Abrufrisikos ist eine \gls{glos:bankrun}.
 
 
-\newpage
 \section{Liquiditätsrisikomanagement}
 Das Liquiditätsrisikomanagement bei Banken hat in den letzten Jahren zunehmend an Bedeutung gewonnen. Durch die Implementierung eines Liquiditätsrisikomanagements  soll vor allem die Liquiditätssituation einer Bank jederzeit transparent dargestellt werden können. Durch die Darstellung kann wiederum die Situation überwacht und so die Zahlungsfähigkeit sichergestellt werden. Gleichzeitig können die Liquiditätskosten minimiert werden. Weitere Ziele sind die Erfüllung der Anforderungen von Ratingagenturen sowie rechtliche Anforderungen.\seFootcite{vgl.}{S.256f}{Bar-J.08} Die Steuerung der Liquiditätsrisiken sollten in die Gesamtbanksteuerung eingebunden werden - nur so kann eine gesamtheitliche Sicht gewährleistet werden.\seFootcite{vgl.}{S.20f}{Bar-A.08}
 
@@ -144,11 +140,19 @@ Neben dem \gls{LCR} existiert mit dem \gls{NSFR} eine weitere wichtige Kennzahl 
 \chapter{SAP LRM und Xcelsius}
 \section{Einleitung}
 \section{SAP LRM}
+
+\newpage
 \subsection{Funktionen}
+Das SAP LRM ist eine Anwendung für Banken, um Liquiditätsrisiken managen zu können. Es unterstützt den kompletten Risikomanagementprozess von der Identifikation der Risiken, der genaueren Analyse eines Risikos über die Findung von Maßnahmen zur Behandlung des Risikos bis zur Berichtserstellung und Überwachung. Der Schwerpunkt liegt dabei besonders auf dem letzten Teil, der Berichtserstellung und Überwachung. Neben einer Weboberfläche wird der Zugriff auf die Informationen des LRM auch über mobile Endgeräte wie z.B. dem Apple iPad durch die Bereitstellung von entsprechenden Apps ermöglicht.\seFootcite{vgl.}{S.10 und S.23}{LRM-PPT.12}
+
+Durch den Einsatz der LRM Lösung können Banken rechtliche Anforderungen, wie z.B. die Einhaltung des \gls{LCR} und des \gls{NSFR} im Rahmen von Basel III sicherstellen. Zusätzlich können durch die Bereitstellung einer Berechnungskomponente eigene Kennzahlen zur Steuerung und Überwachung der Bank definiert und umgesetzt werden. Durch den Einsatz von \gls{HANA} ist es möglich, eine zahlungsstromorientierte Herangehensweise trotz der großen Datenmengen zu ermöglichen und gleichzeitig in Echtzeit\footnote{Die Echtzeitanforderung wurde in diesem Kontext auf eine Reaktionszeit von einer Sekunde festgelegt.} mit den Daten zu arbeiten. Im Bereich des Liquiditätsrisikomanagement müssen mehrere Geschäftsbereiche involviert werden. Deshalb bietet das SAP LRM kollaborative Möglichkeiten um dies zu unterstützen.\seFootcite{vgl.}{S.9 und S.17f}{LRM-PPT.12}
+
+Das SAP LRM ist dazu in der Lage, selbst mit komplexen Marktsituationen umgehen zu können und somit niedrige Refinanzierungskosten zu erreichen. Als Datenquelle für Zahlungsströme werden neben SAP-Systemen, meist ein \gls{ERP}-System, auch nicht-SAP Systeme unterstützt. Somit kann sichergestellt werden, dass Analysen auf einer vollständigen Datenbasis durchgeführt werden. Für die Analysen können verschiedene Szenarien simuliert werden. Bei jedem Szenario werden dabei Annahmen über die zukünftige Entwicklung getroffen. Meist handelt es sich dabei um die Herauf- oder Herabstufung der Kreditwürdigkeit von Kunden, die Entwicklung von Aktienkursen, das Verhalten der Marktteilnehmer oder Währungskursschwankungen. Durch diesen Spielraum ist es möglich, ein genaues Bild über die Liquiditätsrisiken der Bank zu erhalten.\seFootcite{vgl.}{S.18 und S.45}{LRM-PPT.12}
+
+
 \subsection{Architektur}
 
 
-\newpage
 \subsubsection{NGAP}
 Die \gls{NGAP} stellt die Technologische Grundlage für SAP LRM dar. Sie ist eine Plattform für in ABAP geschriebene Business-Anwendungen und soll eine moderne Alternative zu dem SAP NetWeaver Application Server bieten. Entscheidende Merkmale ist die Nutzung von \gls{HANA} im ABAP-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse\footnote{Eclipse IDE - http://www.eclipse.org/} basierenden Entwicklungsumgebung und die vereinfachte Unterstützung von REST-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
 
@@ -158,7 +162,6 @@ Diese Nachteile sind der Grund für die Entwicklung der \gls{NGAP}. Der \gls{NGA
 
 Zusammengefasst bietet die \gls{NGAP} eine einfacherer Möglichkeit für die Entwicklung von Anwendungen in Verbindung von aktuellen Innovationen wie z.B. \gls{HANA} oder dem Anschluss von mobilen Clients auf Basis von REST-Webservices.
 
-\newpage
 \subsubsection{HANA}
 Die \gls{HANA} ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum Anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von \gls{HANA} ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
 
@@ -168,7 +171,6 @@ Veränderungen in einem Datensatz einer Tabelle können auf Wunsch nicht in dem 
 
 Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von \gls{HANA} entwickelt werden, versucht, ein Teil der Anwendungslogik schon auf der Datenbank selbst zu berechnen.\seFootcite{vgl.}{S.155f}{PZ.11} Erreicht wird dies durch die Erweiterung der Abfragesprache \gls{SQL} zu \gls{glos:sqlscript}. Mit \gls{glos:sqlscript} ist es unter Anderem durch das Hinzufügen von Datentypen, Prozeduren und Operationen möglich, Anwendungslogik abzubilden. Diese Berechnungen können von der Datenbank durch Parallelisierung sehr schnell durchgeführt werden.\seFootcite{vgl.}{S.9f}{SQLScript.11} Als Resultat kann die Datenübertragung zwischen dem \gls{DBMS} und der Anwendung verringert werden, da nur noch das Ergebnis und nicht die Datensätze, auf denen das Ergebnis basiert, übertragen werden muss und die Komplexität der Anwendung verringert werden, da ein Teil der Logik von dem \gls{DBMS} übernommen wird.
 
-\newpage
 \subsubsection{Oberon}
 Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework benutzt. Es wurde ursprünglich als Oberfläche für \gls{glos:bydesign} entwickelt und wird jetzt auch für weitere Anwendungen unter Anderem für Anwendungen, die auf HANA und NGAP basieren, verwendet.\seFootcite{vgl.}{}{Oberon-A} Ein Beispiel eines mit dem Oberon Framework programmierte Oberfläche ist in \vref{fig:oberon} zu sehen.
 
@@ -183,8 +185,18 @@ Oberflächen werden mit dem Oberen Framework mit der Programmiersprache C\# und 
 
 Das Oberon Framework ist als Standardframework ausgelegt und versucht, möglichst viele Anforderungen abzudecken um so in vielen Produkten verwendet werden zu können. Allerdings ist es sehr Wahrscheinlich, dass spezielle Anforderungen eines bestimmten Bereichs nicht mit der aktuellen Version des Oberon Frameworks abgedeckt werden können. In diesem Fall müssen eigene Lösungen für die Anforderungen entwickelt werden.\seFootcite{vgl.}{}{Oberon-A}
 
-
+\newpage
 \subsection{Berechnungskomponente}
+Die Berechnungskomponente stellt den wichtigsten Teil des SAP LRM dar. Mit ihr werden alle Berechnungen im Umfeld des Liquiditätsrisikomanagements zentral durchgeführt. Die Berechnung findet auf Basis von Liquiditätsgruppen statt. Mit Hilfe von Liquiditätsgruppen werden sowohl aggregierter Zahlungsstrom als auch Kennzahlen einheitlich berechnet. Liquiditätsgruppen können in Polyhierarchien\footnote{Polyhierarchien sind hierarchische Strukturen, bei der ein Element mehrere übergeordnete Elemente haben kann.} angeordnet werden. Dadurch können Berechnungen modular aufgebaut, wiederferwendet und einfach nachvollzogen werden. Das Abbilden von komplexen Berechnungsvorschriften wird erleichtert.\seFootcite{vgl.}{S.38}{LRM-PPT.12}
+
+Es existieren genau zwei Arten von Liquiditätsgruppen, der Datenbankselektion und der Berechnung. Die Datenbankselektion bildet immer den Ursprung einer Berechnung. Dabei werden einzelne Zahlungsströme von der nach Selktionskriterien selektiert, und nach Bedingungen Zusammengefasst. Selektionskriterien können z.B. der hinterliegende Produkttyp des Zahlungsstroms wie z.B. verzinsliches Wertpapier, oder das entsprechende Finanzraiting, z.B. AAA sein. Gleichzeitig findet eine Währungsumwandlung in eine einheitliche Zielwährung statt. Mehrere Zahlungsströme werden in Abhängigkeit ihrer Fälligkeit in Behältern zusammengefasst. Diese Behälter werden von dem festgelegten Fälligkeitsband definiert.\seFootcite{vgl.}{S.40}{LRM-PPT.12}
+
+Ein Fälligkeitsband ist eine spezielle Einteilung der Zeitachse. Der Grund für die Einführung von Fälligkeitsbändern liegt in der späteren Auswertung der berechneten Werte. Dabei ist für naheliegende Zeiträume, z.B. die nächste Woche, der entsprechende Wert an jedem einzelnen Tag entscheidend. Für den weiteren Horizont, z.B. den Zeitraum zwischen 3 und 5 Jahren, ist nicht jeder einzelne Tag  entscheidend, es reichen aggregierte Werte, z.B. nach Monat oder Jahr. Somit kann in einer Auswertung sowohl die aktuelle Situation begutachtet werden, als auch die langfristige Auswirkungen ohne, dass die Auswertung unübersichtlich wird. Jeder Eintrag entspricht dabei einem Behälter. Die Anzahl und größe der Behälter ist in einem Fälligkeitsband definiert.[TODO beispiel]\seFootcite{vgl.}{S.44}{LRM-PPT.12}
+
+Neben der Datenbankselektion existiert die Liquiditätsgruppenart Berechnung. Dabei werden aggregierte Zahlungsströme nach verschiedenen Regeln verrechnet. Zur Verfügung stehende unter Anderem Addition, Subtraktion, Multiplikation und Division. Generell hat eine Liquiditätsgruppe genau einen Output-Parameter, eine Berechnungsregel und kann zusätzlich mehrere Input-Parameter besitzen. Die Berechnung innerhalb einer Liquidiätsgruppe kann von szenarioabhängigen Variablen beeinflusst werden. Damit lassen sich z.B. erwartete Kreditausfälle simulieren. Über diese Variablen werden die Szenarien umgesetzt. Mehrere Variablenausprägungen legen ein Szenario fest.\seFootcite{vgl.}{S.39 und S.45}{LRM-PPT.12}
+
+Zur Laufzeit wird die Berechnungskomponente mit 4 Parametern aufgerufen. In dem ersten Parameter werden eine oder mehrere Liquiditätsgruppen festgelegt, von denen später das Ergebnis zurückgeliefert wird. Ein weiterer Parameter legt den Stichtag fest, nach dem die Zahlungsströme ausgewählt werden. Jede Berechnung wird immer auf Basis von einem Fälligkeitsband durchgeführt, welches die Behälter festlegt, in dem die Ergebnisse zusammengefasst werden. Schließlich wird noch eine Zielwährung festgelegt, in die alle Zahlungsströme umgerechnet werden. Das Resultat der Berechnung ist jeweils der Output der festgelegten Liquiditätsgruppen. Zur Berechnung der Gruppen müssen in der Regel im Hintergrund weitere Liquiditätsgruppen berechnet werden, die allerdings nicht als Ergebnis zurückgeliefert werden. Während einer Berechnung werden Ergebnisse von Gruppen, die schon einmal berechnet wurden, zwischengespeichert um Rechenaufwand zu sparen. Die Gruppen, die berechnet werden müssen, können aus der Hierarchie der entsprechenden Liquiditätsgruppe abgelesen werden.\seFootcite{vgl.}{S.44 und S.47}{LRM-PPT.12}
+
 \section{Xcelsius}
 \subsection{Grundprinzip}
 \subsection{Funktionen}
