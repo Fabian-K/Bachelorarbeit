@@ -779,6 +779,7 @@ FUNCTION {incollection}
   if$
   new.block
   note output
+  myISBN
   fin.entry
 }
 
