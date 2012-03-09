@@ -80,7 +80,7 @@ gliederungsebenen=4
 \chapter{Einleitung}
 \pagenumbering{arabic}
 
-\chapter{Grundlagen}
+\chapter{Grundlagen des Liquiditätsrisikomanagements}
 \section{Liquidität}
 
 Der Begriff der Liquidität ist weit verbreitet und im allgemeinen Sprachgebrauch festgesetzt. Allerdings ist eine eindeutige Definition des Begriffs schwierig, da Liquidität sehr vielschichtig ist, mehrere Dimensionen besitzt und die jeweilige Bedeutung von der Perspektive der Betrachtung abhängt.\footnote{\seCite{vgl.}{S.3}{Dur.11} \seCite{und}{S.13}{Bar-A.08}} Für diese Arbeit ist vor allem die betriebswirtschaftliche Sicht auf Liquidität entscheidend, die volkswirtschaftliche Sicht wird daher nicht näher erläutert.\seFootcite{vgl.}{S.10}{Zer-A.10}
@@ -239,7 +239,26 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \caption{[TODO]\label{fig:xcelsius_ui_beispiel}}
 \end{figure}
 
+\newpage
 \subsection{Architektur}
+
+Xcelsius basiert auf dem .Net [TODO] Framework von Microsoft und ist in weiten Teilen in C++ geschrieben. Neben C++ wird Action Script und das Adobe Flex Framework für die  Benutzeroberfläche eingesetzt. Die Architektur von Xcelsius ist modular aufgebaut und besteht aus mehreren Teilen. Ein Überblick ist in Abbildung X [TODO] dargestellt.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/Xcelsius_Architecture.jpg}
+\caption{[TODO]\label{fig:xcelsius_ui_beispiel}}
+\end{figure}
+
+Das zentrale Element ist das Document. Dabei handelt es sich um ein Objektmodell, das den aktuellen Zustand des Dashboards repräsentiert. Für die Darstellung wird das Canvas verwendet, welches in ActionScript 3 geschrieben ist. Die Canvas-Komponente nutzt dabei mehrere Hilfskomponenten. Dazu gehört das APplicationTemplate, welches das Grundgerüst von alle Dashboards darstellt und mehreren Components, die die eizelnen Elemente eines Dashboards darstellen. Dies ist auch der Ansatzpunkt für spätere Erweiterungen.
+
+An das Document ist mittels COM/OLE [TODO] Microsoft Excel angebunden. Speichern und Laden eines Dashboards übernimmt die XLF-Komponente. Diese erstellt oder lädt eine Xcelsius FIle (.xlf), welches intern aus dem Document im XML-Format und einer Exceldatei besteht.
+
+Für den Export des fertigen Dashboards existiert der SWF Generator. Aus dem Document und den Daten und Formeln, die in Microsoft Excel erstellt wurden, wird eine .swf Datei generiert. In dieser werden nun alle Berechnungen, die bis jetzt von Microsoft Excel übernommen wurden, von einer weiteren Hilfsklasse, der Spreadsheet Engine berechnet.\seFootcite{vgl.}{}{Xcelsius-Arch.09}
+
+
+\newpage
 
 \subsection{Erweiterungsmöglichkeiten}
 
