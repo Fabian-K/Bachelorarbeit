@@ -282,12 +282,11 @@ Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat von einand
 \chapter{Spezifikation}
 \section{Einleitung}
 
-\newpage
 \section{Ausgangssituation}
 
 In der aktuellen Entwicklungsversion des SAP LRM gibt es für die Analyse der aktuellen Liquiditätssituation der Bank zwei Einstiegsmöglichkeiten. Es existiert die Funding Matrix und die Key Figure Analysis. Diese unterschieden sich in ihrer Nutzung.
 
-Der Zweck der Key Figure Analysis ist die Darstellung von Kennzahlen, die nach einer festen Vorschrift berechnet werden können. Neben internen Kennzahlen, die eine Bank für sich selbst definiert hat, sind hier vor allem offizielle Kennzahlen, wie z.B. der LCR und der NSFR gemeint. Die Key Figure Analysis kann genutzt werden, um offizielle regulatorische Vorschriften zu überwachen. Die Darstellung der Kennzahlen ist in tabellarischer Form möglich. Ein Beispiel zeigt \vref{fig:lrm_istzustand_keyfigureanalysis}.
+Der Zweck der Key Figure Analysis ist die Darstellung von Kennzahlen, die nach einer festen Vorschrift berechnet werden können. Neben internen Kennzahlen, die eine Bank für sich selbst definiert hat, sind hier vor allem offizielle Kennzahlen, wie z.B. der LCR und der NSFR im Rahmen von Basel III gemeint. Die Key Figure Analysis kann genutzt werden, um offizielle regulatorische Vorschriften zu überwachen. Die Darstellung der Kennzahlen ist in tabellarischer Form möglich. Ein Beispiel zeigt \vref{fig:lrm_istzustand_keyfigureanalysis}.
 
 \begin{figure}[h]
 \centering
@@ -310,8 +309,15 @@ Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit be
 \newpage
 \section{Zielsetzung}
 
+Im Rahmen dieser Bachelorarbeit sollen die größten Limitierungen, die sich aus der aktuellen Situation ergeben, aufgehoben werden. Hier ist vor allem das Bieten von weiteren Alternativen zu nennen. Neben der Sicht auf die Liquiditätssituation der Bank durch die beiden Einstiegspunkte Key Figure Analysis und der Funding Matrix im SAP LRM soll diese Auswertung mit weiteren Anwendungen durchgeführt werden können.
 
+Mit der Anbindung von weiteren Anwendungen bietet sich die Möglichkeit, der Einbindung der Steuerung in die gesamte Steuerung der Bank. Ein Ziel ist es, in einem Bericht, der Daten zu der allgemeinen Situation der Bank anzeigt, auch Informationen über das Liquiditätsrisikomanagement einzubinden. Dadurch kann die Situation der Bank gesamtheitlich erfasst werden und Entscheidungen unter der Berücksichtigung von weiteren Informationen getroffen werden.
 
+Simultan dazu, können durch eine Anbindung des LRM an weitere Anwendungen die jeweiligen Vorteile der angebundenen Anwendung ausgenutzt werden. Hier ist zum Beispiel die Flexibilität in der Darstellung der Daten zu nennen. Wenn die Anwendung weitere graphische Visualisierungsmöglichkeiten bietet, können diese auf die Daten des SAP LRM angewendet werde.
+
+Die Anbindung des LRM soll dabei mit möglichst wenig Einstellungsmöglichkeiten konfigurierbar sein. Gleichzeitig ist es erstrebenswert, dass das Konzept der Anbindung und die Implementierung, die im Rahmen der Bachelorarbeit entwickelt werden soll, in der grundsätzlichen Idee und Architektur auch auf weitere Anwendungen angepasst werden kann.
+
+\newpage
 \section{Anforderungen}
 \section{Zusammenfassung}
 
