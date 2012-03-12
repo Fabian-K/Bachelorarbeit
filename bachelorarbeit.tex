@@ -281,8 +281,37 @@ Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat von einand
 
 \chapter{Spezifikation}
 \section{Einleitung}
+
+\newpage
 \section{Ausgangssituation}
+
+In der aktuellen Entwicklungsversion des SAP LRM gibt es für die Analyse der aktuellen Liquiditätssituation der Bank zwei Einstiegsmöglichkeiten. Es existiert die Funding Matrix und die Key Figure Analysis. Diese unterschieden sich in ihrer Nutzung.
+
+Der Zweck der Key Figure Analysis ist die Darstellung von Kennzahlen, die nach einer festen Vorschrift berechnet werden können. Neben internen Kennzahlen, die eine Bank für sich selbst definiert hat, sind hier vor allem offizielle Kennzahlen, wie z.B. der LCR und der NSFR gemeint. Die Key Figure Analysis kann genutzt werden, um offizielle regulatorische Vorschriften zu überwachen. Die Darstellung der Kennzahlen ist in tabellarischer Form möglich. Ein Beispiel zeigt \vref{fig:lrm_istzustand_keyfigureanalysis}.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/KeyFigureAnalysis_Example.png}
+\caption{[TODO]\label{fig:lrm_istzustand_keyfigureanalysis}}
+\end{figure}
+
+Neben der Key Figure Analysis existiert die Funding Matrix. Hier sollen nicht feste Kennzahlen dargestellt werden, sondern frei die Möglichkeit geboten werden, die Liquiditätssituation der Bank zu analysieren. Sowohl die Funding Matrix, als auch die Key Figure Analysis, nutzen für die Ermittlung der Werte die Berechnungskomponente. Bei der Funding Matrix hat der Nutzer die Möglichkeit,die Selektionskriterien in Form der nötigen Parameter für den Aufruf der Berechnungskomponente zur Laufzeit festlegen. Die Darstellung ist hier auf ein Liniendiagramm festgelegt, ein Beispiel zeigt  \vref{fig:lrm_istzustand_fundingmatrix} [TODO].
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/Funding_Matrix_Example.png}
+\caption{[TODO]\label{fig:lrm_istzustand_fundingmatrix}}
+\end{figure}
+
+Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit besteht, die Ergebnisse der Berechnungen in irgendeiner Form in anderen Auswertungen, z.B. Auswertungen die die gesamte Situation der Bank beschrieben, einzubinden. Des weiteren besteht bei der Darstellung der Auswertung keine Formatierungsmöglichkeiten.
+
+\newpage
 \section{Zielsetzung}
+
+
+
 \section{Anforderungen}
 \section{Zusammenfassung}
 
