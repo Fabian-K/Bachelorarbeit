@@ -13,6 +13,20 @@
 % -------------------------------------------------------------------------------------
 \input{wa-abkuerzungen}
 
+
+
+% -------------------------------------------------------------------------------------
+% Anforderugnen
+% -------------------------------------------------------------------------------------
+
+\newcounter{anforderung}
+
+\newcommand{\anfl}[1]{
+	\refstepcounter{anforderung}
+	(A\arabic{anforderung})
+	\label{anf:#1}
+}
+
 \begin{document}
 
 \newcommand{\version}{0.1}
@@ -319,6 +333,38 @@ Die Anbindung des LRM soll dabei mit möglichst wenig Einstellungsmöglichkeiten
 
 \newpage
 \section{Anforderungen}
+
+Neben den funktionalen Anforderungen wurden einige nicht funktionale Anforderungen identifiziert. Diese sollen im Folgenden näher erläutert werden.
+
+\begin{seToplist}{ XXXXX }
+
+\item[\anfl{übertragbarkeit}] \textbf{Übertragbarkeit} \newline
+Im Rahmen der Bachelorarbeit soll exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das SAP LRM implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
+
+\item[\anfl{korrektheit}] \textbf{Korrektheit der Ergebnisse} \newline
+Die Daten, die mit Hilfe der Erweiterung für zusätzliche Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des SAP LRM übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
+
+\item[\anfl{erweiterbarkeit}] \textbf{Erweiterbarkeit} \newline
+Das SAP LRM befindet aktuell noch mit der ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die ein Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand in die Erweiterung eingeführt werden können.
+
+\item[\anfl{wartbarkeit}] \textbf{Wartbarkeit} \newline
+Um die Folgekosten der Erweiterung z.B. im Hinblick auf die Beseitigung von Fehlern möglichst gering zu halten, soll eine gute Wartbarkeit von Anfang an bei der Entwicklung beachtet werden.
+
+\item[\anfl{sicherheit}] \textbf{Sicherheitsanforderungen} \newline
+Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Diese Daten sind vertraulich und unterliegen Zugangsbeschränkungen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
+
+\item[\anfl{leistung}] \textbf{Leistung} \newline
+Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch auf anderen Anwendungen verfügbar machen.
+
+\end{seToplist}
+
+Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigste Anforderungen sind Anforderung \vref{anf:übertragbarkeit} und Anforderung \vref{anf:korrektheit}, Anforderung \vref{anf:leistung} steht bei der Entwicklung nicht im Mittelpunkt.
+
+\gls{LRM} nr 2
+\gls{LRM}
+
+
+\newpage
 \section{Zusammenfassung}
 
 \chapter{Umsetzungsmöglichkeiten}
