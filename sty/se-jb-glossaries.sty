@@ -21,6 +21,7 @@ acronym,      %ein AbkŸrzungsverzeichnis erstellen; keine Angabe => das Glossar 
 %%toc,          %EintrŠge im Inhaltsverzeichnis
 ]      %im Inhaltsverzeichnis auf section-Ebene erscheinen
 {glossaries}
+
 %Ein eigenes Symbolverzeichnis erstellen
 \newcommand{\seSymboleVerzeichnisname}{Symbolverzeichnis}
 \newglossary[slg]{symbolslist}{syi}{syg}{\seSymboleVerzeichnisname}
@@ -64,7 +65,7 @@ acronym,      %ein AbkŸrzungsverzeichnis erstellen; keine Angabe => das Glossar 
 \renewcommand*{\glsgroupheading}[1]{}%
 %% Main (level 0) entries start a new item in the list:
 \renewcommand*{\glossaryentryfield}[5]{%
-\item[\glstarget{##1}{##2}] ##3\glspostdescription\space ##5}%
+\item[Item] ##3\glspostdescription\space ##5}%
 
 
 %% Sub-entries continue on the same line:
