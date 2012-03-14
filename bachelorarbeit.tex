@@ -27,6 +27,16 @@
 	\label{anf:#1}
 }
 
+\newcommand{\useCaseItem}[2]{
+\item[~~\textbf{#1}] #2
+}
+
+\newcommand{\useCaseEntry}[2]{
+\textbf{#1} \newline
+~~~~
+#2
+}
+
 \begin{document}
 
 \newcommand{\version}{0.1}
@@ -334,7 +344,21 @@ Die Anbindung des LRM soll dabei mit möglichst wenig Einstellungsmöglichkeiten
 \newpage
 \section{Anforderungen}
 
-Neben den funktionalen Anforderungen wurden einige nicht funktionale Anforderungen identifiziert. Diese sollen im Folgenden näher erläutert werden.
+Für die Erweiterung wurden im Rahmen der Spezifikation einige Anforderungen definiert. Die Anforderungen wurden zunächst in funktionale und nicht funktionale Anforderungen unterteilt. 
+
+\begin{seToplist}{ XXXXX }
+
+\item[\anfl{kpi}] \textbf{Einbindung von Kennzahlen} \newline
+Die Erweiterung soll es ermöglichen, dass Kennzahlen, die im SAP LRM  mit Hilfe der Berechnungskomponente ermittelt werden und im Bereich der Key Figure Analysis zur Verfügung stehen, in weitere Anwendungen integriert und dort weiterverarbeitet werden können.
+
+\item[\anfl{kpi}] \textbf{Freie Analyse der Liquiditätssituation} \newline
+Mit der Erweiterung soll die Einbindung der Ergebnisse von beliebigen Liquiditätsgruppen ermöglicht werden. Die Liquiditätsgruppen sollen in Anlehnung an die Funding Matrix im SAP LRM eingestellt werden und auf der Berechnungsengine basieren. Neben den erforderlichen Parametern wie dem genutzte Laufzeitband und der Zielwährung sollen weitere Einschränkungsmöglichkeiten geboten werden, welche die Berechnungskomponente unterstützt.
+
+\end{seToplist}
+
+Durch die Umsetzung dieser beiden funktionalen Anforderungen können die Ziele, die im Abschnitt Zielsituation [TODO] festgelegt sind, was den Funktionsumfang betrifft, erreicht werden. Dadurch bieten sich für den Nutzer für die Auswertung und Analyse der Liquiditätssituation einer Bank zusätzliche Möglichkeiten.
+
+Neben den funktionalen Anforderungen wurden folgende nicht funktionale Anforderungen identifiziert. Diese sollen im Folgenden näher erläutert werden.
 
 \begin{seToplist}{ XXXXX }
 
@@ -360,11 +384,41 @@ Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA
 
 Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigste Anforderungen sind Anforderung \vref{anf:übertragbarkeit} und Anforderung \vref{anf:korrektheit}, Anforderung \vref{anf:leistung} steht bei der Entwicklung nicht im Mittelpunkt.
 
-\gls{LRM} nr 2
-\gls{LRM}
-
-
 \newpage
+
+\section{Anwendungsfälle}
+Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im folgenden näher beschrieben.
+
+\begin{framed}
+
+{\large \textbf{Anwendungsfall A}}
+
+\useCaseEntry{Ziel}{Das Ziel}
+
+\textbf{Vorbedungung}
+Die Vorbedingung
+
+\textbf{Nachbedingung: Erfolg}
+Der Erfolgszustand
+
+\textbf{Nachbedingung: Fehlschalg}
+Der Fehlschlagszustand
+
+\textbf{Akteure}
+Die Aktuere
+
+\textbf{Auslösendes Ereignis}
+Das auslösende Ereignis
+
+\textbf{Beschreibung}
+
+\begin{seToplist}{ x 1 x }
+\useCaseItem{1}{Beschreibung des Anwendungsfalls}
+\useCaseItem{2}{Weitere Beschreibung des Anwendungsfalls}
+\end{seToplist}
+
+\end{framed}
+
 \section{Zusammenfassung}
 
 \chapter{Umsetzungsmöglichkeiten}
