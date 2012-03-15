@@ -39,10 +39,10 @@
 }
 
 \newcommand{\useCase}[2]{
-\begin{framed}
+\begin{mdframed}
 {\large \textbf{Anwendungsfall #1}}
 #2
-\end{framed}
+\end{mdframed}
 
 }
 
@@ -358,7 +358,7 @@ Für die Erweiterung wurden im Rahmen der Spezifikation einige Anforderungen def
 \item[\anfl{kpi}] \textbf{Einbindung von Kennzahlen} \newline
 Die Erweiterung soll es ermöglichen, dass Kennzahlen, die im SAP LRM  mit Hilfe der Berechnungskomponente ermittelt werden und im Bereich der Key Figure Analysis zur Verfügung stehen, in weitere Anwendungen integriert und dort weiterverarbeitet werden können.
 
-\item[\anfl{kpi}] \textbf{Freie Analyse der Liquiditätssituation} \newline
+\item[\anfl{fundingMatrix}] \textbf{Freie Analyse der Liquiditätssituation} \newline
 Mit der Erweiterung soll die Einbindung der Ergebnisse von beliebigen Liquiditätsgruppen ermöglicht werden. Die Liquiditätsgruppen sollen in Anlehnung an die Funding Matrix im SAP LRM eingestellt werden und auf der Berechnungsengine basieren. Neben den erforderlichen Parametern wie dem genutzte Laufzeitband und der Zielwährung sollen weitere Einschränkungsmöglichkeiten geboten werden, welche die Berechnungskomponente unterstützt.
 
 \end{seToplist}
@@ -392,22 +392,52 @@ Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA
 Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigste Anforderungen sind Anforderung \vref{anf:übertragbarkeit} und Anforderung \vref{anf:korrektheit}, Anforderung \vref{anf:leistung} steht bei der Entwicklung nicht im Mittelpunkt.
 
 \section{Anwendungsfälle}
-Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im folgenden näher beschrieben.
+Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im folgenden näher beschrieben. Der Anwendungsfall \vref{useCase:1} konkretisiert die Anforderung \vref{anf:kpi}, der Anwendungsfall \vref{useCase:2} bezieht sich auf die Anforderung \vref{anf:fundingMatrix}.
 
-\useCase{A}{
-
-\useCaseEntry{Ziel}{Das Ziel des UseCase}
-\useCaseEntry{Vorbedingung}{Die Vorbedingung des UseCase}
-\useCaseEntry{Nachbedingung: Erfolg}{Die Nachbedingung (A) des UseCase}
-\useCaseEntry{Nachbedingung: Fehlschlag}{Die Nachbedingung (B) des UseCase}
-\useCaseEntry{Aktuere}{Die Akteure des UseCase}
-\useCaseEntry{Auslösendes Ereignis}{Das auslösende Ereignis}
+\useCase{1: Liquiditätskennzahl einsehen}{ \label{useCase:1}
+\useCaseEntry{Ziel}{Liquiditätskenzahl der Bank einsehen}
+\useCaseEntry{Vorbedingung}{Die Liquiditätskennzahl ist im System vorhanden}
+\useCaseEntry{Nachbedingung: Erfolg}{Die Liquiditätskenzahl kann eingesehen werden}
+\useCaseEntry{Nachbedingung: Fehlschlag}{Fehleranzeige}
+\useCaseEntry{Aktuere}{Controller, Management}
+\useCaseEntry{Auslösendes Ereignis}{Der Wert der Liquiditätskennzahl soll überprüft werden}
 
 \textbf{Beschreibung}
 \begin{seToplist}{ x 1 x }
 \vspace*{-4mm}
-\useCaseItem{1}{Beschreibung des Anwendungsfalls}
-\useCaseItem{2}{Weitere Beschreibung des Anwendungsfalls}
+\useCaseItem{1}{Die einzusehende Liquiditätskennzahl wird ausgewählt}
+\useCaseItem{2}{Die Daten werden aus dem SAP LRM ermittelt}
+\useCaseItem{3}{Die Daten werden der Anwendung zur Verfügung gestellt}
+\end{seToplist}
+
+}
+
+\useCase{2: Liquiditätssituation analysieren}{ \label{useCase:2}
+
+\useCaseEntry{Ziel}{Liquiditätssituation der Bank analysieren}
+\useCaseEntry{Vorbedingung}{Erforderliche Zahlungsströme, Liquiditätsszenatrien, Liquiditätsgruppen und Laufzeitbänder sind im System vorhanden}
+\useCaseEntry{Nachbedingung: Erfolg}{Die Liquiditätssituation kann eingesehen werden}
+\useCaseEntry{Nachbedingung: Fehlschlag}{Fehleranzeige}
+\useCaseEntry{Aktuere}{Controller, Management}
+\useCaseEntry{Auslösendes Ereignis}{Es besteht Unklarheit über die Liquiditätssituation der Bank}
+
+\textbf{Beschreibung}
+\begin{seToplist}{ x 1 x }
+\vspace*{-4mm}
+\useCaseItem{1}{Der zu analysierende Zeitraum wird mit dem Laufzeitband festgelegt}
+\useCaseItem{2}{Die Zielwährung der Analyse wird festgelegt}
+\useCaseItem{3}{Das Liquiditätsszenario wird festgelegt}
+\useCaseItem{4}{Die zu analysierende Liquiditätsgruppen werden festgelegt}
+\useCaseItem{5}{Die Daten werden aus dem SAP LRM ermittelt}
+\useCaseItem{6}{Die Daten werden der Anwendung zur Verfügung gestellt}
+\end{seToplist}
+
+\textbf{Erweiterungen}
+\begin{seToplist}{ x 1 x }
+\vspace*{-4mm}
+\useCaseItem{4a}{Weitere Selektionsmerkmale, z.B. nach Produkttyp oder Organisationseinheit werden festgelegt}
+\useCaseItem{6a}{Die Daten werden in der Anwendung weiterverarbeitet}
+\useCaseItem{6b}{Die Daten werden in der Anwendung visualisiert}
 \end{seToplist}
 
 }
