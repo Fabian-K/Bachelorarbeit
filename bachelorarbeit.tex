@@ -32,9 +32,18 @@
 }
 
 \newcommand{\useCaseEntry}[2]{
-\textbf{#1} \newline
-~~~~
+\textbf{#1} 
+\vspace*{-4mm}
+\begin{addmargin}[3mm]{0cm} #2
+\end{addmargin} 
+}
+
+\newcommand{\useCase}[2]{
+\begin{framed}
+{\large \textbf{Anwendungsfall #1}}
 #2
+\end{framed}
+
 }
 
 \begin{document}
@@ -330,7 +339,6 @@ Neben der Key Figure Analysis existiert die Funding Matrix. Hier sollen nicht fe
 
 Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit besteht, die Ergebnisse der Berechnungen in irgendeiner Form in anderen Auswertungen, z.B. Auswertungen die die gesamte Situation der Bank beschrieben, einzubinden. Des weiteren besteht bei der Darstellung der Auswertung keine Formatierungsmöglichkeiten.
 
-\newpage
 \section{Zielsetzung}
 
 Im Rahmen dieser Bachelorarbeit sollen die größten Limitierungen, die sich aus der aktuellen Situation ergeben, aufgehoben werden. Hier ist vor allem das Bieten von weiteren Alternativen zu nennen. Neben der Sicht auf die Liquiditätssituation der Bank durch die beiden Einstiegspunkte Key Figure Analysis und der Funding Matrix im SAP LRM soll diese Auswertung mit weiteren Anwendungen durchgeführt werden können.
@@ -341,7 +349,6 @@ Simultan dazu, können durch eine Anbindung des LRM an weitere Anwendungen die j
 
 Die Anbindung des LRM soll dabei mit möglichst wenig Einstellungsmöglichkeiten konfigurierbar sein. Gleichzeitig ist es erstrebenswert, dass das Konzept der Anbindung und die Implementierung, die im Rahmen der Bachelorarbeit entwickelt werden soll, in der grundsätzlichen Idee und Architektur auch auf weitere Anwendungen angepasst werden kann.
 
-\newpage
 \section{Anforderungen}
 
 Für die Erweiterung wurden im Rahmen der Spezifikation einige Anforderungen definiert. Die Anforderungen wurden zunächst in funktionale und nicht funktionale Anforderungen unterteilt. 
@@ -384,40 +391,26 @@ Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA
 
 Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigste Anforderungen sind Anforderung \vref{anf:übertragbarkeit} und Anforderung \vref{anf:korrektheit}, Anforderung \vref{anf:leistung} steht bei der Entwicklung nicht im Mittelpunkt.
 
-\newpage
-
 \section{Anwendungsfälle}
 Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im folgenden näher beschrieben.
 
-\begin{framed}
+\useCase{A}{
 
-{\large \textbf{Anwendungsfall A}}
-
-\useCaseEntry{Ziel}{Das Ziel}
-
-\textbf{Vorbedungung}
-Die Vorbedingung
-
-\textbf{Nachbedingung: Erfolg}
-Der Erfolgszustand
-
-\textbf{Nachbedingung: Fehlschalg}
-Der Fehlschlagszustand
-
-\textbf{Akteure}
-Die Aktuere
-
-\textbf{Auslösendes Ereignis}
-Das auslösende Ereignis
+\useCaseEntry{Ziel}{Das Ziel des UseCase}
+\useCaseEntry{Vorbedingung}{Die Vorbedingung des UseCase}
+\useCaseEntry{Nachbedingung: Erfolg}{Die Nachbedingung (A) des UseCase}
+\useCaseEntry{Nachbedingung: Fehlschlag}{Die Nachbedingung (B) des UseCase}
+\useCaseEntry{Aktuere}{Die Akteure des UseCase}
+\useCaseEntry{Auslösendes Ereignis}{Das auslösende Ereignis}
 
 \textbf{Beschreibung}
-
 \begin{seToplist}{ x 1 x }
+\vspace*{-4mm}
 \useCaseItem{1}{Beschreibung des Anwendungsfalls}
 \useCaseItem{2}{Weitere Beschreibung des Anwendungsfalls}
 \end{seToplist}
 
-\end{framed}
+}
 
 \section{Zusammenfassung}
 
