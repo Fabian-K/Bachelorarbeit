@@ -446,7 +446,50 @@ Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsf�
 
 \chapter{Umsetzungsmöglichkeiten}
 \section{Einleitung}
+\section{Rahmenbedingungen}
+Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von Xcelsius, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des SAP LRM zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem Beispiel von Xcelsius umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von Xcelsius an die Daten des LRM. Gleichzeitig soll aber bei der Analyse und dem Entwurf die Anforderung an die Übertragbarkeit (A[TODO]) wenn möglich weiterhin beachtet werden.
+
+\section{BusinessObjects Universum}
+Eine Möglichkeit, externe Daten in Xcelsius zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantsiche Ebene, die es ermöglicht Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
+
+Es können Daten aus relationalen Datenbanksystemen, die z.B. in normalisierter Form vorliegen [TODO Glossar?], und aus Data Warehouse-Systeme, die Daten z.B. im Sternschema [TODO ?] ablegen, konsumiert werden. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
+
+Die Einbindung von Universen wird in Xcelsius standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches wiederum an Xcelsius angeboten wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/umsetzung_universe.jpg}
+\caption{[TODO]\label{fig:umsetzung_universe}}
+\end{figure}
+
+Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt sich die Frage, wie eventuelle Selektionsparameter von Xcelsius an die Berechnugnskomponente übergeben werden können. Zusätzlich muss die Berechnung durch die Berechnungskomponente abgestoßen werden, um die Tabelle mit den aktuellen Daten zu füllen. Eine automatische, periodische Berechnung (z.B. durch einen eingeplanten Hintergrundprozess) würde stets veraltete Daten liefern.
+
+Schließlich sind Universen nur mit der Verwendung von BusinessObjects Anwendungen ausgelegt. Das Kriteritum der Übertragbarkeit kann somit nicht garantiert werden.
+
+\newpage
 \section{WebService}
+Eine weitere Möglichkeit stellen WebServices dar. Für die Umsetzung muss im SAP LRM der WebService implementiert werden. Aus Xcelsius wird dieser WebService aufgerufen und somit die Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar, welche im Folgenden näher erläutert wird.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/umsetzung_webservice.jpg}
+\caption{[TODO]\label{fig:umsetzung_webservice}}
+\end{figure}
+
+Dadurch, dass der Aufruf direkt im SAP LRM entgegen genommen wird und nicht indirekt z.B. über ein Universum erfolgt, können eventuelle Selektionsparameter dynamisch übergeben werden. Auch das Problem mit veralteten Daten besteht nicht, da die Berechnung bei jedem Aufruf nach Bedarf durchgeführt werden kann.
+
+Werden für die Umsetzung der WebServices Standards, wie z.B. HTTP für die Übertragung oder XML als Beschreibungssprache, können die Webservices auch von anderen Anwendungen verwendet werden. Dies ist für das Kriterium der Übertragbarkeit wichtig.
+
+Zu der Übertragbarkeit kommt hinzu, dass eine gute Modularisierung und Wiederverwendbarkeit erreicht werden kann. Die anzubietende Funktionalität kann auf mehrere kleine WebServices aufgeteilt werden. Es entstehen voneinander unabhängige Teile, die leichter gewartet und unabhängig voneinander verwendet werden können. In Xcelsius müssten diese Teile dann orchestriert werden.
+
+Zudem wurden Teile des SAP LRM mit Hilfe eines internen Frameworks umgesetzt. Dieses bietet die Möglichkeit, Klassen automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem LIquiditätsszenarien und Laufzeitbänder. Somit könnten Teile der Webserviceumsetzung ohne großen Aufwand umgesetzt werden.
+
+Xcelsius bietet zwar eine Möglichkeit zur EInbindung von einzelnen WebServices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des Xcelsius SDKs entwickelt werden.
+
+
+
 \section{Zusammenfassung}
 
 \chapter{Umsetzung}
