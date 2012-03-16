@@ -486,9 +486,65 @@ Zu der Übertragbarkeit kommt hinzu, dass eine gute Modularisierung und Wiederve
 
 Zudem wurden Teile des SAP LRM mit Hilfe eines internen Frameworks umgesetzt. Dieses bietet die Möglichkeit, Klassen automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem LIquiditätsszenarien und Laufzeitbänder. Somit könnten Teile der Webserviceumsetzung ohne großen Aufwand umgesetzt werden.
 
+Ein mögliches Risiko der Orchestrierung von mehreren kleinen WebServices stellt die Performance dar. Der zusätzliche Aufwand für das Aufrufen von mehreren WebServices, in festgelegten Reihenfolgen und Abhängigkeiten, kann zu einer längeren gesamtlaufzeit führen. Zusätzlich führt der Ausfall eines Teil-WebServices zur funktionsunfähigkeit des gesamten Systems.
+
 Xcelsius bietet zwar eine Möglichkeit zur EInbindung von einzelnen WebServices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des Xcelsius SDKs entwickelt werden.
 
+\section{Gegenüberstellung und Auswahl der Umsetzungsmöglichkeiten}
 
+{
+\setlength{\extrarowheight}{2pt}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{| l | >{\centering\arraybackslash} m{5cm} | >{\centering\arraybackslash} m{5cm} |}
+\cline{2-3}
+\multicolumn{1}{l|}{}	& Vorteile & Nachteile \\	\hline
+BO Universe 				&
+
+%- Vorteile BOUniverse
+
+\begin{seList}
+\item Standardmäßige Anbindung von Universen
+\end{seList}
+
+&
+%- Nachteile BOUniverse
+
+
+\begin{seList}
+\item zusätzliche Infrastruktur notwendig
+\item Übertragbarkeit auf andere Anwendungen
+\item Problem der dynamsichen Übergabe von Parametern
+\item Problem der Aktualisierung der berechneten Daten
+\end{seList}
+
+
+\\	\hline
+WebServices 			& 
+%- Vorteile WebServices
+
+\begin{seList}
+\item Übergabe von Selektionsparametern
+\item keine zusätzliche Infrastruktur erforderlich
+\item gute Modularisierung und Übertragbarkeit
+\item teilweise Bereitstellung von WebServices durch Framework
+\end{seList}
+
+& 
+
+%- Nachteile WebServices
+
+\begin{seList}
+\item Komplexe Orchestrierung erforderlich
+\item Performanceprobleme bei WebService-Aufrufen
+\item Ausfall eines Teil-WebService führt zum Ausfall des Gesamtsystems
+\end{seList}
+
+\\	\hline
+\end{tabular} 
+\caption{[TODO] \label{table:vergleich_umsetzung}}
+\end{table}
+}
 
 \section{Zusammenfassung}
 
