@@ -550,7 +550,31 @@ WebServices 			&
 
 \chapter{Umsetzung}
 \section{Einleitung}
+\newpage
 \section{Analyse}
+In diesem Abschnitt wird der Analyseprozess der Entwicklung näher betrachtet. Die Ermittlung der Anforderungen an die Anwendung, welches ein Teil der Analysephase ist, wurde in diesem Fall schon in dem Allgemeinen Teil der Bachelorarbeit in Kapitel [TODO] durchgeführt. Die dort ermittelten Anforderungen werden ohne Änderungen übernommen und in dem Folgenden nicht noch einmal näher erläutert.
+
+Die Entwicklung der Erweiterung für Xcelsius kann in 5 Teilbereiche unterteilt werden. Sie werden für die Strukturierung der Analyse genutzt. Bei den Bereichen handelt es sich um folgende Teile:
+
+\begin{seToplist} { XX }
+\item[1] WebService-Bereitstellung im SAP LRM \newline
+Das SAP LRM System stellt über WebServices alle benötigten Daten bereit.
+
+\item[2] WebService-Konsumierung in Xcelsius \newline
+Die WebServices werden konsumiert und zunächst in ein internes Objektformat umgewandelt.
+
+\item[3] WebService-Orchestrierung in Xcelsius \newline
+Die Ergebnisse der Konsumierung der WebServices werden miteinander verbunden und in eine interne Zielobjektstruktur umgewandelt.
+
+\item[4] Dateiaustausch zwischen der Erweiterung und Xcelsius \newline
+Für den Datenaustausch sind zwei Wege notwendig. Zum einen müssen aus Xcelsius Parameter für die Selektion entgegengenommen werden, zum anderen muss das Ergebnis der Orchestrierung nach Xcelsius zurückgeschrieben werden.
+
+\end{seToplist}
+
+
+Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und ihre Assotiationen zueinander identifiziert. Das entsprechende Klassendiagramm der Analysephase ist in Abbildung [TODO] dargestellt.
+
+\newpage
 \section{Entwurf}
 \section{Implementierung}
 \section{Zusammenfassung}
