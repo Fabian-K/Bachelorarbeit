@@ -1,0 +1,3 @@
+@echo off
+echo exporting git repository to dropbox...
+"C:\Program Files (x86)\Git\bin\git.exe" archive -o export.zip HEAD
