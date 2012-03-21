@@ -13,8 +13,6 @@
 % -------------------------------------------------------------------------------------
 \input{wa-abkuerzungen}
 
-
-
 % -------------------------------------------------------------------------------------
 % Anforderugnen
 % -------------------------------------------------------------------------------------
@@ -552,6 +550,9 @@ WebServices 			&
 \section{Einleitung}
 \newpage
 \section{Analyse}
+
+\subsection{Überblick}
+
 In diesem Abschnitt wird der Analyseprozess der Entwicklung näher betrachtet. Die Ermittlung der Anforderungen an die Anwendung, welches ein Teil der Analysephase ist, wurde in diesem Fall schon in dem Allgemeinen Teil der Bachelorarbeit in Kapitel [TODO] durchgeführt. Die dort ermittelten Anforderungen werden ohne Änderungen übernommen und in dem Folgenden nicht noch einmal näher erläutert.
 
 Die Entwicklung der Erweiterung für Xcelsius kann in 5 Teilbereiche unterteilt werden. Sie werden für die Strukturierung der Analyse genutzt. Bei den Bereichen handelt es sich um folgende Teile:
@@ -567,12 +568,73 @@ Die WebServices werden konsumiert und zunächst in ein internes Objektformat umg
 Die Ergebnisse der Konsumierung der WebServices werden miteinander verbunden und in eine interne Zielobjektstruktur umgewandelt.
 
 \item[4] Dateiaustausch zwischen der Erweiterung und Xcelsius \newline
-Für den Datenaustausch sind zwei Wege notwendig. Zum einen müssen aus Xcelsius Parameter für die Selektion entgegengenommen werden, zum anderen muss das Ergebnis der Orchestrierung nach Xcelsius zurückgeschrieben werden.
+Die Ergebnisse der Orchestrierung müssen in das Excel von Xcelsius geschrieben und Selektionsparameter aus dem Excel gelesen werden.
 
 \end{seToplist}
 
+\subsection{Grundlegende Architektur und Funktionsweise}
+In diesem Abschnitt wird ein Überblick (vgl. dazu \vref{ueberblick-architektur}) die grundlegende Architektur der Lösung gegeben. Dabei werden Erweiterungen in zwei Systemen (LRM und Xcelsius) umgesetzt. Gleichzeitig wird die grundlegende Funktionsweise gerade im Hinblick auf die Interaktion mit dem Nutzer nähergebracht.
 
-Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und ihre Assotiationen zueinander identifiziert. Das entsprechende Klassendiagramm der Analysephase ist in Abbildung [TODO] dargestellt.
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/Ueberblick-Architektur.jpg}
+\caption{[TODO]\label{fig:ueberblick-architektur}}
+\end{figure}
+
+Im SAP LRM System muss für jeden WebService ein WebServiceProvider bereitgestellt werden. Der WebServiceProvider kann über einfache Funktionsaufrufe entweder Berechnungne über die Berechnungskomponente durchführen lassen, oder auf die BusinessObjekte, wie z.B. einem Laufzeitband oder eine Liquiditätsgruppe zugreiffen. Das Ergebniss liefert er über das HTTP-Protokoll im XML-Format.
+
+Die drei restlichen Teile, die im Überblick eingeführt wurden, werden in dem Plugin für Xcelsius Implementiert. Dazu Zählt die Konsumierung der bereitgestellten Services und anschließend die Orchestrierung.
+
+Der Xcelsius Adapter ist über ein Tabellenblatt die Schnitstelle für den User. Das Tabellenblatt wird dabei in zwei Bereiche unterteilt. Die Ergebnisse der Erweiterung werden von dem Adapter in den Daten-Teil geschrieben. Damit endet die Zuständigkeit der Erweiterung. Der Nutzer kann die Daten beliebig weiterverarbeiten, in der Regel wird er sie mit Diagrammen visualisieren.
+
+Die Selektionsparameter, die z.B. für die Berechnungskomponente im LRM gebraucht werden (vgl. [TODO verweis zu Parametern], werden aus dem Settings-Part des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die Xcelsius standardmäßig bereitstellt.
+
+Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem LRM in Xcelsius bereit. In welcher Form die Daten verwendet werden, wird bewusst komplett offengelassen.
+
+\subsection{Statische Analyse}
+Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und ihre Assoziationen zueinander identifiziert. Das entsprechende Klassendiagramm der Analysephase ist in \vref{fig:klassendiagramm_analyse} dargestellt.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{Visio/Analyse.pdf}
+\caption{Klassendiagramm der Analysephase\label{fig:klassendiagramm_analyse}}
+\end{figure}
+
+Das Kernstück der Erweiterung ist die Klasse Orchestrator. Hier ist die komplette Orchestrierungslogik für die Kennzahlen und die Funding Matrix hinterlegt, d.h. die Ergebnisse der einzelnen WebServices werden kombiniert. Dazu existieren die entsprechenden Methoden updateKPI() und updateFundingMatrix(). Für den Datenaustausch mit dem Excel von Xcelsius existiert zwischen der Klasse Orchestrator und der Klasse XcelsiusAdapter eine 1:1 Assoziation.
+
+Die Klasse XcelsiusAdapter stellt die Verbindung zwischen der Erweiterung und dem Excel Tabellenblatt von Xcelsius dar. Mit der Methode writeToXcelsius() können Daten in das Tabellenblatt geschrieben werden. Zum Lesen von Daten existiert die Methode readFromXcelsius().
+
+Eine weitere wichtige Klasse stellt der ObjectProvider dar. Ein ObjectProvider ist eine abstrahierte Schicht über einem WebService. Die Aufgabe eines ObjectProviders ist der einfache Zugriff auf Objekte, die über einen WebService bezogen werden. Dieser Zugriff findet über die Methode getObject() statt. Mehrere ObjectProvider sind Teil der Klasse Orchestrator, zwischen diesen beiden Klassen existiert eine Komposition.
+
+Um die WebServices abstrahiert darstellen zu können, nutzt ein ObjectProvider zwei weiteren Klassen, den WebServiceConnector und den Deserializer. Hier besteht jeweilse eine 1:1 Assotiation. Der WebServiceConnector übernimmmt die Kommunikation zwischen der Erweiterung und dem SAP LRM System über das HTTP Protokoll. Der Deserializer wandelt das Resultat der Kommunikation über den WebService in ein internes Objektformat um.
+
+Die Klasse WebServiceProvider muss im SAP LRM implementiert werden. Sie nimmt die Anfragen der Erweiterung über das HTTP-Protokoll entgegen, liest die entsprechenden Objekte aus der Datenbank und serialisiert sie im XML-Format.
+
+\subsection{Dynamische Analyse}
+Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgenden exemplarisch der Ablauf einer Anfrage durch einen User in einem Sequenzdiagramm in \vref{fig:sequenz_analyse} dargestellt.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{Visio/Analyse-Sequenz.pdf}
+\caption{Klassendiagramm der Analysephase\label{fig:sequenz_analyse}}
+\end{figure}
+
+% TODO Breite der Grafik anpassen!
+
+In dem Beispiel möchte der User den Wert einer Kennzahl abfragen. Dazu ruft er in der Orchestrator-Instanz die Mehtode updateKPI() auf.
+
+Daraufhin werden drei Schritte durchlaufen, die in dem Diagramm auf der linken Seite markiert sind. Zunächst wird über den XcelsiusAdapter die aktuellen Selektionseinstellungen des Users ermittelt. Dazu gehört die Kennzahl, die abgerufen werden soll und evtl. weitere Einstellungen.
+
+Anschließend wird in einem zweiten Schritt ein oder mehrere WebServices über die entsprechenden WebServiceProvider konsumiert. Die Objekte, die die WebServiceProvider zurückliefern werden durch den Orchestrator verbunden.
+
+Die WebServiceProvider rufen über einen WebServiceConnector den XML-Inhalt ab. Anschließend wird das Ergebnis an den entsprechenden Deserializer weitergegebn. Dieser wandelt es in eine interne Objektstruktur um und gibt die Instanz an den Provider zurück. Dieser leitet es an den Orchestrator weiter.
+
+Der Aufruf der WebServiceProvider durch den Orchestrator kann asynchron erfolgen. Hat der Orchestrator alle Ergebnisse der Prvider erhalten, erfolgt die Umwandlung in das Zielobjektformat und schließlich in dem dritten Schritt das Übergeben des Ergebnis an den XcelsiusAdapter. Dieser schreibt die Daten in das Tabellenblatt von Xcelsius.
+
+Dadurch stehen die Daten dem Nutzer in Xcelsius zur Verfügung. Der Aufruf von updateKPI() ist fertig.
 
 \newpage
 \section{Entwurf}
