@@ -634,7 +634,57 @@ Der Aufruf der WebServiceProvider durch den Orchestrator kann asynchron erfolgen
 
 Dadurch stehen die Daten dem Nutzer in Xcelsius zur Verfügung. Der Aufruf von updateKPI() ist fertig.
 
+\newpage
 \section{Entwurf}
+
+\subsection{Orchestrierung der WebServices}
+Durch die Verwendung eines ABAP-Frameworks zur Implementierung von wichtigen Klassen im LRM, existieren schon WebServices, die für die Erweiterungen genutzt werden können. Bei den Klassen handelt es sich um:
+
+\begin{seList}
+\item Laufzeitband
+\item Liquiditätsszenario
+\item Liquiditätsgruppe
+\end{seList}
+
+Hierfür bietet das Framework eine Schnittstelle, mit der auf die Objekte über das Atom-XML-Format [TODO] zugegriffen werden kann. Diese Services werden in der Erweiterung genutzt werden. Zusätzlich befindet sich eine iPad-App in Entwicklung. Für diese wurden zwei weitere WebServices entwickelt, die dem Zugriff auf KPIs und die FundingMatrix bieten.
+
+Es ergeben sich fünf nutzbare WebServices, die orchestriert werden müssen. Das Ziel ist immer der Zugriff auf den FundingMatrix Service oder den KPI Service. Die Abhängigkeiten der jeweiligen Services sind in \vref{fig:webservice_abhaengigkeiten} dargestellt und sollen im Folgenden erläutert werden:
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/WebService-Abhaengigkeiten.jpg}
+\caption{Abhängigkeiten der WebServices\label{fig:webservice_abhaengigkeiten}}
+\end{figure}
+
+Der FundingMatrix WebService ruft bei einem Aufruf die Berechnungskomponente des SAP LRM auf und muss demnach mit den vier Parametern versorgt werden (TODO siehe X). Es besteht eine Abhängigkeit zu dem drei WebServices, die automatisch durch das Framework  bereit stehen. Der LiquiGroup Service ist so umgesetzt, dass er ein LiquiditäsSzenario als Parameter erwartet und darauf alle möglichen Liquiditätsgruppen zurückliefert -- auch hier besteht eine Abhängigkeit.
+
+Der KPI WebService erfordert keine Parameter und kann eigenständig aufgerufen werden. Er liefert alle fest definierten KPIs im System zurück. Das Resultat beinhaltet allerdings nicht alle Informationen, z.B. zu dem verwendeten Liquiditätsszenario für die Berechnung oder der hinterliegenden Liquiditätsgruppe. Das Ergebniss kann also durch weitere WebService Aufrufe angereichert werden.
+
+\subsection{Statisches Modell}
+Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durchgeführt und das Resultat der Analyse auch im Hinblick auf die Performance untersucht und optimiert. Das sich daraus ergebene Klassendiagramm ist in \vref{fig:klassendiagramm_entwurf} zu sehen.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{Visio/Entwurf.pdf}
+\caption{Klassendiagramm der Entwurfsphase\label{fig:klassendiagramm_entwurf}}
+\end{figure}
+
+Objekte, wie z.B. ein LIquiditätsSzenario oder ein Laufzeitband, werden nru einmal angelegt und danach in der Regel nicht mehr geändert. Bei der Orchestrierung der WebServices müsste allerdings nach dem Ergebnis der Analyse jedes Mal eine Abfrage gestartet werden. Dafür wird die Klasse ObjectProvider durch die neu hinzugefügte Klasse CachedObjectProvider erweitert. Ein CachedObjectProvider hält alle Objekte, die schon einmal angefragt wurden, in einem internen Cache und liefert bei einer erneuten Nachfrage das Objekt aus dem Cache zurück, ohne einen neuen WebService aufruf zu starten.
+
+Für den einfachen Zugriff auf die einzelnen ObjectProvider wurde der Klasse Orchestrator die Hilfsmethode getProviderForType() hinzugefügt. Die später von dem Nutzer aufgerufenen Methoden updateKPI() und updateFundingMatrix() nutzen die neuen Hilfsmethoden getKIP() udn getFundingMatrix(). Dadurch dir neue Signatur kann der XcelsiusAdapter und der SettingProvider einfacher angebunden werden.
+
+Zudem legt mit der Klasse OrchestratorResult die Zielobjektstruktur der Orchestrierung fest. Eine Instanz der Klasse OrchestratorResult besteht dabei aus beliebig vielen Result-Instanzen. Genauer gesagt wird für jede abgefrage Liquiditätsgruppe eine Result-Instanz erzeugt.
+
+Eine ResultInstanz hat zum einen mehrere Parameter. Diese sind, um eine gute Erweiterbarkeit zu erreichen, in einfachen Key-Value Paaren verwaltet. Beispiele für Parameter können die Liquiditätsgruppe und das genutzte Szenario sein. Zum Anderen werden in dem Attribut values die einzelnen Werte gespeichert.
+
+Die Werte beziehen sich in ihrer Reihenfolge auf das zugrundeliegende MaturityBand. Dieses ist für alle Results-Instanzen das gleiche und ist deshalb nur einmal als Atttribut des OrchestratorResult vorhanden. Die einzelnen ABschnitte des MaturityBand sind in dem Attribut parts abgelegt. Ein MaturityBandPart hat eine Beschreibung, ein Start und ein End-Datum.
+
+Generell wurden Klassen wurden um typisierte Attribute erweitert. Den Methoden wurde die Signatur hinzugefügt.
+
+
+
 \section{Implementierung}
 \section{Zusammenfassung}
 
