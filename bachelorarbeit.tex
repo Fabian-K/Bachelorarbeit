@@ -44,6 +44,8 @@
 
 }
 
+\setcounter{totalnumber}{1} % maximale Anzahl Gleitobjekte pro Seite
+
 \begin{document}
 
 \newcommand{\version}{0.1}
@@ -590,7 +592,7 @@ Die Selektionsparameter, die z.B. für die Berechnungskomponente im LRM gebrauch
 
 Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem LRM in Xcelsius bereit. In welcher Form die Daten verwendet werden, wird bewusst komplett offengelassen.
 
-\subsection{Statische Analyse}
+\subsection{Statisches Modell}
 Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und ihre Assoziationen zueinander identifiziert. Das entsprechende Klassendiagramm der Analysephase ist in \vref{fig:klassendiagramm_analyse} dargestellt.
 
 \begin{figure}[h]
@@ -610,7 +612,7 @@ Um die WebServices abstrahiert darstellen zu können, nutzt ein ObjectProvider z
 
 Die Klasse WebServiceProvider muss im SAP LRM implementiert werden. Sie nimmt die Anfragen der Erweiterung über das HTTP-Protokoll entgegen, liest die entsprechenden Objekte aus der Datenbank und serialisiert sie im XML-Format.
 
-\subsection{Dynamische Analyse}
+\subsection{Dynamisches Modell}
 Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgenden exemplarisch der Ablauf einer Anfrage durch einen User in einem Sequenzdiagramm in \vref{fig:sequenz_analyse} dargestellt.
 
 \begin{figure}[h]
@@ -681,9 +683,35 @@ Eine ResultInstanz hat zum einen mehrere Parameter. Diese sind, um eine gute Erw
 
 Die Werte beziehen sich in ihrer Reihenfolge auf das zugrundeliegende MaturityBand. Dieses ist für alle Results-Instanzen das gleiche und ist deshalb nur einmal als Atttribut des OrchestratorResult vorhanden. Die einzelnen ABschnitte des MaturityBand sind in dem Attribut parts abgelegt. Ein MaturityBandPart hat eine Beschreibung, ein Start und ein End-Datum.
 
+Für das Ermitteln der aktuellen Einstellungen, die der Nutzer in dem Tabellenblatt von Xcelsius hinterlegt hat, wurde die Klasse SettingProvider hinzugefügt. Der SettingProvider nutzt den XcelsiusAdapter zum Auslesen des Tabellenblattes und liefert über die Methode getSetting() alle erforderlichen Einstellungen für die Abfragen der WebServices zurück. Dadurch kann der XcelsiusAdapter sich rein auf das funktionale Lesen und Schreiben des Tabellenblattes beschränken und von der Logik, welche Zelle wie ausgelesen werden muss befreit werden.
+
 Generell wurden Klassen wurden um typisierte Attribute erweitert. Den Methoden wurde die Signatur hinzugefügt.
 
+\subsection{Dynamisches Modell}
 
+An dem Dynamischen Modell sind in der Entwurfsphase nur kleinere Änderungen durch die neu hinzugekommenen Klassen durchgeführt worden. Das angepasste Sequenzdiagramm ist in \vref{fig:sequenz_entwurf} dargestellt.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{Visio/Entwurf-Sequenz.pdf}
+\caption{Sequemzdiagramm der Entwurfsphase\label{fig:sequenz_entwurf}}
+\end{figure}
+
+In Abschnitt (1) ist die Einbindung des SettingProvider zu sehen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterfreien Methode updateKPI und der privaten Methode getKPI sehen. In der Orchestrierung wird nun auch ein CachedObjectProvider verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen WebService abgefragt und in dem ObjectCache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren WebService Aufruf direkt beantworten.
+
+\subsection{Zielstruktur in Xcelsius}
+Eine zentrale Rolle in der Erweiterung spielt die Übergabe der Ergebnisse der Orchestrierung an das Tabellenblatt von Xcelsius. Dies muss in einer Art und Weise geschehen, sodass der Nutzer die Daten später einfach weiterverarbeiten oder visualisieren kann.
+
+Diese Aufgabe wird von dem XcelsiusAdapter übernommen. Ausgangspunkt ist immer eine OrchestratorResult Instanz, welche das Ergebnis der Orchestrierung darstellt. Den Aufbau der Instanz ist in Abschnitt [TODO] \vref{} dargestellt. Diese Objektstruktur muss in eine Tabellenstruktur in Xcelsius umgewandelt werden. Eine Visualisierung der Umsetzung ist in \vref{} [TODO] dargestellt.
+
+
+
+Die Tabellenstruktur soll folgendermaßen aufgebaut werden: Eine Ergebnissreihe wird immer in einer Spalte dargestellt. Dabei handelt es sich um alle Ergebniswerte, die für eine Liquiditätsgruppe ermittelt wurden. Die Ergebnisreihen sind in der Objektstruktur die Result-Instanzen. Die Werte sind in der ArrayCollection values gespeichert. Sie beziehen sich auf die einzelnen Abschnitte des zugrundeliegenden Laufzeitbandes.
+
+In der ersten Spalte werden die Abschnitte des Laufzeitbandes abgetragen. Diese können z.B. später in einer Visualisierung als X-Achenbeschriftung verwendet werden. In der Objektstruktur sind das die MaturityBandPart-Instanzen. In einer Zeile in der Tabellenstruktur sind demnach die Werte aller Ergebnisinstanzen für ein Laufzeitbandabschnitt eingetragen.
+
+Über den eigentlichen Werten werden noch die Parameter eingetragen, die als Key-Value-Paar in der Result-Instanz vorhanden sind. Sie können bei einer Visualisierung als Beschriftung für eine Ergebnissreihe verwendet werden.
 
 \section{Implementierung}
 \section{Zusammenfassung}
