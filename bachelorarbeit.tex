@@ -254,7 +254,7 @@ Die Oberfläche von Xcelsius lässt sich in 4 Bereiche Aufteilen. Die Bereiche s
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Aufbau.jpg}
-\caption{[TODO]\label{fig:xcelsius_ui_aufbau}}
+\caption{[TODO] WT: Aufbau der Benutzeroberfläche von Xcelsius\label{fig:xcelsius_ui_aufbau}}
 \end{figure}
 
 Viele Komponenten bieten Einstellungsmöglichkeiten an, mit denen das Verhalten und das Aussehen der Komponente festgelegt werden kann. Wird eine Komponente auf der Zeichenfläche ausgewählt, werden alle verfügbaren Eigenschaften in Bereich 3 auf der rechten Seite dargestellt. Wichtige Eigenschaften einer Komponente stellen oft die Daten dar, die die Komponenten anzeigen soll. Alle Daten werden in Bereich 4 festgelegt. Dafür steht der volle Funktionsumfang von Microsoft Excel zur Verfügung. Die Verbindung zwischen der Datenhalten (Microsoft Excel in Bereich 4) und der Darstellung (Zeichenfläche in Bereich 1) von Xcelsius erfolgt durch das Referenzieren von Zellen oder Zellbereichen über die Eigenschaften einer Komponente (Bereich 3).\seFootcite{vgl.}{S.229}{Egg.09}
@@ -265,7 +265,7 @@ Der generelle Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absa
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Beispiel.jpg}
-\caption{[TODO]\label{fig:xcelsius_ui_beispiel}}
+\caption{[TODO] WT: Beispiel eines Dashboards in Xcelsius\label{fig:xcelsius_ui_beispiel}}
 \end{figure}
 
 Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre Daten aus Bereich 2 auslesen. Die Wachstumsraten können mit drei Drehknöpfe festgelegt werden. Die Werte der Drehknöpfe sind mit den Zellen in Bereich 3 verknüpft. Dreht der Nutzer an einem Drehknopf, wird der aktualisierte Wert in die Zelle in Bereich 3 geschrieben. Da die Datenquelle der Graphen mit Bezug auf die Wachstumswerte berechnet werden, verändert sich dynamisch die Graphen. Das Prinzip ist schematisch noch einmal in \vref{fig:xcelsius_ablauf_schema} dargestellt. So ist es möglich, mit einfachen Mitteln interaktive Dashboards zu erstellen.\seFootcite{vgl.}{S.237}{Egg.09}
@@ -274,7 +274,7 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Ablauf.jpg}
-\caption{[TODO]\label{fig:xcelsius_ablauf_schema}}
+\caption{[TODO] WT Grundlegende Arbeitsweise mit Xcelsius\label{fig:xcelsius_ablauf_schema}}
 \end{figure}
 
 \subsection{Architektur}
@@ -285,7 +285,7 @@ Xcelsius basiert auf dem \gls{glos:netFramework} von Microsoft und ist in weiten
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_Architecture.jpg}
-\caption{[TODO]\label{fig:xcelsius_architektur}}
+\caption{[TODO] WT Architekturüberblick von Xcelsius\label{fig:xcelsius_architektur}}
 \end{figure}
 
 Das zentrale Element ist das Document. Dabei handelt es sich um ein Objektmodell, das den aktuellen Zustand des Dashboards repräsentiert. Für die Darstellung wird das Canvas verwendet, welches in ActionScript 3 geschrieben ist. Die Canvas-Komponente nutzt dabei mehrere Hilfskomponenten. Dazu gehört das ApplicationTemplate, welches das Grundgerüst von alle Dashboards darstellt und mehreren Components, die die eizelnen Elemente eines Dashboards darstellen. Dies ist auch der Ansatzpunkt für spätere Erweiterungen.
@@ -299,7 +299,7 @@ Für den Export des fertigen Dashboards existiert der SWF Generator. Aus dem Doc
 
 Durch die Einstellungsmöglichkeiten der einzelnen Komponenten und die Einbindung des vollen Funktionsumpfang von Microsoft Excel ist Xcelsius von sich aus sehr flexibel. Zusätzlich dazu existiert noch ein SDK [TODO Glos?] mit dem komplett eigene Komponenten erstellt werden können. Dadurch ist es möglich, Xcelsius um nahezu beliebige Funktionen zu erweitern.
 
-Die Erweiterungen, die mit dem SDK programmiert werden können, müssen auf dem Adobe Flex SDK 2.0.1 basieren. Die Programmiersprache ist Action Scritp [TODO Glos]. Es können drei verschiedene Typen von Erweiterungen mit dem SDK entwickelt werden. Dabei handelt es sich um visuelle Komponenten, die später auf dem erstellten Dashboard dargestellt werden, um Datenverbindungen, die nicht auf dem Dashboard angezeigt werden, sondern nur im Hintergrund aktiv sind und in der Regel Daten in das Excel eintragen. Die dritte Möglichkeit ist die Erweiterung der Steuerungslogik von Excel, spielt aber im Rahmen dieser Bachelorarbeit keine Rolle. \footnote{\seCite{vgl.}{S.229}{Egg.09} \seCite{und}{S.3f}{Xcelsius-SDK.08}}
+Die Erweiterungen, die mit dem SDK programmiert werden können, müssen auf dem Adobe Flex SDK 2.0.1 basieren. Die Programmiersprache ist Action Script [TODO Glos]. Es können drei verschiedene Typen von Erweiterungen mit dem SDK entwickelt werden. Dabei handelt es sich um visuelle Komponenten, die später auf dem erstellten Dashboard dargestellt werden, um Datenverbindungen, die nicht auf dem Dashboard angezeigt werden, sondern nur im Hintergrund aktiv sind und in der Regel Daten in das Excel eintragen. Die dritte Möglichkeit ist die Erweiterung der Steuerungslogik von Excel, spielt aber im Rahmen dieser Bachelorarbeit keine Rolle. \footnote{\seCite{vgl.}{S.229}{Egg.09} \seCite{und}{S.3f}{Xcelsius-SDK.08}}
 
 Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat von einander entwickelt werden können. Der erste Teil ist für die Darstellung der Komponente auf dem Zeichenblatt des Dashboards verantwortlich. Der zweite Teil übernimmt die Darstellung der Eigenschaften, die die Komponente bieten soll. Es ist gleichzeitig die Verbindung zwischen Xcelsius und der entwickelten Komponente. Die Logik der Komponente kann je nach Bedarf auf beide Teile verteilt werden. Das Ergebnis der Entwicklung der beiden Teilkomponenten sind zwei kompilierte .swf Dateien [TODO !?]. Diese Dateien, in Verbindung mit Informationen zu der Komponente, wie z.B. Name, Version, Typ und Entwickler werden mit dem Xcelsius SDK zu einem Xcelsius Plugin zusammengefügt. Dieses kann dann in Xcelsius importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}} Den Vorgang zeigt \vref{fig:xcelsius_plugin}.
 
@@ -307,7 +307,7 @@ Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat von einand
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_Plugin_Allgemein.jpg}
-\caption{[TODO]\label{fig:xcelsius_plugin}}
+\caption{[TODO] Plunginsystem von Xcelsius\label{fig:xcelsius_plugin}}
 \end{figure}
 
 \section{Zusammenfassung}
@@ -325,7 +325,7 @@ Der Zweck der Key Figure Analysis ist die Darstellung von Kennzahlen, die nach e
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/KeyFigureAnalysis_Example.png}
-\caption{[TODO]\label{fig:lrm_istzustand_keyfigureanalysis}}
+\caption{[TODO] KeyFigureAnalysis im SAP LRM\label{fig:lrm_istzustand_keyfigureanalysis}}
 \end{figure}
 
 Neben der Key Figure Analysis existiert die Funding Matrix. Hier sollen nicht feste Kennzahlen dargestellt werden, sondern frei die Möglichkeit geboten werden, die Liquiditätssituation der Bank zu analysieren. Sowohl die Funding Matrix, als auch die Key Figure Analysis, nutzen für die Ermittlung der Werte die Berechnungskomponente. Bei der Funding Matrix hat der Nutzer die Möglichkeit,die Selektionskriterien in Form der nötigen Parameter für den Aufruf der Berechnungskomponente zur Laufzeit festlegen. Die Darstellung ist hier auf ein Liniendiagramm festgelegt, ein Beispiel zeigt  \vref{fig:lrm_istzustand_fundingmatrix} [TODO].
@@ -334,7 +334,7 @@ Neben der Key Figure Analysis existiert die Funding Matrix. Hier sollen nicht fe
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Funding_Matrix_Example.png}
-\caption{[TODO]\label{fig:lrm_istzustand_fundingmatrix}}
+\caption{[TODO] WT FundingMatrix im SAP LRM\label{fig:lrm_istzustand_fundingmatrix}}
 \end{figure}
 
 Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit besteht, die Ergebnisse der Berechnungen in irgendeiner Form in anderen Auswertungen, z.B. Auswertungen die die gesamte Situation der Bank beschrieben, einzubinden. Des weiteren besteht bei der Darstellung der Auswertung keine Formatierungsmöglichkeiten.
@@ -461,7 +461,7 @@ Die Einbindung von Universen wird in Xcelsius standardmäßig unterstützt. Es k
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/umsetzung_universe.jpg}
-\caption{[TODO]\label{fig:umsetzung_universe}}
+\caption{[TODO] Umsetzungsmöglichkeit mit BO-Universen\label{fig:umsetzung_universe}}
 \end{figure}
 
 Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt sich die Frage, wie eventuelle Selektionsparameter von Xcelsius an die Berechnugnskomponente übergeben werden können. Zusätzlich muss die Berechnung durch die Berechnungskomponente abgestoßen werden, um die Tabelle mit den aktuellen Daten zu füllen. Eine automatische, periodische Berechnung (z.B. durch einen eingeplanten Hintergrundprozess) würde stets veraltete Daten liefern.
@@ -475,7 +475,7 @@ Eine weitere Möglichkeit stellen WebServices dar. Für die Umsetzung muss im SA
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/umsetzung_webservice.jpg}
-\caption{[TODO]\label{fig:umsetzung_webservice}}
+\caption{[TODO] Umsetzungsmöglichkeit mit WebServices\label{fig:umsetzung_webservice}}
 \end{figure}
 
 Dadurch, dass der Aufruf direkt im SAP LRM entgegen genommen wird und nicht indirekt z.B. über ein Universum erfolgt, können eventuelle Selektionsparameter dynamisch übergeben werden. Auch das Problem mit veralteten Daten besteht nicht, da die Berechnung bei jedem Aufruf nach Bedarf durchgeführt werden kann.
@@ -580,7 +580,7 @@ In diesem Abschnitt wird ein Überblick (vgl. dazu \vref{ueberblick-architektur}
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Ueberblick-Architektur.jpg}
-\caption{[TODO]\label{fig:ueberblick-architektur}}
+\caption{[TODO] WT Architekturüberblick der Erweiterung\label{fig:ueberblick-architektur}}
 \end{figure}
 
 Im SAP LRM System muss für jeden WebService ein WebServiceProvider bereitgestellt werden. Der WebServiceProvider kann über einfache Funktionsaufrufe entweder Berechnungne über die Berechnungskomponente durchführen lassen, oder auf die BusinessObjekte, wie z.B. einem Laufzeitband oder eine Liquiditätsgruppe zugreiffen. Das Ergebniss liefert er über das HTTP-Protokoll im XML-Format.
@@ -710,7 +710,7 @@ Diese Aufgabe wird von dem XcelsiusAdapter übernommen. Ausgangspunkt ist immer 
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Entwurf-Objektstruktur.pdf}
-\caption{[TODO]\label{fig:objektstruktur}}
+\caption{[TODO] WT Objektstruktur\label{fig:objektstruktur}}
 \end{figure}
 
 
