@@ -167,7 +167,7 @@ Quantitativ 			& Basel II 		& \gls{MaRisk}	\\	\hline
 \end{table}
 }
 
-Die Maßnahmen, mit Hilfe des Liquiditätsrisikomanagements getroffen werden sind meist entweder Ursachen oder Wirkungsbezogen. Ursachenbezogene Maßnahmen zielen darauf ab, das Risiko bereits vor dem Eintritt zu begrenzen. Wirkungsbezogene Maßnahmen haben das Ziel, die Auswirkungen eines Risikos, nachdem es eingetreten ist, zu vermindern. Ein Beispiel für eine ursachenbezogene Maßnahme bei Banken ist die Risikominderung, in dem due Höhe von möglichen Liquiditätsrisiken im Vorraus über Frühwarnsysteme begrenzt wird. Eine wirkungsbezogene Maßnahme ist der Risikotransfer, bei dem die Folgen über eine Versicherung auf andere abgewälzt werden.\seFootcite{vgl.}{S.85ff}{Dur.11}
+Die Maßnahmen, mit Hilfe des Liquiditätsrisikomanagements getroffen werden sind meist entweder ursachen- oder wirkungsbezogen. Ursachenbezogene Maßnahmen zielen darauf ab, das Risiko bereits vor dem Eintritt zu begrenzen. Wirkungsbezogene Maßnahmen haben das Ziel, die Auswirkungen eines Risikos, nachdem es eingetreten ist, zu vermindern. Ein Beispiel für eine ursachenbezogene Maßnahme bei Banken ist die Risikominderung, in dem due Höhe von möglichen Liquiditätsrisiken im Vorraus über Frühwarnsysteme begrenzt wird. Eine wirkungsbezogene Maßnahme ist der Risikotransfer, bei dem die Folgen über eine Versicherung auf andere abgewälzt werden.\seFootcite{vgl.}{S.85ff}{Dur.11}
 
 In der aktuellen Entwicklung spielt Basel III eine wichtige Rolle. Durch Basel III soll das Liquiditätsrisikomanagement weiter homogenisiert werden. Ein Zentraler Punkt ist die Einführung von zwei Liquiditätskennzahlen, \gls{LCR} und \gls{NSFR}, die schrittweise eingeführt werden. Die \gls{LCR} soll verhindern, dass kurzfristige Probleme auf dem Geldmarkt auf Banken übergreifen und damit das Systemrisiko eindämmen. Banken müssen ausreichend Vermögenspositionen besitzen, die selbst in einer Stresssituation liquidiert werden können. Damit müssen unerwartete Liquiditätsabflüsse in einem Zeitraum von 30 Tagen abgefangen werden können. Der \gls{LCR} wird ab 2015 für alle Kreditinstitute binden eingeführt.\seFootcite{vgl.}{S.56}{Hof-B.11}
 
@@ -720,7 +720,7 @@ Diese Aufgabe wird von dem XcelsiusAdapter übernommen. Ausgangspunkt ist immer 
   \caption{[TODO]}
     \begin{tabular}{l|r|r}
     \toprule
-    \textbf{Liquiditätsgruppe:} & \textbf{LCR} & \textbf{LCR} \\
+    \textbf{Liquiditätsgruppe:} & \textbf{FLE} & \textbf{FLE} \\
     \textbf{Liquiditätszenario:} & \textbf{Krise} & \textbf{Baseline} \\
     \midrule
     1 Tag & 1,05  & 1,05 \\
@@ -743,6 +743,22 @@ In der ersten Spalte werden die Abschnitte des Laufzeitbandes abgetragen. Diese 
 Über den eigentlichen Werten werden noch die Parameter eingetragen, die als Key-Value-Paar in der Result-Instanz vorhanden sind. Sie können bei einer Visualisierung als Beschriftung für eine Ergebnissreihe verwendet werden.
 
 \section{Implementierung}
+\newpage
+\subsection{Flex Sandbox}
+Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen bestimmten Sicherheitsbeschränkungen. Darunter fällt auch die Erweiterung, die im Rahmen dieser Bachelorarbeit entwickelt wird. Die Ausführung von Flex-Anwendungen erfolgt in einer Sandbox. Dadurch sollen ungewollte Änderungen auf Client-Seite verhindert werden -- die Anwendung darf sich nur ein einem klar definierten Raum bewegen.
+
+Eine dieser Beschränkungen ist die Verhinderung von CrossDomainRequests [TODO]. Dabei handelt es sich um einen WebService Aufruf, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der ERweiterung für Xcelsius ist die Domain der lokale Computer (localhost). Es ist nur möglich, WebServices aufzurufen, die der Computer selbst bereitstellt. Da das SAP LRM nicht auf dem Computer läuft, sondern auf einem Server in einer eigenen Domain, ist das Konsumieren von Daten aus dem LRM erstmal nicht möglich, da es durch die Sanbox blockiert wird.
+
+Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es Möglich, dass der Anbieter des WebService explizit feslegen kann, dass der WebService auch von über verschiedene Domänen hinweg konsumiert werden kann. Dies geschiet über eine Datei crossdomain.xml, welche in dme Hauptverzeichnis der Domain abgelegt werden muss. Dies wäre der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
+
+Um diesen Aufwand zu umgehen, wurde der zweite Lösungsansatz umgesetzt. Hierbei wird auf dem Client ein lokaler Webserver installiert. Dieser WebServer ist über die domain localhost erreichbar. Alle Anfragen der Erweiterung gehen gegen den lokalen Webserver. Dadurch, dass er auch unter der domain localhost befindet, wird der Zugriff von der Sandbox zugelassen. Der WebServer stellt die Anfrage an den richtigen WebService im SAP LRM und leitet die Antwort an die Erweiterung weiter.
+
+Für die Umsetzung wurde lokal ein Tomcat-Webserver installiert. Für diesen wurde ein einfaches Java-HttpServlet entwickelt, welches die geforderte Funktionalität umsetzt. Das Coding des Servlets ist in [TODO] zu sehen.
+
+Für die Zukunft sollte allerdings versucht werden, die Lösung über die crossdomain.xml-Datei umzusetzen. Dadurch entfällt der zusätzlich notwendige lokale WebServer.
+
+\subsection{Lösung des Sandbox-Problems}
+
 \section{Zusammenfassung}
 
 \chapter{Evaluation}
