@@ -914,7 +914,50 @@ Die ObjectProvider und Deserializer für die weiteren Webservices sind analog da
 
 \chapter{Anhang}
 
-Inhalt des Anhangs
+\begin{programm}[h] % aus WebServiceConnector
+\begin{lstlisting}[language=Java]
+import java.io.*;
+import java.net.*;
+import javax.servlet.http.*;
+import javax.servlet.*;
+
+@SuppressWarnings("serial")
+public class ProxyServlet extends HttpServlet {
+
+	public void doGet (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// build request url
+		String requestedUrl = req.getServletPath();
+		String params = req.getQueryString();
+		String urlString = "http://ldciqhc.wdf.sap.corp:50000"+requestedUrl;
+		if(params != null)
+			urlString += "?"+params;
+		
+		// build connection
+		URL url = new URL(urlString);
+		HttpURLConnection conn  = (HttpURLConnection) url.openConnection();
+		
+		// set password
+		String encoding = new sun.misc.BASE64Encoder().encode("username:pw".getBytes());
+		conn.setRequestProperty ("Authorization", "Basic " + encoding);
+		
+		// start request
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		// get response
+		PrintWriter out = res.getWriter();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		String content = null;
+		while((content = reader.readLine()) != null){
+			out.print(content);
+		}
+		out.flush();
+		out.close();
+	}
+}
+\end{lstlisting}
+\caption{[TODO]\label{[TODO]}}
+\end{programm}
 
 % -------------------------------------------------------------------------------------
 %  Erzeugung eines Glossars
