@@ -757,7 +757,54 @@ Für die Umsetzung wurde lokal ein Tomcat-Webserver installiert. Für diesen wur
 
 Für die Zukunft sollte allerdings versucht werden, die Lösung über die crossdomain.xml-Datei umzusetzen. Dadurch entfällt der zusätzlich notwendige lokale WebServer.
 
-\subsection{Lösung des Sandbox-Problems}
+\subsection{Asynchroner Programmablauf}
+Im Vergleich zu dem Entwurf und der Analyse, bei dem alle Aufrufe synchron durchgeführt wurden, wird dies aus zwei Gründen in der Umsetzung auf hauptsächlich asynchrone Aufrufe umgestellt. Dabei handelt es sich um folgende Gründe:
+
+Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls sich bei der Orchestrierung die Antwort eines WebService-Aufrufes verzögert, können trotzdem alle anderen Anfragen schon verarbeitet werden. Der dadurch gewonnene Vorteil ist aufgrund technischer Limitierungen leider nicht allzu groß, da die Anwendung später nur auf einem Thread ausgeführt wird und somit eine echt parallele Verarbeitung von zwei simultan erhaltenen Antworten nicht möglich ist.
+
+Auf der anderen Seite wird für den Aufruf der WebSerivces in der Klasse WebServiceConnector die Flex-Klasse HTTPService verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nähmlich dem erfolgreichen Aufruf des WebService und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Das entsprechende Coding ist in Abbildung x dargestellt.
+
+Ein Beispielprogramm mit ABAP Syntax-Highlighting ist in \vref{hello} zu sehen.
+
+\begin{programm}[htbp] % aus WebServiceConnector
+\begin{lstlisting}[language=ActionScript]
+public function consume():void{
+	// HTTPService-Instanz erstellen
+	webService = new HTTPService();
+	webService.url = serviceURL;       
+	webService.method = "GET";
+	// Event Listener hinzufuegen
+	webService.addEventListener(ResultEvent.RESULT,onHttpRequestSuccess);
+	webService.addEventListener(FaultEvent.FAULT,onHttpRequestFailure);
+	// Anfrage senden
+	webService.send();
+}
+		
+public function onHttpRequestSuccess(event:ResultEvent){
+	// Asynchroner Aufruf bei Erfolg
+	// ...
+}
+		
+public function onHttpRequestFailure(event:FaultEvent){
+	//Asynchroner Aufruf bei Fehlschlag
+	// ...
+}
+\end{lstlisting}
+\caption{[TODO]\label{[TODO]}}
+\end{programm}
+
+Durch die Asynchronität ändert sich entsprechend die Signatur der Methoden. Der Rückgabewert entfällt, stattdessen wird ein zusätzlicher Parameter mitgegeben. Bei ActionScript kann dies entweder eine Methode eines Objektes sein (siehe dazu Listing oben [TODO]. Alternativ kann auch eine Objekt-Instanz übergeben werden. auf dieres Instannz wird dann zu dem entsprechenden Zeitpunkt eine festgelegte Methode aufgerufen.
+
+Anfang und Ende eines Aufrufes von einem WebService über den ObjectProvider und den Deserializer ist der Orchestrator. Dieser startet die Aufrufe in der Methode getKPI() oder getFundingMatrix() und erhällt die Antworten durch die asynchronität in beliebiger Reihenfolge in der Methode onObjectProviderSuccess(). Um die Aufrufe unterschieden und identifizieren zu können wird bei dem Aufruf ein RequestToken mitgegeben. Dieser wird weitergereicht und schließlich auch der Methode onObjectProviderSuccess als Parameter zurückgegeben.
+
+Um festzustellen, ob alle Anfragen erfolgreich zurückgekommen sind und somit mit der finalen Orchestrierung begonnen werden kann, werden die RequestToken in einer internen Liste verwaltet. Diese Liste enthält alle Anfragen, von denen die Antwort noch aussteht. [TODO was bei Fehler?!] Wird die Antwort erhalten, wird der Token aus der Liste entfernt, in einen ResultToken umgewandelt, indem das eigentliche Ergebnis angehängt wird, und in einer weiteren Liste zwischengespeichert. Wurden alle Anfragen erfolgreich beantwortet, kann die Orchestrierung durchgeführt werden. Die einzelnen Ergebnisse können dann aus der Liste mit den ResultToken-Instanzen bezogen werden.
+
+Die Methode onObjectProviderSuccess wird asynchron aufgerufen und verändert unter Anderem die beiden Listen zur Verwaltung der Token. Demnach handelt es sich hierbei normalerweise um einen kritischen Abschnitt, in dem kritische Daten verändert werden. Der Zugriff auf diese Methode müsste synchronisiert werden. Da aber die Anwendung später auf nur einem Thread ausgeführt wird, kann auf eine synchronisation verzichtet werden.
+
+\subsection{WebServiceAblauf}
+In diesem Abschnitt soll an dem Beispiel des FundingMatrix WebService exemplarisch gezeigt werden, wie der Aufruf und die Umwandlung in ein internes Objektformat realisiert wird.  
+
+\subsection{Xcelsius Binding}
 
 \section{Zusammenfassung}
 

@@ -54,7 +54,69 @@
 %
 \lstset{language=[R/3 6.10]ABAP,basicstyle=\ttfamily,keywordstyle=\color{blue},captionpos=b,aboveskip=0mm,belowskip=0mm,
           xleftmargin=0em}        
-          
+
+
+% Actionscrupt Highlightung
+
+
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{flexred}{rgb}{0.65, 0.01, 0.01}
+\definecolor{flexgreen}{rgb}{0, 0.6, 0}
+\definecolor{flexgray}{rgb}{0.25, 0.37, 0.75}
+\definecolor{flexblue}{rgb}{0, 0.2, 1}
+\definecolor{flexfunction}{rgb}{0.2, 0.6, 0.4}
+\definecolor{flexvar}{rgb}{0.4, 0.6, 0.8}
+\definecolor{black}{rgb}{0, 0, 0}
+
+
+
+\lstdefinelanguage{ActionScript} {
+   basicstyle=\ttfamily\scriptsize,
+   sensitive=true,
+   %morecomment=[l][\color{flexgreen}\ttfamily]{//},
+   %morecomment=[s][\color{flexgreen}\ttfamily]{/*}{*/},
+   %morecomment=[s][\color{flexgray}\ttfamily]{/**}{*/},
+   morestring=[b]",
+   morestring=[d]/,
+   morecomment=[l][\color{flexgreen}\ttfamily]{//},
+   morecomment=[s][\color{flexgreen}\ttfamily]{/*}{*/},
+   morecomment=[s][\color{flexgray}\ttfamily]{/**}{*/},
+   morecomment=[n][\color{flexblue}\ttfamily]{<}{>},
+   stringstyle=\color{flexred}\textbf,
+   commentstyle=\color{flexgreen},
+   showstringspaces=false,
+   numberstyle=\scriptsize,
+   numberblanklines=true,
+   showspaces=false,
+   breaklines=true,
+   showtabs=false,
+   emph =
+   {[1]
+      class, package, interface
+   },
+   emphstyle={[1]\color{purple}\textbf},
+   emph =
+   {[2]
+      internal, public, protected, private,
+      super, this, import, new, extends, implements,
+      void, true, false, as
+   },
+   emphstyle={[2]\color{flexblue}\textbf},
+   emph =
+   {[3]
+      function
+   },
+   emphstyle={[3]\color{flexfunction}\textbf},
+   emph =
+   {[4]
+      var
+   },
+   emphstyle={[4]\color{flexvar}\textbf}
+}
+
+
+
+
 %
 % Grundkonfiguration der Abs\"ande zwischen den Items der maximal f\"unf Verschachtelungsebenen der 
 % neuen Listenumgebungen
