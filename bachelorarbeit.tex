@@ -764,9 +764,7 @@ Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls
 
 Auf der anderen Seite wird für den Aufruf der WebSerivces in der Klasse WebServiceConnector die Flex-Klasse HTTPService verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nähmlich dem erfolgreichen Aufruf des WebService und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Das entsprechende Coding ist in Abbildung x dargestellt.
 
-Ein Beispielprogramm mit ABAP Syntax-Highlighting ist in \vref{hello} zu sehen.
-
-\begin{programm}[htbp] % aus WebServiceConnector
+\begin{programm}[h] % aus WebServiceConnector
 \begin{lstlisting}[language=ActionScript]
 public function consume():void{
 	// HTTPService-Instanz erstellen
@@ -801,8 +799,96 @@ Um festzustellen, ob alle Anfragen erfolgreich zurückgekommen sind und somit mi
 
 Die Methode onObjectProviderSuccess wird asynchron aufgerufen und verändert unter Anderem die beiden Listen zur Verwaltung der Token. Demnach handelt es sich hierbei normalerweise um einen kritischen Abschnitt, in dem kritische Daten verändert werden. Der Zugriff auf diese Methode müsste synchronisiert werden. Da aber die Anwendung später auf nur einem Thread ausgeführt wird, kann auf eine synchronisation verzichtet werden.
 
+In [TODO] ist in allgemeiner Form der erläuterte Ablauf implementiert. Dabei werden zwei beliebige ObjectProvider abgefragt und die jeweiligen Ergebnisse können dann in gewünschter Weise orchestriert werden. Die in dem Beispiel verwendeten Klassen wurden teilweise vereinfacht und entsprechen nicht den Klassen in dem statischen Modell der Erweiterung.
+
+\begin{programm}[h] % aus WebServiceConnector
+\begin{lstlisting}[language=ActionScript]
+private function orchestrateWebServices():void{
+	// Verwaltung der Token
+	pendingRequestToken = new ArrayCollection();
+	finishedRequestToken = new ArrayCollection();
+	
+	// Beispielhafte Anfrage an ein ObjectProvider
+	var objectProviderA:ObjectProvider = new ObjectProvider();
+	var token:RequestToken = new RequestToken(RequestToken.REQUEST_A);
+	pendingRequestToken.addItem(token);
+	objectProvider.getObject(token,this);
+	
+	// beliebige weitere Anfragen an ObjectProvider ...
+}
+// Callback-Methode fuer die ObjectProvider
+public function onObjectProviderSuccess(result:Object, token:RequestToken):void{
+	// Ergebnis der Anfrage vermerken
+	pendingRequestToken.removeItemAt(pendingRequestToken.getItemIndex(token));
+	finishedRequestToken.addItem(new ResultToken(token,result));
+	
+	if(pendingRequestToken.length == 0){ // alle Ergebnisse liegen vor
+		// Zugriff auf Ergebnisse
+		var ergA:Object = getResultForRequest(RequestToken.REQUEST_A);
+		// Ergebnisse Orchestrieren ...
+	}
+}
+// Hilfsmethode fuer den Zugriff auf ein Resultat	
+private function getResultForRequest(request:String):Object{
+	for each(var token:ResultToken in finishedRequestToken){
+		if(token.attribute == request)
+			return token.result;
+	}
+	throw "no result";
+}
+\end{lstlisting}
+\caption{[TODO]\label{[TODO]}}
+\end{programm}
+
 \subsection{WebServiceAblauf}
-In diesem Abschnitt soll an dem Beispiel des FundingMatrix WebService exemplarisch gezeigt werden, wie der Aufruf und die Umwandlung in ein internes Objektformat realisiert wird.  
+In diesem Abschnitt soll an dem Beispiel des FundingMatrix WebService exemplarisch gezeigt werden, wie der Aufruf und die Umwandlung in ein internes Objektformat realisiert wird.
+
+Der Ausgangspunkt ist dazu der Orchestrator, der die getObject-Methode des FundingMatrixObjectProviders aufruft. Zunächst wird dann die passende URL für den WebService-Aufruf auf Grundlage der Settings generiert. In diesem Fall werden über die URL die Parameter Liquiditätsgruppen, Liquiditätsszenarien, Laufzeitband und Zielwährung übergeben. Es wird eine WebServiceCOnnector-Instanz erzeugt und über die consume()-Methode des Connectors der eigentliche Aufruf gestartet. Entsprechend dem asynchronen Programmablauf [TODO Kapitelverweis] wird die eigene Instanz als Callback und der Request-Token mitgegeben.
+
+Tritt bei dem Aufruf ein Fehler auf, wird asynchron die Methode onWebServiceFail aufgerufen. Der Fehler muss nur dem Orchestrator weitergeletet werden. Dazu wurde auch hier bei dem getObject-Aufruf eine Referenz auf den Orchestratro als Callback mitgegeben.
+
+Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die onWebServiceSuccess-Methode aufgerufen. Der Parameter ResultEvent enthält die Antwort des WebService als Zeichenkette. Diese muss nun in die interne Objektstruktur umgewandelt werden. Dazu wird der FundingMatrixObjectDeserializer  verwendet. Die XML-Eingabe für den Deserializer und die daraus generierte Objektstruktur ist in Abbildung [TODO] dargestellt.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/umwandlung.png}
+\caption{[TODO] \label{[TODO]}}
+\end{figure}
+
+Bei der Deserializierung kann wiederum auf Hilfsklassen von Flex zugegriffen werden. Über die Klasse SimpleXMLDecoder kann so einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der XML-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode, der Umwandlung, wie sie in Abbildung [TODO] dargestellt ist, zeigt findet sich in Listing [TODO].
+
+\begin{programm}[h] % aus WebServiceConnector
+\begin{lstlisting}[language=ActionScript]
+public override function deserialize(content:String):Object{			
+	var decoder:SimpleXMLDecoder = new SimpleXMLDecoder();
+	var document:XMLDocument = new XMLDocument(content);
+	var proxyObject:Object = decoder.decodeXML(document);
+	
+	var result:ArrayCollection = new ArrayCollection();
+	var resultGroup:Result = null;			
+			
+	for each(var entry:Object in proxyObject.feed.entry as Array){
+		var liquiGroup:String = entry.content.properties.CLIQUI_GRP_ID as String;
+		var liquiScenario:String = entry.content.properties.CLIQUI_SCENARIO as String;
+		if(resultGroup == null || resultGroup.getParameter(Result.LIQUIDITY_GROUP) != liquiGroup || resultGroup.getParameter(Result.LIQUIDITY_SCENARIO) != liquiScenario){
+			if(resultGroup != null) // dont add null at first time
+				result.addItem(resultGroup);
+			resultGroup = new Result();
+			resultGroup.addParameter(new KeyValue(Result.LIQUIDITY_GROUP,liquiGroup));
+			resultGroup.addParameter(new KeyValue(Result.LIQUIDITY_SCENARIO,liquiScenario));
+		}
+		var value:Number = entry.content.properties.KCTARGET_AMOUNT as Number;
+		resultGroup.addValue(value);
+	}
+	result.addItem(resultGroup);
+	return result;
+}
+\end{lstlisting}
+\caption{[TODO]\label{[TODO]}}
+\end{programm}
+
+Die ObjectProvider und Deserializer für die weiteren Webservices sind analog dazu programmiert. Bei einem CachedObjectProvider wird in der getObject-methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cach befindet und dann direkt zurückgegeben. Ist es nocht nicht vorhanden, wird der WebServiceAufruf gestartet und nach der Deserializerung wird das Objekt im Cache für weitere Anfragen gehalten.
 
 \subsection{Xcelsius Binding}
 
