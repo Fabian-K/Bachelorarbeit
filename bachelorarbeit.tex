@@ -637,7 +637,6 @@ Der Aufruf der WebServiceProvider durch den Orchestrator kann asynchron erfolgen
 
 Dadurch stehen die Daten dem Nutzer in Xcelsius zur Verfügung. Der Aufruf von updateKPI() ist fertig.
 
-\newpage
 \section{Entwurf}
 
 \subsection{Orchestrierung der WebServices}
@@ -743,9 +742,15 @@ In der ersten Spalte werden die Abschnitte des Laufzeitbandes abgetragen. Diese 
 Über den eigentlichen Werten werden noch die Parameter eingetragen, die als Key-Value-Paar in der Result-Instanz vorhanden sind. Sie können bei einer Visualisierung als Beschriftung für eine Ergebnissreihe verwendet werden.
 
 \section{Implementierung}
-\newpage
 \subsection{Flex Sandbox}
 Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen bestimmten Sicherheitsbeschränkungen. Darunter fällt auch die Erweiterung, die im Rahmen dieser Bachelorarbeit entwickelt wird. Die Ausführung von Flex-Anwendungen erfolgt in einer Sandbox. Dadurch sollen ungewollte Änderungen auf Client-Seite verhindert werden -- die Anwendung darf sich nur ein einem klar definierten Raum bewegen.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/flex_sandbox.png}
+\caption{[TODO] [TODO Referenziereun!] \label{[TODO]}}
+\end{figure}
 
 Eine dieser Beschränkungen ist die Verhinderung von CrossDomainRequests [TODO]. Dabei handelt es sich um einen WebService Aufruf, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der ERweiterung für Xcelsius ist die Domain der lokale Computer (localhost). Es ist nur möglich, WebServices aufzurufen, die der Computer selbst bereitstellt. Da das SAP LRM nicht auf dem Computer läuft, sondern auf einem Server in einer eigenen Domain, ist das Konsumieren von Daten aus dem LRM erstmal nicht möglich, da es durch die Sanbox blockiert wird.
 
@@ -862,8 +867,7 @@ Bei der Deserializierung kann wiederum auf Hilfsklassen von Flex zugegriffen wer
 \begin{lstlisting}[language=ActionScript]
 public override function deserialize(content:String):Object{			
 	var decoder:SimpleXMLDecoder = new SimpleXMLDecoder();
-	var document:XMLDocument = new XMLDocument(content);
-	var proxyObject:Object = decoder.decodeXML(document);
+	var proxyObject:Object = decoder.decodeXML(new XMLDocument(content));
 	
 	var result:ArrayCollection = new ArrayCollection();
 	var resultGroup:Result = null;			
@@ -891,6 +895,26 @@ public override function deserialize(content:String):Object{
 Die ObjectProvider und Deserializer für die weiteren Webservices sind analog dazu programmiert. Bei einem CachedObjectProvider wird in der getObject-methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cach befindet und dann direkt zurückgegeben. Ist es nocht nicht vorhanden, wird der WebServiceAufruf gestartet und nach der Deserializerung wird das Objekt im Cache für weitere Anfragen gehalten.
 
 \subsection{Xcelsius Binding}
+Für den Datenaustausch zwischen der entwickelten Erweiterung und dem Tabellenblatt von Xcelsius muss auf die bereitgestellten Funktionen des Xcelsius SDKs zurückgegriffen werden. Dabei wird das Konzept des Bindings genutzt.
+
+Bei diesem Konzept wird ein Attribut einer Instanz fest mit einem Zellenbereich auf dem Tabellenblatt verbunden. Dabei kann es sich entweder um ein flaches Attribut, wie z.B. eine Zeichenkette oder eine Zahl handeln, die dann mit einer einzelnen Zelle auf dem Tabellenblatt verbunden wird. Es kann allerdings auch auf Tabellenblatt-Seite ein Bereich festgelegt werden, der dann z.B. mit einem 2-dimensionalen Array verbunden wird.
+
+Für solch eine Verbindung muss zusätzlich noch eine Richtung fetgelegt werden. Das Xcelsius SDK beitet dabei 3 möglichkeiten an:
+
+\begin{seToplist}{ XXX }
+
+\item[1.] \textbf{Input-Binding} \newline
+Bei einem Input-Binding findet der Datenfluss nur von dem Tabellenblatt zu der Erweiterung statt. Er dient damit ausschließlich dafür, auf das Tabellenblatt lesend zuzugreifen. Sobald sich der Wert im Tabellenblatt ändert, wird diese Änderung auf das Attribut übertragen.
+
+\item[2.] \textbf{Output-Binding} \newline
+Das Output-Binding bietet ausschließlich schreibenden Zugriff auf das Tabellenblatt. Wird also der Attributswert verändert, wird die dazugehörige Zelle oder Zellbereich entsprechend angepasst. Der Datenfluss findet nur von der Erweiterung zu dem Tabellenblatt statt.
+
+\item[3.] \textbf{Input-Output-Binding} \newline
+Bei dieser Verbindungsart findet zwischen dem Tabellenblatt ein beidseitiger Austausch statt. Von beiden Seiten her werden Veränderungen auf die jeweils andere Seite übertragen. Der Wert der Zelle wird mit dem Attributswert synchronisiert.
+
+\end{seToplist}
+
+Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es werden nur Input oder Output-Bindings verwendet. Das Auslesen der gewählten Parameter findet über mehrere Input-Bindings statt. Für das Laufzeitband wird dabei eine Zelle mit dem Attribut selectedMaturityBand [TODO] des Xcelsius-Adapters verknüpft. Bei den Liquiditätszenarien und den Liquiditätsgruppen können jeweils mehrere Ausgewählt werden. Hier bezieht sich das Binding demnach nicht auf eine einzelne Zelle, sondern auf einen Zellbereich.
 
 \section{Zusammenfassung}
 
