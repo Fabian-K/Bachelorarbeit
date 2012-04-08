@@ -326,9 +326,13 @@ Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat von einand
 
 \section{Ausgangssituation}
 
+%TODO Funding Matrix -> Finanzierungsmatrix
+%TODO Key Figure Analyss -> Kennzahlenanalyse
+
 In der aktuellen Entwicklungsversion des SAP LRM gibt es für die Analyse der aktuellen Liquiditätssituation der Bank zwei Einstiegsmöglichkeiten. Es existiert die Funding Matrix und die Key Figure Analysis. Diese unterschieden sich in ihrer Nutzung.
+
 % TODO ist LCR und NSFR erklärt / eingeführt?!
-Der Zweck der Key Figure Analysis ist die Darstellung von Kennzahlen, die nach einer festen Vorschrift berechnet werden können. Neben internen Kennzahlen, die eine Bank für sich selbst definiert hat, sind hier vor allem offizielle Kennzahlen, wie z.B. der LCR und der NSFR im Rahmen von Basel III gemeint. Die Key Figure Analysis kann genutzt werden, um offizielle regulatorische Vorschriften zu überwachen. Die Darstellung der Kennzahlen ist in tabellarischer Form möglich. Ein Beispiel zeigt \vref{fig:lrm_istzustand_keyfigureanalysis}.
+Der Zweck der Key Figure Analysis ist die Darstellung von Kennzahlen, die nach einer festen Vorschrift berechnet werden können. Neben internen Kennzahlen, die eine Bank für sich selbst definiert hat, sind hier vor allem offizielle Kennzahlen gemeint. Dazu gehören z.B. im Rahmen von Basel III der LCR und der NSFR. Die Key Figure Analysis kann genutzt werden, um offizielle regulatorische Vorschriften zu überwachen. Die Darstellung der Kennzahlen ist ausschließlich in tabellarischer Form möglich. Ein Beispiel zeigt \vref{fig:lrm_istzustand_keyfigureanalysis}.
 
 \begin{figure}[h]
 \centering
@@ -337,7 +341,7 @@ Der Zweck der Key Figure Analysis ist die Darstellung von Kennzahlen, die nach e
 \caption{[TODO] KeyFigureAnalysis im SAP LRM\label{fig:lrm_istzustand_keyfigureanalysis}}
 \end{figure}
 
-Neben der Key Figure Analysis existiert die Funding Matrix. Hier sollen nicht feste Kennzahlen dargestellt werden, sondern frei die Möglichkeit geboten werden, die Liquiditätssituation der Bank zu analysieren. Sowohl die Funding Matrix, als auch die Key Figure Analysis, nutzen für die Ermittlung der Werte die Berechnungskomponente. Bei der Funding Matrix hat der Nutzer die Möglichkeit,die Selektionskriterien in Form der nötigen Parameter für den Aufruf der Berechnungskomponente zur Laufzeit festlegen. Die Darstellung ist hier auf ein Liniendiagramm festgelegt, ein Beispiel zeigt  \vref{fig:lrm_istzustand_fundingmatrix} [TODO].
+Neben der Key Figure Analysis existiert die Funding Matrix. Hier sollen nicht feste Kennzahlen dargestellt werden. Vielmehr wird  die Möglichkeit geboten, die Liquiditätssituation der Bank frei zu analysieren. Sowohl die Funding Matrix, als auch die Key Figure Analysis, nutzen für die Ermittlung der Werte die Berechnungskomponente. Bei der Funding Matrix hat der Nutzer die Möglichkeit,die Selektionskriterien in Form der nötigen Parameter für den Aufruf der Berechnungskomponente zur Laufzeit festlegen. Die Darstellung ist hier auf ein Liniendiagramm festgelegt, ein Beispiel zeigt  \vref{fig:lrm_istzustand_fundingmatrix} [TODO].
 
 \begin{figure}[h]
 \centering
@@ -346,33 +350,35 @@ Neben der Key Figure Analysis existiert die Funding Matrix. Hier sollen nicht fe
 \caption{[TODO] WT FundingMatrix im SAP LRM\label{fig:lrm_istzustand_fundingmatrix}}
 \end{figure}
 
-Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit besteht, die Ergebnisse der Berechnungen in irgendeiner Form in anderen Auswertungen, z.B. Auswertungen die die gesamte Situation der Bank beschrieben, einzubinden. Des weiteren besteht bei der Darstellung der Auswertung keine Formatierungsmöglichkeiten.
+Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit besteht, die Ergebnisse der Berechnungen in irgendeiner Form in anderen Auswertungen, z.B. Auswertungen die die gesamte Situation der Bank beschrieben, einzubinden. Des weiteren besteht bei der Darstellung der Ergebnisse keine Formatierungsmöglichkeit. Somit sind z.B. Farbe, Form und Größe des Diagramms fest vorgegeben.
 
 \section{Zielsetzung}
 
 Im Rahmen dieser Bachelorarbeit sollen die größten Limitierungen, die sich aus der aktuellen Situation ergeben, aufgehoben werden. Hier ist vor allem die Bereitstellung von weiteren Alternativen zu nennen. Neben der Sicht auf die Liquiditätssituation der Bank durch die beiden Einstiegspunkte Key Figure Analysis und der Funding Matrix im SAP LRM soll diese Auswertung mit weiteren Anwendungen durchgeführt werden können.
 
-Mit der Anbindung von weiteren Anwendungen bietet sich die Möglichkeit, der Einbindung der Steuerung in die gesamte Steuerung der Bank. Ein Ziel ist es, in einem Bericht, der Daten zu der allgemeinen Situation der Bank anzeigt, auch Informationen über das Liquiditätsrisikomanagement einzubinden. Dadurch kann die Situation der Bank gesamtheitlich erfasst werden und Entscheidungen unter der Berücksichtigung von weiteren Informationen getroffen werden.
+Durch die Anbindung von weiteren Anwendungen bietet sich die Möglichkeit, die  Liquiditätssteuerung in die Gesamtstererung der Bank einzubinden. Ein Ziel ist es, in einen Bericht, der Daten zu der allgemeinen Situation der Bank anzeigt, auch Informationen über das Liquiditätsrisikomanagement aufzunehmen. Dadurch kann die Situation der Bank gesamtheitlich erfasst werden und Entscheidungen unter der Berücksichtigung von weiteren Informationen getroffen werden.
 
 Simultan dazu, können durch eine Anbindung des LRM an weitere Anwendungen die jeweiligen Vorteile der angebundenen Anwendung ausgenutzt werden. Hier ist zum Beispiel die Flexibilität in der Darstellung der Daten zu nennen. Wenn die Anwendung weitere graphische Visualisierungsmöglichkeiten bietet, können diese auf die Daten des SAP LRM angewendet werde.
 
-Die Anbindung des LRM soll dabei mit möglichst wenig Einstellungsmöglichkeiten konfigurierbar sein. Gleichzeitig ist es erstrebenswert, dass das Konzept der Anbindung und die Implementierung, die im Rahmen der Bachelorarbeit entwickelt werden soll, in der grundsätzlichen Idee und Architektur auch auf weitere Anwendungen übertragen werden kann.
+Insgesamt soll die Anbindung des LRM mit möglichst wenig Einstellungsmöglichkeiten konfigurierbar sein. Gleichzeitig ist es erstrebenswert, dass das Konzept der Anbindung und die Implementierung, die im Rahmen der Bachelorarbeit entwickelt werden soll, in der grundsätzlichen Idee und Architektur auch auf weitere Anwendungen übertragen werden kann.
 
 \section{Anforderungen}
 
 Für die Erweiterung wurden im Rahmen der Spezifikation einige Anforderungen definiert. Die Anforderungen wurden zunächst in funktionale und nicht funktionale Anforderungen unterteilt. 
 
+Bei den funktionalen Anforderungen wurden die zwei folgenden Hauptanforderungen ermittelt:
+
 \begin{seToplist}{ XXXXX }
 
 \item[\anfl{kpi}] \textbf{Einbindung von Kennzahlen} \newline
 Die Erweiterung soll es ermöglichen, dass Kennzahlen, die im SAP LRM  mit Hilfe der Berechnungskomponente ermittelt werden und im Bereich der Key Figure Analysis zur Verfügung stehen, in weitere Anwendungen integriert und dort weiterverarbeitet werden können.
-% TODO Einleitung Unter den Funktionalen Anforderungen wurde gefunden....
+
 \item[\anfl{fundingMatrix}] \textbf{Freie Analyse der Liquiditätssituation} \newline
 Mit der Erweiterung soll die Einbindung der Ergebnisse von beliebigen Liquiditätsgruppen ermöglicht werden. Die Liquiditätsgruppen sollen in Anlehnung an die Funding Matrix im SAP LRM eingestellt werden und auf der Berechnungskomponente basieren. Neben den erforderlichen Parametern wie dem genutzte Laufzeitband und der Zielwährung sollen weitere Einschränkungsmöglichkeiten geboten werden, welche die Berechnungskomponente unterstützt.
 
 \end{seToplist}
 
-Durch die Umsetzung dieser beiden funktionalen Anforderungen können die Ziele, die im Abschnitt Zielsituation [TODO] festgelegt sind, was den Funktionsumfang betrifft, erreicht werden. Dadurch bieten sich für den Nutzer für die Auswertung und Analyse der Liquiditätssituation einer Bank zusätzliche Möglichkeiten.
+Durch die Umsetzung dieser beiden  Anforderungen können die Ziele, die im Abschnitt Zielsituation [TODO] festgelegt sind erreicht werden. Dadurch bieten sich für den Nutzer für die Auswertung und Analyse der Liquiditätssituation einer Bank zusätzliche Möglichkeiten.
 
 Neben den funktionalen Anforderungen wurden folgende nicht funktionale Anforderungen identifiziert. Diese sollen im Folgenden näher erläutert werden.
 
@@ -385,13 +391,13 @@ Im Rahmen der Bachelorarbeit soll exemplarisch die Anbindung einer weiteren Anwe
 Die Daten, die mit Hilfe der Erweiterung für zusätzliche Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des SAP LRM übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
 
 \item[\anfl{erweiterbarkeit}] \textbf{Erweiterbarkeit} \newline
-Das SAP LRM befindet aktuell noch mit der ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die ein Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand in die Erweiterung eingeführt werden können.
+Das SAP LRM befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die ein Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand in die Erweiterung eingeführt werden können.
 
 \item[\anfl{wartbarkeit}] \textbf{Wartbarkeit} \newline
-Um die Folgekosten der Erweiterung z.B. im Hinblick auf die Beseitigung von Fehlern möglichst gering zu halten, soll eine gute Wartbarkeit von Anfang an bei der Entwicklung beachtet werden.
+Um die Folgekosten der Erweiterung, z.B. im Hinblick auf die Beseitigung von Fehlern, möglichst gering zu halten, soll eine gute Wartbarkeit von Anfang an bei der Entwicklung beachtet werden.
 
 \item[\anfl{sicherheit}] \textbf{Sicherheitsanforderungen} \newline
-Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Diese Daten sind vertraulich und unterliegen Zugangsbeschränkungen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
+Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Es handelt sich um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
 
 \item[\anfl{leistung}] \textbf{Leistung} \newline
 Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch auf anderen Anwendungen verfügbar machen.
@@ -401,7 +407,7 @@ Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA
 Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigste Anforderungen sind Anforderung \vref{anf:übertragbarkeit} und Anforderung \vref{anf:korrektheit}, Anforderung \vref{anf:leistung} steht bei der Entwicklung nicht im Mittelpunkt.
 
 \section{Anwendungsfälle}
-Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im folgenden näher beschrieben. Der Anwendungsfall \vref{useCase:1} konkretisiert die Anforderung \vref{anf:kpi}, der Anwendungsfall \vref{useCase:2} bezieht sich auf die Anforderung \vref{anf:fundingMatrix}.
+Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im folgenden näher beschrieben. Der Anwendungsfall \vref{useCase:1} konkretisiert die Anforderung \vref{anf:kpi} und behandelt die Einsicht in wichtige Liquiditätskennzahlen einer Bank.
 
 % TODO Seitenumbruch bei Anwendungsfällen checken
 \useCase{1: Liquiditätskennzahl einsehen}{ \label{useCase:1}
@@ -422,6 +428,8 @@ Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsf�
 \end{seToplist}
 
 }
+
+Der Anwendungsfall \vref{useCase:2} bezieht sich auf die Anforderung \vref{anf:fundingMatrix}. Hierbei geht es um die freie Analyse der Liquiditätssituation einer Bank.
 
 \useCase{2: Liquiditätssituation analysieren}{ \label{useCase:2}
 
@@ -458,12 +466,14 @@ Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsf�
 \chapter{Umsetzungsmöglichkeiten}
 \section{Einleitung}
 \section{Rahmenbedingungen} % TODO verweis auf Kapitel einfügen
-Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von Xcelsius, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des SAP LRM zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem Beispiel von Xcelsius umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von Xcelsius an die Daten des LRM. Gleichzeitig soll aber bei der Analyse und dem Entwurf die Anforderung an die Übertragbarkeit (A[TODO]) wenn möglich weiterhin beachtet werden.
+Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von Xcelsius, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des SAP LRM zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem konkreten Beispiel von Xcelsius umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von Xcelsius an die Daten des LRM. Gleichzeitig soll aber bei der Analyse und dem Entwurf die Anforderung an die Übertragbarkeit (A[TODO]) wenn möglich weiterhin beachtet werden.
 
 \section{BusinessObjects Universum}
 Eine Möglichkeit, externe Daten in Xcelsius zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantsiche Ebene, die es ermöglicht Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
 
 Es können Daten aus relationalen Datenbanksystemen, die z.B. in normalisierter Form vorliegen [TODO Glossar?], und aus Data Warehouse-Systeme, die Daten z.B. im Sternschema [TODO ?] ablegen, konsumiert werden. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
+
+%TODO allgemeines Bild zu Universen abbilden !?
 
 Die Einbindung von Universen wird in Xcelsius standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches wiederum an Xcelsius angeboten wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
@@ -479,7 +489,7 @@ Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt si
 Schließlich sind Universen nur mit der Verwendung von BusinessObjects Anwendungen ausgelegt. Das Kriteritum der Übertragbarkeit kann somit nicht garantiert werden.
 
 \section{WebService}
-Eine weitere Möglichkeit stellen WebServices dar. Für die Umsetzung muss im SAP LRM der WebService implementiert werden. Aus Xcelsius wird dieser WebService aufgerufen und somit die Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar, welche im Folgenden näher erläutert wird.
+Eine weitere Möglichkeit stellen WebServices dar. Für die Umsetzung muss im SAP LRM der WebService implementiert werden. In Xcelsius wird dieser WebService aufgerufen und über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar, welche im Folgenden näher erläutert wird.
 
 \begin{figure}[h]
 \centering
@@ -490,19 +500,20 @@ Eine weitere Möglichkeit stellen WebServices dar. Für die Umsetzung muss im SA
 
 Dadurch, dass der Aufruf direkt im SAP LRM entgegen genommen wird und nicht indirekt z.B. über ein Universum erfolgt, können eventuelle Selektionsparameter dynamisch übergeben werden. Auch das Problem mit veralteten Daten besteht nicht, da die Berechnung bei jedem Aufruf nach Bedarf durchgeführt werden kann.
 
-Werden für die Umsetzung der WebServices Standards, wie z.B. HTTP für die Übertragung oder XML als Beschreibungssprache, können die Webservices auch von anderen Anwendungen verwendet werden. Dies ist für das Kriterium der Übertragbarkeit wichtig.
+Werden für die Umsetzung der WebServices offene Standards wie z.B. HTTP für die Übertragung oder XML als Beschreibungssprache eingesetzt, können die Webservices auch von anderen Anwendungen verwendet werden. Dies ist für das Kriterium der Übertragbarkeit wichtig.
 
-Zu der Übertragbarkeit kommt hinzu, dass eine gute Modularisierung und Wiederverwendbarkeit erreicht werden kann. Die anzubietende Funktionalität kann auf mehrere kleine WebServices aufgeteilt werden. Es entstehen voneinander unabhängige Teile, die leichter gewartet und unabhängig voneinander verwendet werden können. In Xcelsius müssten diese Teile dann orchestriert werden.
+Außerdem kommt hinzu, dass eine gute Modularisierung und Wiederverwendbarkeit erreicht werden kann. Die anzubietende Funktionalität kann auf mehrere kleine WebServices aufgeteilt werden. Es entstehen voneinander unabhängige Teile, die leichter gewartet und unabhängig voneinander verwendet werden können. In Xcelsius müssen diese Teile dann orchestriert werden.
 
-Zudem wurden Teile des SAP LRM mit Hilfe eines internen Frameworks umgesetzt. Dieses bietet die Möglichkeit, Klassen automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem Liquiditätsszenarien und Laufzeitbänder. Somit könnten Teile der Webserviceumsetzung ohne großen Aufwand umgesetzt werden.
+Teile des Backends des SAP LRM wurden mit Hilfe eines internen Frameworks umgesetzt. Dieses bietet die Möglichkeit, festgelegte Klassen ohne zusätzlichen Programmieraufwand automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem die Liquiditätsszenarien und die Laufzeitbänder. Somit könnten Teile der Webserviceumsetzung ohne großen Aufwand umgesetzt werden.
 
-Ein mögliches Risiko der Orchestrierung von mehreren kleinen WebServices stellt die Performance dar. Der zusätzliche Aufwand für das Aufrufen von mehreren WebServices, in festgelegten Reihenfolgen und Abhängigkeiten, kann zu einer längeren gesamtlaufzeit führen. Zusätzlich führt der Ausfall eines Teil-WebServices zur funktionsunfähigkeit des gesamten Systems.
+Ein mögliches Risiko dieser Umsetzungsmöglichkeit stellt die Performance dar. Der zusätzliche Aufwand für das Aufrufen von mehreren WebServices, in festgelegten Reihenfolgen und Abhängigkeiten, kann zu einer längeren Gesamtlaufzeit führen. Zusätzlich führt der Ausfall eines Teil-WebServices zur Funktionsunfähigkeit des gesamten Systems.
 
-Xcelsius bietet zwar eine Möglichkeit zur Einbindung von einzelnen WebServices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des Xcelsius SDKs entwickelt werden.
+Xcelsius bietet zwar eine Möglichkeit zur Einbindung von einzelnen WebServices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des Xcelsius SDK entwickelt werden.
 
 \section{Gegenüberstellung und Auswahl der Umsetzungsmöglichkeiten}
 
 % TODO Text schreiben
+Für die Auswahl der im Rahmen der Bachelorarbeit angewendenten Umsetzungsmöglichkeit wurden die Vor- und Nachteile von beiden Alternativen ermittelt und in Tabelle X [TODO] gegenübergestellt.
 
 {
 \setlength{\extrarowheight}{2pt}
@@ -557,6 +568,12 @@ WebServices 			&
 \caption{[TODO] \label{table:vergleich_umsetzung}}
 \end{table}
 }
+
+Dabei fällt auf, dass die Umsetzung mit Hilfe von Universen im Vergleich zu der Umsetzung über WebServices deutlich weniger Vorteile bietet bietet. Gleichzeitig bieten die Universen zusätzlich not mehr Nachteile. Unter diesen Nachteilen findet sich auch die ungelöste Frage der Parameterübergabe und die fehlende Übertragbarkeit auf andere Anwendungen, welche als wichtige Anforderung definiert ist.
+
+Aus diesen Gründen wurde sich für die weitere Vorgehensweise für die Umsetzung mit Hilfe von WebServices entschieden.
+
+
 
 \section{Zusammenfassung}
 
