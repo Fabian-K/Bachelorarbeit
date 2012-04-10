@@ -25,6 +25,12 @@
 	\label{anf:#1}
 }
 
+\newcommand{\anfRef}[1]{
+\ifthenelse {\equal{\pageref{#1}}{\thepage}}    {Anforderung \ref{#1} (A\ref{#1})}{Anforderung \ref{#1} (A\ref{#1} auf \pageref{#1})}
+}
+
+\newcommand{\usecaseRef}[1]{\ifthenelse {\equal{\pageref{#1}}{\thepage}}{}{ auf \pageref{#1}}}
+
 \newcommand{\useCaseItem}[2]{
 \item[~~\textbf{#1}] #2
 }
@@ -349,7 +355,8 @@ Neben der Kennzahlenanalyse existiert die Finanzierungsmatrix. Hier sollen nicht
 
 Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit besteht, die Ergebnisse der Berechnungen in irgendeiner Form in anderen Auswertungen, zum Beispiel Auswertungen die die gesamte Situation der Bank beschrieben, einzubinden. Des Weiteren besteht bei der Darstellung der Ergebnisse keine Formatierungsmöglichkeit. Somit sind zum Beispiel Farbe, Form und Größe des Diagramms fest vorgegeben und nicht durch den User änderbar.
 
-\section{Zielsetzung} \label{sec:zielsetzung}
+\section{Zielsetzung}
+\label{sec:zielsetzung}
 
 Im Rahmen dieser Bachelorarbeit sollen einige Limitierungen, die in der aktuellen Version des SAP LRM vorhanden sind, aufgehoben werden. Hier ist vor allem die Bereitstellung von weiteren Alternativen zu nennen. Neben der Sicht auf die Liquiditätssituation der Bank durch die beiden Einstiegspunkte Kennzahlenanalyse und der Finanzierungsmatrix im SAP LRM soll diese Auswertung mit Hilfe von weiteren Anwendungen durchgeführt werden können.
 
@@ -361,7 +368,7 @@ Insgesamt soll die Anbindung des SAP LRM mit möglichst wenig erforderlichen Ein
 
 \section{Anforderungen}
 
-Für die Erweiterung werden im Rahmen der Spezifikation einige Anforderungen definiert. Die Anforderungen werden zunächst in funktionale und nicht funktionale Anforderungen unterteilt. 
+Für die Erweiterung werden im Rahmen der Spezifikation einige Anforderungen definiert. Die Anforderungen werden zunächst in funktionale und nicht-funktionale Anforderungen unterteilt. 
 
 Bei den funktionalen Anforderungen existieren die zwei folgenden Hauptanforderungen:
 
@@ -375,36 +382,36 @@ Mit der Erweiterung soll die Einbindung der Ergebnisse von beliebigen Liquiditä
 
 \end{seToplist}
 
-Durch die Umsetzung dieser beiden  Anforderungen können die Ziele, die im ~\ref{sec:zielsetzung} festgelegt sind erreicht werden. Dadurch bieten sich für den Nutzer für die Auswertung und Analyse der Liquiditätssituation einer Bank zusätzliche Möglichkeiten.
+Durch die Umsetzung dieser beiden  Anforderungen können die Ziele, die im \vref{sec:zielsetzung} festgelegt sind, erreicht werden. Dadurch bieten sich für den Nutzer für die Auswertung und Analyse der Liquiditätssituation einer Bank zusätzliche Möglichkeiten.
 
-Neben den funktionalen Anforderungen wurden folgende nicht funktionale Anforderungen identifiziert. Diese sollen im Folgenden näher erläutert werden.
+Neben den funktionalen Anforderungen wurden folgende nicht-funktionale Anforderungen identifiziert. Diese sollen im Folgenden näher erläutert werden.
 
 \begin{seToplist}{ XXXXX }
 
-\item[\anfl{übertragbarkeit}] \textbf{Übertragbarkeit} \newline
+\item[\anfl{uebertragbarkeit}] \textbf{Übertragbarkeit} \newline
 Im Rahmen der Bachelorarbeit soll exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das SAP LRM implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
 
 \item[\anfl{korrektheit}] \textbf{Korrektheit der Ergebnisse} \newline
 Die Daten, die mit Hilfe der Erweiterung für zusätzliche Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des SAP LRM übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
 
 \item[\anfl{erweiterbarkeit}] \textbf{Erweiterbarkeit} \newline
-Das SAP LRM befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die ein Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand in die Erweiterung eingeführt werden können.
+Das SAP LRM befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die in einer Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand auch auf die Erweiterung übertragen werden können.
 
 \item[\anfl{wartbarkeit}] \textbf{Wartbarkeit} \newline
 Um die Folgekosten der Erweiterung, zum Beispiel im Hinblick auf die Beseitigung von Fehlern, möglichst gering zu halten, soll eine gute Wartbarkeit von Anfang an bei der Entwicklung beachtet werden.
 
 \item[\anfl{sicherheit}] \textbf{Sicherheitsanforderungen} \newline
-Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Es handelt sich um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
+Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Es handelt sich dabei um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
 
 \item[\anfl{leistung}] \textbf{Leistung} \newline
 Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch auf anderen Anwendungen verfügbar machen.
 
 \end{seToplist}
 
-Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigste Anforderungen sind Anforderung \vref{anf:übertragbarkeit} und Anforderung \vref{anf:korrektheit}, Anforderung \vref{anf:leistung} steht bei der Entwicklung nicht im Mittelpunkt.
+Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigste Anforderungen sind  \anfRef{anf:uebertragbarkeit} und \anfRef{anf:korrektheit}. \anfRef{anf:leistung} steht bei der Entwicklung nicht im Mittelpunkt.
 
 \section{Anwendungsfälle}
-Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im folgenden näher beschrieben. Der Anwendungsfall \vref{useCase:1} konkretisiert die Anforderung \vref{anf:kpi} und behandelt die Einsicht in wichtige Liquiditätskennzahlen einer Bank.
+Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im folgenden näher beschrieben. Der Anwendungsfall 1\usecaseRef{useCase:1} konkretisiert die \anfRef{anf:kpi} und behandelt die Einsicht in wichtige Liquiditätskennzahlen einer Bank.
 
 % TODO Seitenumbruch bei Anwendungsfällen checken
 \useCase{1: Liquiditätskennzahl einsehen}{ \label{useCase:1}
@@ -426,7 +433,7 @@ Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsf�
 
 }
 
-Der Anwendungsfall \vref{useCase:2} bezieht sich auf die Anforderung \vref{anf:fundingMatrix}. Hierbei geht es um die freie Analyse der Liquiditätssituation einer Bank.
+Der Anwendungsfall 2\usecaseRef{useCase:2} bezieht sich auf die \anfRef{anf:fundingMatrix}. Hierbei geht es um die freie Analyse der Liquiditätssituation einer Bank.
 
 \useCase{2: Liquiditätssituation analysieren}{ \label{useCase:2}
 
@@ -443,7 +450,7 @@ Der Anwendungsfall \vref{useCase:2} bezieht sich auf die Anforderung \vref{anf:f
 \useCaseItem{1}{Der zu analysierende Zeitraum wird mit dem Laufzeitband festgelegt}
 \useCaseItem{2}{Die Zielwährung der Analyse wird festgelegt}
 \useCaseItem{3}{Das Liquiditätsszenario wird festgelegt}
-\useCaseItem{4}{Die zu analysierende Liquiditätsgruppen werden festgelegt}
+\useCaseItem{4}{Die zu analysierenden Liquiditätsgruppen werden festgelegt}
 \useCaseItem{5}{Die Daten werden aus dem SAP LRM ermittelt}
 \useCaseItem{6}{Die Daten werden der Anwendung zur Verfügung gestellt}
 \end{seToplist}
