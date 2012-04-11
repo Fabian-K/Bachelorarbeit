@@ -37,9 +37,7 @@
 	\label{anf:#1}
 }
 
-\newcommand{\anfRef}[2]{
-\ifthenelse {\equal{\pageref{#1}}{\thepage}}    {Anforderung \ref{#1} #2(A\ref{#1})}{Anforderung \ref{#1} #2(A\ref{#1} auf \pageref{#1})}
-}
+\newcommand{\anfRef}[2]{\ifthenelse {\equal{\pageref{#1}}{\thepage}}    {Anforderung \ref{#1} #2(A\ref{#1})}{Anforderung \ref{#1} #2(A\ref{#1} auf \pageref{#1})}}
 
 
 \newcommand{\usecaseRef}[1]{\ifthenelse {\equal{\pageref{#1}}{\thepage}}{}{ auf \pageref{#1}}}
@@ -62,6 +60,12 @@
 \end{mdframed}
 
 }
+
+
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\floatpagefraction}{0.35}
 
 \setcounter{totalnumber}{1} % maximale Anzahl Gleitobjekte pro Seite
 
@@ -325,15 +329,15 @@ An das Document ist mittels COM/OLE [TODO] Microsoft Excel angebunden. Speichern
 
 Für den Export des fertigen Dashboards existiert der SWF Generator. Aus dem Document und den Daten und Formeln, die in Microsoft Excel erstellt wurden, wird eine .swf Datei generiert. In dieser werden nun alle Berechnungen, die bis jetzt von Microsoft Excel übernommen wurden, von einer weiteren Hilfsklasse, der Spreadsheet Engine berechnet.\seFootcite{vgl.}{}{Xcelsius-Arch.09}
 
-% TODO Ende einfügen?! Abschließende Worte
+%TODO Ende einfügen?! Abschließende Worte
 
 \subsection{Erweiterungsmöglichkeiten}
 
-Durch die Einstellungsmöglichkeiten der einzelnen Komponenten und die Einbindung des vollen Funktionsumfang von Microsoft Excel ist Xcelsius von sich aus sehr flexibel. Zusätzlich dazu existiert noch ein SDK [TODO Glos?] mit dem komplett eigene Komponenten erstellt werden können. Dadurch ist es möglich, Xcelsius um nahezu beliebige Funktionen zu erweitern.
+Durch die Einstellungsmöglichkeiten der einzelnen Komponenten und die Einbindung des vollen Funktionsumfang von Microsoft Excel ist Xcelsius von sich aus sehr flexibel. Zusätzlich dazu existiert noch ein \gls{glos:sdk} mit dem komplett eigene Komponenten erstellt werden können. Dadurch ist es möglich, Xcelsius um nahezu beliebige Funktionen zu erweitern.
 
-Die Erweiterungen, die mit dem SDK programmiert werden können, müssen auf dem Adobe Flex SDK 2.0.1 basieren. Die Programmiersprache ist Action Script [TODO Glos]. Es können drei verschiedene Typen von Erweiterungen mit dem SDK entwickelt werden. Dabei handelt es sich um visuelle Komponenten, die später auf dem erstellten Dashboard dargestellt werden, um Datenverbindungen, die nicht auf dem Dashboard angezeigt werden, sondern nur im Hintergrund aktiv sind und in der Regel Daten in das Excel eintragen. Die dritte Möglichkeit ist die Erweiterung der Steuerungslogik von Excel, spielt aber im Rahmen dieser Bachelorarbeit keine Rolle. \footnote{\seCite{vgl.}{S.229}{Egg.09} \seCite{und}{S.3f}{Xcelsius-SDK.08}}
+Die Erweiterungen, die mit dem \gls{glos:sdk} programmiert werden können, müssen auf dem Adobe Flex SDK 2.0.1 basieren. Die Programmiersprache ist Action Script [TODO Glos]. Es können drei verschiedene Typen von Erweiterungen mit dem \gls{glos:sdk} entwickelt werden. Dabei handelt es sich um visuelle Komponenten, die später auf dem erstellten Dashboard dargestellt werden, um Datenverbindungen, die nicht auf dem Dashboard angezeigt werden, sondern nur im Hintergrund aktiv sind und in der Regel Daten in das Excel eintragen. Die dritte Möglichkeit ist die Erweiterung der Steuerungslogik von Excel, spielt aber im Rahmen dieser Bachelorarbeit keine Rolle. \footnote{\seCite{vgl.}{S.229}{Egg.09} \seCite{und}{S.3f}{Xcelsius-SDK.08}}
 
-Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat von einander entwickelt werden können. Der erste Teil ist für die Darstellung der Komponente auf dem Zeichenblatt des Dashboards verantwortlich. Der zweite Teil übernimmt die Darstellung der Eigenschaften, die die Komponente bieten soll. Es ist gleichzeitig die Verbindung zwischen Xcelsius und der entwickelten Komponente. Die Logik der Komponente kann je nach Bedarf auf beide Teile verteilt werden. Das Ergebnis der Entwicklung der beiden Teilkomponenten sind zwei kompilierte .swf Dateien [TODO !?]. Diese Dateien, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler werden mit dem Xcelsius SDK zu einem Xcelsius Plugin zusammengefügt. Dieses kann dann in Xcelsius importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}} Den Vorgang zeigt \vref{fig:xcelsius_plugin}.
+Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat von einander entwickelt werden können. Der erste Teil ist für die Darstellung der Komponente auf dem Zeichenblatt des Dashboards verantwortlich. Der zweite Teil übernimmt die Darstellung der Eigenschaften, die die Komponente bieten soll. Es ist gleichzeitig die Verbindung zwischen Xcelsius und der entwickelten Komponente. Die Logik der Komponente kann je nach Bedarf auf beide Teile verteilt werden. Das Ergebnis der Entwicklung der beiden Teilkomponenten sind zwei kompilierte .swf Dateien [TODO !?]. Diese Dateien, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler werden mit dem Xcelsius \gls{glos:sdk} zu einem Xcelsius Plugin zusammengefügt. Dieses kann dann in Xcelsius importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}} Den Vorgang zeigt \vref{fig:xcelsius_plugin}.
 
 \begin{figure}[h]
 \centering
@@ -403,15 +407,15 @@ Mit der Erweiterung soll die Einbindung der Ergebnisse von beliebigen Liquiditä
 
 Durch die Umsetzung dieser beiden  Anforderungen können die Ziele, die im \vref{sec:zielsetzung} festgelegt sind, erreicht werden. Dadurch bieten sich für den Nutzer bei der Auswertung und Analyse der Liquiditätssituation einer Bank zusätzliche Möglichkeiten.
 
-Neben den funktionalen Anforderungen wurden folgende nicht-funktionale Anforderungen identifiziert. Diese sollen im Folgenden näher erläutert werden:
+Neben den funktionalen Anforderungen wurden auch nicht-funktionale Anforderungen identifiziert. Diese sollen im Folgenden näher erläutert werden:
 
 \begin{seToplist}{ XXXXX }
 
 \item[\anfl{uebertragbarkeit}] \textbf{Übertragbarkeit} \newline
-Im Rahmen der Bachelorarbeit soll exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das SAP LRM implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
+Im Rahmen der Bachelorarbeit wird exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das SAP LRM implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
 
 \item[\anfl{korrektheit}] \textbf{Korrektheit der Ergebnisse} \newline
-Die Daten, die mit Hilfe der Erweiterung für zusätzliche Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des SAP LRM übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
+Die Daten, die mit Hilfe der Erweiterung in zusätzlichen Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des SAP LRM übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
 
 \item[\anfl{erweiterbarkeit}] \textbf{Erweiterbarkeit} \newline
 Das SAP LRM befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die in einer Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand auch auf die Erweiterung übertragen werden können.
@@ -488,11 +492,13 @@ Der Anwendungsfall 2\usecaseRef{useCase:2} bezieht sich auf die \anfRef{anf:fund
 
 \chapter{Umsetzungsmöglichkeiten}
 \section{Einleitung}
-\section{Rahmenbedingungen} % TODO verweis auf Kapitel einfügen
+\section{Rahmenbedingungen}
 Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von Xcelsius in \vref{sec:xcelsius}, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des SAP LRM zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem konkreten Beispiel von Xcelsius umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von Xcelsius an das SAP LRM. Gleichzeitig soll aber bei der Analyse und dem Entwurf die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wenn möglich weiterhin beachtet werden.
 
 \section{BusinessObjects Universum}
 Eine Möglichkeit, externe Daten in Xcelsius zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantsiche Ebene, die es ermöglicht Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
+
+%TODO Fußnote zu Sternschema und normalisierter Form schreiben
 
 Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden.\footnote{[TODO]Erklärung normalisiert und Sternschema} Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
 
@@ -509,7 +515,7 @@ Die Einbindung von Universen wird in Xcelsius standardmäßig unterstützt. Es k
 
 Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt sich die Frage, wie eventuelle Selektionsparameter von Xcelsius an die Berechnugnskomponente übergeben werden können. Zusätzlich muss die Berechnung durch die Berechnungskomponente manuell angestoßen werden, um die Tabelle mit den aktuellen Daten zu füllen. Eine automatische, periodische Berechnung, zum Beispiel durch einen eingeplanten Hintergrundprozess, würde stets veraltete Daten liefern.
 
-Schließlich sind Universen nur mit der Verwendung von BusinessObjects Anwendungen ausgelegt. Das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} kann somit nicht garantiert werden.
+Schließlich sind Universen nur für die Verwendung mit BusinessObjects Anwendungen ausgelegt. Das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} kann somit nicht garantiert werden.
 
 \section{Webservice}
 Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SAP LRM der Webservice implementiert werden. In Xcelsius wird dieser Webservice aufgerufen und somit über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar, welche im Folgenden näher erläutert wird.
@@ -530,11 +536,11 @@ Außerdem kommt hinzu, dass bei dieser Umsetzungsmöglichkeit eine gute Modulari
 
 %TODO Pagnia fragen nach Backend -> englischer Begriff?
 %TODO Framework erklären?!
-Teile des Backends des SAP LRM wurden mit Hilfe eines internen Frameworks umgesetzt. Dieses bietet die Möglichkeit, bestimmte Klassen ohne zusätzlichen Programmieraufwand automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem die Liquiditätsszenarien und die Laufzeitbänder. Somit könnten Teile der Webserviceumsetzung ohne großen Aufwand umgesetzt werden.
+Teile des Backends des SAP LRM wurden mit Hilfe eines  Frameworks umgesetzt. Dieses bietet die Möglichkeit, bestimmte Klassen ohne zusätzlichen Programmieraufwand automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem die Liquiditätsszenarien und die Laufzeitbänder. Somit könnten Teile der Webservices ohne großen Aufwand umgesetzt werden.
 
-Ein mögliches Risiko dieser Umsetzungsmöglichkeit stellt die \anfRef{anf:leistung}{an die Performance }dar. Der zusätzliche Aufwand für das Aufrufen von mehreren Webservices, in festgelegten Reihenfolgen und Abhängigkeiten, kann zu einer längeren Gesamtlaufzeit führen. Zusätzlich führt der Ausfall eines Teil-Webservices zur Funktionsunfähigkeit der gesamten Erweiterung.
+Ein mögliches Risiko dieser Umsetzungsmöglichkeit stellt die \anfRef{anf:leistung}{an die Performance }dar. Der zusätzliche Aufwand für das Aufrufen von mehreren Webservices, in festgelegten Reihenfolgen und Abhängigkeiten, kann zu einer längeren Gesamtlaufzeit führen. Zusätzlich führt der Ausfall eines Teil-Webservice zur Funktionsunfähigkeit der gesamten Erweiterung.
 
-Xcelsius bietet zwar eine Möglichkeit zur Einbindung von einzelnen Webservices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des Xcelsius SDK entwickelt werden.
+Xcelsius bietet zwar eine Möglichkeit zur Einbindung von einzelnen Webservices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des Xcelsius \gls{glos:sdk} entwickelt werden.
 
 \section{Gegenüberstellung und Auswahl der Umsetzungsmöglichkeiten}
 
@@ -609,7 +615,7 @@ Aus diesen Gründen wurde sich für die weitere Vorgehensweise für die Umsetzun
 
 \subsection{Überblick}
 %TODO Pagnia fragen, verweis auf Unterkapitel als Kapitel im Text ok?!
-In diesem Abschnitt wird der Analyseprozess der Entwicklung näher betrachtet. Die Ermittlung der Anforderungen an die Anwendung, welches ein Teil der Analysephase ist, wurde in diesem Fall schon in dem Allgemeinen Teil der Bachelorarbeit in \vref{sec:anforderungen} durchgeführt. Die dort ermittelten Anforderungen werden ohne Änderungen übernommen und in dem Folgenden nicht noch einmal näher erläutert.
+In diesem Abschnitt wird der Analyseprozess der Entwicklung näher betrachtet. Die Ermittlung der Anforderungen an die Anwendung, welches ein Teil der Analysephase ist, wurde in diesem Fall schon in dem allgemeinen Teil der Bachelorarbeit in \vref{sec:anforderungen} durchgeführt. Die dort ermittelten Anforderungen werden ohne Änderungen übernommen und in dem Folgenden nicht noch einmal näher erläutert.
 
 Die Entwicklung der Erweiterung für Xcelsius kann in fünf Teilbereiche unterteilt werden. Sie werden für die Strukturierung der Analyse genutzt. Bei den Bereichen handelt es sich um folgende Teile:
 
@@ -626,12 +632,12 @@ Die Webservices werden konsumiert und zunächst in ein internes Objektformat umg
 Die Ergebnisse der Konsumierung der Webservices werden miteinander verbunden und in eine interne Zielobjektstruktur umgewandelt.
 
 \item[4] Dateiaustausch zwischen der Erweiterung und Xcelsius \newline
-Die Ergebnisse der Orchestrierung müssen in das Excel von Xcelsius geschrieben und Selektionsparameter aus dem Excel gelesen werden.
+Die Ergebnisse der Orchestrierung müssen in das Tabellenblatt von Xcelsius geschrieben und Selektionsparameter aus dem Tabellenblatt gelesen werden.
 
 \end{seToplist}
 
 \subsection{Grundlegende Architektur und Funktionsweise}
-In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-architektur}) die grundlegende Architektur der Lösung gegeben. Dabei werden Erweiterungen in zwei Systemen, dem SAP LRM und Xcelsius, umgesetzt. Gleichzeitig wird die grundlegende Funktionsweise gerade im Hinblick auf die Interaktion mit dem Nutzer näher gebracht.
+In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-architektur}) über die grundlegende Architektur der Lösung gegeben. Dabei werden Erweiterungen in zwei Systemen, dem SAP LRM und Xcelsius, umgesetzt. Gleichzeitig wird die grundlegende Funktionsweise, gerade im Hinblick auf die Interaktion mit dem Nutzer, näher gebracht.
 
 \begin{figure}[h]
 \centering
@@ -643,11 +649,11 @@ In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-archite
 Im SAP LRM System muss für jeden Webservice ein Webservice-Provider bereitgestellt werden. Der Webservice-Provider kann über einfache Funktionsaufrufe entweder Berechnungen über die Berechnungskomponente durchführen lassen, oder auf Objekte des SAP LRM, wie zum Beispiel einem Laufzeitband oder eine Liquiditätsgruppe zugreifen. Das Ergebnis liefert er über das \gls{HTTP} im \gls{XML}-Format.
 
 %TODO Plugin erklären ?! -> Pagnia fragen
-Die drei restlichen Teile, die im Überblick eingeführt wurden, werden in einem Plugin für Xcelsius Implementiert. Dazu Zählt die Konsumierung der bereitgestellten Services und anschließend die Orchestrierung.
+Die drei restlichen Teile, die im Überblick eingeführt wurden, werden in einem Plugin für Xcelsius implementiert. Dazu zählt die Konsumierung der bereitgestellten Services und anschließend die Orchestrierung.
 
 Der Xcelsius-Adapter ist über ein Tabellenblatt die Schnittstelle für den Nutzer. Das Tabellenblatt wird dabei in zwei Bereiche unterteilt. Dies sind ein Daten- und ein Einstellungs-Teil. Die Ergebnisse der Erweiterung werden von dem Adapter in den Daten-Teil geschrieben. Damit endet die Zuständigkeit der Erweiterung. Der Nutzer kann die Daten beliebig weiterverarbeiten, in der Regel wird er sie mit Diagrammen visualisieren.
 
-Die Selektionsparameter, die zum Beispiel für die Berechnungskomponente im SAP LRM gebraucht werden (siehe dazu \vref{sec:berechnungskomponente:parameter})werden aus dem Einstellungs-Teil des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die Xcelsius standardmäßig bereitstellt.
+Die Selektionsparameter, die zum Beispiel für die Berechnungskomponente im SAP LRM gebraucht werden (siehe dazu \vref{sec:berechnungskomponente:parameter}), werden aus dem Einstellungs-Teil des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die Xcelsius standardmäßig bereitstellt.
 
 Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem SAP LRM in Xcelsius bereit. In welcher Form die Daten weiter verarbeitet werden, wird bewusst komplett offengelassen.
 
@@ -661,7 +667,7 @@ Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und 
 \caption{Klassendiagramm der Analysephase \label{fig:klassendiagramm_analyse}}
 \end{figure}
 
-Das Kernstück der Erweiterung ist die Klasse \class{Orchestrator}. Hier ist die komplette Logik der Orchestrierung für die Kennzahlenanalyse und die Finanzierungsmatrix hinterlegt, d.h. die Ergebnisse der einzelnen Webservices werden kombiniert. Dazu existieren die entsprechenden Methoden \method{updateKPI()} und \method{updateFundingMatrix()}. Für den Datenaustausch mit dem Tabellenblatt von Xcelsius existiert zwischen der Klasse \class{Orchestrator} und der Klasse \class{XcelsiusAdapter} eine 1:1 Assoziation.
+Das Kernstück der Erweiterung ist die Klasse \class{Orchestrator}. Hier ist die komplette Logik der Orchestrierung für die Kennzahlenanalyse und die Finanzierungsmatrix hinterlegt, das heißt die Ergebnisse der einzelnen Webservices werden kombiniert. Dazu existieren die entsprechenden Methoden \method{updateKPI()} und \method{updateFundingMatrix()}. Für den Datenaustausch mit dem Tabellenblatt von Xcelsius existiert zwischen der Klasse \class{Orchestrator} und der Klasse \class{XcelsiusAdapter} eine 1:1 Assoziation.
 
 Die Klasse \class{XcelsiusAdapter} stellt die Verbindung zwischen der Erweiterung und dem Tabellenblatt von Xcelsius dar. Mit der Methode \method{writeToXcelsius()} können Daten in das Tabellenblatt geschrieben werden. Zum Lesen von Daten existiert die Methode \method{readFromXcelsius()}.
 
@@ -672,7 +678,7 @@ Um die Webservices abstrahiert darstellen zu können, nutzt ein \class{ObjectPro
 Die Klasse \class{WebServiceProvider} muss im SAP LRM implementiert werden. Sie nimmt die Anfragen der Erweiterung über das \gls{HTTP} entgegen, liest die entsprechenden Objekte aus der Datenbank und serialisiert sie im \gls{XML}-Format.
 
 \subsection{Dynamisches Modell}
-Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgenden exemplarisch der Ablauf einer Anfrage durch einen Nutzer in einem Sequenzdiagramm in \vref{fig:sequenz_analyse} dargestellt.
+Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgenden exemplarisch der Ablauf einer Anfrage durch einen Nutzer erläutert. Das entsprechende Sequenzdiagramm ist in \vref{fig:sequenz_analyse} dargestellt.
 
 \begin{figure}[h]
 \centering
@@ -698,7 +704,7 @@ Dadurch stehen die Daten dem Nutzer in Xcelsius zur Verfügung. Der Aufruf von \
 \section{Entwurf}
 
 \subsection{Orchestrierung der Webservices}
-Durch die Verwendung eines ABAP-Frameworks zur Implementierung von wichtigen Klassen im LRM, existieren schon Webservices, die für die Erweiterungen genutzt werden können. Bei den Klassen handelt es sich um:
+Durch die Verwendung eines ABAP-Frameworks zur Implementierung von wichtigen Klassen im SAP LRM, existieren schon Webservices, die für die Erweiterungen genutzt werden können. Bei den Klassen handelt es sich um:
 
 \begin{seList}
 \item Laufzeitband
@@ -706,9 +712,9 @@ Durch die Verwendung eines ABAP-Frameworks zur Implementierung von wichtigen Kla
 \item Liquiditätsgruppe
 \end{seList}
 
-Hierfür bietet das Framework eine Schnittstelle, mit der auf die Objekte über das Atom-\gls{XML}-Format [TODO] zugegriffen werden kann. Diese Services werden in der Erweiterung genutzt werden. Zusätzlich befindet sich eine iPad-App in Entwicklung. Für diese wurden zwei weitere Webservices entwickelt, die dem Zugriff auf KPIs und die FundingMatrix bieten.
+Hierfür bietet das Framework eine Schnittstelle, mit der auf die Objekte über das \gls{glos:atom} zugegriffen werden kann. Diese Webservices können in der Erweiterung genutzt werden. Zusätzlich befindet sich eine iPad-App für das SAP LRM in Entwicklung. Für diese wurden zwei weitere Webservices entwickelt, die dem Zugriff auf Kennzahlen und die Finanzierungsmatrix bieten.
 
-Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das Ziel ist immer der Zugriff auf den FundingMatrix Service oder den KPI Service. Die Abhängigkeiten der jeweiligen Services sind in \vref{fig:webservice_abhaengigkeiten} dargestellt und sollen im Folgenden erläutert werden:
+Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das Ziel ist immer der Zugriff auf den Webservice der Finanzierungsmatrix oder den Webservice für die Kennzahlen. Die Abhängigkeiten der jeweiligen Webservices sind in \vref{fig:webservice_abhaengigkeiten} dargestellt und sollen im Folgenden erläutert werden:
 
 \begin{figure}[h]
 \centering
@@ -719,9 +725,9 @@ Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das
 
 
 % TODO Einheitliche Schreibweise!
-Der FundingMatrix Webservice ruft bei einem Aufruf die Berechnungskomponente des SAP LRM auf und muss demnach mit den vier Parametern versorgt werden (TODO siehe X). Es besteht eine Abhängigkeit zu dem drei Webservices, die automatisch durch das Framework  bereit stehen. Der LiquiGroup Service ist so umgesetzt, dass er ein LiquiditäsSzenario als Parameter erwartet und darauf alle möglichen Liquiditätsgruppen zurückliefert -- auch hier besteht eine Abhängigkeit.
+Der Webservice der Finanzierungsmatrix ruft bei einem Aufruf die Berechnungskomponente des SAP LRM auf und muss demnach mit den vier erforderlichen Parametern versorgt werden (siehe dazu \vref{sec:berechnungskomponente:parameter}). Es besteht eine Abhängigkeit zu den drei Webservices, die automatisch durch das Framework  bereit stehen. Der Webservice der Liquiditätsgruppen ist so umgesetzt, dass er ein Liquiditässzenario als Parameter erwartet und darauf alle möglichen Liquiditätsgruppen zurückliefert -- auch hier besteht eine Abhängigkeit.
 
-Der KPI Webservice erfordert keine Parameter und kann eigenständig aufgerufen werden. Er liefert alle fest definierten KPIs im System zurück. Das Resultat beinhaltet allerdings nicht alle Informationen, zum Beispiel zu dem verwendeten Liquiditätsszenario für die Berechnung oder der hinterliegenden Liquiditätsgruppe. Das Ergebnis kann also durch weitere Webservice Aufrufe angereichert werden.
+Der Webservice der Kennzahlen erfordert keine Parameter und kann eigenständig aufgerufen werden. Er liefert alle Kennzahlen, die im SAP LRM angelegt und verfügbar sind. Das Resultat beinhaltet allerdings nicht alle Informationen, zum Beispiel zu dem verwendeten Liquiditätsszenario für die Berechnung oder der hinter liegenden Liquiditätsgruppe. Das Ergebnis kann also durch weitere Aufrufe von Webservices angereichert werden.
 
 \subsection{Statisches Modell}
 Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durchgeführt und das Resultat der Analyse auch im Hinblick auf die Performance untersucht und optimiert. Das sich daraus ergebene Klassendiagramm ist in \vref{fig:klassendiagramm_entwurf} zu sehen.
@@ -735,23 +741,25 @@ Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durc
 \caption{Klassendiagramm der Entwurfsphase\label{fig:klassendiagramm_entwurf}}
 \end{figure}
 
-Objekte, wie zum Beispiel ein LiquiditätsSzenario oder ein Laufzeitband, werden nur einmal angelegt und danach in der Regel nicht mehr geändert. Bei der Orchestrierung der Webservices müsste allerdings nach dem Ergebnis der Analyse jedes Mal eine Abfrage gestartet werden. Dafür wird die Klasse \class{ObjectProvider} durch die neu hinzugefügte Klasse CachedObjectProvider erweitert. Ein CachedObjectProvider hält alle Objekte, die schon einmal angefragt wurden, in einem internen Cache und liefert bei einer erneuten Nachfrage das Objekt aus dem Cache zurück, ohne einen neuen Webservice aufruf zu starten.
+Objekte, wie zum Beispiel ein Liquiditätsszenario oder ein Laufzeitband, werden nur einmal angelegt und danach in der Regel nicht mehr geändert. Bei der Orchestrierung der Webservices müsste allerdings nach dem Ergebnis der Analyse jedes Mal eine neue Abfrage gestartet werden. Um das zu verhindern wird die Klasse \class{ObjectProvider} durch die neu hinzugefügte Klasse \class{CachedObjectProvider} erweitert. Ein \class{CachedObjectProvider} hält alle Objekte, die schon einmal angefragt wurden, in einem internen Cache und liefert bei einer erneuten Nachfrage das Objekt aus dem Cache zurück, ohne einen neuen Webservice aufrufen zu müssen.
+
+Für das Ermitteln der aktuellen Einstellungen, die der Nutzer in dem Tabellenblatt von Xcelsius hinterlegt hat, wurde die Klasse \class{SettingProvider} hinzugefügt. Der \class{SettingProvider} nutzt den \class{XcelsiusAdapter} zum Auslesen des Tabellenblattes und liefert über die Methode \method{getSetting()} alle erforderlichen Einstellungen für die Abfragen der Webservices zurück. Dadurch kann der \class{XcelsiusAdapter} sich rein auf das funktionale Lesen und Schreiben des Tabellenblattes beschränken und von der Logik, welche Zelle wie ausgelesen werden muss, befreit werden.
 
 Für den einfachen Zugriff auf die einzelnen \class{ObjectProvider} wurde der Klasse \class{Orchestrator} die Hilfsmethode \method{getProviderForType()} hinzugefügt. Die später von dem Nutzer aufgerufenen Methoden \method{updateKPI()} und \method{updateFundingMatrix()} nutzen die neuen Hilfsmethoden \method{getKIP()} und \method{getFundingMatrix()}. Durch die neue Signatur kann der \class{XcelsiusAdapter} und der \class{SettingProvider} einfacher angebunden werden.
-% TODO Generell klassenschreibweise?!
-Zudem legt mit der Klasse OrchestratorResult die Zielobjektstruktur der Orchestrierung fest. Eine Instanz der Klasse OrchestratorResult besteht dabei aus beliebig vielen Result-Instanzen. Genauer gesagt wird für jede abgefragte Liquiditätsgruppe eine Result-Instanz erzeugt.
 
-Eine ResultInstanz hat zum einen mehrere Parameter. Diese sind, um eine gute Erweiterbarkeit zu erreichen, in einfachen Key-Value Paaren verwaltet. Beispiele für Parameter können die Liquiditätsgruppe und das genutzte Szenario sein. Zum Anderen werden in dem Attribut values die einzelnen Werte gespeichert.
 
-Die Werte beziehen sich in ihrer Reihenfolge auf das zugrundeliegende MaturityBand. Dieses ist für alle Results-Instanzen das gleiche und ist deshalb nur einmal als Atttribut des OrchestratorResult vorhanden. Die einzelnen Abschnitte des MaturityBand sind in dem Attribut parts abgelegt. Ein MaturityBandPart hat eine Beschreibung, ein Start und ein End-Datum.
+\label{sec:entwurf:statisch:orchestratorresult}
+Zudem legt mit der Klasse \class{OrchestratorResult} die Zielobjektstruktur der Orchestrierung fest. Eine Instanz der Klasse \class{OrchestratorResult} besteht dabei aus beliebig vielen \class{Result}-Instanzen. Genauer gesagt wird für jede abgefragte Liquiditätsgruppe eine \class{Result}-Instanz erzeugt.
 
-Für das Ermitteln der aktuellen Einstellungen, die der Nutzer in dem Tabellenblatt von Xcelsius hinterlegt hat, wurde die Klasse SettingProvider hinzugefügt. Der SettingProvider nutzt den \class{XcelsiusAdapter} zum Auslesen des Tabellenblattes und liefert über die Methode \method{getSetting()} alle erforderlichen Einstellungen für die Abfragen der Webservices zurück. Dadurch kann der XcelsiusAdapter sich rein auf das funktionale Lesen und Schreiben des Tabellenblattes beschränken und von der Logik, welche Zelle wie ausgelesen werden muss befreit werden.
+Eine \class{Result}-Instanz hat zum einen mehrere Parameter. Diese sind, um eine gute Erweiterbarkeit zu erreichen, in einfachen Key-Value Paaren verwaltet. Beispiele für Parameter können die Liquiditätsgruppe und das genutzte Liquiditätsszenario sein. Zum Anderen werden in dem Attribut \class{values} die einzelnen Werte gespeichert.
 
-Generell wurden Klassen um typisierte Attribute erweitert. Den Methoden wurde die Signatur hinzugefügt.
+Die Werte beziehen sich in ihrer Reihenfolge auf das zugrundeliegende Laufzeitband. Dieses ist für alle \class{Result}-Instanzen das gleiche und ist deshalb nur einmal als Atttribut des \class{OrchestratorResult} vorhanden. Die einzelnen Abschnitte des Laufzeitbandes sind in dem Attribut \class{parts} abgelegt. Ein Laufzeitbandabschnitt hat eine Beschreibung, ein Start und ein End-Datum.
+
+Generell wurden alle Klassen um typisierte Attribute erweitert. Den Methoden wurde die Signatur hinzugefügt.
 
 \subsection{Dynamisches Modell}
 
-An dem Dynamischen Modell sind in der Entwurfsphase nur kleinere Änderungen durch die neu hinzugekommenen Klassen durchgeführt worden. Das angepasste Sequenzdiagramm ist in \vref{fig:sequenz_entwurf} dargestellt.
+An dem Dynamischen Modell müssen in der Entwurfsphase nur kleinere Änderungen durch die neu hinzugekommenen Klassen durchgeführt werden. Das angepasste Sequenzdiagramm ist in \vref{fig:sequenz_entwurf} dargestellt.
 
 \begin{figure}[h]
 \centering
@@ -760,25 +768,25 @@ An dem Dynamischen Modell sind in der Entwurfsphase nur kleinere Änderungen dur
 \caption{Sequemzdiagramm der Entwurfsphase\label{fig:sequenz_entwurf}}
 \end{figure}
 
-In Abschnitt (1) ist die Einbindung des SettingProvider zu sehen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterfreien Methode updateKPI und der privaten Methode getKPI sehen. In der Orchestrierung wird nun auch ein CachedObjectProvider verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen Webservice abgefragt und in dem ObjectCache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren Webservice Aufruf direkt beantworten.
+In Abschnitt (1) ist die Einbindung des \class{SettingProvider} zu sehen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterfreien Methode \method{updateKPI()} und der privaten Methode \method{getKPI()} sehen. In der Orchestrierung wird nun auch ein \class{CachedObjectProvider} verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen Webservice abgefragt und in seinem Cache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren Aufruf eines Webservice direkt beantworten.
 
 \subsection{Zielstruktur in Xcelsius}
 Eine zentrale Rolle in der Erweiterung spielt die Übergabe der Ergebnisse der Orchestrierung an das Tabellenblatt von Xcelsius. Dies muss in einer Art und Weise geschehen, sodass der Nutzer die Daten später einfach weiterverarbeiten oder visualisieren kann.
 
-Diese Aufgabe wird von dem XcelsiusAdapter übernommen. Ausgangspunkt ist immer eine OrchestratorResult Instanz, welche das Ergebnis der Orchestrierung darstellt. Den Aufbau der Instanz ist in Abschnitt [TODO] \vref{} dargestellt. Diese Objektstruktur muss in eine Tabellenstruktur in Xcelsius umgewandelt werden. Ein konkretes Beispiel für die Objektstruktur zeigt \vref{fig:objektstruktur} [TODO], welches in \vref{tab:zielstruktur} [TODO] entsprechend umgesetzt ist.
+Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt ist immer eine \class{OrchestratorResult}-Instanz, welche das Ergebnis der Orchestrierung darstellt. Den Aufbau der Instanz ist in \vref{sec:entwurf:statisch:orchestratorresult} dargestellt. Diese Objektstruktur muss in eine Tabellenstruktur in Xcelsius umgewandelt werden. Ein konkretes Beispiel für die Objektstruktur zeigt \vref{fig:objektstruktur}, welches in \vref{tab:zielstruktur} entsprechend umgesetzt ist.
 
 \begin{figure}[h]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Entwurf-Objektstruktur.pdf}
-\caption{[TODO] WT Objektstruktur\label{fig:objektstruktur}}
+\caption{Interne Objektstruktur vor der Umwandlung durch den XcelsiusAdapter \label{fig:objektstruktur}}
 \end{figure}
 
 
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
 \begin{table}[htbp]
   \centering
-  \caption{[TODO]}
+  \caption{Ergebnis der Umwandlung durch den XcelsiusAdapter}
     \begin{tabular}{l|r|r}
     \toprule
     \textbf{Liquiditätsgruppe:} & \textbf{FLE} & \textbf{FLE} \\
@@ -792,16 +800,13 @@ Diese Aufgabe wird von dem XcelsiusAdapter übernommen. Ausgangspunkt ist immer 
   \label{tab:zielstruktur}%
 \end{table}%
 
+Die Tabellenstruktur soll folgendermaßen aufgebaut werden: Eine Ergebnissreihe wird immer in einer Spalte dargestellt. Dabei handelt es sich um alle Ergebniswerte, die für eine Liquiditätsgruppe ermittelt wurden. Die Ergebnisreihen sind in der Objektstruktur die \class{Ergebnis}-Instanzen. Die Werte sind in der ArrayCollection \class{values} gespeichert. Sie beziehen sich auf die einzelnen Abschnitte des zugrundeliegenden Laufzeitbandes.
 
+In der ersten Spalte werden die Abschnitte des Laufzeitbandes abgetragen. Diese können zum Beispiel später in einer Visualisierung als X-Achsenbeschriftung verwendet werden. In der Objektstruktur sind das die \instance{Laufzeitbandabschnitt}-Instanzen. In einer Zeile in der Tabellenstruktur sind demnach die Werte aller \class{Ergebnis}-Instanzen für ein Laufzeitbandabschnitt eingetragen.
 
+Über den eigentlichen Werten werden noch die Parameter eingetragen, die als Key-Value-Paar in der \class{Ergebnis}-Instanz vorhanden sind. Sie können bei einer Visualisierung als Beschriftung für eine Ergebnissreihe verwendet werden.
 
-
-
-Die Tabellenstruktur soll folgendermaßen aufgebaut werden: Eine Ergebnissreihe wird immer in einer Spalte dargestellt. Dabei handelt es sich um alle Ergebniswerte, die für eine Liquiditätsgruppe ermittelt wurden. Die Ergebnisreihen sind in der Objektstruktur die Result-Instanzen. Die Werte sind in der ArrayCollection values gespeichert. Sie beziehen sich auf die einzelnen Abschnitte des zugrundeliegenden Laufzeitbandes.
-
-In der ersten Spalte werden die Abschnitte des Laufzeitbandes abgetragen. Diese können zum Beispiel später in einer Visualisierung als X-Achenbeschriftung verwendet werden. In der Objektstruktur sind das die MaturityBandPart-Instanzen. In einer Zeile in der Tabellenstruktur sind demnach die Werte aller Ergebnisinstanzen für ein Laufzeitbandabschnitt eingetragen.
-
-Über den eigentlichen Werten werden noch die Parameter eingetragen, die als Key-Value-Paar in der Result-Instanz vorhanden sind. Sie können bei einer Visualisierung als Beschriftung für eine Ergebnissreihe verwendet werden.
+So entsteht die Tabellenstruktur in \vref{tab:zielstruktur}, welche durch den \class{XcelsiusAdapter} in das Tabellenblatt geschrieben wird. Dort können die Daten durch den Nutzer weiterverarbeitet werden.
 
 \section{Implementierung}
 \subsection{Flex Sandbox}
@@ -954,14 +959,14 @@ public override function deserialize(content:String):Object{
 \caption{[TODO]\label{[TODO]}}
 \end{programm}
 
-Die \class{ObjectProvider} und Deserializer für die weiteren Webservices sind analog dazu programmiert. Bei einem CachedObjectProvider wird in der getObject-methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cach befindet und dann direkt zurückgegeben. Ist es nocht nicht vorhanden, wird der WebServiceAufruf gestartet und nach der Deserializerung wird das Objekt im Cache für weitere Anfragen gehalten.
+Die \class{ObjectProvider} und Deserializer für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der getObject-methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cach befindet und dann direkt zurückgegeben. Ist es nocht nicht vorhanden, wird der WebServiceAufruf gestartet und nach der Deserializerung wird das Objekt im Cache für weitere Anfragen gehalten.
 
 \subsection{Xcelsius Binding}
-Für den Datenaustausch zwischen der entwickelten Erweiterung und dem Tabellenblatt von Xcelsius muss auf die bereitgestellten Funktionen des Xcelsius SDKs zurückgegriffen werden. Dabei wird das Konzept des Bindings genutzt.
+Für den Datenaustausch zwischen der entwickelten Erweiterung und dem Tabellenblatt von Xcelsius muss auf die bereitgestellten Funktionen des Xcelsius \gls{glos:sdk} zurückgegriffen werden. Dabei wird das Konzept des Bindings genutzt.
 
 Bei diesem Konzept wird ein Attribut einer Instanz fest mit einem Zellenbereich auf dem Tabellenblatt verbunden. Dabei kann es sich entweder um ein flaches Attribut, wie zum Beispiel eine Zeichenkette oder eine Zahl handeln, die dann mit einer einzelnen Zelle auf dem Tabellenblatt verbunden wird. Es kann allerdings auch auf Tabellenblatt-Seite ein Bereich festgelegt werden, der dann zum Beispiel mit einem zweidimensionalen Array verbunden wird.
 
-Für solch eine Verbindung muss zusätzlich noch eine Richtung festgelegt werden. Das Xcelsius SDK bietet dabei drei Möglichkeiten an:
+Für solch eine Verbindung muss zusätzlich noch eine Richtung festgelegt werden. Das Xcelsius \gls{glos:sdk} bietet dabei drei Möglichkeiten an:
 
 \begin{seToplist}{ XXX }
 
