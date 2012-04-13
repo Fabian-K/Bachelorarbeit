@@ -819,22 +819,23 @@ Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen be
 \caption{[TODO] [TODO Referenziereun!] \label{[TODO]}}
 \end{figure}
 
-Eine dieser Beschränkungen ist die Verhinderung von CrossDomainRequests [TODO]. Dabei handelt es sich um einen Webservice Aufruf, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für Xcelsius ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Da das SAP LRM nicht auf dem Computer läuft, sondern auf einem Server in einer eigenen Domain, ist das Konsumieren von Daten aus dem LRM erstmal nicht möglich, da es durch die Sanbox blockiert wird.
+Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für Xcelsius ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM erstmal nicht möglich, da es durch die Sandbox blockiert wird.
 
-Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es Möglich, dass der Anbieter des Webservice explizit feslegen kann, dass der Webservice auch von über verschiedene Domänen hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Dies wäre der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
+Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es Möglich, dass der Anbieter des Webservice explizit festlegen kann, dass der Webservice auch über verschiedene Domains hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Bei der Erweiterung wäre das der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
 
-Um diesen Aufwand zu umgehen, wurde der zweite Lösungsansatz umgesetzt. Hierbei wird auf dem Client ein lokaler Webserver installiert. Dieser WebServer ist über die domain localhost erreichbar. Alle Anfragen der Erweiterung gehen gegen den lokalen Webserver. Dadurch, dass er auch unter der domain localhost befindet, wird der Zugriff von der Sandbox zugelassen. Der WebServer stellt die Anfrage an den richtigen Webservice im SAP LRM und leitet die Antwort an die Erweiterung weiter.
+Um diesen Aufwand zu umgehen, wurde der zweite Lösungsansatz umgesetzt. Hierbei wird auf dem Client ein lokaler Webserver installiert. Dieser Webserver ist über die Domain localhost erreichbar. Alle Anfragen der Erweiterung gehen gegen den lokalen Webserver. Dadurch, dass die Flex-Anwendung auch unter der Domain localhost ausgeführt wird, ist der Zugriff erlaubt. Der Webserver stellt die Anfrage an den richtigen Webservice im SAP LRM und leitet die Antwort an die Erweiterung weiter.
 
-Für die Umsetzung wurde lokal ein Tomcat-Webserver installiert. Für diesen wurde ein einfaches Java-HttpServlet entwickelt, welches die geforderte Funktionalität umsetzt. Das Coding des Servlets ist in [TODO] zu sehen.
+Für die Umsetzung wurde lokal ein \gls{glos:tomcat}-Webserver installiert. Für diesen wurde ein einfaches Java-HttpServlet entwickelt, welches die geforderte Funktionalität umsetzt. Das Coding des Servlets ist in \vref{listing:servlet} zu sehen.
 
-Für die Zukunft sollte allerdings versucht werden, die Lösung über die crossdomain.xml-Datei umzusetzen. Dadurch entfällt der zusätzlich notwendige lokale WebServer.
+Für die Zukunft sollte allerdings versucht werden, die Lösung über die crossdomain.xml-Datei umzusetzen. Dadurch entfällt der zusätzlich notwendige lokale Webserver.
 
 \subsection{Asynchroner Programmablauf}
+\label{sec:asynchron}
 Im Vergleich zu dem Entwurf und der Analyse, bei dem alle Aufrufe synchron durchgeführt wurden, wird dies aus zwei Gründen in der Umsetzung auf hauptsächlich asynchrone Aufrufe umgestellt. Dabei handelt es sich um folgende Gründe:
 
-Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls sich bei der Orchestrierung die Antwort eines Webservice-Aufrufes verzögert, können trotzdem alle anderen Anfragen schon verarbeitet werden. Der dadurch gewonnene Vorteil ist aufgrund technischer Limitierungen leider nicht allzu groß, da die Anwendung später nur auf einem Thread ausgeführt wird und somit eine echt parallele Verarbeitung von zwei simultan erhaltenen Antworten nicht möglich ist.
+Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls sich bei der Orchestrierung die Antwort eines Aufruf eines Webservice verzögert, können trotzdem alle anderen Anfragen schon verarbeitet werden. Der dadurch gewonnene Vorteil ist aufgrund technischer Limitierungen leider nicht allzu groß, da die Anwendung später nur auf einem Thread ausgeführt wird und somit eine echt parallele Verarbeitung von zwei simultan erhaltenen Antworten nicht möglich ist. %TODO Erklärung, warum nur ein Thread?!
 
-Auf der anderen Seite wird für den Aufruf der WebSerivces in der Klasse \class{WebServiceConnector} die Flex-Klasse HTTPService verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nähmlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Das entsprechende Coding ist in Abbildung x dargestellt.
+Auf der anderen Seite wird für den Aufruf der Webservices in der Klasse \class{WebServiceConnector} die Flex-Klasse \class{HTTPService} verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nämlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei Callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Das entsprechende Coding ist in \vref{listing:ws_aufruf} dargestellt.
 
 \begin{programm}[h] % aus WebserviceConnector
 \begin{lstlisting}[language=ActionScript]
@@ -860,18 +861,19 @@ public function onHttpRequestFailure(event:FaultEvent){
 	// ...
 }
 \end{lstlisting}
-\caption{[TODO]\label{[TODO]}}
+\caption{Aufruf eines Webservice in der Erweiterung\label{listing:ws_aufruf}}
 \end{programm}
 
-Durch die Asynchronität ändert sich entsprechend die Signatur der Methoden. Der Rückgabewert entfällt, stattdessen wird ein zusätzlicher Parameter mitgegeben. Bei ActionScript kann dies entweder eine Methode eines Objektes sein (siehe dazu Listing oben [TODO]. Alternativ kann auch eine Objekt-Instanz übergeben werden. Auf dieser Instannz wird dann zu dem entsprechenden Zeitpunkt eine festgelegte Methode aufgerufen.
+Durch die Asynchronität ändert sich entsprechend die Signatur der Methoden. Der Rückgabewert entfällt, stattdessen wird ein zusätzlicher Parameter mitgegeben. Bei ActionScript kann dies entweder eine Methode eines Objektes sein, siehe dazu \vref{listing:ws_aufruf}. Alternativ kann auch eine Objekt-Instanz übergeben werden. Auf dieser Instanz wird dann zu dem entsprechenden Zeitpunkt eine festgelegte Methode aufgerufen.
 
-Anfang und Ende eines Aufrufes von einem Webservice über den \class{ObjectProvider} und den Deserializer ist der Orchestrator. Dieser startet die Aufrufe in der Methode \method{getKPI()} oder \method{getFundingMatrix()} und erhält die Antworten durch die Asynchronität in beliebiger Reihenfolge in der Methode \method{onObjectProviderSuccess()}. Um die Aufrufe unterschieden und identifizieren zu können wird bei dem Aufruf ein RequestToken mitgegeben. Dieser wird weitergereicht und schließlich auch der Methode onObjectProviderSuccess als Parameter zurückgegeben.
+Anfang und Ende eines Aufrufes von einem Webservice über den \class{ObjectProvider} und den \class{Deserializer} ist der \class{Orchestrator}. Dieser startet die Aufrufe in der Methode \method{getKPI()} oder \method{getFundingMatrix()} und erhält die Antworten durch die Asynchronität in beliebiger Reihenfolge in der Methode \method{onObjectProviderSuccess()}. Um die Aufrufe unterscheiden und identifizieren zu können, wird bei dem Aufruf ein \class{RequestToken} mitgegeben. Dieser wird weitergereicht und schließlich auch der Methode \method{onObjectProviderSuccess()} als Parameter zurückgegeben.
 
-Um festzustellen, ob alle Anfragen erfolgreich zurückgekommen sind und somit mit der finalen Orchestrierung begonnen werden kann, werden die RequestToken in einer internen Liste verwaltet. Diese Liste enthält alle Anfragen, von denen die Antwort noch aussteht. [TODO was bei Fehler?!] Wird die Antwort erhalten, wird der Token aus der Liste entfernt, in einen ResultToken umgewandelt, indem das eigentliche Ergebnis angehängt wird, und in einer weiteren Liste zwischengespeichert. Wurden alle Anfragen erfolgreich beantwortet, kann die Orchestrierung durchgeführt werden. Die einzelnen Ergebnisse können dann aus der Liste mit den ResultToken-Instanzen bezogen werden.
+%TODO was bei Fehler -> unten
+Um festzustellen, ob alle Anfragen erfolgreich zurückgekommen sind und somit mit der finalen Orchestrierung begonnen werden kann, werden die \class{RequestToken} in einer internen Liste verwaltet. Diese Liste enthält alle Anfragen, von denen die Antwort noch aussteht.  Wird die Antwort erhalten, wird der Token aus der Liste entfernt, in einen \class{ResultToken} umgewandelt, indem das eigentliche Ergebnis angehängt wird, und in einer weiteren Liste zwischengespeichert. Wurden alle Anfragen erfolgreich beantwortet, kann die Orchestrierung durchgeführt werden. Die einzelnen Ergebnisse können dann aus der Liste mit den \class{ResultToken}-Instanzen bezogen werden.
 
-Die Methode onObjectProviderSuccess wird asynchron aufgerufen und verändert unter Anderem die beiden Listen zur Verwaltung der Token. Demnach handelt es sich hierbei normalerweise um einen kritischen Abschnitt, in dem kritische Daten verändert werden. Der Zugriff auf diese Methode müsste synchronisiert werden. Da aber die Anwendung später auf nur einem Thread ausgeführt wird, kann auf eine synchronisation verzichtet werden. % TODO Warum? Erklären!
+Die Methode \method{onObjectProviderSuccess()} wird asynchron aufgerufen und verändert unter Anderem die beiden Listen zur Verwaltung der Token. Demnach handelt es sich hierbei normalerweise um einen kritischen Abschnitt, in dem kritische Daten verändert werden. Der Zugriff auf diese Methode müsste synchronisiert werden. Da aber die Anwendung später auf nur einem Thread ausgeführt wird, kann auf eine Synchronisation verzichtet werden. % TODO Warum? Erklären!
 
-In [TODO] ist in allgemeiner Form der erläuterte Ablauf implementiert. Dabei werden zwei beliebige \class{ObjectProvider} abgefragt und die jeweiligen Ergebnisse können dann in gewünschter Weise orchestriert werden. Die in dem Beispiel verwendeten Klassen wurden teilweise vereinfacht und entsprechen nicht den Klassen in dem statischen Modell der Erweiterung.
+In \vref{listing:orchestrierung:webservices} ist in allgemeiner Form der erläuterte Ablauf implementiert. Dabei werden zwei beliebige \class{ObjectProvider} abgefragt. Die jeweiligen Ergebnisse können dann in gewünschter Weise orchestriert werden. Die in dem Beispiel verwendeten Klassen wurden teilweise vereinfacht und entsprechen nicht den Klassen in dem statischen Modell der Erweiterung.
 
 \begin{programm}[h] % aus WebServiceConnector
 \begin{lstlisting}[language=ActionScript]
@@ -909,26 +911,30 @@ private function getResultForRequest(request:String):Object{
 	throw "no result";
 }
 \end{lstlisting}
-\caption{[TODO]\label{[TODO]}}
+\caption{Beispielhafter Ablauf der Orchestrierung von Webservices\label{listing:orchestrierung:webservices}}
 \end{programm}
 
 \subsection{WebserviceAblauf}
-In diesem Abschnitt soll an dem Beispiel des FundingMatrix Webservice exemplarisch gezeigt werden, wie der Aufruf und die Umwandlung in ein internes Objektformat realisiert wird.
+In diesem Abschnitt soll an dem Beispiel des Finanzierungsmatrix-Webservice exemplarisch gezeigt werden, wie der Aufruf und die Umwandlung in ein internes Objektformat realisiert wird.
 
-Der Ausgangspunkt ist dazu der Orchestrator, der die getObject-Methode des FundingMatrixObjectProviders aufruft. Zunächst wird dann die passende URL für den Webservice-Aufruf auf Grundlage der Settings generiert. In diesem Fall werden über die URL die Parameter Liquiditätsgruppen, Liquiditätsszenarien, Laufzeitband und Zielwährung übergeben. Es wird eine WebserviceConnector-Instanz erzeugt und über die \method{consume()}-Methode des Connectors der eigentliche Aufruf gestartet. Entsprechend dem asynchronen Programmablauf [TODO Kapitelverweis] wird die eigene Instanz als Callback und der Request-Token mitgegeben.
+%TODO ist url evtl uri ?!
+%TODO URL als abkürzung
+Der Ausgangspunkt ist dazu der \class{Orchestrator}, der die \method{getObject}-Methode des \class{FundingMatrixObjectProviders} aufruft. Zunächst wird hier die passende URL für den Webservice-Aufruf auf Grundlage der Einstellungen generiert. In diesem Fall werden über die URL die Parameter Liquiditätsgruppen, Liquiditätsszenarien, Laufzeitband und Zielwährung übergeben. Es wird eine \class{WebserviceConnector}-Instanz erzeugt und über die \method{consume()}-Methode des \class{WebserviceConnectors} der eigentliche Aufruf gestartet. Entsprechend dem asynchronen Programmablauf, siehe dazu \vref{sec:asynchron}, wird die eigene Instanz als Callback und der \class{RequestToken} mitgegeben.
 
-Tritt bei dem Aufruf ein Fehler auf, wird asynchron die Methode onWebServiceFail aufgerufen. Der Fehler muss nur dem Orchestrator weitergeletet werden. Dazu wurde auch hier bei dem getObject-Aufruf eine Referenz auf den Orchestratro als Callback mitgegeben.
+%TODO Callback erklären?! Pagnia fragen
+Tritt bei dem Aufruf ein Fehler auf, wird asynchron die Methode \method{onWebServiceFail()} aufgerufen. Der Fehler muss nur dem \class{Orchestrator} weitergeleitet werden. Dazu wurde auch hier bei dem \method{getObject}-Aufruf eine Referenz auf den \class{Orchestrator} als Callback mitgegeben.
 
-Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die onWebServiceSuccess-Methode aufgerufen. Der Parameter ResultEvent enthält die Antwort des Webservice als Zeichenkette. Diese muss nun in die interne Objektstruktur umgewandelt werden. Dazu wird der FundingMatrixObjectDeserializer  verwendet. Die \gls{XML}-Eingabe für den Deserializer und die daraus generierte Objektstruktur ist in Abbildung [TODO] dargestellt.
+Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die \method{onWebServiceSuccess()}-Methode aufgerufen. Der Parameter \class{ResultEvent} enthält die Antwort des Webservice als Zeichenkette. Diese muss nun in die interne Objektstruktur umgewandelt werden. Dazu wird der \class{FundingMatrixObjectDeserializer}  verwendet. Die \gls{XML}-Eingabe für den \class{Deserializer} und die daraus generierte Objektstruktur ist in \vref{fig:umwandlung:ueberblick} dargestellt.
 
 \begin{figure}[h]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/umwandlung.png}
-\caption{[TODO] \label{[TODO]}}
+\caption{Umwandlung der XML-Antwort in die interne Objektstruktur\label{fig:umwandlung:ueberblick}}
 \end{figure}
 
-Bei der Deserializierung kann wiederum auf Hilfsklassen von Flex zugegriffen werden. Über die Klasse SimpleXMLDecoder kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode, der Umwandlung, wie sie in Abbildung [TODO] dargestellt ist, zeigt findet sich in Listing [TODO].
+Bei der Deserialisierung kann wiederum auf Hilfsklassen von Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode, der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, zeigt, findet sich in \vref{listing:deserialisierung}.
+%TODO satz kürzen
 
 \begin{programm}[h] % aus WebServiceConnector
 \begin{lstlisting}[language=ActionScript]
@@ -956,15 +962,15 @@ public override function deserialize(content:String):Object{
 	return result;
 }
 \end{lstlisting}
-\caption{[TODO]\label{[TODO]}}
+\caption{Deserialisierung des XML-Format in die interne Objektstruktur\label{listing:deserialisierung}}
 \end{programm}
 
-Die \class{ObjectProvider} und Deserializer für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der getObject-methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cach befindet und dann direkt zurückgegeben. Ist es nocht nicht vorhanden, wird der WebServiceAufruf gestartet und nach der Deserializerung wird das Objekt im Cache für weitere Anfragen gehalten.
+Die \class{ObjectProvider} und \class{Deserializer} für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der \method{getObject}-Methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cache befindet und dann direkt zurückgegeben. Ist es noch nicht vorhanden, wird der Webservice-Aufruf gestartet und nach der Deserialisierung wird das Objekt im Cache für weitere Anfragen gehalten.
 
 \subsection{Xcelsius Binding}
 Für den Datenaustausch zwischen der entwickelten Erweiterung und dem Tabellenblatt von Xcelsius muss auf die bereitgestellten Funktionen des Xcelsius \gls{glos:sdk} zurückgegriffen werden. Dabei wird das Konzept des Bindings genutzt.
 
-Bei diesem Konzept wird ein Attribut einer Instanz fest mit einem Zellenbereich auf dem Tabellenblatt verbunden. Dabei kann es sich entweder um ein flaches Attribut, wie zum Beispiel eine Zeichenkette oder eine Zahl handeln, die dann mit einer einzelnen Zelle auf dem Tabellenblatt verbunden wird. Es kann allerdings auch auf Tabellenblatt-Seite ein Bereich festgelegt werden, der dann zum Beispiel mit einem zweidimensionalen Array verbunden wird.
+Bei diesem Konzept wird ein Attribut einer Instanz fest mit einem Zellenbereich auf dem Tabellenblatt verbunden. Dabei kann es sich entweder um ein flaches Attribut, wie zum Beispiel eine Zeichenkette oder eine Zahl, handeln, die dann mit einer einzelnen Zelle auf dem Tabellenblatt verbunden wird. Es kann allerdings auch auf Tabellenblatt-Seite ein Bereich festgelegt werden, der dann zum Beispiel mit einem zweidimensionalen Array verbunden wird.
 
 Für solch eine Verbindung muss zusätzlich noch eine Richtung festgelegt werden. Das Xcelsius \gls{glos:sdk} bietet dabei drei Möglichkeiten an:
 
@@ -981,7 +987,7 @@ Bei dieser Verbindungsart findet zwischen dem Tabellenblatt ein beidseitiger Aus
 
 \end{seToplist}
 
-Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es werden nur Input oder Output-Bindings verwendet. Das Auslesen der gewählten Parameter findet über mehrere Input-Bindings statt. Für das Laufzeitband wird dabei eine Zelle mit dem Attribut selectedMaturityBand [TODO] des Xcelsius-Adapters verknüpft. Bei den Liquiditätszenarien und den Liquiditätsgruppen können jeweils mehrere Ausgewählt werden. Hier bezieht sich das Binding demnach nicht auf eine einzelne Zelle, sondern auf einen Zellbereich.
+Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es werden nur Input- oder Output-Bindings verwendet. Das Auslesen der gewählten Parameter findet über mehrere Input-Bindings statt. Für das Laufzeitband wird dabei eine Zelle mit dem Attribut \class{selectedMaturityBand} des \class{XcelsiusAdapter} verknüpft. Bei den Liquiditätszenarien und den Liquiditätsgruppen können jeweils mehrere Ausgewählt werden. Hier bezieht sich das Binding demnach nicht auf eine einzelne Zelle, sondern auf einen Zellbereich.
 
 % TODO Bereitstellung der Werteholfen hinzufügen
 
@@ -1054,7 +1060,7 @@ public class ProxyServlet extends HttpServlet {
 	}
 }
 \end{lstlisting}
-\caption{[TODO]\label{[TODO]}}
+\caption{Proxy-Servlet zur Umgehung der Cross-Domin Request Beschränkungen\label{listing:servlet}}
 \end{programm}
 
 % -------------------------------------------------------------------------------------
