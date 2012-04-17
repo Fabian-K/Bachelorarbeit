@@ -447,7 +447,7 @@ Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA
 
 \end{seToplist}
 
-Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigsten Anforderungen sind  \anfRef{anf:uebertragbarkeit}{} und \anfRef{anf:korrektheit}{}. \anfRef{anf:leistung}{} steht bei der Entwicklung nicht im Mittelpunkt.
+Die Reihenfolge der Anforderungen spiegelt gleichzeitig auch die Priorität der Umsetzung wieder. Die wichtigsten Anforderungen sind \anfRef{anf:uebertragbarkeit}{} und \anfRef{anf:korrektheit}{}. \anfRef{anf:leistung}{} steht bei der Entwicklung nicht im Mittelpunkt.
 
 \section{Anwendungsfälle}
 Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsfälle im Folgenden näher beschrieben. Der Anwendungsfall 1\usecaseRef{useCase:1} konkretisiert die \anfRef{anf:kpi}{} und behandelt die Einsicht in wichtige Liquiditätskennzahlen einer Bank.
@@ -1003,7 +1003,7 @@ Bei dieser Verbindungsart findet zwischen dem Tabellenblatt ein beidseitiger Aus
 
 \end{seToplist}
 
-Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es werden nur Input- oder Output-Bindings verwendet. Das Auslesen der gewählten Parameter findet über mehrere Input-Bindings statt. Für das Laufzeitband wird dabei eine Zelle mit dem Attribut \class{selectedMaturityBand} des \class{XcelsiusAdapter} verknüpft. Bei den Liquiditätszenarien und den Liquiditätsgruppen können jeweils mehrere Ausgewählt werden. Hier bezieht sich das Binding demnach nicht auf eine einzelne Zelle, sondern auf einen Zellbereich.
+Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es werden nur Input- oder Output-Bindings verwendet. Das Auslesen der gewählten Parameter findet über mehrere Input-Bindings statt. Für das Laufzeitband wird dabei eine Zelle mit dem Attribut \class{selectedMaturityBand} des \class{XcelsiusAdapter} verknüpft. Bei den Liquiditätsszenarien und den Liquiditätsgruppen können jeweils mehrere Ausgewählt werden. Hier bezieht sich das Binding demnach nicht auf eine einzelne Zelle, sondern auf einen Zellbereich.
 
 % TODO Bereitstellung der Werteholfen hinzufügen
 
@@ -1014,8 +1014,42 @@ Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es
 %TODO erforderliche Einstellungsmöglichkeiten aus Abschnitt Zielsituation
 \section{Einleitung}
 
-\section{Erfüllung der Anforderungen}
+
 \section{Möglichkeiten}
+
+
+\section{Erfüllung der Anforderungen}
+An die Erweiterung wurden in der Spezifikation in \vref{sec:anforderungen} einige funktionale und nicht-funktionale Anforderungen gestellt. Um diese zu überprüfen wurde ein Beispieldashboard, das in \vref{} zu sehen ist, erstellt.
+
+%TODO Dashboard einbinden
+
+Es ist einfach zu erkennen, dass beide funktionalen Anforderungen mit der Erweiterung erfüllt werden können. Sowohl die Daten für die Kennzahlen, als auch die Daten für die Finanzierungsmatrix stehen zur Verfügung. In dem Beispiel ist eine Kennzahl mit dem Tachometer (unten) visualisiert, die Finanzierungsmatrix im oberen Teil als Liniendiagramm.
+
+%\item[\anfl{uebertragbarkeit}] \textbf{Übertragbarkeit} \newline
+%Im Rahmen der Bachelorarbeit wird exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das SAP LRM implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
+Die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wird dadurch gewährleistet, dass die komplette Analyse programmiersprachenunabhängig durchgeführt wurde. Sie kann mit jeder objektorientierten Programmiersprache umgesetzt werden - es müsste nur die Schnittstelle zu der eigentlichen Anwendung, also der XcelsiusAdapter, entsprechend angepasst werden.
+
+
+%\item[\anfl{erweiterbarkeit}] \textbf{Erweiterbarkeit} \newline
+%Das SAP LRM befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die in einer Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand auch auf die Erweiterung übertragen werden können.
+
+%\item[\anfl{wartbarkeit}] \textbf{Wartbarkeit} \newline
+%Um die Folgekosten der Erweiterung, zum Beispiel im Hinblick auf die Beseitigung von Fehlern, möglichst gering zu halten, soll eine gute Wartbarkeit von Anfang an bei der Entwicklung beachtet werden.
+Durch den modularen Aufbau mit den verschiedenen ObjectProvidern können neue Funktionalitäten durch die Erstellung von weiteren ObjectProvider-Implementierungen leicht umgesetzt werden. Somit kann auch \anfRef{anf:erweiterbarkeit}{} als erfüllt betrachtet werden. Gleichzeitig wird dadurch die \anfRef{anf:erweiterbarkeit}{an die Wartbarkeit } abgedeckt.
+
+%\item[\anfl{korrektheit}] \textbf{Korrektheit der Ergebnisse} \newline
+%Die Daten, die mit Hilfe der Erweiterung in zusätzlichen Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des SAP LRM übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
+Die Korrektheit der Ergebnisse, siehe \anfRef{anf:korrektheit}{}, wird dadurch sichergestellt, dass die Berechnungskomponente des SAP LRM über die selbe Schnittstelle aufgerufen wird, wie es auch die Benutzeroberfläche in Oberon macht. Somit stimmen die Ergebnisse überein.
+
+%\item[\anfl{sicherheit}] \textbf{Sicherheitsanforderungen} \newline
+%Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Es handelt sich dabei um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
+Der Zugang zu den Daten ist, genau wie bei der existierenden iPad-Anwendung, durch Nutzer und Password vor unberechtigtem Zugriff geschützt. Dabei wird die gleiche Authentifizierungsmethode verwendet. Für potentielle Angreifer ist somit der Aufwand für unberechtigten Zugriff nicht geringer geworden -- \anfRef{anf:sicherheit}{} ist abgedeckt.
+
+%\item[\anfl{leistung}] \textbf{Leistung} \newline
+%Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch in anderen Anwendungen verfügbar machen.
+Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des Nutzers setzt aus der Zeit für die Berechnung der Werte durch die Berechnungskomponente und der eigentlichen Darstellung zusammen. Die Zeit für die Berechnung ist dabei festgesetzt und kann nicht beeinflusst werden. Die Zeit zur Darstellung ist dabei in Xcelsius mit der Erweiterung sogar schneller, als die Darstellung mit dem Oberon-Framework. Ein Hauptgrund ist hierbei das vergleichsweise langsame Rendern des Diagramms durch Oberon. Durch eine echt-parallele Verarbeitung der Webservice-Aufrufe könnte die Leistung der Erweiterung sogar noch gesteigert werden. Auch diese Anforderung ist somit erfüllt, obwohl sie bei der Entwicklung nicht im Mittelpunkt stand.
+
+
 \section{Vergleich}
 \section{Performance}
 
