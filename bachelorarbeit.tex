@@ -46,6 +46,9 @@
 \item[~~\textbf{#1}] #2
 }
 
+
+\newcommand{\loreIpsum}{Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.}
+
 \newcommand{\useCaseEntry}[2]{
 \textbf{#1} 
 \vspace*{-4mm}
@@ -141,7 +144,7 @@ gliederungsebenen=4
 \chapter{Grundlagen des Liquiditätsrisikomanagements}
 
 \section{Einleitung}
-
+\loreIpsum
 \section{Liquidität}
 
 Der Begriff der Liquidität ist weit verbreitet und im allgemeinen Sprachgebrauch festgesetzt. Allerdings ist eine eindeutige Definition des Begriffs schwierig, da Liquidität sehr vielschichtig ist, mehrere Dimensionen besitzt und die jeweilige Bedeutung von der Perspektive der Betrachtung abhängt.\footnote{\seCite{vgl.}{S.3}{Dur.11} \seCite{und}{S.13}{Bar-A.08}} Für diese Arbeit ist vor allem die betriebswirtschaftliche Sicht auf Liquidität entscheidend. Die volkswirtschaftliche Sicht wird daher nicht näher erläutert.\seFootcite{vgl.}{S.10}{Zer-A.10}
@@ -202,9 +205,10 @@ In der aktuellen Entwicklung spielt Basel III eine wichtige Rolle. Durch Basel I
 Neben dem \gls{glos:lcr} existiert mit dem \gls{glos:nsfr} eine weitere wichtige Kennzahl im Rahmen von Basel III. Er bezieht sich auf das Verhältnis von mittel und langfristigen Aktivpositionen im Vergleich zu langfristigen Refinanzierungsquellen. Mit dem \gls{glos:nsfr} soll erreicht werden, dass Banken längerfristige Refinanzierungsquellen nutzen und sich nicht nur auf kurzfristige Quellen beschränken. Die Vorgaben bezüglich der \gls{glos:nsfr} müssen erstmals ab 2018 eingehalten werden.\seFootcite{vgl.}{S.56f}{Hof-B.11}
 
 \section{Zusammenfassung}
-
+\loreIpsum
 \chapter{SAP LRM und BusinessObjects Xcelsius}
 \section{Einleitung}
+\loreIpsum
 \section{SAP LRM}
 
 \subsection{Funktionen}
@@ -233,10 +237,18 @@ Zusammengefasst bietet die \gls{NGAP} eine einfacherer Möglichkeit für die Ent
 Die \gls{HANA} ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von \gls{HANA} ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
 
 % TODO Pagnia fragen, wie Plural abkürzen?! hier so ok, oder ausschreiben?!
-Der Kern der \gls{HANA} bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Die zeilenbasierte Organisation ist von Vorteil, wenn auf einzelne Datensätze komplett zugegriffen werden soll, die spaltenbasierte Organisation ist bei Tabellen mit einer hohen Anzahl an Spalten und bei spaltenbasierten Operationen wie der Aggregation oder der Suche überlegen. Durch die Unterstützung von beiden Organisationsformen kann die jeweils beste Form gewählt werden.\seFootcite{vgl.}{S.13f}{Kle.10}
+Der Kern der \gls{HANA} bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied in \vref{fig:vergleich_spalte_zeile} zu sehen. 
 
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+%TODO Einbindung checken und Titel festlegen
+\includegraphics[width=15cm]{images/in-memory-row-column.png}
+\caption{TODO\label{fig:vergleich_spalte_zeile}}
+\end{figure}
 
-%TODO Abbildung als Vergleich zwischen Reihen und Spaltenorganisation
+Die zeilenbasierte Organisation ist von Vorteil, wenn auf einzelne Datensätze komplett zugegriffen werden soll, die spaltenbasierte Organisation ist bei Tabellen mit einer hohen Anzahl an Spalten und bei spaltenbasierten Operationen wie der Aggregation oder der Suche überlegen. Durch die Unterstützung von beiden Organisationsformen kann die jeweils beste Form gewählt werden.\seFootcite{vgl.}{S.13f}{Kle.10}
+
 Veränderungen in einem Datensatz einer Tabelle können auf Wunsch nicht in dem Eintrag der Tabelle direkt geändert, sondern nur die Differenzen an die Tabelle angefügt werden. Dadurch bleibt die Information, wie sich der Datensatz im Laufe der Zeit verändert hat, erhalten und kann in späteren Auswertungen als weitere Information hinzugezogen werden. Zusätzlich ist das Anfügen der Veränderung schneller durchzuführen wie die Veränderung des bestehenden Datensatzes.\seFootcite{vgl.}{S.109f}{PZ.11}
 
 Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von \gls{HANA} entwickelt werden, versucht, ein Teil der Anwendungslogik schon auf der Datenbank selbst zu berechnen.\seFootcite{vgl.}{S.155f}{PZ.11} Erreicht wird dies durch die Erweiterung der Abfragesprache \gls{SQL} zu \gls{glos:sqlscript}. Mit \gls{glos:sqlscript} ist es unter anderem durch das Hinzufügen von Datentypen, Prozeduren und Operationen möglich, Anwendungslogik abzubilden. Diese Berechnungen können von der Datenbank durch Parallelisierung sehr schnell durchgeführt werden.\seFootcite{vgl.}{S.9f}{SQLScript.11} Als Resultat kann die Datenübertragung zwischen dem \gls{DBMS} und der Anwendung verringert werden. Es muss nur noch das Ergebnis und nicht die Datensätze, auf denen das Ergebnis basiert, übertragen werden. Zusätzlich wird die Komplexität der Anwendung verringert, da ein Teil der Logik von dem \gls{DBMS} übernommen wird.
@@ -259,14 +271,26 @@ Das Oberon Framework ist als Standardframework ausgelegt und versucht, möglichs
 
 \subsection{Berechnungskomponente}
 \label{sec:berechnungskomponente}
-Die Berechnungskomponente stellt den wichtigsten Teil des SAP LRM dar. Mit ihr werden alle Berechnungen im Umfeld des Liquiditätsrisikomanagements zentral durchgeführt. Die Berechnung findet auf Basis von Liquiditätsgruppen statt. Mit Hilfe von Liquiditätsgruppen werden sowohl aggregierter Zahlungsstrom als auch Kennzahlen einheitlich berechnet. Liquiditätsgruppen können in Polyhierarchien\footnote{Polyhierarchien sind hierarchische Strukturen, bei der ein Element mehrere übergeordnete Elemente haben kann.} angeordnet werden. Dadurch können Berechnungen modular aufgebaut, wiederverwendet und einfach nachvollzogen werden. Das Abbilden von komplexen Berechnungsvorschriften wird erleichtert.\seFootcite{vgl.}{S.38}{LRM-PPT.12}
+Die Berechnungskomponente stellt den wichtigsten Teil des SAP LRM dar. Mit ihr werden alle Berechnungen im Umfeld des Liquiditätsrisikomanagements zentral durchgeführt. Die Berechnung findet auf Basis von Liquiditätsgruppen statt. Mit Hilfe von Liquiditätsgruppen werden sowohl aggregierter Zahlungsstrom als auch Kennzahlen einheitlich berechnet. Liquiditätsgruppen können in Polyhierarchien\footnote{Polyhierarchien sind hierarchische Strukturen, bei der ein Element mehrere übergeordnete Elemente haben kann.} angeordnet werden. Dadurch können Berechnungen modular aufgebaut, wiederverwendet und einfach nachvollzogen werden. Das Abbilden von komplexen Berechnungsvorschriften wird erleichtert.\seFootcite{vgl.}{S.38}{LRM-PPT.12} Eine Hierarchie ist in \vref{fig:liquigruppe_hierarchie} zu sehen.
 
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+%TODO Einbindung checken und Titel festlegen
+\includegraphics[width=10cm]{images/liquigruppe_hierarchie.PNG}
+\caption{TODO\label{fig:liquigruppe_hierarchie}}
+\end{figure}
 
-%TODO Bild einer Hierarchie einfüggen
 Es existieren zwei Arten von Liquiditätsgruppen: Die Datenbankselektion und die Berechnung. Die Datenbankselektion bildet immer den Ursprung einer Berechnung. Dabei werden einzelne Zahlungsströme nach festgelegten Selektionskriterien ausgewählt, und nach Bedingungen zusammengefasst. Selektionskriterien können zum Beispiel der hinter liegende Produkttyp des Zahlungsstroms wie zum Beispiel verzinsliches Wertpapier, oder das entsprechende Finanzrating, zum Beispiel AAA sein. Gleichzeitig findet eine Währungsumwandlung in eine einheitliche Zielwährung statt. Mehrere Zahlungsströme werden in Abhängigkeit ihrer Fälligkeit in Behältern zusammengefasst. Diese Behälter werden von dem festgelegten Fälligkeitsband definiert.\seFootcite{vgl.}{S.40}{LRM-PPT.12}
 
-Ein Fälligkeitsband ist eine spezielle Einteilung der Zeitachse. Der Grund für die Einführung von Fälligkeitsbändern liegt in der späteren Auswertung der berechneten Werte. Dabei ist für naheliegende Zeiträume, zum Beispiel die nächste Woche, der entsprechende Wert an jedem einzelnen Tag entscheidend. Für den weiteren Horizont, zum Beispiel den Zeitraum zwischen drei und fünf Jahren, ist nicht jeder einzelne Tag  entscheidend, es reichen aggregierte Werte, zum Beispiel nach Monat oder Jahr. Somit kann in einer Auswertung sowohl die aktuelle Situation begutachtet werden, als auch die langfristige Auswirkungen ohne, dass die Auswertung unübersichtlich wird. Jeder Eintrag entspricht dabei einem Behälter. Die Anzahl und Größe der Behälter ist in einem Fälligkeitsband definiert.\seFootcite{vgl.}{S.44}{LRM-PPT.12}
-%TODO Bild eines Laufzeitbandes einfügen
+Ein Fälligkeitsband ist eine spezielle Einteilung der Zeitachse. Der Grund für die Einführung von Fälligkeitsbändern liegt in der späteren Auswertung der berechneten Werte. Dabei ist für naheliegende Zeiträume, zum Beispiel die nächste Woche, der entsprechende Wert an jedem einzelnen Tag entscheidend. Für den weiteren Horizont, zum Beispiel den Zeitraum zwischen drei und fünf Jahren, ist nicht jeder einzelne Tag  entscheidend, es reichen aggregierte Werte, zum Beispiel nach Monat oder Jahr. Somit kann in einer Auswertung sowohl die aktuelle Situation begutachtet werden, als auch die langfristige Auswirkungen ohne, dass die Auswertung unübersichtlich wird. Jeder Eintrag entspricht dabei einem Behälter. Die Anzahl und Größe der Behälter ist in einem Fälligkeitsband definiert.\seFootcite{vgl.}{S.44}{LRM-PPT.12} Ein Beispiel für ein Fälligkeitsband ist in \vref{fig:laufzeitband} dargestellt.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/laufzeitband.jpg}
+\caption{[TODO] \label{fig:laufzeitband}}
+\end{figure}
 
 Neben der Datenbankselektion existiert die Liquiditätsgruppenart Berechnung. Dabei werden aggregierte Zahlungsströme nach verschiedenen Regeln verrechnet. Zur Verfügung stehende unter anderem Addition, Subtraktion, Multiplikation und Division. 
 
@@ -307,7 +331,6 @@ Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die B
 Viele Komponenten bieten Einstellungsmöglichkeiten an, mit denen das Verhalten und das Aussehen der Komponente festgelegt werden kann. Wird eine Komponente auf der Zeichenfläche ausgewählt, werden alle verfügbaren Eigenschaften in Bereich 3 auf der rechten Seite dargestellt. Wichtige Eigenschaften einer Komponente stellen oft die Daten dar, die die Komponenten anzeigen soll. Alle Daten werden in Bereich 4 festgelegt. Die Verbindung zwischen der Datenhalten (Microsoft Excel in Bereich 4) und der Darstellung (Zeichenfläche in Bereich 1) von \gls{Xcelsius} erfolgt durch das Referenzieren von Zellen oder Zellbereichen über die Eigenschaften einer Komponente (Bereich 3).\seFootcite{vgl.}{S.229}{Egg.09}
 
 %TODO bessere einleitung?!
-%TODO Bild einfügen?!
 
 Der generelle Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absatzzahlen von Produkten in \vref{fig:xcelsius_ui_beispiel} verdeutlicht werden: Zunächst werden Daten in das Excel in einen festgelegten Bereich Eingetragen. Diese Daten können entweder fest eingegeben werden, meistens werden sie aber dynamisch über eine Datenquelle, zum Beispiel einen Webservice in den Bereich geschrieben. In dem Beispiel wurden die Absatzzahlen fest in den Zellbereich 1 eingetragen. Als nächstes können in Excel Berechnungen durchgeführt werden. In dem Beispiel wird die Summe der Absatzzahlen pro Jahr durch eine Excel-Formel berechnet. Um die Interaktivität von Dashboards zu zeigen, soll der Nutzer die Möglichkeit haben, die Auswirkungen von verschiedenen Wachstumsraten interaktiv zu sehen. Dazu werden die veränderten Absatzzahlen (Bereich 2) auf Basis der Quelldaten in Bereich 1 und den Wachstumsdaten in Bereich 3 berechnet.\seFootcite{vgl.}{S.229f}{Egg.09}
 
@@ -365,10 +388,10 @@ Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat voneinande
 % TODO BIlder auf leerer Seite oben ausrichten ?!
 
 \section{Zusammenfassung}
-
+\loreIpsum
 \chapter{Spezifikation}
 \section{Einleitung}
-
+\loreIpsum
 \section{Ausgangssituation}
 
 In dem derzeitigen Stand des SAP LRM gibt es für die Analyse der aktuellen Liquiditätssituation einer Bank zwei Einstiegsmöglichkeiten. Es existiert die Kennzahlenanalyse und die Finanzierungsmatrix. Diese unterschieden sich in ihrer Nutzung.
@@ -505,9 +528,10 @@ Der Anwendungsfall 2\usecaseRef{useCase:2} bezieht sich auf die \anfRef{anf:fund
 }
 
 \section{Zusammenfassung}
-
+\loreIpsum
 \chapter{Umsetzungsmöglichkeiten}
 \section{Einleitung}
+\loreIpsum
 \section{Rahmenbedingungen}
 Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von \gls{Xcelsius} in \vref{sec:xcelsius}, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des SAP LRM zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem konkreten Beispiel von \gls{Xcelsius} umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von \gls{Xcelsius} an das SAP LRM. Gleichzeitig soll aber bei der Analyse und dem Entwurf die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wenn möglich weiterhin beachtet werden.
 
@@ -516,9 +540,14 @@ Eine Möglichkeit, externe Daten in \gls{Xcelsius} zu integrieren, stellt Busine
 
 %TODO Fußnote zu Sternschema und normalisierter Form schreiben
 
-Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden.\footnote{[TODO]Erklärung normalisiert und Sternschema} Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
+Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden.\footnote{[TODO]Erklärung normalisiert und Sternschema} Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06} Dies zeigt \vref{fig:universe_abstraktion}.
 
-%TODO allgemeines Bild zu Universen abbilden !?
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/universe_ueberblick.jpg}
+\caption{[TODO] \label{fig:universe_abstraktion}}
+\end{figure}
 
 Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{Xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
@@ -624,9 +653,10 @@ Aus diesen Gründen wurde sich für die weitere Vorgehensweise für die Umsetzun
 
 
 \section{Zusammenfassung}
-
+\loreIpsum
 \chapter{Umsetzung}
 \section{Einleitung}
+\loreIpsum
 \section{Analyse}
 
 \subsection{Überblick}
@@ -703,7 +733,6 @@ Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgende
 \caption{Sequenzdiagramm der Analysephase \label{fig:sequenz_analyse}}
 \end{figure}
 
-% TODO Breite der Grafik anpassen!
 
 In dem Beispiel möchte der Nutzer den Wert einer Kennzahl abfragen. Dazu ruft er in der \instance{Orchestrator}-Instanz die Methode \method{updateKPI()} auf.
 
@@ -984,6 +1013,7 @@ public override function deserialize(content:String):Object{
 Die \class{ObjectProvider} und \class{Deserializer} für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der \method{getObject}-Methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cache befindet und dann direkt zurückgegeben. Ist es noch nicht vorhanden, wird der Webservice-Aufruf gestartet und nach der Deserialisierung wird das Objekt im Cache für weitere Anfragen gehalten.
 
 \subsection{\gls{Xcelsius} Binding}
+\label{sec:xcelsius_binding}
 Für den Datenaustausch zwischen der entwickelten Erweiterung und dem Tabellenblatt von \gls{Xcelsius} muss auf die bereitgestellten Funktionen des \gls{Xcelsius} \gls{glos:sdk} zurückgegriffen werden. Dabei wird das Konzept des Bindings genutzt.
 
 Bei diesem Konzept wird ein Attribut einer Instanz fest mit einem Zellenbereich auf dem Tabellenblatt verbunden. Dabei kann es sich entweder um ein flaches Attribut, wie zum Beispiel eine Zeichenkette oder eine Zahl, handeln, die dann mit einer einzelnen Zelle auf dem Tabellenblatt verbunden wird. Es kann allerdings auch auf Tabellenblatt-Seite ein Bereich festgelegt werden, der dann zum Beispiel mit einem zweidimensionalen Array verbunden wird.
@@ -1008,14 +1038,26 @@ Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es
 % TODO Bereitstellung der Werteholfen hinzufügen
 
 \section{Zusammenfassung}
-
+\loreIpsum
 \chapter{Evaluation}
 
-%TODO erforderliche Einstellungsmöglichkeiten aus Abschnitt Zielsituation
 \section{Einleitung}
+\loreIpsum
 
+\section{Neue Möglichkeiten}
+Durch die Erweiterung ist es nun möglich, \gls{Xcelsius} in Verbindung mit den Daten des SAP LRM zu nutzen. Dazu muss zu einem Dashboard lediglich eine neue Verbindung, die Teil der Erweiterung ist, hinzugefügt werden.
 
-\section{Möglichkeiten}
+Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Erforderlich sind hierbei der Nutzer mit entsprechendem Passwort für die Authentifizierung, und die URL, unter der das SAP LRM erreichbar ist.
+
+Für die Finanzierungsmatrix müssen für alle erforderlichen Parameter für die Berechnungskomponente (vgl. \vref{sec:berechnungskomponente:parameter}) und ein Bereich, in den das Ergebnis geschrieben wird, mit Bindings verbunden werden.
+
+Da die Kennzahlenanalyse keine Parameter erfordert, reicht hier ein Binding für das Ergebnis. Die Wertehilfen, die zusätzlich angeboten werden, können genutzt werden, sind aber nicht zwingend erforderlich. Wenn der Nutzer sich dafür entscheidet, sie zu nutzen, muss entsprechend für jede Hilfe auch ein Binding erzeugt werden.
+
+In dem erstellten Beispieldashboard wurden alle zur Verfügung stehenden Funktionalitäten ausgenutzt. Die Finanzierungsmatrix wurde als Liniendiagramm dargestellt. Die erforderlichen Parameter werden durch die Kombinationsfelder auf der linken Seite festgelegt. Die Auswahlmöglichkeiten beruhen dabei auf der angebotenen Wertehilfe. 
+
+An dieser Stelle wären durchaus auch noch andere Möglichkeiten denkbar, zum Beispiel über Checkboxen oder ähnlichen Auswahlelementen. Dies zeigt, dass die Erweiterung hier keinerlei Beschränkungen vorgibt. Die Form des Parameter-Inputs und der Verarbeitung der Ergebnisse ist komplett offen gehalten und nur durch die Möglichkeiten von Xcelsius beschränkt.
+
+Die Kennzahlenanalyse, die in der ursprünglichen Situation, wie in \vref{fig:lrm_istzustand_keyfigureanalysis} zu sehen, nur als einfache Tabelle dargestellt wurden, kann nun beliebig visualisiert werden. In dem Beispiel zeigt sich dies durch die Tachodarstellung.
 
 
 \section{Erfüllung der Anforderungen}
@@ -1049,11 +1091,8 @@ Der Zugang zu den Daten ist, genau wie bei der existierenden iPad-Anwendung, dur
 %Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch in anderen Anwendungen verfügbar machen.
 Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des Nutzers setzt aus der Zeit für die Berechnung der Werte durch die Berechnungskomponente und der eigentlichen Darstellung zusammen. Die Zeit für die Berechnung ist dabei festgesetzt und kann nicht beeinflusst werden. Die Zeit zur Darstellung ist dabei in Xcelsius mit der Erweiterung sogar schneller, als die Darstellung mit dem Oberon-Framework. Ein Hauptgrund ist hierbei das vergleichsweise langsame Rendern des Diagramms durch Oberon. Durch eine echt-parallele Verarbeitung der Webservice-Aufrufe könnte die Leistung der Erweiterung sogar noch gesteigert werden. Auch diese Anforderung ist somit erfüllt, obwohl sie bei der Entwicklung nicht im Mittelpunkt stand.
 
-
-\section{Vergleich}
-\section{Performance}
-
 \section{Zusammenfassung}
+\loreIpsum
 
 \chapter{Zusammenfassung}
 
