@@ -141,6 +141,14 @@ gliederungsebenen=4
 \chapter{Einleitung}
 \pagenumbering{arabic}
 
+\loreIpsum
+
+\loreIpsum
+
+\loreIpsum
+
+\loreIpsum
+
 \chapter{Grundlagen des Liquiditätsrisikomanagements}
 
 \section{Einleitung}
@@ -222,7 +230,6 @@ Als Datenquelle für die Zahlungsströme werden neben SAP-Systemen, meist ein \g
 
 \subsection{Architektur}
 
-%TODO ABAP als Abkürzung einführen
 \subsubsection{NGAP}
 Die \gls{NGAP} stellt die technologische Grundlage für das SAP LRM dar. Sie ist eine Plattform für in ABAP geschriebene Unternehmensanwendungen und soll eine moderne Alternative zu dem \gls{NetWeaver} bieten. Dieser stellte bisher die Grundlage für fast alle Anwendungen der SAP dar. Entscheidende Merkmale ist die Nutzung von \gls{HANA} im ABAP-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse\footnote{Eclipse IDE - http://www.eclipse.org/} basierenden Entwicklungsumgebung und die vereinfachte Bereitstellung von \gls{glos:rest}-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
 
@@ -236,7 +243,7 @@ Zusammengefasst bietet die \gls{NGAP} eine einfacherer Möglichkeit für die Ent
 \subsubsection{HANA} % [TODO] Hana beim ersten mal nicht abkürzen, Ist es überhaupt noch Abkürzung ?!?
 Die \gls{HANA} ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von \gls{HANA} ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
 
-% TODO Pagnia fragen, wie Plural abkürzen?! hier so ok, oder ausschreiben?!
+%TODO Pagnia fragen, wie Plural abkürzen?! hier so ok, oder ausschreiben?! -> Marker setzen
 Der Kern der \gls{HANA} bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied in \vref{fig:vergleich_spalte_zeile} zu sehen. 
 
 \begin{figure}[h]
@@ -259,12 +266,10 @@ Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. 
 \begin{figure}[h]
 \centering
 \setlength{\unitlength}{1mm}
-%TODO CashFlow generell ersetzen + schreibweise checken (Cash-Flow ?!)?!
 \includegraphics[width=15cm]{images/OberonUI.png}
-\caption{Darstellung eines CashFlow-Eintrags mit dem Oberon-Framework\label{fig:oberon}}
+\caption{Darstellung eines Zahlungsstrom-Eintrags mit dem Oberon-Framework\label{fig:oberon}}
 \end{figure}
 
-%TODO generell Plugin als Plug-In ?!
 Oberflächen werden mit dem Oberen Framework mit der Programmiersprache C\# und Microsoft Silverlight\footnote{Microsoft Silverlight - http://www.microsoft.com/silverlight/} entwickelt. Silverlight ist eine Technologie von Microsoft, die als Plugin für verschiedene moderne Browser verfügbar ist und die Entwicklung von \gls{glos:ria} unterstützt. Die \gls{glos:ria} stellt dabei die erste Schicht der drei Schichtenarchitektur von Anwendungen dar. Die weiteren Schichten, die Anwendungslogik und die Persistenz, werden von NGAP und HANA übernommen.\seFootcite{vgl.}{}{Oberon-A}
 
 Das Oberon Framework ist als Standardframework ausgelegt und versucht, möglichst viele Anforderungen abzudecken, um dadurch in vielen Produkten verwendet werden zu können. Allerdings ist es sehr Wahrscheinlich, dass spezielle Anforderungen eines bestimmten Bereichs nicht mit dem Oberon Framework abgedeckt werden können. In diesem Fall müssen eigene Lösungen für die Anforderungen entwickelt werden.\seFootcite{vgl.}{}{Oberon-A}
@@ -665,7 +670,6 @@ In diesem Abschnitt wird der Analyseprozess der Entwicklung näher betrachtet. D
 
 Die Entwicklung der Erweiterung für \gls{Xcelsius} kann in fünf Teilbereiche unterteilt werden. Sie werden für die Strukturierung der Analyse genutzt. Bei den Bereichen handelt es sich um folgende Teile:
 
-% TODO Liste ausführlicher schreiben?!
 
 \begin{seToplist} { XX }
 \item[1] Bereitstellung der Webservice im SAP LRM \newline
@@ -769,7 +773,6 @@ Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das
 \end{figure}
 
 
-% TODO Einheitliche Schreibweise!
 Der Webservice der Finanzierungsmatrix ruft bei einem Aufruf die Berechnungskomponente des SAP LRM auf und muss demnach mit den vier erforderlichen Parametern versorgt werden (siehe dazu \vref{sec:berechnungskomponente:parameter}). Es besteht eine Abhängigkeit zu den drei Webservices, die automatisch durch das Framework  bereit stehen. Der Webservice der Liquiditätsgruppen ist so umgesetzt, dass er ein Liquiditässzenario als Parameter erwartet und darauf alle möglichen Liquiditätsgruppen zurückliefert -- auch hier besteht eine Abhängigkeit.
 
 Der Webservice der Kennzahlen erfordert keine Parameter und kann eigenständig aufgerufen werden. Er liefert alle Kennzahlen, die im SAP LRM angelegt und verfügbar sind. Das Resultat beinhaltet allerdings nicht alle Informationen, zum Beispiel zu dem verwendeten Liquiditätsszenario für die Berechnung oder der hinter liegenden Liquiditätsgruppe. Das Ergebnis kann also durch weitere Aufrufe von Webservices angereichert werden.
@@ -777,7 +780,7 @@ Der Webservice der Kennzahlen erfordert keine Parameter und kann eigenständig a
 \subsection{Statisches Modell}
 Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durchgeführt und das Resultat der Analyse auch im Hinblick auf die Performance untersucht und optimiert. Das sich daraus ergebene Klassendiagramm ist in \vref{fig:klassendiagramm_entwurf} zu sehen.
 
-% TODO Pagnia fragen ob Bild Quer über ganze Seite?!
+%TODO Pagnia fragen ob Bild Quer über ganze Seite?!
 
 \begin{figure}[h]
 \centering
@@ -857,14 +860,15 @@ So entsteht die Tabellenstruktur in \vref{tab:zielstruktur}, welche durch den \c
 \subsection{Flex Sandbox}
 Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen bestimmten Sicherheitsbeschränkungen. Darunter fällt auch die Erweiterung, die im Rahmen dieser Bachelorarbeit entwickelt wird. Die Ausführung von Flex-Anwendungen erfolgt in einer Sandbox. Dadurch sollen ungewollte Änderungen auf Client-Seite verhindert werden -- die Anwendung darf sich nur ein einem klar definierten Raum bewegen.
 
+
+Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{Xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM zunächst nicht möglich, da es durch die Sandbox blockiert wird. Die Beschränkung ist in \vref{fig:flex_sandbox} dargestellt.
+
 \begin{figure}[h]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/flex_sandbox.png}
-\caption{[TODO] [TODO Referenziereun!] \label{[TODO]}}
+\caption{[TODO] [TODO Referenziereun!] \label{fig:flex_sandbox}}
 \end{figure}
-
-Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{Xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM zunächst nicht möglich, da es durch die Sandbox blockiert wird.
 
 Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es möglich, dass der Anbieter des Webservice explizit festlegen kann, dass der Webservice auch über verschiedene Domains hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Bei der Erweiterung wäre das der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
 
@@ -963,8 +967,7 @@ private function getResultForRequest(request:String):Object{
 In diesem Abschnitt soll an dem Beispiel des Finanzierungsmatrix-Webservice exemplarisch gezeigt werden, wie der Aufruf und die Umwandlung in ein internes Objektformat realisiert wird.
 
 %TODO ist url evtl uri ?!
-%TODO URL als abkürzung
-Der Ausgangspunkt ist dazu der \class{Orchestrator}, der die \method{getObject}-Methode des \class{FundingMatrixObjectProviders} aufruft. Zunächst wird hier die passende URL für den Webservice-Aufruf auf Grundlage der Einstellungen generiert. In diesem Fall werden über die URL die Parameter Liquiditätsgruppen, Liquiditätsszenarien, Laufzeitband und Zielwährung übergeben. Es wird eine \class{WebserviceConnector}-Instanz erzeugt und über die \method{consume()}-Methode des \class{WebserviceConnectors} der eigentliche Aufruf gestartet. Entsprechend dem asynchronen Programmablauf, siehe dazu \vref{sec:asynchron}, wird die eigene Instanz als Callback und der \class{RequestToken} mitgegeben.
+Der Ausgangspunkt ist dazu der \class{Orchestrator}, der die \method{getObject}-Methode des \class{FundingMatrixObjectProviders} aufruft. Zunächst wird hier die passende \gls{url} für den Webservice-Aufruf auf Grundlage der Einstellungen generiert. In diesem Fall werden über die \gls{url} die Parameter Liquiditätsgruppen, Liquiditätsszenarien, Laufzeitband und Zielwährung übergeben. Es wird eine \class{WebserviceConnector}-Instanz erzeugt und über die \method{consume()}-Methode des \class{WebserviceConnectors} der eigentliche Aufruf gestartet. Entsprechend dem asynchronen Programmablauf, siehe dazu \vref{sec:asynchron}, wird die eigene Instanz als Callback und der \class{RequestToken} mitgegeben.
 
 %TODO Callback erklären?! Pagnia fragen
 Tritt bei dem Aufruf ein Fehler auf, wird asynchron die Methode \method{onWebServiceFail()} aufgerufen. Der Fehler muss nur dem \class{Orchestrator} weitergeleitet werden. Dazu wurde auch hier bei dem \method{getObject}-Aufruf eine Referenz auf den \class{Orchestrator} als Callback mitgegeben.
@@ -1047,7 +1050,14 @@ Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es
 \section{Neue Möglichkeiten}
 Durch die Erweiterung ist es nun möglich, \gls{Xcelsius} in Verbindung mit den Daten des SAP LRM zu nutzen. Dazu muss zu einem Dashboard lediglich eine neue Verbindung, die Teil der Erweiterung ist, hinzugefügt werden.
 
-Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Erforderlich sind hierbei der Nutzer mit entsprechendem Passwort für die Authentifizierung, und die URL, unter der das SAP LRM erreichbar ist.
+Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Der Dialog zum festlegen der Einstellungen ist  \vref{fig:einstellung} zu sehen. Erforderlich sind hierbei der Nutzer mit entsprechendem Passwort für die Authentifizierung, und die \gls{url}, unter der das SAP LRM erreichbar ist.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=10cm]{images/xcelsius_einstellungen.PNG}
+\caption{TODO\label{fig:einstellung}}
+\end{figure}
 
 Für die Finanzierungsmatrix müssen für alle erforderlichen Parameter für die Berechnungskomponente (vgl. \vref{sec:berechnungskomponente:parameter}) und ein Bereich, in den das Ergebnis geschrieben wird, mit Bindings verbunden werden.
 
@@ -1061,9 +1071,14 @@ Die Kennzahlenanalyse, die in der ursprünglichen Situation, wie in \vref{fig:lr
 
 
 \section{Erfüllung der Anforderungen}
-An die Erweiterung wurden in der Spezifikation in \vref{sec:anforderungen} einige funktionale und nicht-funktionale Anforderungen gestellt. Um diese zu überprüfen wurde ein Beispieldashboard, das in \vref{} zu sehen ist, erstellt.
+An die Erweiterung wurden in der Spezifikation in \vref{sec:anforderungen} einige funktionale und nicht-funktionale Anforderungen gestellt. Um diese zu überprüfen wurde ein Beispieldashboard, das in \vref{fig:umsetzung_dashboard} zu sehen ist, erstellt.
 
-%TODO Dashboard einbinden
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/dashboard_preview.PNG}
+\caption{TODO\label{fig:umsetzung_dashboard}}
+\end{figure}
 
 Es ist einfach zu erkennen, dass beide funktionalen Anforderungen mit der Erweiterung erfüllt werden können. Sowohl die Daten für die Kennzahlen, als auch die Daten für die Finanzierungsmatrix stehen zur Verfügung. In dem Beispiel ist eine Kennzahl mit dem Tachometer (unten) visualisiert, die Finanzierungsmatrix im oberen Teil als Liniendiagramm.
 
@@ -1095,8 +1110,13 @@ Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des
 \loreIpsum
 
 \chapter{Zusammenfassung}
+\loreIpsum
 
+\loreIpsum
 
+\loreIpsum
+
+\loreIpsum
 \end{onehalfspacing}
 
 
