@@ -263,7 +263,7 @@ Der Kern der \gls{HANA} bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabe
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/in-memory-row-column.png}
 \caption{...\label{fig:vergleich_spalte_zeile}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 \todo{Einbindung checken und Titel festlegen}
 
 Die zeilenbasierte Organisation ist von Vorteil, wenn auf einzelne Datensätze komplett zugegriffen werden soll, die spaltenbasierte Organisation ist bei Tabellen mit einer hohen Anzahl an Spalten und bei spaltenbasierten Operationen wie der Aggregation oder der Suche überlegen. Durch die Unterstützung von beiden Organisationsformen kann die jeweils beste Form gewählt werden.\seFootcite{vgl.}{S.13f}{Kle.10}
@@ -280,7 +280,7 @@ Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. 
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/OberonUI.png}
 \caption{Darstellung eines Zahlungsstrom-Eintrags mit dem Oberon-Framework\label{fig:oberon}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Oberflächen werden mit dem Oberen Framework mit der Programmiersprache C\# und Microsoft Silverlight\footnote{Microsoft Silverlight - http://www.microsoft.com/silverlight/} entwickelt. Silverlight ist eine Technologie von Microsoft, die als Plugin für verschiedene moderne Browser verfügbar ist und die Entwicklung von \gls{glos:ria} unterstützt. Die \gls{glos:ria} stellt dabei die erste Schicht der drei Schichtenarchitektur von Anwendungen dar. Die weiteren Schichten, die Anwendungslogik und die Persistenz, werden von NGAP und HANA übernommen.\seFootcite{vgl.}{}{Oberon-A}
 
@@ -295,7 +295,7 @@ Die Berechnungskomponente stellt den wichtigsten Teil des SAP LRM dar. Mit ihr w
 \setlength{\unitlength}{1mm}
 \includegraphics[width=10cm]{images/liquigruppe_hierarchie.PNG}
 \caption{...\label{fig:liquigruppe_hierarchie}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 \todo{Einbindung checken und Titel festlegen}
 
 Es existieren zwei Arten von Liquiditätsgruppen: Die Datenbankselektion und die Berechnung. Die Datenbankselektion bildet immer den Ursprung einer Berechnung. Dabei werden einzelne Zahlungsströme nach festgelegten Selektionskriterien ausgewählt, und nach Bedingungen zusammengefasst. Selektionskriterien können zum Beispiel der hinter liegende Produkttyp des Zahlungsstroms wie zum Beispiel verzinsliches Wertpapier, oder das entsprechende Finanzrating, zum Beispiel AAA sein. Gleichzeitig findet eine Währungsumwandlung in eine einheitliche Zielwährung statt. Mehrere Zahlungsströme werden in Abhängigkeit ihrer Fälligkeit in Behältern zusammengefasst. Diese Behälter werden von dem festgelegten Fälligkeitsband definiert.\seFootcite{vgl.}{S.40}{LRM-PPT.12}
@@ -307,7 +307,7 @@ Ein Fälligkeitsband ist eine spezielle Einteilung der Zeitachse. Der Grund für
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/laufzeitband.jpg}
 \caption{...\label{fig:laufzeitband}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 \todo{Titel festlegen}
 
 Neben der Datenbankselektion existiert die Liquiditätsgruppenart Berechnung. Dabei werden aggregierte Zahlungsströme nach verschiedenen Regeln verrechnet. Zur Verfügung stehende unter anderem Addition, Subtraktion, Multiplikation und Division. 
@@ -344,7 +344,7 @@ Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die B
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Aufbau.jpg}
 \caption{... \label{fig:xcelsius_ui_aufbau}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 \todo{Titel festlegen}
 
 Viele Komponenten bieten Einstellungsmöglichkeiten an, mit denen das Verhalten und das Aussehen der Komponente festgelegt werden kann. Wird eine Komponente auf der Zeichenfläche ausgewählt, werden alle verfügbaren Eigenschaften in Bereich 3 auf der rechten Seite dargestellt. Wichtige Eigenschaften einer Komponente stellen oft die Daten dar, die die Komponenten anzeigen soll. Alle Daten werden in Bereich 4 festgelegt. Die Verbindung zwischen der Datenhalten (Microsoft Excel in Bereich 4) und der Darstellung (Zeichenfläche in Bereich 1) von \gls{Xcelsius} erfolgt durch das Referenzieren von Zellen oder Zellbereichen über die Eigenschaften einer Komponente (Bereich 3).\seFootcite{vgl.}{S.229}{Egg.09}
@@ -357,7 +357,7 @@ Der generelle Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absa
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Beispiel.jpg}
 \caption{....\label{fig:xcelsius_ui_beispiel}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 \todo{Titel festlegen}
 
 Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre Daten aus Bereich 2 auslesen. Die Wachstumsraten können mit drei Drehknöpfe festgelegt werden. Die Werte der Drehknöpfe sind mit den Zellen in Bereich 3 verknüpft. Dreht der Nutzer an einem Drehknopf, wird der aktualisierte Wert in die Zelle in Bereich 3 geschrieben. Da die Datenquelle der Diagramme mit Bezug auf die Wachstumswerte berechnet werden, verändert sich dynamisch die Diagramme. Das Prinzip ist schematisch noch einmal in \vref{fig:xcelsius_ablauf_schema} dargestellt. So ist es möglich, mit einfachen Mitteln, interaktive Dashboards zu erstellen.\seFootcite{vgl.}{S.237}{Egg.09}
@@ -367,7 +367,7 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Ablauf.jpg}
 \caption{...\label{fig:xcelsius_ablauf_schema}}
-\end{figure} \todo{Titel festlegen}
+\end{figure} \todo{Abbildung erstellen} \todo{Titel festlegen}
 
 \subsection{Architektur} \todo{Komplett überarbeiten!}
 \gls{Xcelsius} basiert auf dem \gls{glos:netFramework} von Microsoft und ist in weiten Teilen in C++ geschrieben. Neben C++ wird \gls{glos:actionscript} und das Adobe Flex Framework für die  Benutzeroberfläche eingesetzt. Die Architektur von \gls{Xcelsius} ist modular aufgebaut und besteht aus mehreren Teilen. Ein Überblick ist in \vref{fig:xcelsius_architektur} dargestellt.
@@ -377,7 +377,7 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_Architecture.jpg}
 \caption{...\label{fig:xcelsius_architektur}}
-\end{figure} \todo{Titel festlegen}
+\end{figure} \todo{Abbildung erstellen} \todo{Titel festlegen}
 
 Das zentrale Element ist das Document. Dabei handelt es sich um ein Objektmodell, das den aktuellen Zustand des Dashboards repräsentiert. Für die Darstellung wird das Canvas verwendet, welches in \gls{glos:actionscript} geschrieben ist. Die Canvas-Komponente nutzt dabei mehrere Hilfskomponenten. Dazu gehört das ApplicationTemplate, welches das Grundgerüst von alle Dashboards darstellt und mehreren Components, die die einzelnen Elemente eines Dashboards darstellen. Dies ist auch der Ansatzpunkt für spätere Erweiterungen.
 
@@ -402,7 +402,7 @@ Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat voneinande
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_Plugin_Allgemein.jpg}
 \caption{...\label{fig:xcelsius_plugin}}
-\end{figure} \todo{Titel festlegen}
+\end{figure} \todo{Abbildung erstellen} \todo{Titel festlegen}
 
 \section{Zusammenfassung}
 \loreIpsum
@@ -421,7 +421,7 @@ Der Zweck der Kennzahlenanalyse ist die Darstellung von Kennzahlen, die nach ein
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/KeyFigureAnalysis_Example.png}
 \caption{Darstellung der Kennzahlenanalyse im SAP LRM\label{fig:lrm_istzustand_keyfigureanalysis}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Neben der Kennzahlenanalyse existiert die Finanzierungsmatrix. Hier sollen nicht feste Kennzahlen dargestellt werden. Vielmehr wird  die Möglichkeit geboten, die Liquiditätssituation der Bank frei zu analysieren. Sowohl die Finanzierungsmatrix, als auch die Kennzahlenanalyse, nutzen für die Berechnung der Werte die Berechnungskomponente. Bei der Finanzierungsmatrix hat der Nutzer die Möglichkeit, die Selektionskriterien in Form der nötigen Parameter für den Aufruf der Berechnungskomponente zur Laufzeit festlegen. Die Darstellung ist hier auf ein Liniendiagramm festgelegt. \vref{fig:lrm_istzustand_fundingmatrix} zeigt die Finanzierungsmatrix.
 
@@ -430,7 +430,7 @@ Neben der Kennzahlenanalyse existiert die Finanzierungsmatrix. Hier sollen nicht
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Funding_Matrix_Example.png}
 \caption{Darstellung der Finanzierungsmatrix im SAP LRM\label{fig:lrm_istzustand_fundingmatrix}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit besteht, die Ergebnisse der Berechnungen in irgendeiner Form in anderen Auswertungen, zum Beispiel Auswertungen, die die gesamte Situation der Bank beschrieben, einzubinden. Des Weiteren besteht bei der Darstellung der Ergebnisse keine Formatierungsmöglichkeit. Somit sind zum Beispiel Farbe, Form und Größe des Diagramms fest vorgegeben und nicht durch den Nutzer änderbar.
 
@@ -562,7 +562,7 @@ Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/universe_ueberblick.jpg}
 \caption{...\label{fig:universe_abstraktion}}
-\end{figure} \todo{Titel festlegen}
+\end{figure} \todo{Abbildung erstellen} \todo{Titel festlegen}
 
 Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{Xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
@@ -571,7 +571,7 @@ Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/umsetzung_universe.jpg}
 \caption{Umsetzungsmöglichkeit der Erweiterung mittels BusinessObjects Universum \label{fig:umsetzung_universe}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt sich die Frage, wie eventuelle Selektionsparameter von \gls{Xcelsius} an die Berechnugnskomponente übergeben werden können. Zusätzlich muss die Berechnung durch die Berechnungskomponente manuell angestoßen werden, um die Tabelle mit den aktuellen Daten zu füllen. Eine automatische, periodische Berechnung, zum Beispiel durch einen eingeplanten Hintergrundprozess, würde stets veraltete Daten liefern.
 
@@ -585,7 +585,7 @@ Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SA
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/umsetzung_webservice.jpg}
 \caption{Umsetzungsmöglichkeit der Erweiterung mittels Webservices \label{fig:umsetzung_webservice}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Dadurch, dass der Aufruf direkt im SAP LRM entgegen genommen wird und nicht indirekt, zum Beispiel über ein Universum erfolgt, können eventuelle Selektionsparameter dynamisch übergeben werden. Auch das Problem mit veralteten Daten besteht nicht, da die Berechnung bei jedem Aufruf nach Bedarf durchgeführt werden kann.
 
@@ -701,7 +701,7 @@ In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-archite
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Ueberblick-Architektur.jpg}
 \caption{Überblick der grundlegenden Architektur der Erweiterung\label{fig:ueberblick-architektur}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Im SAP LRM System muss für jeden Webservice ein Webservice-Provider bereitgestellt werden. Der Webservice-Provider kann über einfache Funktionsaufrufe entweder Berechnungen über die Berechnungskomponente durchführen lassen, oder auf Objekte des SAP LRM, wie zum Beispiel einem Laufzeitband oder eine Liquiditätsgruppe zugreifen. Das Ergebnis liefert er über \gls{HTTP} im \gls{XML}-Format.
 
@@ -721,7 +721,7 @@ Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und 
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Analyse.pdf}
 \caption{Klassendiagramm der Analysephase \label{fig:klassendiagramm_analyse}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Das Kernstück der Erweiterung ist die Klasse \class{Orchestrator}. Hier ist die komplette Logik der Orchestrierung für die Kennzahlenanalyse und die Finanzierungsmatrix hinterlegt, das heißt die Ergebnisse der einzelnen Webservices werden kombiniert. Dazu existieren die entsprechenden Methoden \method{updateKPI()} und \method{updateFundingMatrix()}. Für den Datenaustausch mit dem Tabellenblatt von \gls{Xcelsius} existiert zwischen der Klasse \class{Orchestrator} und der Klasse \class{XcelsiusAdapter} eine 1:1 Assoziation.
 
@@ -741,7 +741,7 @@ Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgende
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Analyse-Sequenz.pdf}
 \caption{Sequenzdiagramm der Analysephase \label{fig:sequenz_analyse}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 
 In dem Beispiel möchte der Nutzer den Wert einer Kennzahl abfragen. Dazu ruft er in der \instance{Orchestrator}-Instanz die Methode \method{updateKPI()} auf.
@@ -776,7 +776,7 @@ Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/WebService-Abhaengigkeiten.jpg}
 \caption{Abhängigkeiten der Webservices\label{fig:webservice_abhaengigkeiten}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 
 Der Webservice der Finanzierungsmatrix ruft bei einem Aufruf die Berechnungskomponente des SAP LRM auf und muss demnach mit den vier erforderlichen Parametern versorgt werden (siehe dazu \vref{sec:berechnungskomponente:parameter}). Es besteht eine Abhängigkeit zu den drei Webservices, die automatisch durch das Framework  bereit stehen. Der Webservice der Liquiditätsgruppen ist so umgesetzt, dass er ein Liquiditässzenario als Parameter erwartet und darauf alle möglichen Liquiditätsgruppen zurückliefert -- auch hier besteht eine Abhängigkeit.
@@ -792,7 +792,7 @@ Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durc
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Entwurf.pdf}
 \caption{Klassendiagramm der Entwurfsphase\label{fig:klassendiagramm_entwurf}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Objekte, wie zum Beispiel ein Liquiditätsszenario oder ein Laufzeitband, werden nur einmal angelegt und danach in der Regel nicht mehr geändert. Bei der Orchestrierung der Webservices müsste allerdings nach dem Ergebnis der Analyse jedes Mal eine neue Abfrage gestartet werden. Um das zu verhindern wird die Klasse \class{ObjectProvider} durch die neu hinzugefügte Klasse \class{CachedObjectProvider} erweitert. Ein \class{CachedObjectProvider} hält alle Objekte, die schon einmal angefragt wurden, in einem internen Cache und liefert bei einer erneuten Nachfrage das Objekt aus dem Cache zurück, ohne einen neuen Webservice aufrufen zu müssen.
 
@@ -819,7 +819,7 @@ An dem Dynamischen Modell müssen in der Entwurfsphase nur kleinere Änderungen 
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Entwurf-Sequenz.pdf}
 \caption{Sequemzdiagramm der Entwurfsphase\label{fig:sequenz_entwurf}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 In Abschnitt (1) ist die Einbindung des \class{SettingProvider} zu sehen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterfreien Methode \method{updateKPI()} und der privaten Methode \method{getKPI()} sehen. In der Orchestrierung wird nun auch ein \class{CachedObjectProvider} verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen Webservice abgefragt und in seinem Cache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren Aufruf eines Webservice direkt beantworten.
 
@@ -833,7 +833,7 @@ Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt is
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Entwurf-Objektstruktur.pdf}
 \caption{Interne Objektstruktur vor der Umwandlung durch den XcelsiusAdapter \label{fig:objektstruktur}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
@@ -873,7 +873,7 @@ Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabe
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/flex_sandbox.png}
 \caption{...\label{fig:flex_sandbox}}
-\end{figure} \todo{Titel festelgen}
+\end{figure} \todo{Abbildung erstellen} \todo{Titel festelgen}
 
 Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es möglich, dass der Anbieter des Webservice explizit festlegen kann, dass der Webservice auch über verschiedene Domains hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Bei der Erweiterung wäre das der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
 
@@ -982,7 +982,7 @@ Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/umwandlung.png}
 \caption{Umwandlung der XML-Antwort in die interne Objektstruktur\label{fig:umwandlung:ueberblick}}
-\end{figure}
+\end{figure} \todo{Abbildung erstellen}
 
 Bei der Deserialisierung kann wiederum auf Hilfsklassen von Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode, der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, zeigt, findet sich in \vref{listing:deserialisierung}.
 \todo{satz kürzen}
@@ -1063,7 +1063,7 @@ Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bin
 \setlength{\unitlength}{1mm}
 \includegraphics[width=10cm]{images/xcelsius_einstellungen.PNG}
 \caption{...\label{fig:einstellung}}
-\end{figure} \todo{Titel finden}
+\end{figure} \todo{Abbildung erstellen} \todo{Titel finden}
 
 Für die Finanzierungsmatrix müssen für alle erforderlichen Parameter für die Berechnungskomponente (vgl. \vref{sec:berechnungskomponente:parameter}) und ein Bereich, in den das Ergebnis geschrieben wird, mit Bindings verbunden werden.
 
@@ -1084,7 +1084,7 @@ An die Erweiterung wurden in der Spezifikation in \vref{sec:anforderungen} einig
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/dashboard_preview.PNG}
 \caption{...\label{fig:umsetzung_dashboard}}
-\end{figure} \todo{Titel finden}
+\end{figure} \todo{Abbildung erstellen} \todo{Titel finden}
 
 Es ist einfach zu erkennen, dass beide funktionalen Anforderungen mit der Erweiterung erfüllt werden können. Sowohl die Daten für die Kennzahlen, als auch die Daten für die Finanzierungsmatrix stehen zur Verfügung. In dem Beispiel ist eine Kennzahl mit dem Tachometer (unten) visualisiert, die Finanzierungsmatrix im oberen Teil als Liniendiagramm.
 
