@@ -224,7 +224,7 @@ Quantitativ 			& Basel II 		& \gls{MaRisk}	\\	\hline
 
 Die Maßnahmen, die mit Hilfe des Liquiditätsrisikomanagements getroffen werden sind meist entweder ursachen- oder wirkungsbezogen. Ursachenbezogene Maßnahmen zielen darauf ab, das Risiko bereits vor dem Eintritt zu begrenzen. Wirkungsbezogene Maßnahmen haben das Ziel, die Auswirkungen eines Risikos, nachdem es eingetreten ist, zu vermindern. Ein Beispiel für eine ursachenbezogene Maßnahme bei Banken ist die Risikominderung, in dem die Höhe von möglichen Liquiditätsrisiken im Voraus über Frühwarnsysteme begrenzt wird. Eine wirkungsbezogene Maßnahme ist der Risikotransfer, bei dem die Folgen über eine Versicherung auf andere abgewälzt werden.\seFootcite{vgl.}{S.85ff}{Dur.11}
 
-\todonum{Abkürzung LCR auch als Glossareintrag umsetzen}
+
 In der aktuellen Entwicklung spielt Basel III eine wichtige Rolle. Durch Basel III soll das Liquiditätsrisikomanagement weiter homogenisiert werden. Ein zentraler Punkt ist die Einführung von zwei Liquiditätskennzahlen, der \gls{glos:lcr} und der \gls{glos:nsfr}. Beide Kennzahlen werden schrittweise eingeführt. Die \gls{glos:lcr} soll verhindern, dass kurzfristige Probleme auf dem Geldmarkt auf Banken übergreifen und damit das Systemrisiko eindämmen. Banken müssen ausreichend Vermögenspositionen besitzen, die selbst in einer Stresssituation liquidiert werden können. Damit müssen unerwartete Liquiditätsabflüsse in einem Zeitraum von 30 Tagen abgefangen werden können. Die \gls{glos:lcr} wird ab 2015 für alle Kreditinstitute binden eingeführt.\seFootcite{vgl.}{S.56}{Hof-B.11}
 
 Neben der \gls{glos:lcr} existiert mit der \gls{glos:nsfr} eine weitere wichtige Kennzahl im Rahmen von Basel III. Er bezieht sich auf das Verhältnis von mittel und langfristigen Aktivpositionen im Vergleich zu langfristigen Refinanzierungsquellen. Mit der \gls{glos:nsfr} soll erreicht werden, dass Banken längerfristige Refinanzierungsquellen nutzen und sich nicht nur auf kurzfristige Quellen beschränken. Die Vorgaben bezüglich der \gls{glos:nsfr} müssen erstmals ab 2018 eingehalten werden.\seFootcite{vgl.}{S.56f}{Hof-B.11}
@@ -260,15 +260,16 @@ Zusammengefasst bietet die \gls{NGAP} eine einfacherer Möglichkeit für die Ent
 \subsubsection{HANA}
 Die \gls{HANA} ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von \gls{HANA} ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
 
-Der Kern der \gls{HANA} bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied in \vref{fig:vergleich_spalte_zeile} zu sehen. 
+Der Kern der \gls{HANA} bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied beider Organisationsarten ist in \vref{fig:vergleich_spalte_zeile} zu sehen. 
 
 \begin{figure}[h]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/in-memory-row-column.png}
-\caption{...\label{fig:vergleich_spalte_zeile}}
+\caption
+[Vergleich zwischen der Reihen- und Spaltenorganisation von Daten]
+{Vergleich zwischen der Reihen- und Spaltenorganisation von Daten, Darstellung in Anlehnung an \seCite{}{S.13}{Kle.10} \label{fig:vergleich_spalte_zeile}}
 \end{figure} \todonum{Abbildung erstellen}
-\todonum{Einbindung checken und Titel festlegen}
 
 Die zeilenbasierte Organisation ist von Vorteil, wenn auf einzelne Datensätze komplett zugegriffen werden soll, die spaltenbasierte Organisation ist bei Tabellen mit einer hohen Anzahl an Spalten und bei spaltenbasierten Operationen wie der Aggregation oder der Suche überlegen. Durch die Unterstützung von beiden Organisationsformen kann die jeweils beste Form gewählt werden.\seFootcite{vgl.}{S.13f}{Kle.10}
 
@@ -292,15 +293,16 @@ Das Oberon Framework ist als Standardframework ausgelegt und versucht, möglichs
 
 \subsection{Berechnungskomponente}
 \label{sec:berechnungskomponente}
-Die Berechnungskomponente stellt den wichtigsten Teil des SAP LRM dar. Mit ihr werden alle Berechnungen im Umfeld des Liquiditätsrisikomanagements zentral durchgeführt. Die Berechnung findet auf Basis von Liquiditätsgruppen statt. Mit Hilfe von Liquiditätsgruppen werden sowohl aggregierter Zahlungsstrom als auch Kennzahlen einheitlich berechnet. Liquiditätsgruppen können in Polyhierarchien\footnote{Polyhierarchien sind hierarchische Strukturen, bei der ein Element mehrere übergeordnete Elemente haben kann.} angeordnet werden.\todonum{Erklärung für POlyhiererchien inline!} Dadurch können Berechnungen modular aufgebaut, wiederverwendet und einfach nachvollzogen werden. Das Abbilden von komplexen Berechnungsvorschriften wird erleichtert.\seFootcite{vgl.}{S.38}{LRM-PPT.12} Eine Hierarchie ist in \vref{fig:liquigruppe_hierarchie} zu sehen.
+Die Berechnungskomponente stellt den wichtigsten Teil des SAP LRM dar. Mit ihr werden alle Berechnungen im Umfeld des Liquiditätsrisikomanagements zentral durchgeführt. Die Berechnung findet auf Basis von Liquiditätsgruppen statt. Mit Hilfe von Liquiditätsgruppen werden sowohl aggregierter Zahlungsströme als auch Kennzahlen einheitlich berechnet. Liquiditätsgruppen können in Polyhierarchien angeordnet werden. Dabei handelt es sich um eine Hierarchie, bei der ein Element mehrere übergeordnete Elemente haben kann. Dadurch können Berechnungen modular aufgebaut, wiederverwendet und einfach nachvollzogen werden. Das Abbilden von komplexen Berechnungsvorschriften wird erleichtert.\seFootcite{vgl.}{S.38}{LRM-PPT.12} Eine Hierarchie ist in \vref{fig:liquigruppe_hierarchie} zu sehen.
 
 \begin{figure}[h]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=10cm]{images/liquigruppe_hierarchie.PNG}
-\caption{...\label{fig:liquigruppe_hierarchie}}
+\caption{
+Beispiel für die hierarchische Anordnung von Liquiditätsgruppen
+\label{fig:liquigruppe_hierarchie}}
 \end{figure} \todonum{Abbildung erstellen}
-\todonum{Einbindung checken und Titel festlegen}
 
 Es existieren zwei Arten von Liquiditätsgruppen: Die Datenbankselektion und die Berechnung. Die Datenbankselektion bildet immer den Ursprung einer Berechnung. Dabei werden einzelne Zahlungsströme nach festgelegten Selektionskriterien ausgewählt, und nach Bedingungen zusammengefasst. Selektionskriterien können zum Beispiel der hinter liegende Produkttyp des Zahlungsstroms wie zum Beispiel verzinsliches Wertpapier, oder das entsprechende Finanzrating, zum Beispiel AAA sein. Gleichzeitig findet eine Währungsumwandlung in eine einheitliche Zielwährung statt. Mehrere Zahlungsströme werden in Abhängigkeit ihrer Fälligkeit in Behältern zusammengefasst. Diese Behälter werden von dem festgelegten Fälligkeitsband definiert.\seFootcite{vgl.}{S.40}{LRM-PPT.12}
 
@@ -330,11 +332,9 @@ Das Resultat der Berechnung ist jeweils der Output der festgelegten Liquiditäts
 
 Dazu bietet es viele Möglichkeiten um Daten visualisieren und interaktiv beeinflussen zu können. Neben 20 Diagrammtypen, darunter unter anderem Linien-, Kreis-, Balken-  und Flächendiagramme, stehen Schaltflächen zur Manipulation, wie zum Beispiel Schieberegler, Optionsfelder und Drehknöpfe, zur Verfügung. Zusätzlich können Kartenelemente zur Darstellung von Geoinformationen genutzt werden und Bilder und Texte unterstützend in ein Dashboard eingebunden werden. Viele Komponenten bieten zusätzlich Einstellungsmöglichkeiten, durch die das Aussehen oder das Verhalten angepasst werden kann.\seFootcite{vgl.}{S.31f und S.229f}{Egg.09}
 
-Die Daten, auf denen die Visualisierungen in \gls{Xcelsius} basieren, werden durch die Integration von Microsoft Excel verwaltet. Excel steht dabei in vollem Umfang zur Verfügung. Es können sowohl  Berechnungen, als auch Formatierungen mit Excel durchgeführt werden. In \gls{Xcelsius} wird Excel als Schnittstelle zwischen der Datenbeschaffung aus verschiedensten Quellen und der eigentlichen Visualisierung genutzt. Alle Daten, die visualisiert werden sollen, werden in ein Tabellenkalkulationsblatt von Excel geschrieben und von dort aus ausgelesen. Die Daten können demnach vor der Darstellung in Excel beliebig bearbeitet werden.\seFootcite{vgl.}{S.32 und S.236}{Egg.09} \todonum{Tabellenkalkulationsblatt oder Tabellenblat?!}
+Die Daten, auf denen die Visualisierungen in \gls{Xcelsius} basieren, werden durch die Integration von Microsoft Excel verwaltet. Excel steht dabei in vollem Umfang zur Verfügung. Es können sowohl  Berechnungen, als auch Formatierungen mit Excel durchgeführt werden. In \gls{Xcelsius} wird Excel als Schnittstelle zwischen der Datenbeschaffung aus verschiedensten Quellen und der eigentlichen Visualisierung genutzt. Alle Daten, die visualisiert werden sollen, werden in ein Tabellenblatt von Excel geschrieben und von dort aus ausgelesen. Die Daten können demnach vor der Darstellung in Excel beliebig bearbeitet werden.\seFootcite{vgl.}{S.32 und S.236}{Egg.09} 
 
-\todonum{WYSIWYG-Prinzip als Abkürzung?!}
-\todonum{Flex oder Adobe Flex}
-Die gesamte Erstellung eines Dashboards findet nach dem „What you see is what you get“-Prinzip statt. Der Anwender sieht schon während der Erstellung, wie das Ergebnis aussieht. Durch die Verwendung von Excel und dem Umsetzen des Wysiwyg-Prinzip benötigen Nutzer meist nur eine geringe Einarbeitungszeit und die Bedienung kann als intuitiv beschrieben werden. Besondere Programmiersprachenkenntnisse sind für die Erstellung von Dashboards nicht erforderlich.\seFootcite{vgl.}{S.32 und S.239}{Egg.09}
+Die gesamte Erstellung eines Dashboards findet nach dem \gls{wysiwyg}-Prinzip statt. Der Anwender sieht schon während der Erstellung, wie das Ergebnis aussieht. Durch die Verwendung von Excel und dem Umsetzen des \gls{wysiwyg}-Prinzip benötigen Nutzer meist nur eine geringe Einarbeitungszeit und die Bedienung kann als intuitiv beschrieben werden. Besondere Programmiersprachenkenntnisse sind für die Erstellung von Dashboards nicht erforderlich.\seFootcite{vgl.}{S.32 und S.239}{Egg.09}
 
 Die mit \gls{Xcelsius} erstellten Dashboards werden mit Hilfe der Adobe Flex Technologie dargestellt. Dadurch ist kein spezieller Server oder ein \gls{DBMS} notwendig. Es wird nur das Flash-Plugin benötigt. Außerdem muss dafür für die Darstellung keine Netzwerkverbindung zu einem Server oder dem Internet vorhanden sein.  Zusätzlich können Dashboards in verschiedene Formate exportiert werden um sie so in Microsoft PowerPoint-Präsentationen oder auf Internetseiten einzubinden.\seFootcite{vgl.}{S.31f und S.230}{Egg.09}
 
@@ -388,7 +388,7 @@ Das zentrale Element ist das Document. Dabei handelt es sich um ein Objektmodell
 \todonum{COM/OLE Erklären}
 An das Document ist mittels COM/OLE Microsoft Excel angebunden. Speichern und Laden eines Dashboards übernimmt die XLF-Komponente. Diese erstellt oder lädt eine \gls{Xcelsius} File (.xlf), welches intern aus dem Document im \gls{XML}-Format und einer Excel-Datei besteht.
 
-Für den Export des fertigen Dashboards existiert der SWF Generator. Aus dem Document und den Daten und Formeln, die in Microsoft Excel erstellt wurden, wird eine .swf Datei generiert. In dieser werden nun alle Berechnungen, die bis jetzt von Microsoft Excel übernommen wurden, von einer weiteren Hilfsklasse, der Spreadsheet Engine berechnet.\seFootcite{vgl.}{}{Xcelsius-Arch.09}
+Für den Export des fertigen Dashboards existiert der SWF Generator. Aus dem Document und den Daten und Formeln, die in Microsoft Excel erstellt wurden, wird eine .swf-Datei generiert. In dieser werden nun alle Berechnungen, die bis jetzt von Microsoft Excel übernommen wurden, von einer weiteren Hilfsklasse, der Spreadsheet Engine berechnet.\seFootcite{vgl.}{}{Xcelsius-Arch.09}
 
 \todonum{Ende einfügen!? Abschließende Worte}
 
@@ -399,7 +399,7 @@ Durch die Einstellungsmöglichkeiten der einzelnen Komponenten und die Einbindun
 Die Erweiterungen, die mit dem \gls{glos:sdk} programmiert werden können, müssen auf dem Adobe Flex SDK 2.0.1 basieren. Die Programmiersprache ist \gls{glos:actionscript}. Es können drei verschiedene Typen von Erweiterungen mit dem \gls{glos:sdk} entwickelt werden. Dabei handelt es sich um visuelle Komponenten, die später auf dem erstellten Dashboard dargestellt werden, um Datenverbindungen, die nicht auf dem Dashboard angezeigt werden, sondern nur im Hintergrund aktiv sind und in der Regel Daten in das Excel eintragen. Die dritte Möglichkeit ist die Erweiterung der Steuerungslogik von Excel, spielt aber im Rahmen dieser Bachelorarbeit keine Rolle. \footnote{\seCite{vgl.}{S.229}{Egg.09} \seCite{und}{S.3f}{Xcelsius-SDK.08}}
 
 \todonum{Auf Connections umschreiben}
-Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat voneinander entwickelt werden können. Der erste Teil ist für die Darstellung der Komponente auf dem Zeichenblatt des Dashboards verantwortlich. Der zweite Teil übernimmt die Darstellung der Eigenschaften, die die Komponente bieten soll. Es ist gleichzeitig die Verbindung zwischen \gls{Xcelsius} und der entwickelten Komponente. Die Logik der Komponente kann je nach Bedarf auf beide Teile verteilt werden. Das Ergebnis der Entwicklung der beiden Teilkomponenten sind zwei .swf Dateien \todonum{Checken}. Diese Dateien, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler werden mit dem \gls{Xcelsius} \gls{glos:sdk} zu einem \gls{Xcelsius} Plugin zusammengefügt. Dieses kann dann in \gls{Xcelsius} importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}} Den Vorgang zeigt \vref{fig:xcelsius_plugin}.
+Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat voneinander entwickelt werden können. Der erste Teil ist für die Darstellung der Komponente auf dem Zeichenblatt des Dashboards verantwortlich. Der zweite Teil übernimmt die Darstellung der Eigenschaften, die die Komponente bieten soll. Es ist gleichzeitig die Verbindung zwischen \gls{Xcelsius} und der entwickelten Komponente. Die Logik der Komponente kann je nach Bedarf auf beide Teile verteilt werden. Das Ergebnis der Entwicklung beider Teilkomponenten ist je eine .swf-Datei. Beide Dateien, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler, werden mit dem \gls{Xcelsius} \gls{glos:sdk} zu einem \gls{Xcelsius} Plugin zusammengefügt. Das Resultat kann dann in \gls{Xcelsius} importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}} Den Vorgang zeigt \vref{fig:xcelsius_plugin}.
 
 \begin{figure}[h]
 \centering
@@ -558,8 +558,8 @@ Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von \gls{Xc
 \section{BusinessObjects Universum}
 Eine Möglichkeit, externe Daten in \gls{Xcelsius} zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantische Ebene, die es ermöglicht Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
 
-\todonum{Inline-Erklärung zu Sternschema und normalisierter Form schreiben}
-Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06} Dies zeigt \vref{fig:universe_abstraktion}.
+
+Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden. Das Sternschema ist ein besonderes Datenmodell, welches besonders für Leseoperationen optimiert ist. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06} Dies zeigt \vref{fig:universe_abstraktion}.
 
 \begin{figure}[h]
 \centering
@@ -866,8 +866,8 @@ In der ersten Spalte werden die Abschnitte des Laufzeitbandes abgetragen. Diese 
 So entsteht die Tabellenstruktur in \vref{tab:zielstruktur}, welche durch den \class{XcelsiusAdapter} in das Tabellenblatt geschrieben wird. Dort können die Daten durch den Nutzer weiterverarbeitet werden.
 
 \section{Implementierung}
-\subsection{Flex Sandbox}
-Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen bestimmten Sicherheitsbeschränkungen. Darunter fällt auch die Erweiterung, die im Rahmen dieser Bachelorarbeit entwickelt wird. Die Ausführung von Flex-Anwendungen erfolgt in einer Sandbox. Dadurch sollen ungewollte Änderungen auf Client-Seite verhindert werden -- die Anwendung darf sich nur ein einem klar definierten Raum bewegen.
+\subsection{Adobe Flex Sandbox}
+Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen bestimmten Sicherheitsbeschränkungen. Darunter fällt auch die Erweiterung, die im Rahmen dieser Bachelorarbeit entwickelt wird. Die Ausführung von Adobe Flex-Anwendungen erfolgt in einer Sandbox. Dadurch sollen ungewollte Änderungen auf Client-Seite verhindert werden -- die Anwendung darf sich nur ein einem klar definierten Raum bewegen.
 
 
 Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{Xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM zunächst nicht möglich, da es durch die Sandbox blockiert wird. Die Beschränkung ist in \vref{fig:flex_sandbox} dargestellt.
@@ -881,7 +881,7 @@ Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabe
 
 Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es möglich, dass der Anbieter des Webservice explizit festlegen kann, dass der Webservice auch über verschiedene Domains hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Bei der Erweiterung wäre das der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
 
-Um diesen Aufwand zu umgehen, wurde der zweite Lösungsansatz umgesetzt. Hierbei wird auf dem Client ein lokaler Webserver installiert. Dieser Webserver ist über die Domain localhost erreichbar. Alle Anfragen der Erweiterung gehen gegen den lokalen Webserver. Dadurch, dass die Flex-Anwendung auch unter der Domain localhost ausgeführt wird, ist der Zugriff erlaubt. Der Webserver stellt die Anfrage an den richtigen Webservice im SAP LRM und leitet die Antwort an die Erweiterung weiter.
+Um diesen Aufwand zu umgehen, wurde der zweite Lösungsansatz umgesetzt. Hierbei wird auf dem Client ein lokaler Webserver installiert. Dieser Webserver ist über die Domain localhost erreichbar. Alle Anfragen der Erweiterung gehen gegen den lokalen Webserver. Dadurch, dass die Adobe Flex-Anwendung auch unter der Domain localhost ausgeführt wird, ist der Zugriff erlaubt. Der Webserver stellt die Anfrage an den richtigen Webservice im SAP LRM und leitet die Antwort an die Erweiterung weiter.
 
 Für die Umsetzung wurde lokal ein \gls{glos:tomcat}-Webserver installiert. Für diesen wurde ein einfaches Java-HttpServlet entwickelt, welches die geforderte Funktionalität umsetzt. Der Quelltext des Servlets ist in \vref{listing:servlet} zu sehen.
 
@@ -891,9 +891,9 @@ Für die Zukunft sollte allerdings versucht werden, die Lösung über die crossd
 \label{sec:asynchron}
 Im Vergleich zu dem Entwurf und der Analyse, bei dem alle Aufrufe synchron durchgeführt wurden, wird dies aus zwei Gründen in der Umsetzung auf hauptsächlich asynchrone Aufrufe umgestellt. Dabei handelt es sich um folgende Gründe:
 
-Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls sich bei der Orchestrierung die Antwort eines Aufruf eines Webservice verzögert, können trotzdem alle anderen Anfragen schon verarbeitet werden. Der dadurch gewonnene Vorteil ist aufgrund technischer Limitierungen leider nicht allzu groß, da die Anwendung später nur auf einem Thread ausgeführt wird und somit eine echt parallele Verarbeitung von zwei simultan erhaltenen Antworten nicht möglich ist. \todonum{Erklärung, warum nur ein Thread?!}
+Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls sich bei der Orchestrierung die Antwort eines Aufruf eines Webservice verzögert, können trotzdem alle anderen Anfragen schon verarbeitet werden. Der dadurch gewonnene Vorteil ist aufgrund  einer Limitierung durch das verwendete Framework jedoch nicht sehr groß, da die Anwendung später nur auf einem Thread ausgeführt wird. Eine echt parallele Verarbeitung von zwei simultan erhaltenen Antworten ist somit nicht möglich.
 
-Auf der anderen Seite wird für den Aufruf der Webservices in der Klasse \class{WebServiceConnector} die Flex-Klasse \class{HTTPService} verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nämlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei Callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Der entsprechende Quelltext ist in \vref{listing:ws_aufruf} dargestellt.
+Auf der anderen Seite wird für den Aufruf der Webservices in der Klasse \class{WebServiceConnector} die Adobe Flex-Klasse \class{HTTPService} verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nämlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei Callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Der entsprechende Quelltext ist in \vref{listing:ws_aufruf} dargestellt.
 
 \begin{programm}[h] % aus WebserviceConnector
 \begin{lstlisting}[language=ActionScript]
@@ -928,7 +928,7 @@ Anfang und Ende eines Aufrufes von einem Webservice über den \class{ObjectProvi
 
 Um festzustellen, ob alle Anfragen erfolgreich zurückgekommen sind und somit mit der finalen Orchestrierung begonnen werden kann, werden die \class{RequestToken} in einer internen Liste verwaltet. Diese Liste enthält alle Anfragen, von denen die Antwort noch aussteht.  Wird die Antwort erhalten, wird der Token aus der Liste entfernt, in einen \class{ResultToken} umgewandelt, indem das eigentliche Ergebnis angehängt wird, und in einer weiteren Liste zwischengespeichert. Wurden alle Anfragen erfolgreich beantwortet, kann die Orchestrierung durchgeführt werden. Die einzelnen Ergebnisse können dann aus der Liste mit den \class{ResultToken}-Instanzen bezogen werden.
 
-Die Methode \method{onObjectProviderSuccess()} wird asynchron aufgerufen und verändert unter anderem die beiden Listen zur Verwaltung der Token. Demnach handelt es sich hierbei normalerweise um einen kritischen Abschnitt, in dem kritische Daten verändert werden. Der Zugriff auf diese Methode müsste synchronisiert werden. Da aber die Anwendung später auf nur einem Thread ausgeführt wird, kann auf eine Synchronisation verzichtet werden. \todonum{ TODO Warum? Erklären!}
+Die Methode \method{onObjectProviderSuccess()} wird asynchron aufgerufen und verändert unter anderem die beiden Listen zur Verwaltung der Token. Demnach handelt es sich hierbei normalerweise um einen kritischen Abschnitt, in dem kritische Daten verändert werden. Der Zugriff auf diese Methode müsste synchronisiert werden. Da aber die Anwendung später auf nur einem Thread ausgeführt wird, kann auf eine Synchronisation verzichtet werden.
 
 In \vref{listing:orchestrierung:webservices} ist in allgemeiner Form der erläuterte Ablauf implementiert. Dabei werden zwei beliebige \class{ObjectProvider} abgefragt. Die jeweiligen Ergebnisse können dann in gewünschter Weise orchestriert werden. Die in dem Beispiel verwendeten Klassen wurden teilweise vereinfacht und entsprechen nicht den Klassen in dem statischen Modell der Erweiterung.
 
@@ -988,7 +988,7 @@ Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die
 \caption{Umwandlung der XML-Antwort in die interne Objektstruktur\label{fig:umwandlung:ueberblick}}
 \end{figure} \todonum{Abbildung erstellen}
 
-Bei der Deserialisierung kann wiederum auf Hilfsklassen von Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode, der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, zeigt, findet sich in \vref{listing:deserialisierung}.
+Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode, der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, zeigt, findet sich in \vref{listing:deserialisierung}.
 \todonum{satz kürzen}
 
 \begin{programm}[h] % aus WebServiceConnector
