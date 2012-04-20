@@ -1151,38 +1151,51 @@ import java.net.*;
 import javax.servlet.http.*;
 import javax.servlet.*;
 
+import sun.misc.BASE64Encoder;
+
 @SuppressWarnings("serial")
 public class ProxyServlet extends HttpServlet {
 
-	public void doGet (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// build request url
-		String requestedUrl = req.getServletPath();
-		String params = req.getQueryString();
-		String urlString = "http://ldciqhc.wdf.sap.corp:50000" + requestedUrl;
-		if(params != null)
-			urlString += "?"+params;
-		
-		// build connection
-		URL url = new URL(urlString);
-		HttpURLConnection conn  = (HttpURLConnection) url.openConnection();
-		
-		// set password
-		String encoding = new sun.misc.BASE64Encoder().encode("username:pw".getBytes());
-		conn.setRequestProperty ("Authorization", "Basic " + encoding);
-		
-		// start request
-		conn.setRequestMethod("GET");
-		conn.connect();
-		
-		// get response
-		PrintWriter out = res.getWriter();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-		String content = null;
-		while((content = reader.readLine()) != null){
-			out.print(content);
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+		try {
+			String requestedUrl = req.getServletPath();
+			String params = req.getQueryString();
+
+			// build request url
+			String urlString = "http://xhc-cust106.wdf.sap.corp:8000"
+					+ requestedUrl;
+			if (params != null)
+				urlString += "?" + params;
+
+			// build connection
+			URL url = new URL(urlString);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+			// set password
+			BASE64Encoder encoder = new BASE64Encoder();
+			String encoding = encoder.encode("HPA_LRM:Welcome1".getBytes());
+			conn.setRequestProperty("Authorization", "Basic " + encoding);
+
+			// start request
+			conn.setRequestMethod("GET");
+			conn.connect();
+
+			PrintWriter out = res.getWriter();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					conn.getInputStream()));
+
+			// get response
+			String content = null;
+			while ((content = reader.readLine()) != null) {
+				out.print(content);
+			}
+
+			out.flush();
+			out.close();
+		} catch (Exception e) {
+			System.err.println("Request failed");
 		}
-		out.flush();
-		out.close();
 	}
 }
 \end{lstlisting}
