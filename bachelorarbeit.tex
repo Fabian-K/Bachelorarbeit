@@ -901,8 +901,7 @@ Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls
 
 Auf der anderen Seite wird für den Aufruf der Webservices in der Klasse \class{WebServiceConnector} die Adobe Flex-Klasse \class{HTTPService} verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nämlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei Callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Der entsprechende Quelltext ist in \vref{listing:ws_aufruf} dargestellt.
 
-\begin{programm}[h] % aus WebserviceConnector
-\begin{lstlisting}[language=ActionScript]
+\begin{lstlisting}[language=ActionScript, label={listing:ws_aufruf}, caption={Aufruf eines Webservice in der Erweiterung}]
 public function consume():void{
 	// HTTPService-Instanz erstellen
 	webService = new HTTPService();
@@ -925,8 +924,6 @@ public function onHttpRequestFailure(event:FaultEvent){
 	// ...
 }
 \end{lstlisting}
-\caption{Aufruf eines Webservice in der Erweiterung\label{listing:ws_aufruf}}
-\end{programm}
 
 Durch die Asynchronität ändert sich entsprechend die Signatur der Methoden. Der Rückgabewert entfällt, stattdessen wird ein zusätzlicher Parameter mitgegeben. Bei \gls{glos:actionscript} kann dies entweder eine Methode eines Objektes sein, siehe dazu \vref{listing:ws_aufruf}. Alternativ kann auch eine Objekt-Instanz übergeben werden. Auf dieser Instanz wird dann zu dem entsprechenden Zeitpunkt eine festgelegte Methode aufgerufen.
 
@@ -938,8 +935,7 @@ Die Methode \method{onObjectProviderSuccess()} wird asynchron aufgerufen und ver
 
 In \vref{listing:orchestrierung:webservices} ist in allgemeiner Form der erläuterte Ablauf implementiert. Dabei werden zwei beliebige \class{ObjectProvider} abgefragt. Die jeweiligen Ergebnisse können dann in gewünschter Weise orchestriert werden. Die in dem Beispiel verwendeten Klassen wurden teilweise vereinfacht und entsprechen nicht den Klassen in dem statischen Modell der Erweiterung.
 
-\begin{programm}[h] % aus WebServiceConnector
-\begin{lstlisting}[language=ActionScript]
+\begin{lstlisting}[language=ActionScript, label={listing:orchestrierung:webservices}, caption={Beispielhafter Ablauf der Orchestrierung von Webservices}]
 private function orchestrateWebServices():void{
 	// Verwaltung der Token
 	pendingRequestToken = new ArrayCollection();
@@ -974,8 +970,6 @@ private function getResultForRequest(request:String):Object{
 	throw "no result";
 }
 \end{lstlisting}
-\caption{Beispielhafter Ablauf der Orchestrierung von Webservices\label{listing:orchestrierung:webservices}}
-\end{programm}
 
 \subsection{Webservice-Ablauf}
 In diesem Abschnitt soll an dem Beispiel des Finanzierungsmatrix-Webservice exemplarisch gezeigt werden, wie der Aufruf und die Umwandlung in ein internes Objektformat realisiert wird.
@@ -996,8 +990,7 @@ Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die
 
 Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, findet sich in \vref{listing:deserialisierung}.
 
-\begin{programm}[h] % aus WebServiceConnector
-\begin{lstlisting}[language=ActionScript]
+\begin{lstlisting}[language=ActionScript, label={listing:deserialisierung}, caption={Deserialisierung des XML-Format in die interne Objektstruktur}]
 public override function deserialize(content:String):Object{			
 	var decoder:SimpleXMLDecoder = new SimpleXMLDecoder();
 	var proxyObject:Object = decoder.decodeXML(new XMLDocument(content));
@@ -1022,8 +1015,6 @@ public override function deserialize(content:String):Object{
 	return result;
 }
 \end{lstlisting}
-\caption{Deserialisierung des XML-Format in die interne Objektstruktur\label{listing:deserialisierung}}
-\end{programm}
 
 Die \class{ObjectProvider} und \class{Deserializer} für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der \method{getObject}-Methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cache befindet und dann direkt zurückgegeben. Ist es noch nicht vorhanden, wird der Webservice-Aufruf gestartet und nach der Deserialisierung wird das Objekt im Cache für weitere Anfragen gehalten.
 
@@ -1144,63 +1135,59 @@ In diesem Kapitel wurden die Evaluation der Erweiterung für Xcelsius durchgefü
 
 \chapter{Anhang}
 
-\begin{programm}[h] % aus WebServiceConnector
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java, label={listing:servlet}, caption={Proxy-Servlet zur Umgehung der Cross-Domin Request Beschränkungen}]
 import java.io.*;
 import java.net.*;
 import javax.servlet.http.*;
 import javax.servlet.*;
-
 import sun.misc.BASE64Encoder;
 
 @SuppressWarnings("serial")
 public class ProxyServlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
-		try {
-			String requestedUrl = req.getServletPath();
-			String params = req.getQueryString();
+ public void doGet(HttpServletRequest req, HttpServletResponse res)
+     throws ServletException, IOException {
+   try {
+    String requestedUrl = req.getServletPath();
+	String params = req.getQueryString();
 
-			// build request url
-			String urlString = "http://xhc-cust106.wdf.sap.corp:8000"
+	// build request url
+	String urlString = "http://xhc-cust106.wdf.sap.corp:8000"
 					+ requestedUrl;
-			if (params != null)
-				urlString += "?" + params;
+	if (params != null)
+		urlString += "?" + params;
 
-			// build connection
-			URL url = new URL(urlString);
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	// build connection
+	URL url = new URL(urlString);
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-			// set password
-			BASE64Encoder encoder = new BASE64Encoder();
-			String encoding = encoder.encode("HPA_LRM:Welcome1".getBytes());
-			conn.setRequestProperty("Authorization", "Basic " + encoding);
+	// set authorization
+	BASE64Encoder encoder = new BASE64Encoder();
+	String encoding = encoder.encode("USER:PW".getBytes());
+	conn.setRequestProperty("Authorization", "Basic " + encoding);
 
-			// start request
-			conn.setRequestMethod("GET");
-			conn.connect();
+	// start request
+	conn.setRequestMethod("GET");
+	conn.connect();
 
-			PrintWriter out = res.getWriter();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					conn.getInputStream()));
+	PrintWriter out = res.getWriter();
+	BufferedReader reader = new BufferedReader(new InputStreamReader(
+			conn.getInputStream()));
 
-			// get response
-			String content = null;
-			while ((content = reader.readLine()) != null) {
-				out.print(content);
-			}
-
-			out.flush();
-			out.close();
-		} catch (Exception e) {
-			System.err.println("Request failed");
-		}
+	// get response
+	String content = null;
+	while ((content = reader.readLine()) != null) {
+		out.print(content);
 	}
+
+	out.flush();
+	out.close();
+  } catch (Exception e) {
+   System.err.println("Request failed");
+  }
+ }
 }
 \end{lstlisting}
-\caption{Proxy-Servlet zur Umgehung der Cross-Domin Request Beschränkungen\label{listing:servlet}}
-\end{programm}
 
 % -------------------------------------------------------------------------------------
 %  Erzeugung eines Glossars
