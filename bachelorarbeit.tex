@@ -175,8 +175,8 @@ gliederungsebenen=4
 
 \section{Einleitung}
 \loreIpsum
-\section{Liquidität}
 
+\section{Liquidität} 
 Der Begriff der Liquidität ist weit verbreitet und im allgemeinen Sprachgebrauch festgesetzt. Allerdings ist eine eindeutige Definition des Begriffs schwierig, da Liquidität sehr vielschichtig ist, mehrere Dimensionen besitzt und die jeweilige Bedeutung von der Perspektive der Betrachtung abhängt.\footnote{\seCite{vgl.}{S.3}{Dur.11} \seCite{und}{S.13}{Bar-A.08}} Für diese Arbeit ist vor allem die betriebswirtschaftliche Sicht auf Liquidität entscheidend. Die volkswirtschaftliche Sicht wird daher nicht näher erläutert.\seFootcite{vgl.}{S.10}{Zer-A.10}
 
 In der betriebswirtschaftlichen Sicht wird zunächst die Liquidität von Objekten von der Liquidität von Subjekten unterschieden. Die Objektliquidität ist die Fähigkeit eines Vermögensgegenstandes in Zahlungsmittel umgewandelt werden zu können.\seFootcite{vgl.}{S.10}{Moc.07} Sie hängt demnach von der Nähe des Objektes zu Geld ab. Zahlungsmittel haben die höchste Objektliquidität, Immobilien eine geringe.\seFootcite{vgl.}{S.3}{Dur.11} Die Liquidität von Subjekten bezeichnet die Fähigkeit eines Subjekts, zum Beispiel einer Bank, alle Zahlungsverpflichtungen erfüllen zu können.\footnote{\seCite{vgl.}{S.3}{Dur.11} \seCite{und}{S.11}{Zer-A.10}}
@@ -245,27 +245,26 @@ Neben der \gls{glos:lcr} existiert mit der \gls{glos:nsfr} eine weitere wichtige
 \subsection{Funktionen}
 Das SAP LRM ist eine Anwendung für Banken, um Liquiditätsrisiken managen zu können. Es unterstützt den kompletten Risikomanagementprozess von der Identifikation der Risiken, der genaueren Analyse eines Risikos über die Findung von Maßnahmen zur Behandlung des Risikos bis zur Berichtserstellung und Überwachung. Der Schwerpunkt liegt dabei besonders auf dem letzten Teil, der Berichtserstellung und Überwachung. Neben einer Weboberfläche wird der Zugriff auf die Informationen des SAP LRM auch über mobile Endgeräte, wie zum Beispiel dem Apple iPad, durch die Bereitstellung von entsprechenden Applikationen ermöglicht.\seFootcite{vgl.}{S.10 und S.23}{LRM-PPT.12}
 
-\todonum{HANA Abkürzung klären}
-Durch den Einsatz der LRM Lösung können Banken rechtliche Anforderungen, wie zum Beispiel die Einhaltung der \gls{glos:lcr} und der \gls{glos:nsfr} im Rahmen von Basel III sicherstellen. Zusätzlich können durch die Bereitstellung einer Berechnungskomponente eigene Kennzahlen zur Steuerung und Überwachung der Bank definiert und umgesetzt werden. Durch den Einsatz von der \gls{HANA} ist es möglich, eine zahlungsstromorientierte Herangehensweise trotz der großen Datenmengen zu ermöglichen und gleichzeitig in Echtzeit\footnote{Die Echtzeitanforderung wurde in diesem Kontext auf eine Reaktionszeit von einer Sekunde festgelegt.} mit den Daten zu arbeiten. Im Bereich des Liquiditätsrisikomanagement müssen mehrere Geschäftsbereiche involviert werden. Deshalb bietet das SAP LRM kollaborative Möglichkeiten um dies zu unterstützen.\seFootcite{vgl.}{S.9 und S.17f}{LRM-PPT.12}
+Durch den Einsatz der LRM Lösung können Banken rechtliche Anforderungen, wie zum Beispiel die Einhaltung der \gls{glos:lcr} und der \gls{glos:nsfr} im Rahmen von Basel III sicherstellen. Zusätzlich können durch die Bereitstellung einer Berechnungskomponente eigene Kennzahlen zur Steuerung und Überwachung der Bank definiert und umgesetzt werden. Durch den Einsatz von SAP HANA ist es möglich, eine zahlungsstromorientierte Herangehensweise trotz der großen Datenmengen zu ermöglichen und gleichzeitig in Echtzeit\footnote{Die Echtzeitanforderung wurde in diesem Kontext auf eine Reaktionszeit von einer Sekunde festgelegt.} mit den Daten zu arbeiten. Im Bereich des Liquiditätsrisikomanagement müssen mehrere Geschäftsbereiche involviert werden. Deshalb bietet das SAP LRM kollaborative Möglichkeiten um dies zu unterstützen.\seFootcite{vgl.}{S.9 und S.17f}{LRM-PPT.12}
 
 Als Datenquelle für die Zahlungsströme werden neben SAP-Systemen, meist ein \gls{ERP}-System, auch nicht-SAP-Systeme unterstützt. Somit kann sichergestellt werden, dass Analysen auf einer vollständigen Datenbasis durchgeführt werden. Für die Analysen können verschiedene Szenarien simuliert werden. Bei jedem Szenario werden dabei Annahmen über die zukünftige finanzielle Entwicklung getroffen. Meist handelt es sich dabei um die Herauf- oder Herabstufung der Kreditwürdigkeit von Kunden, die Entwicklung von Aktienkursen, das Verhalten der Marktteilnehmer oder Währungskursschwankungen. Durch diesen Spielraum ist es möglich, ein genaues Bild über die Liquiditätsrisiken der Bank zu erhalten.\seFootcite{vgl.}{S.18 und S.45}{LRM-PPT.12}
 
 
 \subsection{Architektur}
 
-\subsubsection{NGAP}
-Die \gls{NGAP} stellt die technologische Grundlage für das SAP LRM dar. Sie ist eine Plattform für in \gls{glo:abap} geschriebene Unternehmensanwendungen und soll eine moderne Alternative zu dem \gls{NetWeaver} bieten. Dieser stellte bisher die Grundlage für fast alle Anwendungen der SAP dar. Entscheidende Merkmale ist die Nutzung von \gls{HANA} im \gls{glo:abap}-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse\footnote{Eclipse IDE - http://www.eclipse.org/} basierenden Entwicklungsumgebung und die vereinfachte Bereitstellung von \gls{glos:rest}-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
+\subsubsection{Next Generation ABAP Plattform}
+Die \gls{NGAP} stellt die technologische Grundlage für das SAP LRM dar. Sie ist eine Plattform für in \gls{glo:abap} geschriebene Unternehmensanwendungen und soll eine moderne Alternative zu dem \gls{NetWeaver} bieten. Dieser stellte bisher die Grundlage für fast alle Anwendungen der SAP dar. Entscheidende Merkmale ist die Nutzung von SAP HANA im \gls{glo:abap}-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse\footnote{Eclipse IDE - http://www.eclipse.org/} basierenden Entwicklungsumgebung und die vereinfachte Bereitstellung von \gls{glos:rest}-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
 
 Der \gls{NetWeaver} hat sich als ausgereifte und verlässliche Plattform erweisen, die sowohl einen Java- als auch einen \gls{glo:abap} Stack besitzt und in Verbindung mit vielen Betriebssystemen und Datenbanken genutzt werden kann. Durch die Unterstützung der beiden Programmiersprachen, der Betriebssysteme und der verschiedenen Datenbanken ist das Thema Kompatibilität bei der Weiterentwicklung ein entscheidendes Merkmal. Dadurch wird die Komplexität von Erweiterungen deutlich erhöht und durch die lange Entwicklungszeit des \gls{NetWeaver} sind Codeteile bis zu 20 Jahre alt.\footnote{\seCite{vgl.}{}{NGAP-V2} \seCite{und}{S.1}{NGAP-FS}}
 
-Diese Nachteile sind der Grund für die Entwicklung der \gls{NGAP}. Die \gls{NGAP} basiert auf dem Quellcode des \gls{NetWeaver} in der Version 7.2. Die wichtigsten Veränderungen sind das Entfernen des Java-Stacks, die Verschlankung des zugrundeliegenden Kernels und des \gls{glo:abap}-Stacks. Der Kernel wurde komplett restrukturiert, weiter modularisiert und die Unterstützung auf wenige Betriebssysteme und die Datenbank von \gls{HANA} als einzige Datenbank reduziert. Durch den Wegfall der Kompatibilitätsanforderungen konnten große Teile des \gls{glo:abap}-Stacks entfernt oder vereinfacht werden.\seFootcite{vgl.}{}{NGAP-V1} Des Weiteren wurde zum ersten Mal ein durchgehendes API für die Programmierung von Anwendungen auf Basis der \gls{NGAP} eingeführt. Dadurch sind interne Änderungen an der \gls{NGAP} möglich, ohne die Anwendungen anpassen zu müssen.\seFootcite{vgl.}{}{NGAP-V2} Insgesamt konnten durch die Änderungen die Anzahl der Quellcodezeilen um 60\% reduziert werden. Dadurch ergeben sich Vorteile in der Wartung da potentiell weniger Fehler enthalten sein können.\seFootcite{vgl.}{S.2}{NGAP-FS}
+Diese Nachteile sind der Grund für die Entwicklung der \gls{NGAP}. Die \gls{NGAP} basiert auf dem Quellcode des \gls{NetWeaver} in der Version 7.2. Die wichtigsten Veränderungen sind das Entfernen des Java-Stacks, die Verschlankung des zugrundeliegenden Kernels und des \gls{glo:abap}-Stacks. Der Kernel wurde komplett restrukturiert, weiter modularisiert und die Unterstützung auf wenige Betriebssysteme und die Datenbank von SAP HANA als einzige Datenbank reduziert. Durch den Wegfall der Kompatibilitätsanforderungen konnten große Teile des \gls{glo:abap}-Stacks entfernt oder vereinfacht werden.\seFootcite{vgl.}{}{NGAP-V1} Des Weiteren wurde zum ersten Mal ein durchgehendes API für die Programmierung von Anwendungen auf Basis der \gls{NGAP} eingeführt. Dadurch sind interne Änderungen an der \gls{NGAP} möglich, ohne die Anwendungen anpassen zu müssen.\seFootcite{vgl.}{}{NGAP-V2} Insgesamt konnten durch die Änderungen die Anzahl der Quellcodezeilen um 60\% reduziert werden. Dadurch ergeben sich Vorteile in der Wartung da potentiell weniger Fehler enthalten sein können.\seFootcite{vgl.}{S.2}{NGAP-FS}
 
-Zusammengefasst bietet die \gls{NGAP} eine einfacherer Möglichkeit für die Entwicklung von Anwendungen in Verbindung von aktuellen Innovationen wie zum Beispiel \gls{HANA} oder dem Anschluss von mobilen Clients auf Basis von \gls{glos:rest}-Webservices.
+Zusammengefasst bietet die \gls{NGAP} eine einfacherer Möglichkeit für die Entwicklung von Anwendungen in Verbindung von aktuellen Innovationen wie zum Beispiel SAP HANA oder dem Anschluss von mobilen Clients auf Basis von \gls{glos:rest}-Webservices.
 
 \subsubsection{HANA}
-Die \gls{HANA} ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von \gls{HANA} ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
+SAP HANA ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von SAP HANA ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
 
-Der Kern der \gls{HANA} bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied beider Organisationsarten ist in \vref{fig:vergleich_spalte_zeile} zu sehen. 
+Der Kern von SAP HANA bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied beider Organisationsarten ist in \vref{fig:vergleich_spalte_zeile} zu sehen. 
 
 \begin{figure}[h]
 \centering
@@ -280,10 +279,10 @@ Die zeilenbasierte Organisation ist von Vorteil, wenn auf einzelne Datensätze k
 
 Veränderungen in einem Datensatz einer Tabelle können auf Wunsch nicht in dem Eintrag der Tabelle direkt geändert, sondern nur die Differenzen an die Tabelle angefügt werden. Dadurch bleibt die Information, wie sich der Datensatz im Laufe der Zeit verändert hat, erhalten und kann in späteren Auswertungen als weitere Information hinzugezogen werden. Zusätzlich ist das Anfügen der Veränderung schneller durchzuführen wie die Veränderung des bestehenden Datensatzes.\seFootcite{vgl.}{S.109f}{PZ.11}
 
-Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von \gls{HANA} entwickelt werden, versucht, ein Teil der Anwendungslogik schon auf der Datenbank selbst zu berechnen.\seFootcite{vgl.}{S.155f}{PZ.11} Erreicht wird dies durch die Erweiterung der Abfragesprache \gls{SQL} zu \gls{glos:sqlscript}. Mit \gls{glos:sqlscript} ist es unter anderem durch das Hinzufügen von Datentypen, Prozeduren und Operationen möglich, Anwendungslogik abzubilden. Diese Berechnungen können von der Datenbank durch Parallelisierung sehr schnell durchgeführt werden.\seFootcite{vgl.}{S.9f}{SQLScript.11} Als Resultat kann die Datenübertragung zwischen dem \gls{DBMS} und der Anwendung verringert werden. Es muss nur noch das Ergebnis und nicht die Datensätze, auf denen das Ergebnis basiert, übertragen werden. Zusätzlich wird die Komplexität der Anwendung verringert, da ein Teil der Logik von dem \gls{DBMS} übernommen wird.
+Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von SAP HANA entwickelt werden, versucht, ein Teil der Anwendungslogik schon auf der Datenbank selbst zu berechnen.\seFootcite{vgl.}{S.155f}{PZ.11} Erreicht wird dies durch die Erweiterung der Abfragesprache \gls{SQL} zu \gls{glos:sqlscript}. Mit \gls{glos:sqlscript} ist es unter anderem durch das Hinzufügen von Datentypen, Prozeduren und Operationen möglich, Anwendungslogik abzubilden. Diese Berechnungen können von der Datenbank durch Parallelisierung sehr schnell durchgeführt werden.\seFootcite{vgl.}{S.9f}{SQLScript.11} Als Resultat kann die Datenübertragung zwischen dem \gls{DBMS} und der Anwendung verringert werden. Es muss nur noch das Ergebnis und nicht die Datensätze, auf denen das Ergebnis basiert, übertragen werden. Zusätzlich wird die Komplexität der Anwendung verringert, da ein Teil der Logik von dem \gls{DBMS} übernommen wird.
 
 \subsubsection{Oberon}
-Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. Es wurde ursprünglich als Oberfläche für \gls{glos:bydesign} entwickelt und wird jetzt auch für weitere Anwendungen unter anderem für Anwendungen, die auf HANA und NGAP basieren, verwendet.\seFootcite{vgl.}{}{Oberon-A} Ein Beispiel eines mit dem Oberon Framework umgesetzte Oberfläche ist in \vref{fig:oberon} zu sehen.
+Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. Es wurde ursprünglich als Oberfläche für \gls{glos:bydesign} entwickelt und wird jetzt auch für weitere Anwendungen unter anderem für Anwendungen, die auf SAP HANA und \gls{NGAP} basieren, verwendet.\seFootcite{vgl.}{}{Oberon-A} Ein Beispiel eines mit dem Oberon Framework umgesetzte Oberfläche ist in \vref{fig:oberon} zu sehen.
 
 \begin{figure}[h]
 \centering
@@ -292,7 +291,7 @@ Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. 
 \caption{Darstellung eines Zahlungsstrom-Eintrags mit dem Oberon-Framework\label{fig:oberon}}
 \end{figure} \todonum{Abbildung erstellen}
 
-Oberflächen werden mit dem Oberen Framework mit der Programmiersprache C\# und Microsoft Silverlight\footnote{Microsoft Silverlight - http://www.microsoft.com/silverlight/} entwickelt. Silverlight ist eine Technologie von Microsoft, die als Plugin für verschiedene moderne Browser verfügbar ist und die Entwicklung von \gls{glos:ria} unterstützt. Die \gls{glos:ria} stellt dabei die erste Schicht der drei Schichtenarchitektur von Anwendungen dar. Die weiteren Schichten, die Anwendungslogik und die Persistenz, werden von NGAP und HANA übernommen.\seFootcite{vgl.}{}{Oberon-A}
+Oberflächen werden mit dem Oberen Framework mit der Programmiersprache C\# und Microsoft Silverlight\footnote{Microsoft Silverlight - http://www.microsoft.com/silverlight/} entwickelt. Silverlight ist eine Technologie von Microsoft, die als Plugin für verschiedene moderne Browser verfügbar ist und die Entwicklung von \gls{glos:ria} unterstützt. Die \gls{glos:ria} stellt dabei die erste Schicht der drei Schichtenarchitektur von Anwendungen dar. Die weiteren Schichten, die Anwendungslogik und die Persistenz, werden von \gls{NGAP} und SAP HANA übernommen.\seFootcite{vgl.}{}{Oberon-A}
 
 Das Oberon Framework ist als Standardframework ausgelegt und versucht, möglichst viele Anforderungen abzudecken, um dadurch in vielen Produkten verwendet werden zu können. Allerdings ist es sehr Wahrscheinlich, dass spezielle Anforderungen eines bestimmten Bereichs nicht mit dem Oberon Framework abgedeckt werden können. In diesem Fall müssen eigene Lösungen für die Anforderungen entwickelt werden.\seFootcite{vgl.}{}{Oberon-A}
 
@@ -309,24 +308,23 @@ Beispiel für die hierarchische Anordnung von Liquiditätsgruppen
 \label{fig:liquigruppe_hierarchie}}
 \end{figure} \todonum{Abbildung erstellen}
 
-Es existieren zwei Arten von Liquiditätsgruppen: Die Datenbankselektion und die Berechnung. Die Datenbankselektion bildet immer den Ursprung einer Berechnung. Dabei werden einzelne Zahlungsströme nach festgelegten Selektionskriterien ausgewählt, und nach Bedingungen zusammengefasst. Selektionskriterien können zum Beispiel der hinter liegende Produkttyp des Zahlungsstroms wie zum Beispiel verzinsliches Wertpapier, oder das entsprechende Finanzrating, zum Beispiel AAA sein. Gleichzeitig findet eine Währungsumwandlung in eine einheitliche Zielwährung statt. Mehrere Zahlungsströme werden in Abhängigkeit ihrer Fälligkeit in Behältern zusammengefasst. Diese Behälter werden von dem festgelegten Fälligkeitsband definiert.\seFootcite{vgl.}{S.40}{LRM-PPT.12}
+Es existieren zwei Arten von Liquiditätsgruppen: Die Datenbankselektion und die Berechnung. Die Datenbankselektion bildet immer den Ursprung einer Berechnung. Dabei werden einzelne Zahlungsströme nach festgelegten Selektionskriterien ausgewählt, und nach Bedingungen zusammengefasst. Selektionskriterien können zum Beispiel der hinter liegende Produkttyp des Zahlungsstroms wie zum Beispiel verzinsliches Wertpapier, oder das entsprechende Finanzrating, zum Beispiel AAA sein. Gleichzeitig findet eine Währungsumwandlung in eine einheitliche Zielwährung statt. Mehrere Zahlungsströme werden in Abhängigkeit ihrer Fälligkeit in Behältern zusammengefasst. Diese Behälter werden von dem festgelegten Laufzeitband definiert.\seFootcite{vgl.}{S.40}{LRM-PPT.12}
 
-Ein Fälligkeitsband ist eine spezielle Einteilung der Zeitachse. Der Grund für die Einführung von Fälligkeitsbändern liegt in der späteren Auswertung der berechneten Werte. Dabei ist für naheliegende Zeiträume, zum Beispiel die nächste Woche, der entsprechende Wert an jedem einzelnen Tag entscheidend. Für den weiteren Horizont, zum Beispiel den Zeitraum zwischen drei und fünf Jahren, ist nicht jeder einzelne Tag  entscheidend, es reichen aggregierte Werte, zum Beispiel nach Monat oder Jahr. Somit kann in einer Auswertung sowohl die aktuelle Situation begutachtet werden, als auch die langfristige Auswirkungen ohne, dass die Auswertung unübersichtlich wird. Jeder Eintrag entspricht dabei einem Behälter. Die Anzahl und Größe der Behälter ist in einem Fälligkeitsband definiert.\seFootcite{vgl.}{S.44}{LRM-PPT.12} Ein Beispiel für ein Fälligkeitsband ist in \vref{fig:laufzeitband} dargestellt.
+Ein Laufzeitband ist eine spezielle Einteilung der Zeitachse. Der Grund für die Einführung von Laufzeitbändern liegt in der späteren Auswertung der berechneten Werte. Dabei ist für naheliegende Zeiträume, zum Beispiel die nächste Woche, der entsprechende Wert an jedem einzelnen Tag entscheidend. Für den weiteren Horizont, zum Beispiel den Zeitraum zwischen drei und fünf Jahren, ist nicht jeder einzelne Tag  entscheidend, es reichen aggregierte Werte, zum Beispiel nach Monat oder Jahr. Somit kann in einer Auswertung sowohl die aktuelle Situation begutachtet werden, als auch die langfristige Auswirkungen ohne, dass die Auswertung unübersichtlich wird. Jeder Eintrag entspricht dabei einem Behälter. Die Anzahl und Größe der Behälter ist in einem Laufzeitband definiert.\seFootcite{vgl.}{S.44}{LRM-PPT.12} Ein Beispiel für ein Laufzeitband ist in \vref{fig:laufzeitband} dargestellt.
 
 \begin{figure}[h]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/laufzeitband.jpg}
-\caption{...\label{fig:laufzeitband}}
+\caption{Mögliche Ausprägung eines Laufzeitband\label{fig:laufzeitband}}
 \end{figure} \todonum{Abbildung erstellen}
-\todonum{Titel festlegen}
 
 Neben der Datenbankselektion existiert die Liquiditätsgruppenart Berechnung. Dabei werden aggregierte Zahlungsströme nach verschiedenen Regeln verrechnet. Zur Verfügung stehende unter anderem Addition, Subtraktion, Multiplikation und Division. 
 
 Generell hat eine Liquiditätsgruppe genau einen Output-Parameter, eine Berechnungsregel und kann zusätzlich mehrere Input-Parameter besitzen. Die Berechnung innerhalb einer Liquiditätsgruppe kann von szenarioabhängigen Variablen beeinflusst werden. Damit lassen sich zum Beispiel erwartete Kreditausfälle simulieren. Über diese Variablen werden die Szenarien umgesetzt. Mehrere Variablenausprägungen legen ein Szenario fest.\seFootcite{vgl.}{S.39 und S.45}{LRM-PPT.12}
 
 \label{sec:berechnungskomponente:parameter}
-Zur Laufzeit wird die Berechnungskomponente mit vier Parametern aufgerufen. In dem ersten Parameter werden eine oder mehrere Liquiditätsgruppen festgelegt, von denen später das Ergebnis zurückgeliefert wird. Ein weiterer Parameter legt den Stichtag fest, nach dem die Zahlungsströme ausgewählt werden. Jede Berechnung wird immer auf Basis von einem Fälligkeitsband durchgeführt, welches die Behälter festlegt, in dem die Ergebnisse zusammengefasst werden. Schließlich wird noch eine Zielwährung festgelegt, in die alle Zahlungsströme umgerechnet werden.
+Zur Laufzeit wird die Berechnungskomponente mit vier Parametern aufgerufen. In dem ersten Parameter werden eine oder mehrere Liquiditätsgruppen festgelegt, von denen später das Ergebnis zurückgeliefert wird. Ein weiterer Parameter legt den Stichtag fest, nach dem die Zahlungsströme ausgewählt werden. Jede Berechnung wird immer auf Basis von einem Laufzeitband durchgeführt, welches die Behälter festlegt, in dem die Ergebnisse zusammengefasst werden. Schließlich wird noch eine Zielwährung festgelegt, in die alle Zahlungsströme umgerechnet werden.
 
 Das Resultat der Berechnung ist jeweils der Output der festgelegten Liquiditätsgruppen. Zur Berechnung der Gruppen müssen in der Regel im Hintergrund weitere Liquiditätsgruppen berechnet werden, die allerdings nicht als Ergebnis zurückgeliefert werden. Während einer Berechnung werden Ergebnisse von Gruppen, die schon einmal berechnet wurden, zwischengespeichert, um Rechenaufwand zu sparen. Die Gruppen, die berechnet werden müssen, können aus der Hierarchie der entsprechenden Liquiditätsgruppe abgelesen werden.\seFootcite{vgl.}{S.44 und S.47}{LRM-PPT.12}
 
@@ -346,15 +344,14 @@ Die mit \gls{Xcelsius} erstellten Dashboards werden mit Hilfe der Adobe Flex Tec
 Als Datenquellen für ein Dashboard stehen mehrere Möglichkeiten zur Verfügung. Zum einen können Daten einfach in das Excel kopiert werden.  Es ist auch möglich, ein SAP Business Warehouse System direkt anzuschließen, oder Daten über Webservices zu beziehen. Hierzu wird das \gls{XML}-Format verwendet. Außerdem existieren weitere Möglichkeiten, mit dem Dashboards zum Beispiel untereinander Daten austauschen können.\seFootcite{vgl.}{S.283f}{Egg.09}
 
 \subsection{Bedienungskonzept}
-Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die Bereiche sind in \vref{fig:xcelsius_ui_aufbau} dargestellt. Der erste Bereich zeigt die Zeichenfläche, also das eigentliche Dashboard an. Auf der Zeichenfläche können Komponenten beliebig platziert werden. Alle verfügbaren Komponenten werden in dem Bereich 2 auf der linken Seite nach Kategorien geordnet dargestellt. Um eine Komponente auf der Zeichenfläche zu platzieren, wählt der Nutzer die Komponente aus und platziert sie per Drag\& Drop auf der Zeichenfläche. 
+Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die Bereiche sind in \vref{fig:xcelsius_ui_aufbau} dargestellt. Der erste Bereich zeigt die Zeichenfläche, also das eigentliche Dashboard an. Auf der Zeichenfläche können Komponenten beliebig platziert werden. Alle verfügbaren Komponenten werden in dem Bereich 2 auf der linken Seite nach Kategorien geordnet dargestellt. Um eine Komponente auf der Zeichenfläche zu platzieren, wählt der Nutzer die Komponente aus und platziert sie per Drag \& Drop auf der Zeichenfläche. 
 
 \begin{figure}[h]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Aufbau.jpg}
-\caption{... \label{fig:xcelsius_ui_aufbau}}
+\caption{Die Oberfläche von BusinessObjects Xcelsius\label{fig:xcelsius_ui_aufbau}}
 \end{figure} \todonum{Abbildung erstellen}
-\todonum{Titel festlegen}
 
 Viele Komponenten bieten Einstellungsmöglichkeiten an, mit denen das Verhalten und das Aussehen der Komponente festgelegt werden kann. Wird eine Komponente auf der Zeichenfläche ausgewählt, werden alle verfügbaren Eigenschaften in Bereich 3 auf der rechten Seite dargestellt. Wichtige Eigenschaften einer Komponente stellen oft die Daten dar, die die Komponenten anzeigen soll. Alle Daten werden in Bereich 4 festgelegt. Die Verbindung zwischen der Datenhalten (Microsoft Excel in Bereich 4) und der Darstellung (Zeichenfläche in Bereich 1) von \gls{Xcelsius} erfolgt durch das Referenzieren von Zellen oder Zellbereichen über die Eigenschaften einer Komponente (Bereich 3).\seFootcite{vgl.}{S.229}{Egg.09}
 
@@ -365,9 +362,8 @@ Der generelle Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absa
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Beispiel.jpg}
-\caption{....\label{fig:xcelsius_ui_beispiel}}
+\caption{Visualisierung von Absatzzahlen in BusinessObjects Xcelsius\label{fig:xcelsius_ui_beispiel}}
 \end{figure} \todonum{Abbildung erstellen}
-\todonum{Titel festlegen}
 
 Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre Daten aus Bereich 2 auslesen. Die Wachstumsraten können mit drei Drehknöpfe festgelegt werden. Die Werte der Drehknöpfe sind mit den Zellen in Bereich 3 verknüpft. Dreht der Nutzer an einem Drehknopf, wird der aktualisierte Wert in die Zelle in Bereich 3 geschrieben. Da die Datenquelle der Diagramme mit Bezug auf die Wachstumswerte berechnet werden, verändert sich dynamisch die Diagramme. Das Prinzip ist schematisch noch einmal in \vref{fig:xcelsius_ablauf_schema} dargestellt. So ist es möglich, mit einfachen Mitteln, interaktive Dashboards zu erstellen.\seFootcite{vgl.}{S.237}{Egg.09}
 
@@ -375,8 +371,8 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_UI_Ablauf.jpg}
-\caption{...\label{fig:xcelsius_ablauf_schema}}
-\end{figure} \todonum{Abbildung erstellen} \todonum{Titel festlegen}
+\caption{Schematische Darstellung der Arbeitsweise von BusinessObjects Xcelsisu\label{fig:xcelsius_ablauf_schema}}
+\end{figure} \todonum{Abbildung erstellen}
 
 \subsection{Architektur} \todonum{Komplett überarbeiten!}
 \gls{Xcelsius} basiert auf dem \gls{glos:netFramework} von Microsoft und ist in weiten Teilen in C++ geschrieben. Neben C++ wird \gls{glos:actionscript} und das Adobe Flex Framework für die  Benutzeroberfläche eingesetzt. Die Architektur von \gls{Xcelsius} ist modular aufgebaut und besteht aus mehreren Teilen. Ein Überblick ist in \vref{fig:xcelsius_architektur} dargestellt.
@@ -385,8 +381,8 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Xcelsius_Architecture.jpg}
-\caption{...\label{fig:xcelsius_architektur}}
-\end{figure} \todonum{Abbildung erstellen} \todonum{Titel festlegen}
+\caption{Architektur von BusinessObjects Xcelsius\label{fig:xcelsius_architektur}}
+\end{figure} \todonum{Abbildung erstellen}
 
 Das zentrale Element ist das Document. Dabei handelt es sich um ein Objektmodell, das den aktuellen Zustand des Dashboards repräsentiert. Für die Darstellung wird das Canvas verwendet, welches in \gls{glos:actionscript} geschrieben ist. Die Canvas-Komponente nutzt dabei mehrere Hilfskomponenten. Dazu gehört das ApplicationTemplate, welches das Grundgerüst von alle Dashboards darstellt und mehreren Components, die die einzelnen Elemente eines Dashboards darstellen. Dies ist auch der Ansatzpunkt für spätere Erweiterungen.
 
@@ -493,7 +489,7 @@ Um die Folgekosten der Erweiterung, zum Beispiel im Hinblick auf die Beseitigung
 Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Es handelt sich dabei um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
 
 \item[\anfl{leistung}] \textbf{Leistung} \newline
-Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch in anderen Anwendungen verfügbar machen.
+Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von SAP HANA ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von SAP HANA auch in anderen Anwendungen verfügbar machen.
 
 \end{seToplist}
 
@@ -571,8 +567,8 @@ Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/universe_ueberblick.jpg}
-\caption{...\label{fig:universe_abstraktion}}
-\end{figure} \todonum{Abbildung erstellen} \todonum{Titel festlegen}
+\caption{Abstraktion von BusinessObjects Universum\label{fig:universe_abstraktion}}
+\end{figure} \todonum{Abbildung erstellen}
 
 Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{Xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
@@ -882,8 +878,8 @@ Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabe
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/flex_sandbox.png}
-\caption{...\label{fig:flex_sandbox}}
-\end{figure} \todonum{Abbildung erstellen} \todonum{Titel festelgen}
+\caption{Sandbox-Problematik von Adobe Flex\label{fig:flex_sandbox}}
+\end{figure} \todonum{Abbildung erstellen}
 
 Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es möglich, dass der Anbieter des Webservice explizit festlegen kann, dass der Webservice auch über verschiedene Domains hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Bei der Erweiterung wäre das der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
 
@@ -994,8 +990,7 @@ Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die
 \caption{Umwandlung der XML-Antwort in die interne Objektstruktur\label{fig:umwandlung:ueberblick}}
 \end{figure} \todonum{Abbildung erstellen}
 
-Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode, der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, zeigt, findet sich in \vref{listing:deserialisierung}.
-\todonum{satz kürzen}
+Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, findet sich in \vref{listing:deserialisierung}.
 
 \begin{programm}[h] % aus WebServiceConnector
 \begin{lstlisting}[language=ActionScript]
@@ -1070,8 +1065,8 @@ Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bin
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=10cm]{images/xcelsius_einstellungen.PNG}
-\caption{...\label{fig:einstellung}}
-\end{figure} \todonum{Abbildung erstellen} \todonum{Titel finden}
+\caption{Einstellungsmöglichkeiten der Erweiterung für BusinessObjects Xcelsius\label{fig:einstellung}}
+\end{figure} \todonum{Abbildung erstellen}
 
 Für die Finanzierungsmatrix müssen für alle erforderlichen Parameter für die Berechnungskomponente (vgl. \vref{sec:berechnungskomponente:parameter}) und ein Bereich, in den das Ergebnis geschrieben wird, mit Bindings verbunden werden.
 
@@ -1091,8 +1086,8 @@ An die Erweiterung wurden in der Spezifikation in \vref{sec:anforderungen} einig
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/dashboard_preview.PNG}
-\caption{...\label{fig:umsetzung_dashboard}}
-\end{figure} \todonum{Abbildung erstellen} \todonum{Titel finden}
+\caption{BusinessObjects Xcelsius Dashboard mit den Daten des SAP LRM\label{fig:umsetzung_dashboard}}
+\end{figure} \todonum{Abbildung erstellen} 
 
 Es ist einfach zu erkennen, dass beide funktionalen Anforderungen mit der Erweiterung erfüllt werden können. Sowohl die Daten für die Kennzahlen, als auch die Daten für die Finanzierungsmatrix stehen zur Verfügung. In dem Beispiel ist eine Kennzahl mit dem Tachometer (unten) visualisiert, die Finanzierungsmatrix im oberen Teil als Liniendiagramm.
 
