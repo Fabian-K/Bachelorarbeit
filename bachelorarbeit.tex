@@ -362,7 +362,9 @@ Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die B
 Viele Komponenten bieten Einstellungsmöglichkeiten an, mit denen das Verhalten und das Aussehen der Komponente festgelegt werden kann. Wird eine Komponente auf der Zeichenfläche ausgewählt, werden alle verfügbaren Eigenschaften in Bereich 3 auf der rechten Seite dargestellt. Wichtige Eigenschaften einer Komponente stellen oft die Daten dar, die die Komponenten anzeigen soll. Alle Daten werden in Bereich 4 festgelegt. Die Verbindung zwischen der Datenhalten (Microsoft Excel in Bereich 4) und der Darstellung (Zeichenfläche in Bereich 1) von \gls{Xcelsius} erfolgt durch das Referenzieren von Zellen oder Zellbereichen über die Eigenschaften einer Komponente (Bereich 3).\seFootcite{vgl.}{S.229}{Egg.09}
 
 \todonum{bessere einleitung?!}
-Der generelle Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absatzzahlen von Produkten in \vref{fig:xcelsius_ui_beispiel} verdeutlicht werden: Zunächst werden Daten in das Excel in einen festgelegten Bereich Eingetragen. Diese Daten können entweder fest eingegeben werden, meistens werden sie aber dynamisch über eine Datenquelle, zum Beispiel einen Webservice in den Bereich geschrieben. In dem Beispiel wurden die Absatzzahlen fest in den Zellbereich 1 eingetragen. Als nächstes können in Excel Berechnungen durchgeführt werden. In dem Beispiel wird die Summe der Absatzzahlen pro Jahr durch eine Excel-Formel berechnet. Um die Interaktivität von Dashboards zu zeigen, soll der Nutzer die Möglichkeit haben, die Auswirkungen von verschiedenen Wachstumsraten interaktiv zu sehen. Dazu werden die veränderten Absatzzahlen (Bereich 2) auf Basis der Quelldaten in Bereich 1 und den Wachstumsdaten in Bereich 3 berechnet.\seFootcite{vgl.}{S.229f}{Egg.09}
+Der generelle Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absatzzahlen von Produkten in \vref{fig:xcelsius_ui_beispiel} verdeutlicht werden: Zunächst werden Daten in das Excel in einen festgelegten Bereich Eingetragen. Diese Daten können entweder fest eingegeben werden, meistens werden sie aber dynamisch über eine Datenquelle, zum Beispiel einen Webservice in den Bereich geschrieben. In dem Beispiel wurden die Absatzzahlen fest in den Zellbereich 1 eingetragen. 
+
+Als nächstes können in Excel Berechnungen durchgeführt werden. In dem Beispiel wird die Summe der Absatzzahlen pro Jahr durch eine Excel-Formel berechnet. Um die Interaktivität von Dashboards zu zeigen, soll der Nutzer die Möglichkeit haben, die Auswirkungen von verschiedenen Wachstumsraten interaktiv zu sehen. Dazu werden die veränderten Absatzzahlen (Bereich 2) auf Basis der Quelldaten in Bereich 1 und den Wachstumsdaten in Bereich 3 berechnet.\seFootcite{vgl.}{S.229f}{Egg.09}
 
 \begin{figure}[h]
 \centering
@@ -381,7 +383,6 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \end{figure} \todonum{Abbildung erstellen}
 
 \subsection{Architektur}
-\todonum{Komplett überarbeiten!}
 \gls{Xcelsius} basiert auf dem \gls{glos:netFramework} von Microsoft und ist in weiten Teilen in C++ geschrieben. Neben C++ wird \gls{glos:actionscript} und das Adobe Flex Framework für die  Benutzeroberfläche eingesetzt. Die Architektur von \gls{Xcelsius} ist modular aufgebaut und besteht aus mehreren Teilen. Ein Überblick ist in \vref{fig:xcelsius_architektur} dargestellt.
 
 \begin{figure}[h]
@@ -391,30 +392,21 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \caption{Architektur von BusinessObjects Xcelsius\label{fig:xcelsius_architektur}}
 \end{figure} \todonum{Abbildung erstellen}
 
-Das zentrale Element ist das Document. Dabei handelt es sich um ein Objektmodell, das den aktuellen Zustand des Dashboards repräsentiert. Für die Darstellung wird das Canvas verwendet, welches in \gls{glos:actionscript} geschrieben ist. Die Canvas-Komponente nutzt dabei mehrere Hilfskomponenten. Dazu gehört das ApplicationTemplate, welches das Grundgerüst von alle Dashboards darstellt und mehreren Components, die die einzelnen Elemente eines Dashboards darstellen. Dies ist auch der Ansatzpunkt für spätere Erweiterungen.
+Das zentrale Element ist das \class{Document}. Dabei handelt es sich um ein Objektmodell, das den aktuellen Zustand des Dashboards repräsentiert. Für die Darstellung wird das \class{Canvas} verwendet, welches in \gls{glos:actionscript} geschrieben ist. Die \class{Canvas}-Komponente nutzt dabei mehrere Hilfskomponenten. Dabei handelt es sich um die Komponenten, die später auf dem Dashboard platziert werden können. Diese Komponenten sind ist auch der Ansatzpunkt für spätere Erweiterungen. Eine Erweiterung ist intern eine zusätzliche Hilfskomponente.
 
-\todonum{COM/OLE Erklären}
-An das Document ist mittels COM/OLE Microsoft Excel angebunden. Speichern und Laden eines Dashboards übernimmt die XLF-Komponente. Diese erstellt oder lädt eine \gls{Xcelsius} File (.xlf), welches intern aus dem Document im \gls{XML}-Format und einer Excel-Datei besteht.
+An das \class{Document} ist mittels der OLE Automation Microsoft Excel angebunden. OLE Automation ist eine Schnittstelle für die Kommunikation zwischen Prozessen. Speichern und Laden eines Dashboards übernimmt die XLF-Komponente. Diese erstellt oder lädt eine \gls{Xcelsius} File (.xlf), welches intern aus dem Document im \gls{XML}-Format und einer Excel-Datei besteht.
 
-Für den Export des fertigen Dashboards existiert der SWF Generator. Aus dem Document und den Daten und Formeln, die in Microsoft Excel erstellt wurden, wird eine .swf-Datei generiert. In dieser werden nun alle Berechnungen, die bis jetzt von Microsoft Excel übernommen wurden, von einer weiteren Hilfsklasse, der Spreadsheet Engine berechnet.\seFootcite{vgl.}{}{Xcelsius-Arch.09}
-
-\todonum{Ende einfügen!? Abschließende Worte}
+Für den Export von erstellten Dashboards existiert der \class{SWF Generator}. Aus dem \class{Document} und den Daten und Formeln, die in Microsoft Excel erstellt wurden, wird eine .swf-Datei generiert. In dieser werden nun alle Berechnungen, die bis jetzt von Microsoft Excel übernommen wurden, von einer weiteren Hilfsklasse, der \class{SpreadsheetEngine} berechnet.\seFootcite{vgl.}{}{Xcelsius-Arch.09}
 
 \subsection{Erweiterungsmöglichkeiten}
 
 Durch die Einstellungsmöglichkeiten der einzelnen Komponenten und die Einbindung des vollen Funktionsumfang von Microsoft Excel ist \gls{Xcelsius} von sich aus sehr flexibel. Zusätzlich dazu existiert noch ein \gls{glos:sdk} mit dem komplett eigene Komponenten erstellt werden können. Dadurch ist es möglich, \gls{Xcelsius} um nahezu beliebige Funktionen zu erweitern.
 
-Die Erweiterungen, die mit dem \gls{glos:sdk} programmiert werden können, müssen auf dem Adobe Flex SDK 2.0.1 basieren. Die Programmiersprache ist \gls{glos:actionscript}. Es können drei verschiedene Typen von Erweiterungen mit dem \gls{glos:sdk} entwickelt werden. Dabei handelt es sich um visuelle Komponenten, die später auf dem erstellten Dashboard dargestellt werden, um Datenverbindungen, die nicht auf dem Dashboard angezeigt werden, sondern nur im Hintergrund aktiv sind und in der Regel Daten in das Excel eintragen. Die dritte Möglichkeit ist die Erweiterung der Steuerungslogik von Excel, spielt aber im Rahmen dieser Bachelorarbeit keine Rolle. \footnote{\seCite{vgl.}{S.229}{Egg.09} \seCite{und}{S.3f}{Xcelsius-SDK.08}}
+Die Erweiterungen, die mit dem \gls{glos:sdk} programmiert werden können, müssen auf dem Adobe Flex SDK 2.0.1 basieren. Die Programmiersprache ist \gls{glos:actionscript}. Es können drei verschiedene Typen von Erweiterungen mit dem \gls{glos:sdk} entwickelt werden. Dabei handelt es sich um visuelle Komponenten, die später auf dem erstellten Dashboard dargestellt werden, um Datenverbindungen, die nicht auf dem Dashboard angezeigt werden, sondern nur im Hintergrund aktiv sind. Die dritte Möglichkeit ist die Erweiterung der Steuerungslogik von Excel, spielt aber im Rahmen dieser Bachelorarbeit keine Rolle. \footnote{\seCite{vgl.}{S.229}{Egg.09} \seCite{und}{S.3f}{Xcelsius-SDK.08}}
 
-\todonum{Auf Connections umschreiben}
-Die visuelle Komponente wiederum besteht aus zwei Teilen, die separat voneinander entwickelt werden können. Der erste Teil ist für die Darstellung der Komponente auf dem Zeichenblatt des Dashboards verantwortlich. Der zweite Teil übernimmt die Darstellung der Eigenschaften, die die Komponente bieten soll. Es ist gleichzeitig die Verbindung zwischen \gls{Xcelsius} und der entwickelten Komponente. Die Logik der Komponente kann je nach Bedarf auf beide Teile verteilt werden. Das Ergebnis der Entwicklung beider Teilkomponenten ist je eine .swf-Datei. Beide Dateien, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler, werden mit dem \gls{Xcelsius} \gls{glos:sdk} zu einem \gls{Xcelsius} Plugin zusammengefügt. Das Resultat kann dann in \gls{Xcelsius} importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}} Den Vorgang zeigt \vref{fig:xcelsius_plugin}.
+Entscheidend für diese Bachelorarbeit ist die Datenverbindung. Dabei handelt es sich um Erweiterungen, die später auf den erstellten Dashboards nicht sichtbar sind. Während der Erstellung der Dashboards werden die Datenverbindungen konfiguriert, um dann später im Hintergrund aktiv zu sein. Eine typische Aufgabe einer Datenverbindung ist das Schreiben von Daten aus beliebigen Quellen in das Tabellenblatt des Dashboards. Von dort aus können die Daten dann in Xcelsius genutzt werden.
 
-\begin{figure}[h]
-\centering
-\setlength{\unitlength}{1mm}
-\includegraphics[width=15cm]{images/Xcelsius_Plugin_Allgemein.jpg}
-\caption{...\label{fig:xcelsius_plugin}}
-\end{figure} \todonum{Abbildung erstellen} \todonum{Titel festlegen}
+Das Ergebnis der Entwicklung ist dann eine .swf-Datei. Sie besteht aus einer einfache Oberfläche für die Konfiguration und in \gls{glos:actionscript} geschriebene Klassen, in denen die Logik umgesetzt ist. Die Datei wird, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler, mit dem \gls{Xcelsius} \gls{glos:sdk} zu einem \gls{Xcelsius} Plugin zusammengefügt. Das Resultat kann dann in \gls{Xcelsius} importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}}
 
 \section{Zusammenfassung}
 In diesem Kapitel wurde ein Einblick in zwei zentrale Anwendungen der Bachelorarbeit gegeben -- dem SAP LRM und BusinessObjects Xcelsius. Wichtig für den weiteren Verlauf der Bachelorarbeit ist zum Einen die Berechnungskomponente des SAP LRM, da diese als Ergebnis dieser Bachelorarbeit in weiteren Anwendungen genutzt werden soll. Zum anderen wurde BusinessObjects Xcelsius im Hinblick auf das Bedienungskonzept und der Erweiterbarkeit genauer untersucht. Die guten Erweiterungsmöglichkeiten und das offene Bedienkonzept spielen für den weiteren Verlauf eine entscheidende Rolle.
@@ -1166,7 +1158,7 @@ public class ProxyServlet extends HttpServlet {
 		// build request url
 		String requestedUrl = req.getServletPath();
 		String params = req.getQueryString();
-		String urlString = "http://ldciqhc.wdf.sap.corp:50000"+requestedUrl;
+		String urlString = "http://ldciqhc.wdf.sap.corp:50000" + requestedUrl;
 		if(params != null)
 			urlString += "?"+params;
 		
