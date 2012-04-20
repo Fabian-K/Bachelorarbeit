@@ -901,7 +901,7 @@ Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls
 
 Auf der anderen Seite wird für den Aufruf der Webservices in der Klasse \class{WebServiceConnector} die Adobe Flex-Klasse \class{HTTPService} verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nämlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei Callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Der entsprechende Quelltext ist in \vref{listing:ws_aufruf} dargestellt.
 
-\begin{lstlisting}[language=ActionScript, label={listing:ws_aufruf}, caption={Aufruf eines Webservice in der Erweiterung}]
+\begin{lstlisting}[language=ActionScript, label={listing:ws_aufruf}, title={Aufruf eines Webservice in der Erweiterung}]
 public function consume():void{
 	// HTTPService-Instanz erstellen
 	webService = new HTTPService();
