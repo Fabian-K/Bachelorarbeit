@@ -899,7 +899,8 @@ Im Vergleich zu dem Entwurf und der Analyse, bei dem alle Aufrufe synchron durch
 
 Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls sich bei der Orchestrierung die Antwort eines Aufruf eines Webservice verzögert, können trotzdem alle anderen Anfragen schon verarbeitet werden. Der dadurch gewonnene Vorteil ist aufgrund  einer Limitierung durch das verwendete Framework jedoch nicht sehr groß, da die Anwendung später nur auf einem Thread ausgeführt wird. Eine echt parallele Verarbeitung von zwei simultan erhaltenen Antworten ist somit nicht möglich.
 
-Auf der anderen Seite wird für den Aufruf der Webservices in der Klasse \class{WebServiceConnector} die Adobe Flex-Klasse \class{HTTPService} verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nämlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei Callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Der entsprechende Quelltext ist in \vref{listing:ws_aufruf} dargestellt.
+Auf der anderen Seite wird für den Aufruf der Webservices in der Klasse \class{WebServiceConnector} die Adobe Flex-Klasse \class{HTTPService} verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nämlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei Callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Der entsprechende Quelltext ist in \vref{
+:ws_aufruf} dargestellt.
 
 \begin{lstlisting}[language=ActionScript, label={listing:ws_aufruf}, title={Aufruf eines Webservice in der Erweiterung}]
 public function consume():void{
