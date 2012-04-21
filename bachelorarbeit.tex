@@ -1053,7 +1053,11 @@ Bei dieser Verbindungsart findet zwischen dem Tabellenblatt ein beidseitiger Aus
 
 Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es werden nur Input- oder Output-Bindings verwendet. Das Auslesen der gewählten Parameter findet über mehrere Input-Bindings statt. Für das Laufzeitband wird dabei eine Zelle mit dem Attribut \class{selectedMaturityBand} des \class{XcelsiusAdapter} verknüpft. Bei den Liquiditätsszenarien und den Liquiditätsgruppen können jeweils mehrere Ausgewählt werden. Hier bezieht sich das Binding demnach nicht auf eine einzelne Zelle, sondern auf einen Zellbereich.
 
-\todonum{Bereitstellung der Werteholfen hinzufügen}
+Neben der Berechnung der Finanzierungsmatrix und der Einbindung der Kennzahlenanalyse wird unterstützend eine Wertehilfe angeboten. Auch dafür müssen entsprechende Bindings angelegt werden. Die Wertehilfe bietet zum Einen alle im SAP LRM vorhandenen Liquiditätsszenarien an. Diese können dann als Grundlage für Kombinationsfelder genutzt werden.
+
+Neben der Wertehilfe für die Liquiditätsszenarien existiert eine weitere Wertehilfe für Liquiditätsgruppen. Diese basiert auf den aktuell ausgewählten Liquiditätsszenarien und liefert für diese die existierenden Liquiditätsgruppen zurück.
+
+Eine letzte Wertehilfe wurde für die Laufzeitbänder hinzugefügt. Durch diese Wertehilfen ist es für den Nutzer später einfacher, gültige Selektionskriterien festzulegen. Der Nutzer muss nicht den Namen der existierenden Gruppen, Szenarien oder Laufzeitbänder kennen, er braucht sie nur aus einer Liste auszuwählen.
 
 \section{Zusammenfassung}
 In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Analyse, dem Entwurf und der Implementierung, dargelegt. Das Ergebnis ist eine Erweiterung für Xcelsius, mit der Xcelsius zur Visualisierung der Daten des SAP LRM genutzt werden kann. Dabei werden die Vorteile der Berechnungskomponente des SAP LRM und die Geschwindigkeit von SAP HANA ausgenutzt. Gleichzeitig ist durch die modulare Struktur der Grundstein für zum einen Weiterentwicklungen des SAP LRM als auch die Integration des SAP LRM mit weiteren Anwendungen gelegt. Die Evaluierung der Ergebnisse wird in dem Folgenden Kapitel durchgeführt.
