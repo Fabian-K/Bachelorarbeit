@@ -327,7 +327,7 @@ Beispiel für die hierarchische Anordnung von Liquiditätsgruppen
 \label{fig:liquigruppe_hierarchie}}
 \end{figure} \todonum{Abbildung erstellen}
 
-Es existieren zwei Arten von Liquiditätsgruppen: Die Datenbankselektion und die Berechnung. Die Datenbankselektion bildet immer den Ursprung einer Berechnung. Dabei werden einzelne Zahlungsströme nach festgelegten Selektionskriterien ausgewählt, und nach Bedingungen zusammengefasst. Selektionskriterien können zum Beispiel der hinter liegende Produkttyp des Zahlungsstroms wie zum Beispiel verzinsliches Wertpapier, oder das entsprechende Finanzrating, zum Beispiel AAA sein. Gleichzeitig findet eine Währungsumwandlung in eine einheitliche Zielwährung statt. Mehrere Zahlungsströme werden in Abhängigkeit ihrer Fälligkeit in Behältern zusammengefasst. Diese Behälter werden von dem festgelegten Laufzeitband definiert.\seFootcite{vgl.}{S.40}{LRM-PPT.12}
+Es existieren zwei Arten von Liquiditätsgruppen: Die Datenbankselektion und die Berechnung. Die Datenbankselektion bildet immer den Ursprung einer Berechnung. Dabei werden einzelne Zahlungsströme nach festgelegten Selektionskriterien ausgewählt, und nach Bedingungen zusammengefasst. Mögliche Selektionskriterien sind der hinter liegende Produkttyp des Zahlungsstroms, wie zum Beispiel verzinsliches Wertpapier, oder das entsprechende Finanzrating, zum Beispiel AAA, sein. Gleichzeitig findet eine Währungsumwandlung in eine einheitliche Zielwährung statt. Mehrere Zahlungsströme werden in Abhängigkeit ihrer Fälligkeit in Behältern zusammengefasst. Diese Behälter werden von dem festgelegten Laufzeitband definiert.\seFootcite{vgl.}{S.40}{LRM-PPT.12}
 
 Ein Laufzeitband ist eine spezielle Einteilung der Zeitachse. Der Grund für die Einführung von Laufzeitbändern liegt in der späteren Auswertung der berechneten Werte. Dabei ist für naheliegende Zeiträume, zum Beispiel die nächste Woche, der entsprechende Wert an jedem einzelnen Tag entscheidend. Für den weiteren Horizont, zum Beispiel den Zeitraum zwischen drei und fünf Jahren, ist nicht jeder einzelne Tag  entscheidend, es reichen aggregierte Werte, zum Beispiel nach Monat oder Jahr. Somit kann in einer Auswertung sowohl die aktuelle Situation begutachtet werden, als auch die langfristige Auswirkungen ohne, dass die Auswertung unübersichtlich wird. Jeder Eintrag entspricht dabei einem Behälter. Die Anzahl und Größe der Behälter ist in einem Laufzeitband definiert.\seFootcite{vgl.}{S.44}{LRM-PPT.12} Ein Beispiel für ein Laufzeitband ist in \vref{fig:laufzeitband} dargestellt.
 
@@ -624,8 +624,6 @@ Ein mögliches Risiko dieser Umsetzungsmöglichkeit stellt die \anfRef{anf:leist
 \gls{Xcelsius} bietet zwar eine Möglichkeit zur Einbindung von einzelnen Webservices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des \gls{Xcelsius} \gls{glos:sdk} entwickelt werden.
 
 \section{Gegenüberstellung und Auswahl der Umsetzungsmöglichkeiten}
-
-\todonum{Text schreiben !=}
 Für die Auswahl der im Rahmen der Bachelorarbeit angewendeten Umsetzungsmöglichkeit wurden die Vor- und Nachteile der Alternativen ermittelt und in \vref{table:vergleich_umsetzung} gegenübergestellt.
 
 {
@@ -824,13 +822,12 @@ Für das Ermitteln der aktuellen Einstellungen, die der Nutzer in dem Tabellenbl
 
 Für den einfachen Zugriff auf die einzelnen \class{ObjectProvider} wurde der Klasse \class{Orchestrator} die Hilfsmethode \method{getProviderForType()} hinzugefügt. Die später von dem Nutzer aufgerufenen Methoden \method{updateKPI()} und \method{updateFundingMatrix()} nutzen die neuen Hilfsmethoden \method{getKIP()} und \method{getFundingMatrix()}. Durch die neue Signatur kann der \class{XcelsiusAdapter} und der \class{SettingProvider} einfacher angebunden werden.
 
-
 \label{sec:entwurf:statisch:orchestratorresult}
 Zudem legt mit der Klasse \class{OrchestratorResult} die Zielobjektstruktur der Orchestrierung fest. Eine Instanz der Klasse \class{OrchestratorResult} besteht dabei aus beliebig vielen \class{Result}-Instanzen. Genauer gesagt wird für jede abgefragte Liquiditätsgruppe eine \class{Result}-Instanz erzeugt.
 
 Eine \class{Result}-Instanz hat zum einen mehrere Parameter. Diese sind, um eine gute Erweiterbarkeit zu erreichen, in einfachen Key-Value Paaren verwaltet. Beispiele für Parameter können die Liquiditätsgruppe und das genutzte Liquiditätsszenario sein. Zum anderen werden in dem Attribut \class{values} die einzelnen Werte gespeichert.
 
-Die Werte beziehen sich in ihrer Reihenfolge auf das zugrundeliegende Laufzeitband. Dieses ist für alle \class{Result}-Instanzen das gleiche und ist deshalb nur einmal als Attribut des \class{OrchestratorResult} vorhanden. Die einzelnen Abschnitte des Laufzeitbandes sind in dem Attribut \class{parts} abgelegt. Ein Laufzeitbandabschnitt hat eine Beschreibung, ein Start und ein End-Datum.
+Die Werte beziehen sich in ihrer Reihenfolge auf das zugrundeliegende Laufzeitband. Dieses ist für alle \class{Result}-Instanzen das gleiche und ist deshalb nur einmal als Attribut des \class{OrchestratorResult} vorhanden. Die einzelnen Abschnitte des Laufzeitbandes sind in dem Attribut \class{parts} abgelegt. Ein Laufzeitbandabschnitt hat eine Beschreibung, ein Start- und ein End-Datum.
 
 Generell wurden alle Klassen um typisierte Attribute erweitert. Den Methoden wurde die Signatur hinzugefügt.
 
@@ -877,18 +874,17 @@ Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt is
   \label{tab:zielstruktur}%
 \end{table}%
 
-Die Tabellenstruktur soll folgendermaßen aufgebaut werden: Eine Ergebnissreihe wird immer in einer Spalte dargestellt. Dabei handelt es sich um alle Ergebniswerte, die für eine Liquiditätsgruppe ermittelt wurden. Die Ergebnisreihen sind in der Objektstruktur die \class{Ergebnis}-Instanzen. Die Werte sind in der ArrayCollection \class{values} gespeichert. Sie beziehen sich auf die einzelnen Abschnitte des zugrundeliegenden Laufzeitbandes.
+Die Tabellenstruktur soll folgendermaßen aufgebaut werden: Eine Ergebnisreihe wird immer in einer Spalte dargestellt. Dabei handelt es sich um alle Ergebniswerte, die für eine Liquiditätsgruppe ermittelt wurden. Die Ergebnisreihen sind in der Objektstruktur die \class{Ergebnis}-Instanzen. Die Werte sind in der ArrayCollection \class{values} gespeichert. Sie beziehen sich auf die einzelnen Abschnitte des zugrundeliegenden Laufzeitbandes.
 
 In der ersten Spalte werden die Abschnitte des Laufzeitbandes abgetragen. Diese können zum Beispiel später in einer Visualisierung als X-Achsenbeschriftung verwendet werden. In der Objektstruktur sind das die \instance{Laufzeitbandabschnitt}-Instanzen. In einer Zeile in der Tabellenstruktur sind demnach die Werte aller \class{Ergebnis}-Instanzen für ein Laufzeitbandabschnitt eingetragen.
 
-Über den eigentlichen Werten werden noch die Parameter eingetragen, die als Key-Value-Paar in der \class{Ergebnis}-Instanz vorhanden sind. Sie können bei einer Visualisierung als Beschriftung für eine Ergebnissreihe verwendet werden.
+Über den eigentlichen Werten werden noch die Parameter eingetragen, die als Key-Value-Paar in der \class{Ergebnis}-Instanz vorhanden sind. Sie können bei einer Visualisierung als Beschriftung für eine Ergebnisreihe verwendet werden.
 
 So entsteht die Tabellenstruktur in \vref{tab:zielstruktur}, welche durch den \class{XcelsiusAdapter} in das Tabellenblatt geschrieben wird. Dort können die Daten durch den Nutzer weiterverarbeitet werden.
 
 \section{Implementierung}
 \subsection{Adobe Flex Sandbox}
 Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen bestimmten Sicherheitsbeschränkungen. Darunter fällt auch die Erweiterung, die im Rahmen dieser Bachelorarbeit entwickelt wird. Die Ausführung von Adobe Flex-Anwendungen erfolgt in einer Sandbox. Dadurch sollen ungewollte Änderungen auf Client-Seite verhindert werden -- die Anwendung darf sich nur ein einem klar definierten Raum bewegen.
-
 
 Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{Xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM zunächst nicht möglich, da es durch die Sandbox blockiert wird. Die Beschränkung ist in \vref{fig:flex_sandbox} dargestellt.
 
@@ -1223,7 +1219,7 @@ public class ProxyServlet extends HttpServlet {
 \begin{programm}[htbp]
 \begin{lstlisting}
 \end{lstlisting}
-\caption{Proxy-Servlet zur Umgehung der Cross-Domain-Request Beschränkungen\label{listing:servlet}}
+\caption{Proxy-Servlet zur Umgehung der Cross-Domain Request Beschränkungen\label{listing:servlet}}
 \end{programm}
 
 %\caption{Proxy-Servlet zur Umgehung der Cross-Domain-Request Beschränkungen\label{listing:servlet}}
