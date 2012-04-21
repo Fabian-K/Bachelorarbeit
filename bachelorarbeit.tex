@@ -363,6 +363,8 @@ Die mit \gls{Xcelsius} erstellten Dashboards werden mit Hilfe der Adobe Flex Tec
 Als Datenquellen für ein Dashboard stehen mehrere Möglichkeiten zur Verfügung. Zum einen können Daten einfach in das Excel kopiert werden.  Es ist auch möglich, ein SAP Business Warehouse System direkt anzuschließen, oder Daten über Webservices zu beziehen. Hierzu wird das \gls{XML}-Format verwendet. Außerdem existieren weitere Möglichkeiten, mit dem Dashboards zum Beispiel untereinander Daten austauschen können.\seFootcite{vgl.}{S.283f}{Egg.09}
 
 \subsection{Bedienungskonzept}
+Der vorgesehene Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absatzzahlen von Produkten in \vref{fig:xcelsius_ui_beispiel} verdeutlicht werden. Zunächst soll jedoch die Oberfläche von \gls{Xcelsius} dargestellt werden.
+
 Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die Bereiche sind in \vref{fig:xcelsius_ui_aufbau} dargestellt. Der erste Bereich zeigt die Zeichenfläche, also das eigentliche Dashboard an. Auf der Zeichenfläche können Komponenten beliebig platziert werden. Alle verfügbaren Komponenten werden in dem Bereich 2 auf der linken Seite nach Kategorien geordnet dargestellt. Um eine Komponente auf der Zeichenfläche zu platzieren, wählt der Nutzer die Komponente aus und platziert sie per Drag \& Drop auf der Zeichenfläche. 
 
 \begin{figure}[h]
@@ -374,10 +376,9 @@ Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die B
 
 Viele Komponenten bieten Einstellungsmöglichkeiten an, mit denen das Verhalten und das Aussehen der Komponente festgelegt werden kann. Wird eine Komponente auf der Zeichenfläche ausgewählt, werden alle verfügbaren Eigenschaften in Bereich 3 auf der rechten Seite dargestellt. Wichtige Eigenschaften einer Komponente stellen oft die Daten dar, die die Komponenten anzeigen soll. Alle Daten werden in Bereich 4 festgelegt. Die Verbindung zwischen der Datenhalten (Microsoft Excel in Bereich 4) und der Darstellung (Zeichenfläche in Bereich 1) von \gls{Xcelsius} erfolgt durch das Referenzieren von Zellen oder Zellbereichen über die Eigenschaften einer Komponente (Bereich 3).\seFootcite{vgl.}{S.229}{Egg.09}
 
-\todonum{bessere einleitung?!}
-Der generelle Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absatzzahlen von Produkten in \vref{fig:xcelsius_ui_beispiel} verdeutlicht werden: Zunächst werden Daten in das Excel in einen festgelegten Bereich Eingetragen. Diese Daten können entweder fest eingegeben werden, meistens werden sie aber dynamisch über eine Datenquelle, zum Beispiel einen Webservice in den Bereich geschrieben. In dem Beispiel wurden die Absatzzahlen fest in den Zellbereich 1 eingetragen. 
+Für das Dashboard der Absatzzahlen werden die Daten in das Tabellenblatt eingetragen. Diese Daten können entweder fest eingegeben werden, meistens werden sie aber dynamisch über eine Datenquelle, zum Beispiel einen Webservice, in das Tabellenblatt geschrieben. In dem Beispiel wurden die Absatzzahlen fest in den Zellbereich 1 eingetragen. 
 
-Als nächstes können in Excel Berechnungen durchgeführt werden. In dem Beispiel wird die Summe der Absatzzahlen pro Jahr durch eine Excel-Formel berechnet. Um die Interaktivität von Dashboards zu zeigen, soll der Nutzer die Möglichkeit haben, die Auswirkungen von verschiedenen Wachstumsraten interaktiv zu sehen. Dazu werden die veränderten Absatzzahlen (Bereich 2) auf Basis der Quelldaten in Bereich 1 und den Wachstumsdaten in Bereich 3 berechnet.\seFootcite{vgl.}{S.229f}{Egg.09}
+Als nächstes können in Excel Berechnungen durchgeführt werden. In dem Beispiel wird die Summe der Absatzzahlen pro Jahr durch eine Formel berechnet. Um die Interaktivität von Dashboards zu zeigen, soll der Nutzer die Möglichkeit haben, die Auswirkungen von verschiedenen Wachstumsraten interaktiv zu sehen. Dazu werden die veränderten Absatzzahlen (Bereich 2) auf Basis der Quelldaten in Bereich 1 und den Wachstumsdaten in Bereich 3 berechnet.\seFootcite{vgl.}{S.229f}{Egg.09}
 
 \begin{figure}[h]
 \centering
