@@ -747,6 +747,14 @@ Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und 
 
 Das Kernstück der Erweiterung ist die Klasse \class{Orchestrator}. Hier ist die komplette Logik der Orchestrierung für die Kennzahlenanalyse und die Finanzierungsmatrix hinterlegt, das heißt die Ergebnisse der einzelnen Webservices werden kombiniert. Dazu existieren die entsprechenden Methoden \method{updateKPI()} und \method{updateFundingMatrix()}. Für den Datenaustausch mit dem Tabellenblatt von \gls{Xcelsius} existiert zwischen der Klasse \class{Orchestrator} und der Klasse \class{XcelsiusAdapter} eine 1:1 Assoziation.
 
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{1mm}
+\includegraphics[width=15cm]{images/Testgrafik.pdf}
+\caption{Klassendiagramm der Analysephase \label{fig:klassendiagramm_analyse}}
+\end{figure} \todonum{Abbildung erstellen}
+
+
 Die Klasse \class{XcelsiusAdapter} stellt die Verbindung zwischen der Erweiterung und dem Tabellenblatt von \gls{Xcelsius} dar. Mit der Methode \method{writeToXcelsius()} können Daten in das Tabellenblatt geschrieben werden. Zum Lesen von Daten existiert die Methode \method{readFromXcelsius()}.
 
 Eine weitere wichtige Klasse stellt der \class{ObjectProvider} dar. Ein \class{ObjectProvider} ist eine abstrahierte Schicht über einem Webservice. Die Aufgabe eines \class{ObjectProvider} ist der einfache Zugriff auf Objekte, die über einen Webservice bezogen werden. Dieser Zugriff findet über die Methode \method{getObject()} statt. Mehrere \class{ObjectProvider} sind Teil der Klasse \class{Orchestrator}, zwischen diesen beiden Klassen existiert eine Komposition.
