@@ -1173,46 +1173,45 @@ import sun.misc.BASE64Encoder;
 public class ProxyServlet extends HttpServlet {
 
  public void doGet(HttpServletRequest req, 
- HttpServletResponse res)
-     throws ServletException {
-   try {
-    String requestedUrl = req.getServletPath();
-	String params = req.getQueryString();
+  HttpServletResponse res) throws ServletException {
+  try {
+   String requestedUrl = req.getServletPath();
+   String params = req.getQueryString();
 
-	// build request url
-	String urlString = "http://xhc-cust106.wdf.sap.corp:8000"
-					+ requestedUrl;
-	if (params != null)
-		urlString += "?" + params;
+   // build request url
+   String urlString = "http://xhc.wdf.sap.corp"
+    + requestedUrl;
+   if (params != null)
+    urlString += "?" + params;
 
-	// build connection
-	URL url = new URL(urlString);
-	HttpURLConnection conn =
-	 (HttpURLConnection) url.openConnection();
+   // build connection
+   URL url = new URL(urlString);
+   HttpURLConnection conn =
+    (HttpURLConnection) url.openConnection();
 
-	// set authorization
-	BASE64Encoder encoder = new BASE64Encoder();
-	String encoding = encoder.encode("USER:PW".getBytes());
-	conn.setRequestProperty("Authorization",
-	 "Basic " + encoding);
+   // set authorization
+   BASE64Encoder encoder = new BASE64Encoder();
+   String encoding = encoder.encode("USER:PW".getBytes());
+   conn.setRequestProperty("Authorization",
+    "Basic " + encoding);
 
-	// start request
-	conn.setRequestMethod("GET");
-	conn.connect();
+   // start request
+   conn.setRequestMethod("GET");
+   conn.connect();
 
-	PrintWriter out = res.getWriter();
-	BufferedReader reader = new BufferedReader(
-	new InputStreamReader(
-	conn.getInputStream()));
+   PrintWriter out = res.getWriter();
+   BufferedReader reader = new BufferedReader(
+   new InputStreamReader(
+    conn.getInputStream()));
 
-	// get response
-	String content = null;
-	while ((content = reader.readLine()) != null) {
-		out.print(content);
-	}
+   // get response
+   String content = null;
+   while ((content = reader.readLine()) != null) {
+    out.print(content);
+   }
 
-	out.flush();
-	out.close();
+   out.flush();
+   out.close();
   } catch (Exception e) {
    System.err.println("Request failed");
   }  
