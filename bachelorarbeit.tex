@@ -1172,7 +1172,8 @@ import sun.misc.BASE64Encoder;
 @SuppressWarnings("serial")
 public class ProxyServlet extends HttpServlet {
 
- public void doGet(HttpServletRequest req, HttpServletResponse res)
+ public void doGet(HttpServletRequest req, 
+ HttpServletResponse res)
      throws ServletException {
    try {
     String requestedUrl = req.getServletPath();
@@ -1186,20 +1187,23 @@ public class ProxyServlet extends HttpServlet {
 
 	// build connection
 	URL url = new URL(urlString);
-	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	HttpURLConnection conn =
+	 (HttpURLConnection) url.openConnection();
 
 	// set authorization
 	BASE64Encoder encoder = new BASE64Encoder();
 	String encoding = encoder.encode("USER:PW".getBytes());
-	conn.setRequestProperty("Authorization", "Basic " + encoding);
+	conn.setRequestProperty("Authorization",
+	 "Basic " + encoding);
 
 	// start request
 	conn.setRequestMethod("GET");
 	conn.connect();
 
 	PrintWriter out = res.getWriter();
-	BufferedReader reader = new BufferedReader(new InputStreamReader(
-			conn.getInputStream()));
+	BufferedReader reader = new BufferedReader(
+	new InputStreamReader(
+	conn.getInputStream()));
 
 	// get response
 	String content = null;
