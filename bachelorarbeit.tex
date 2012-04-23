@@ -394,7 +394,7 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung4-Arbeitsweise-Xcelsius.pdf}
 \caption{Schematische Darstellung der Arbeitsweise von BusinessObjects Xcelsisu\label{fig:xcelsius_ablauf_schema}}
-\end{figure} \todonum{Abbildung erstellen}
+\end{figure} \todonum{Einbindung der Abbildung überprüfen}
 
 \subsection{Architektur}
 \gls{Xcelsius} basiert auf dem \gls{glos:netFramework} von Microsoft und ist in weiten Teilen in C++ geschrieben. Neben C++ wird \gls{glos:actionscript} und das Adobe Flex Framework für die  Benutzeroberfläche eingesetzt. Die Architektur von \gls{Xcelsius} ist modular aufgebaut und besteht aus mehreren Teilen. Ein Überblick ist in \vref{fig:xcelsius_architektur} dargestellt.
@@ -594,7 +594,7 @@ Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung9-Umsetzung-Universum.pdf}
 \caption{Umsetzungsmöglichkeit der Erweiterung mittels BusinessObjects Universum \label{fig:umsetzung_universe}}
-\end{figure} \todonum{Abbildung erstellen}
+\end{figure} \todonum{Einbindung der Abbildung überprüfen}
 
 Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt sich die Frage, wie eventuelle Selektionsparameter von \gls{Xcelsius} an die Berechnugnskomponente übergeben werden können. Zusätzlich muss die Berechnung durch die Berechnungskomponente manuell angestoßen werden, um die Tabelle mit den aktuellen Daten zu füllen. Eine automatische, periodische Berechnung, zum Beispiel durch einen eingeplanten Hintergrundprozess, würde stets veraltete Daten liefern.
 
@@ -608,7 +608,7 @@ Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SA
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung10-Umsetzung-Webservices.pdf}
 \caption{Umsetzungsmöglichkeit der Erweiterung mittels Webservices \label{fig:umsetzung_webservice}}
-\end{figure} \todonum{Abbildung erstellen}
+\end{figure} \todonum{Einbindung der Abbildung überprüfen}
 
 Dadurch, dass der Aufruf direkt im SAP LRM entgegen genommen wird und nicht indirekt, zum Beispiel über ein Universum erfolgt, können eventuelle Selektionsparameter dynamisch übergeben werden. Auch das Problem mit veralteten Daten besteht nicht, da die Berechnung bei jedem Aufruf nach Bedarf durchgeführt werden kann.
 
@@ -723,7 +723,7 @@ In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-archite
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung11-Architektur-Erweiterung.pdf}
 \caption{Überblick der grundlegenden Architektur der Erweiterung\label{fig:ueberblick-architektur}}
-\end{figure} \todonum{Abbildung erstellen}
+\end{figure} \todonum{Einbindung der Abbildung überprüfen}
 
 Im SAP LRM System muss für jeden Webservice ein Webservice-Provider bereitgestellt werden. Der Webservice-Provider kann über einfache Funktionsaufrufe entweder Berechnungen über die Berechnungskomponente durchführen lassen, oder auf Objekte des SAP LRM, wie zum Beispiel einem Laufzeitband oder eine Liquiditätsgruppe zugreifen. Das Ergebnis liefert er über \gls{HTTP} im \gls{XML}-Format.
 
@@ -798,7 +798,7 @@ Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung14-Abhaengigkeiten-Webservices.pdf}
 \caption{Abhängigkeiten der Webservices\label{fig:webservice_abhaengigkeiten}}
-\end{figure} \todonum{Abbildung erstellen}
+\end{figure} \todonum{Einbindung der Abbildung überprüfen}
 
 
 Der Webservice der Finanzierungsmatrix ruft bei einem Aufruf die Berechnungskomponente des SAP LRM auf und muss demnach mit den vier erforderlichen Parametern versorgt werden (siehe dazu \vref{sec:berechnungskomponente:parameter}). Es besteht eine Abhängigkeit zu den drei Webservices, die automatisch durch das Framework  bereit stehen. Der Webservice der Liquiditätsgruppen ist so umgesetzt, dass er ein Liquiditässzenario als Parameter erwartet und darauf alle möglichen Liquiditätsgruppen zurückliefert -- auch hier besteht eine Abhängigkeit.
@@ -893,7 +893,7 @@ Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabe
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung18-Flex-Sandbox.pdf}
 \caption{Sandbox-Problematik von Adobe Flex\label{fig:flex_sandbox}}
-\end{figure} \todonum{Abbildung erstellen}
+\end{figure} \todonum{Einbindung der Abbildung überprüfen}
 
 Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es möglich, dass der Anbieter des Webservice explizit festlegen kann, dass der Webservice auch über verschiedene Domains hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Bei der Erweiterung wäre das der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
 
