@@ -578,14 +578,7 @@ Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von \gls{Xc
 Eine Möglichkeit, externe Daten in \gls{Xcelsius} zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantische Ebene, die es ermöglicht Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
 
 
-Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden. Das Sternschema ist ein besonderes Datenmodell, welches besonders für Leseoperationen optimiert ist. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06} Dies zeigt \vref{fig:universe_abstraktion}.
-
-\begin{figure}[h]
-\centering
-\setlength{\unitlength}{1mm}
-\includegraphics[width=15cm]{images/universe_ueberblick.jpg}
-\caption{Abstraktion von BusinessObjects Universum\label{fig:universe_abstraktion}}
-\end{figure} \todonum{Abbildung erstellen}
+Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden. Das Sternschema ist ein besonderes Datenmodell, welches besonders für Leseoperationen optimiert ist. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
 
 Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{Xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
