@@ -266,24 +266,24 @@ Das SAP LRM ist eine Anwendung für Banken, um Liquiditätsrisiken managen zu k�
 
 Durch den Einsatz der LRM Lösung können Banken rechtliche Anforderungen, wie zum Beispiel die Einhaltung der \gls{glos:lcr} und der \gls{glos:nsfr} im Rahmen von Basel III sicherstellen. Zusätzlich können durch die Bereitstellung einer Berechnungskomponente eigene Kennzahlen zur Steuerung und Überwachung der Bank definiert und umgesetzt werden. Durch den Einsatz von SAP HANA ist es möglich, eine zahlungsstromorientierte Herangehensweise trotz der großen Datenmengen zu ermöglichen und gleichzeitig in Echtzeit mit den Daten zu arbeiten. Die Echtzeitanforderung ist in diesem Kontext auf eine Reaktionszeit von einer Sekunde festgelegt. Im Bereich des Liquiditätsrisikomanagement müssen mehrere Geschäftsbereiche involviert werden. Deshalb bietet das SAP LRM kollaborative Möglichkeiten um dies zu unterstützen.\seFootcite{vgl.}{S.9 und S.17f}{LRM-PPT.12}
 
-Als Datenquelle für die Zahlungsströme werden neben SAP-Systemen, meist ein \gls{ERP}-System, auch nicht-SAP-Systeme unterstützt. Somit kann sichergestellt werden, dass Analysen auf einer vollständigen Datenbasis durchgeführt werden. Für die Analysen können verschiedene Szenarien simuliert werden. Bei jedem Szenario werden dabei Annahmen über die zukünftige finanzielle Entwicklung getroffen. Meist handelt es sich dabei um die Herauf- oder Herabstufung der Kreditwürdigkeit von Kunden, die Entwicklung von Aktienkursen, das Verhalten der Marktteilnehmer oder Währungskursschwankungen. Durch diesen Spielraum ist es möglich, ein genaues Bild über die Liquiditätsrisiken der Bank zu erhalten.\seFootcite{vgl.}{S.18 und S.45}{LRM-PPT.12}
+Als Datenquelle für die Zahlungsströme werden neben SAP-Systemen, meist ein \gls{erp}-System, auch nicht-SAP-Systeme unterstützt. Somit kann sichergestellt werden, dass Analysen auf einer vollständigen Datenbasis durchgeführt werden. Für die Analysen können verschiedene Szenarien simuliert werden. Bei jedem Szenario werden dabei Annahmen über die zukünftige finanzielle Entwicklung getroffen. Meist handelt es sich dabei um die Herauf- oder Herabstufung der Kreditwürdigkeit von Kunden, die Entwicklung von Aktienkursen, das Verhalten der Marktteilnehmer oder Währungskursschwankungen. Durch diesen Spielraum ist es möglich, ein genaues Bild über die Liquiditätsrisiken der Bank zu erhalten.\seFootcite{vgl.}{S.18 und S.45}{LRM-PPT.12}
 
 
 \subsection{Architektur}
 
 \subsubsection{Next Generation ABAP Plattform}
-Die \gls{NGAP} stellt die technologische Grundlage für das SAP LRM dar. Sie ist eine Plattform für in \gls{glo:abap} geschriebene Unternehmensanwendungen und soll eine moderne Alternative zu dem \gls{NetWeaver} bieten. Dieser stellte bisher die Grundlage für fast alle Anwendungen der SAP dar. Entscheidende Merkmale ist die Nutzung von SAP HANA im \gls{glo:abap}-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse\footnote{Eclipse - http://www.eclipse.org/} basierenden Entwicklungsumgebung und die vereinfachte Bereitstellung von \gls{glos:rest}-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
+Die \gls{ngap} stellt die technologische Grundlage für das SAP LRM dar. Sie ist eine Plattform für in \gls{glo:abap} geschriebene Unternehmensanwendungen und soll eine moderne Alternative zu dem \gls{NetWeaver} bieten. Dieser stellte bisher die Grundlage für fast alle Anwendungen der SAP dar. Entscheidende Merkmale ist die Nutzung von SAP HANA im \gls{glo:abap}-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse\footnote{Eclipse - http://www.eclipse.org/} basierenden Entwicklungsumgebung und die vereinfachte Bereitstellung von \gls{glos:rest}-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
 
 Der \gls{NetWeaver} hat sich als ausgereifte und verlässliche Plattform erweisen, die sowohl einen Java- als auch einen \gls{glo:abap} Stack besitzt und in Verbindung mit vielen Betriebssystemen und Datenbanken genutzt werden kann. Durch die Unterstützung der beiden Programmiersprachen, der Betriebssysteme und der verschiedenen Datenbanken ist das Thema Kompatibilität bei der Weiterentwicklung ein entscheidendes Merkmal. Dadurch wird die Komplexität von Erweiterungen deutlich erhöht und durch die lange Entwicklungszeit des \gls{NetWeaver} sind Codeteile bis zu 20 Jahre alt.\footnote{\seCite{vgl.}{}{NGAP-V2} \seCite{und}{S.1}{NGAP-FS}}
 
-Diese Nachteile sind der Grund für die Entwicklung der \gls{NGAP}. Die \gls{NGAP} basiert auf dem Quellcode des \gls{NetWeaver} in der Version 7.2. Die wichtigsten Veränderungen sind das Entfernen des Java-Stacks, die Verschlankung des zugrundeliegenden Kernels und des \gls{glo:abap}-Stacks. Der Kernel wurde komplett restrukturiert, weiter modularisiert und die Unterstützung auf wenige Betriebssysteme und die Datenbank von SAP HANA als einzige Datenbank reduziert. Durch den Wegfall der Kompatibilitätsanforderungen konnten große Teile des \gls{glo:abap}-Stacks entfernt oder vereinfacht werden.\seFootcite{vgl.}{}{NGAP-V1} Des Weiteren wurde zum ersten Mal ein durchgehendes Programmierschnittstelle für die Programmierung von Anwendungen auf Basis der \gls{NGAP} eingeführt. Dadurch sind interne Änderungen an der \gls{NGAP} möglich, ohne die Anwendungen anpassen zu müssen.\seFootcite{vgl.}{}{NGAP-V2} Insgesamt konnten durch die Änderungen die Anzahl der Quellcodezeilen um 60\% reduziert werden. Dadurch ergeben sich Vorteile in der Wartung da potentiell weniger Fehler enthalten sein können.\seFootcite{vgl.}{S.2}{NGAP-FS}
+Diese Nachteile sind der Grund für die Entwicklung der \gls{ngap}. Die \gls{ngap} basiert auf dem Quellcode des \gls{NetWeaver} in der Version 7.2. Die wichtigsten Veränderungen sind das Entfernen des Java-Stacks, die Verschlankung des zugrundeliegenden Kernels und des \gls{glo:abap}-Stacks. Der Kernel wurde komplett restrukturiert, weiter modularisiert und die Unterstützung auf wenige Betriebssysteme und die Datenbank von SAP HANA als einzige Datenbank reduziert. Durch den Wegfall der Kompatibilitätsanforderungen konnten große Teile des \gls{glo:abap}-Stacks entfernt oder vereinfacht werden.\seFootcite{vgl.}{}{NGAP-V1} Des Weiteren wurde zum ersten Mal ein durchgehendes Programmierschnittstelle für die Programmierung von Anwendungen auf Basis der \gls{ngap} eingeführt. Dadurch sind interne Änderungen an der \gls{ngap} möglich, ohne die Anwendungen anpassen zu müssen.\seFootcite{vgl.}{}{NGAP-V2} Insgesamt konnten durch die Änderungen die Anzahl der Quellcodezeilen um 60\% reduziert werden. Dadurch ergeben sich Vorteile in der Wartung da potentiell weniger Fehler enthalten sein können.\seFootcite{vgl.}{S.2}{NGAP-FS}
 
-Zusammengefasst bietet die \gls{NGAP} eine einfacherer Möglichkeit für die Entwicklung von Anwendungen in Verbindung von aktuellen Innovationen wie zum Beispiel SAP HANA oder dem Anschluss von mobilen Clients auf Basis von \gls{glos:rest}-Webservices.
+Zusammengefasst bietet die \gls{ngap} eine einfacherer Möglichkeit für die Entwicklung von Anwendungen in Verbindung von aktuellen Innovationen wie zum Beispiel SAP HANA oder dem Anschluss von mobilen Clients auf Basis von \gls{glos:rest}-Webservices.
 
 \subsubsection{HANA}
 SAP HANA ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kombination mit zertifizierter Hardware verkauft werden. Es ist die Reaktion auf den Bedarf nach der schnellen Auswertung von großen Datenmengen. Dies soll durch die Ausnutzung der Leistungssteigerung von modernen Computern erreicht werden. Hier ist zum einen die Entwicklung von Einkernprozessoren zu Mehrkernprozessoren zu nennen und zum anderen die Verfügbarkeit von schnellem Hauptspeicher in der benötigten Größe zu vertretbaren Kosten.\seFootcite{vgl.}{S.14f}{PZ.11} Das Ziel von SAP HANA ist es aktuelle operationale Daten in Verbindung mit bestehenden historischen Daten in Echtzeit zu Analysieren und somit Informationen zu gewinnen.\seFootcite{vgl.}{}{HANA.12}
 
-Der Kern von SAP HANA bildet dabei ein hauptspeicherbasiertes \gls{DBMS}. Dabei werden alle Daten nicht wie bei traditionellen \gls{DBMS} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied beider Organisationsarten ist in \vref{fig:vergleich_spalte_zeile} zu sehen. 
+Der Kern von SAP HANA bildet dabei ein hauptspeicherbasiertes \gls{dbms}. Dabei werden alle Daten nicht wie bei traditionellen \gls{dbms} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied beider Organisationsarten ist in \vref{fig:vergleich_spalte_zeile} zu sehen. 
 
 \begin{figure}[h]
 \centering
@@ -298,10 +298,10 @@ Die zeilenbasierte Organisation ist von Vorteil, wenn auf einzelne Datensätze k
 
 Veränderungen in einem Datensatz einer Tabelle können auf Wunsch nicht in dem Eintrag der Tabelle direkt geändert, sondern nur die Differenzen an die Tabelle angefügt werden. Dadurch bleibt die Information, wie sich der Datensatz im Laufe der Zeit verändert hat, erhalten und kann in späteren Auswertungen als weitere Information hinzugezogen werden. Zusätzlich ist das Anfügen der Veränderung schneller durchzuführen wie die Veränderung des bestehenden Datensatzes.\seFootcite{vgl.}{S.109f}{PZ.11}
 
-Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von SAP HANA entwickelt werden, versucht, ein Teil der Anwendungslogik schon auf der Datenbank selbst zu berechnen.\seFootcite{vgl.}{S.155f}{PZ.11} Erreicht wird dies durch die Erweiterung der Abfragesprache \gls{SQL} zu \gls{glos:sqlscript}. Mit \gls{glos:sqlscript} ist es unter anderem durch das Hinzufügen von Datentypen, Prozeduren und Operationen möglich, Anwendungslogik abzubilden. Diese Berechnungen können von der Datenbank durch Parallelisierung sehr schnell durchgeführt werden.\seFootcite{vgl.}{S.9f}{SQLScript.11} Als Resultat kann die Datenübertragung zwischen dem \gls{DBMS} und der Anwendung verringert werden. Es muss nur noch das Ergebnis und nicht die Datensätze, auf denen das Ergebnis basiert, übertragen werden. Zusätzlich wird die Komplexität der Anwendung verringert, da ein Teil der Logik von dem \gls{DBMS} übernommen wird.
+Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von SAP HANA entwickelt werden, versucht, ein Teil der Anwendungslogik schon auf der Datenbank selbst zu berechnen.\seFootcite{vgl.}{S.155f}{PZ.11} Erreicht wird dies durch die Erweiterung der Abfragesprache \gls{sql} zu \gls{glos:sqlscript}. Mit \gls{glos:sqlscript} ist es unter anderem durch das Hinzufügen von Datentypen, Prozeduren und Operationen möglich, Anwendungslogik abzubilden. Diese Berechnungen können von der Datenbank durch Parallelisierung sehr schnell durchgeführt werden.\seFootcite{vgl.}{S.9f}{SQLScript.11} Als Resultat kann die Datenübertragung zwischen dem \gls{dbms} und der Anwendung verringert werden. Es muss nur noch das Ergebnis und nicht die Datensätze, auf denen das Ergebnis basiert, übertragen werden. Zusätzlich wird die Komplexität der Anwendung verringert, da ein Teil der Logik von dem \gls{dbms} übernommen wird.
 
 \subsubsection{Oberon}
-Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. Es wurde ursprünglich als Oberfläche für \gls{glos:bydesign} entwickelt und wird jetzt auch für weitere Anwendungen unter anderem für Anwendungen, die auf SAP HANA und \gls{NGAP} basieren, verwendet.\seFootcite{vgl.}{}{Oberon-A} Ein Beispiel eines mit dem Oberon Framework umgesetzte Oberfläche ist in \vref{fig:oberon} zu sehen.
+Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. Es wurde ursprünglich als Oberfläche für \gls{glos:bydesign} entwickelt und wird jetzt auch für weitere Anwendungen unter anderem für Anwendungen, die auf SAP HANA und \gls{ngap} basieren, verwendet.\seFootcite{vgl.}{}{Oberon-A} Ein Beispiel eines mit dem Oberon Framework umgesetzte Oberfläche ist in \vref{fig:oberon} zu sehen.
 
 \begin{figure}[h]
 \centering
@@ -310,7 +310,7 @@ Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. 
 \caption{Darstellung eines Zahlungsstrom-Eintrags mit dem Oberon Framework\label{fig:oberon}}
 \end{figure}
 
-Oberflächen werden mit dem Oberen Framework mit der Programmiersprache C\# und Microsoft Silverlight\footnote{Microsoft Silverlight - http://www.microsoft.com/silverlight/} entwickelt. Silverlight ist eine Technologie von Microsoft, die als Plugin für verschiedene moderne Browser verfügbar ist und die Entwicklung von \gls{glos:ria} unterstützt. Die \gls{glos:ria} stellt dabei die erste Schicht der drei Schichtenarchitektur von Anwendungen dar. Die weiteren Schichten, die Anwendungslogik und die Persistenz, werden von \gls{NGAP} und SAP HANA übernommen.\seFootcite{vgl.}{}{Oberon-A}
+Oberflächen werden mit dem Oberen Framework mit der Programmiersprache C\# und Microsoft Silverlight\footnote{Microsoft Silverlight - http://www.microsoft.com/silverlight/} entwickelt. Silverlight ist eine Technologie von Microsoft, die als Plugin für verschiedene moderne Browser verfügbar ist und die Entwicklung von \gls{glos:ria} unterstützt. Die \gls{glos:ria} stellt dabei die erste Schicht der drei Schichtenarchitektur von Anwendungen dar. Die weiteren Schichten, die Anwendungslogik und die Persistenz, werden von \gls{ngap} und SAP HANA übernommen.\seFootcite{vgl.}{}{Oberon-A}
 
 Das Oberon Framework ist als Standardframework ausgelegt und versucht, möglichst viele Anforderungen abzudecken, um dadurch in vielen Produkten verwendet werden zu können. Allerdings ist es sehr Wahrscheinlich, dass spezielle Anforderungen eines bestimmten Bereichs nicht mit dem Oberon Framework abgedeckt werden können. In diesem Fall müssen eigene Lösungen für die Anforderungen entwickelt werden.\seFootcite{vgl.}{}{Oberon-A}
 
@@ -359,9 +359,9 @@ Die Daten, auf denen die Visualisierungen in \gls{Xcelsius} basieren, werden dur
 
 Die gesamte Erstellung eines Dashboards findet nach dem \gls{wysiwyg}-Prinzip statt. Der Anwender sieht schon während der Erstellung, wie das Ergebnis aussieht. Durch die Verwendung von Excel und dem Umsetzen des \gls{wysiwyg}-Prinzip benötigen Nutzer meist nur eine geringe Einarbeitungszeit und die Bedienung kann als intuitiv beschrieben werden. Besondere Programmiersprachenkenntnisse sind für die Erstellung von Dashboards nicht erforderlich.\seFootcite{vgl.}{S.32 und S.239}{Egg.09}
 
-Die mit \gls{Xcelsius} erstellten Dashboards werden mit Hilfe der Adobe Flex Technologie dargestellt. Dadurch ist kein spezieller Server oder ein \gls{DBMS} notwendig. Es wird nur das Flash-Plugin benötigt. Außerdem muss dafür für die Darstellung keine Netzwerkverbindung zu einem Server oder dem Internet vorhanden sein.  Zusätzlich können Dashboards in verschiedene Formate exportiert werden um sie so in Microsoft PowerPoint-Präsentationen oder auf Internetseiten einzubinden.\seFootcite{vgl.}{S.31f und S.230}{Egg.09}
+Die mit \gls{Xcelsius} erstellten Dashboards werden mit Hilfe der Adobe Flex Technologie dargestellt. Dadurch ist kein spezieller Server oder ein \gls{dbms} notwendig. Es wird nur das Flash-Plugin benötigt. Außerdem muss dafür für die Darstellung keine Netzwerkverbindung zu einem Server oder dem Internet vorhanden sein.  Zusätzlich können Dashboards in verschiedene Formate exportiert werden um sie so in Microsoft PowerPoint-Präsentationen oder auf Internetseiten einzubinden.\seFootcite{vgl.}{S.31f und S.230}{Egg.09}
 
-Als Datenquellen für ein Dashboard stehen mehrere Möglichkeiten zur Verfügung. Zum einen können Daten einfach in das Excel kopiert werden.  Es ist auch möglich, ein SAP Business Warehouse System direkt anzuschließen, oder Daten über Webservices zu beziehen. Hierzu wird das \gls{XML}-Format verwendet. Außerdem existieren weitere Möglichkeiten, mit dem Dashboards zum Beispiel untereinander Daten austauschen können.\seFootcite{vgl.}{S.283f}{Egg.09}
+Als Datenquellen für ein Dashboard stehen mehrere Möglichkeiten zur Verfügung. Zum einen können Daten einfach in das Excel kopiert werden.  Es ist auch möglich, ein SAP Business Warehouse System direkt anzuschließen, oder Daten über Webservices zu beziehen. Hierzu wird das \gls{xml}-Format verwendet. Außerdem existieren weitere Möglichkeiten, mit dem Dashboards zum Beispiel untereinander Daten austauschen können.\seFootcite{vgl.}{S.283f}{Egg.09}
 
 \subsection{Bedienungskonzept}
 Der vorgesehene Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absatzzahlen von Produkten in \vref{fig:xcelsius_ui_beispiel} verdeutlicht werden. Zunächst soll jedoch die Oberfläche von \gls{Xcelsius} dargestellt werden.
@@ -409,7 +409,7 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 
 Das zentrale Element ist das \class{Document}. Dabei handelt es sich um ein Objektmodell, das den aktuellen Zustand des Dashboards repräsentiert. Für die Darstellung wird das \class{Canvas} verwendet, welches in \gls{glos:actionscript} geschrieben ist. Die \class{Canvas}-Komponente nutzt dabei mehrere Hilfskomponenten. Dabei handelt es sich um die Komponenten, die später auf dem Dashboard platziert werden können. Diese Komponenten sind ist auch der Ansatzpunkt für spätere Erweiterungen. Eine Erweiterung ist intern eine zusätzliche Hilfskomponente.
 
-An das \class{Document} ist mittels der OLE Automation Microsoft Excel angebunden. OLE Automation ist eine Schnittstelle für die Kommunikation zwischen Prozessen. Speichern und Laden eines Dashboards übernimmt die XLF-Komponente. Diese erstellt oder lädt eine \gls{Xcelsius} File (.xlf), welches intern aus dem Document im \gls{XML}-Format und einer Excel-Datei besteht.
+An das \class{Document} ist mittels der OLE Automation Microsoft Excel angebunden. OLE Automation ist eine Schnittstelle für die Kommunikation zwischen Prozessen. Speichern und Laden eines Dashboards übernimmt die XLF-Komponente. Diese erstellt oder lädt eine \gls{Xcelsius} File (.xlf), welches intern aus dem Document im \gls{xml}-Format und einer Excel-Datei besteht.
 
 Für den Export von erstellten Dashboards existiert der \class{SWF Generator}. Aus dem \class{Document} und den Daten und Formeln, die in Microsoft Excel erstellt wurden, wird eine .swf-Datei generiert. In dieser werden nun alle Berechnungen, die bis jetzt von Microsoft Excel übernommen wurden, von einer weiteren Hilfsklasse, der \class{SpreadsheetEngine} berechnet.\seFootcite{vgl.}{}{Xcelsius-Arch.09}
 
@@ -579,7 +579,7 @@ Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von \gls{Xc
 Eine Möglichkeit, externe Daten in \gls{Xcelsius} zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantische Ebene, die es ermöglicht, Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
 
 
-Es können Daten aus relationalen \gls{DBMS}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden. Das Sternschema ist ein besonderes Datenmodell, welches besonders für Leseoperationen optimiert ist. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
+Es können Daten aus relationalen \gls{dbms}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden. Das Sternschema ist ein besonderes Datenmodell, welches besonders für Leseoperationen optimiert ist. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
 
 Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{Xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
@@ -606,7 +606,7 @@ Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SA
 
 Dadurch, dass der Aufruf direkt im SAP LRM entgegen genommen wird und nicht indirekt, zum Beispiel über ein Universum erfolgt, können eventuelle Selektionsparameter dynamisch übergeben werden. Auch das Problem mit veralteten Daten besteht nicht, da die Berechnung bei jedem Aufruf nach Bedarf durchgeführt werden kann.
 
-Werden für die Umsetzung der Webservices offene Standards, wie zum Beispiel \gls{HTTP} für die Übertragung oder \gls{XML} als Beschreibungssprache,  eingesetzt, können die Webservices auch von anderen Anwendungen verwendet werden. Dies ist für das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} wichtig.
+Werden für die Umsetzung der Webservices offene Standards, wie zum Beispiel \gls{http} für die Übertragung oder \gls{xml} als Beschreibungssprache,  eingesetzt, können die Webservices auch von anderen Anwendungen verwendet werden. Dies ist für das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} wichtig.
 
 Außerdem kommt hinzu, dass bei dieser Umsetzungsmöglichkeit eine gute Modularisierung und Wiederverwendbarkeit erreicht werden kann. Die benötigte Funktionalität kann auf mehrere kleine Webservices aufgeteilt werden. Es entstehen voneinander unabhängige Teile, die leichter gewartet und unabhängig voneinander verwendet werden können. In \gls{Xcelsius} müssen diese Teile dann orchestriert werden.
 
@@ -718,7 +718,7 @@ In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-archite
 \caption{Überblick der grundlegenden Architektur der Erweiterung\label{fig:ueberblick-architektur}}
 \end{figure}
 
-Im SAP LRM System muss für jeden Webservice ein Webservice-Provider bereitgestellt werden. Der Webservice-Provider kann über einfache Funktionsaufrufe entweder Berechnungen über die Berechnungskomponente durchführen lassen, oder auf Objekte des SAP LRM, wie zum Beispiel einem Laufzeitband oder eine Liquiditätsgruppe zugreifen. Das Ergebnis liefert er über \gls{HTTP} im \gls{XML}-Format.
+Im SAP LRM System muss für jeden Webservice ein Webservice-Provider bereitgestellt werden. Der Webservice-Provider kann über einfache Funktionsaufrufe entweder Berechnungen über die Berechnungskomponente durchführen lassen, oder auf Objekte des SAP LRM, wie zum Beispiel einem Laufzeitband oder eine Liquiditätsgruppe zugreifen. Das Ergebnis liefert er über \gls{http} im \gls{xml}-Format.
 
 Die drei restlichen Teile, die im Überblick eingeführt wurden, werden in einem Plugin für \gls{Xcelsius} implementiert. Dazu zählt die Konsumierung der bereitgestellten Services und anschließend die Orchestrierung.
 
@@ -744,9 +744,9 @@ Die Klasse \class{XcelsiusAdapter} stellt die Verbindung zwischen der Erweiterun
 
 Eine weitere wichtige Klasse stellt der \class{ObjectProvider} dar. Ein \class{ObjectProvider} ist eine abstrahierte Schicht über einem Webservice. Die Aufgabe eines \class{ObjectProvider} ist der einfache Zugriff auf Objekte, die über einen Webservice bezogen werden. Dieser Zugriff findet über die Methode \method{getObject()} statt. Mehrere \class{ObjectProvider} sind Teil der Klasse \class{Orchestrator}, zwischen diesen beiden Klassen existiert eine Komposition.
 
-Um die Webservices abstrahiert darstellen zu können, nutzt ein \class{ObjectProvider} zwei weiteren Klassen, den \class{WebServiceConnector} und den \class{Deserializer}. Hier besteht jeweils eine 1:1 Assoziation. Der \class{WebServiceConnector} übernimmt die Kommunikation zwischen der Erweiterung und dem SAP LRM System über \gls{HTTP}. Der \class{Deserializer} wandelt das Resultat der Kommunikation über den Webservice in ein internes Objektformat um.
+Um die Webservices abstrahiert darstellen zu können, nutzt ein \class{ObjectProvider} zwei weiteren Klassen, den \class{WebServiceConnector} und den \class{Deserializer}. Hier besteht jeweils eine 1:1 Assoziation. Der \class{WebServiceConnector} übernimmt die Kommunikation zwischen der Erweiterung und dem SAP LRM System über \gls{http}. Der \class{Deserializer} wandelt das Resultat der Kommunikation über den Webservice in ein internes Objektformat um.
 
-Die Klasse \class{WebServiceProvider} muss im SAP LRM implementiert werden. Sie nimmt die Anfragen der Erweiterung über \gls{HTTP} entgegen, liest die entsprechenden Objekte aus der Datenbank und serialisiert sie im \gls{XML}-Format.
+Die Klasse \class{WebServiceProvider} muss im SAP LRM implementiert werden. Sie nimmt die Anfragen der Erweiterung über \gls{http} entgegen, liest die entsprechenden Objekte aus der Datenbank und serialisiert sie im \gls{xml}-Format.
 
 \subsection{Dynamisches Modell}
 Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgenden exemplarisch der Ablauf einer Anfrage durch einen Nutzer erläutert. Das entsprechende Sequenzdiagramm ist in \vref{fig:sequenz_analyse} dargestellt.
@@ -765,7 +765,7 @@ Daraufhin werden drei Schritte durchlaufen, die in dem Diagramm auf der linken S
 
 Anschließend wird in einem zweiten Schritt ein oder mehrere Webservices über die entsprechenden \instance{WebServiceProvider} konsumiert. Die Objekte, die die \instance{WebServiceProvider} zurückliefern werden durch den \instance{Orchestrator} verbunden.
 
-Die \instance{WebServiceProvider} rufen über einen \instance{WebServiceConnector} den \gls{XML}-Inhalt ab. Anschließend wird das Ergebnis an den entsprechenden \instance{Deserializer} weitergegeben. Dieser wandelt es in eine interne Objektstruktur um und gibt die Instanz an den \instance{ObjectProvider} zurück. Dieser leitet es an den \instance{Orchestrator} weiter.
+Die \instance{WebServiceProvider} rufen über einen \instance{WebServiceConnector} den \gls{xml}-Inhalt ab. Anschließend wird das Ergebnis an den entsprechenden \instance{Deserializer} weitergegeben. Dieser wandelt es in eine interne Objektstruktur um und gibt die Instanz an den \instance{ObjectProvider} zurück. Dieser leitet es an den \instance{Orchestrator} weiter.
 
 Der Aufruf der \instance{WebServiceProvider} durch den \instance{Orchestrator} kann asynchron erfolgen. Hat der \instance{Orchestrator} alle Ergebnisse der \instance{ObjectProvider} erhalten, erfolgt die Umwandlung in das Zielobjektformat und schließlich in dem dritten Schritt das Übergeben des Ergebnis an den \instance{XcelsiusAdapter}. Dieser schreibt die Daten in das Tabellenblatt von \gls{Xcelsius}.
 
@@ -987,7 +987,7 @@ Der Ausgangspunkt ist dazu der \class{Orchestrator}, der die \method{getObject}-
 
 Tritt bei dem Aufruf ein Fehler auf, wird asynchron die Methode \method{onWebServiceFail()} aufgerufen. Der Fehler muss nur dem \class{Orchestrator} weitergeleitet werden. Dazu wurde auch hier bei dem \method{getObject}-Aufruf eine Referenz auf den \class{Orchestrator} als Callback mitgegeben.
 
-Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die \method{onWebServiceSuccess()}-Methode aufgerufen. Der Parameter \class{ResultEvent} enthält die Antwort des Webservice als Zeichenkette. Diese muss nun in die interne Objektstruktur umgewandelt werden. Dazu wird der \class{FundingMatrixObjectDeserializer}  verwendet. Die \gls{XML}-Eingabe für den \class{Deserializer} und die daraus generierte Objektstruktur ist in \vref{fig:umwandlung:ueberblick} dargestellt.
+Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die \method{onWebServiceSuccess()}-Methode aufgerufen. Der Parameter \class{ResultEvent} enthält die Antwort des Webservice als Zeichenkette. Diese muss nun in die interne Objektstruktur umgewandelt werden. Dazu wird der \class{FundingMatrixObjectDeserializer}  verwendet. Die \gls{xml}-Eingabe für den \class{Deserializer} und die daraus generierte Objektstruktur ist in \vref{fig:umwandlung:ueberblick} dargestellt.
 
 \begin{figure}[h]
 \centering
@@ -996,7 +996,7 @@ Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die
 \caption{Umwandlung der XML-Antwort in die interne Objektstruktur\label{fig:umwandlung:ueberblick}}
 \end{figure} \todonum{Abbildung erstellen}
 
-Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{XML}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, findet sich in \vref{listing:deserialisierung}.
+Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{xml}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, findet sich in \vref{listing:deserialisierung}.
 
 
 \begin{programm}[h]
@@ -1130,14 +1130,35 @@ Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des
 \section{Zusammenfassung}
 In diesem Kapitel wurden die Evaluation der Erweiterung für Xcelsius durchgeführt. Diese hat ergeben, dass sich durch die reine Integration der Daten des SAP LRM unter der bewussten Vermeidung von Vorgaben, was die Visualisierung oder die Art des Inputs und des Outputs betrifft, sich sehr viele Möglichkeiten ergeben. Es können alle Funktionen von Xcelsius genutzt werden, wodurch eine größere Flexibilität in der Auswertung der Daten des SAP LRM bietet. Außerdem wurde die Abdeckung der gestellten Anforderungen überprüft und dabei festgestellt, dass die Anforderungen erfolgreich umgesetzt wurden.
 
-\chapter{Zusammenfassung}
-\loreIpsum
+\chapter{Zusammenfassung \& Ausblick}
+% Fragestellung aus Einleitung aufgreifen \loreIpsum
 
-\loreIpsum
+Im Rahmen dieser Bachelorarbeit wurden zwei Ziele verfolgt. Auf der einen Seite sollte ein Konzept für die Nutzung weiterer Anwendungen in Verbindung mit der Berechnungskomponente des SAP LRM entwickelt werden. Auf der anderen Seite sollte dieses Konzept für eine Anwendung beispielsweise umgesetzt werden. 
 
-\loreIpsum
+Das entwickelte Konzept basiert auf der Orchestrierung von Webservices. Dabei werden ein oder mehrere Webservices von der Zielanwendung konsumiert und die jeweiligen Ergebnisse orchestriert. Die Webservices nutzen dabei für den Bezug der Daten die Berechnungskomponente des SAP LRM. Durch die Nutzung von weit verbreiteten Standards wie \gls{http} und \gls{xml} kann das Konzept einfach für verschiedene Anwendungen umgesetzt werden. Durch den modularen Aufbau, der durch die Orchestrierung der Webservices sichergestellt ist, ist auch eine gute Erweiterbarkeit sichergestellt. Durch die Weiterentwicklung des SAP LRM neu hinzugekommene Funktionen können einfach in das Konzept eingearbeitet werden. Außerdem wird durch den modularen Aufbau die spätere Wartung erleichtert.
 
-\loreIpsum
+Neben der Entwicklung des Konzeptes wurde im Rahmen der Bachelorarbeit die Umsetzung für BusinessObjects Xcelsius durchgeführt. Das Ergebnis der Umsetzung ist eine Erweiterung, mit der die Einbindung von Daten, die auf der Berechnungskomponente basieren, erreicht werden kann. Durch die erfolgreiche Implementierung wurde gleichzeitig die Funktionsfähigkeit des Konzeptes gezeigt. Die Erweiterung wurde dabei so umgesetzt, dass die gewonnene Flexibilität von Xcelsius in vollem Umfang genutzt werden kann. Neben der bestehenden Oberfläche des SAP LRM ist somit eine neue Möglichkeit zum Konsumieren der Daten hinzugekommen.
+
+Mit der Erweiterung besteht erstmalig die Möglichkeit, das Liquiditätsrisikomanagement bei Banken in die Gesamtbanksteuerung einzubinden. Bestehende Dashboards von Xcelsius können mit Informationen über die Liquiditätssituation der Bank erweitert werden. Das erleichtert die Sicherstellung der Einhaltung von regulatorischen Vorschriften, wie zum Beispiel dem \gls{lcr} oder dem \gls{nsfr} im Rahmen von Basel III.
+
+Basierend auf den Erkenntnissen dieser Arbeit bietet sich eine Umsetzung des Konzeptes für weitere Plattformen an. Eine Möglichkeit stellt dabei Panopticon, eine Anwendung zur Analyse von Echtzeitdaten, dar.\footnote{Panopticon - http://www.panopticon.com/} Bezüglich der Anbindung von Xcelsius ist durch die dargestellte Sandbox-Limitierung und der daraus resultierenden Cross-Domain-Request Problematik Bedarf für Weiterentwicklungen gegeben. Weiterhin muss die Erweiterung stets an die Veränderungen durch die Weiterentwicklung des SAP LRM angepasst werden.
+
+Zusammengefasst lässt sich sagen, dass die Anbindung von weiteren Anwendungen viele neue Möglichkeiten für das Liquiditätsrisikomanagement bei Banken bietet. Die Implementierung für Xcelsius stellt eine lauffähige Version dar, bietet aber für die Zukunft noch Möglichkeiten für Weiterentwicklungen.
+
+%	Ergebnisse der Arbeit wiedergeben
+
+%	Arbeit in größeren Zusammenhang stellen
+
+%	Ausblick auf mögliche Konsequenzen der Arbeit
+
+%	Eigene Einschätzung
+
+
+
+
+
+
+
 
 \end{onehalfspacing}
 
