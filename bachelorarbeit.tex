@@ -285,7 +285,7 @@ SAP HANA ist ein Produkt der SAP und besteht aus Softwarekomponenten, die in Kom
 
 Der Kern von SAP HANA bildet dabei ein hauptspeicherbasiertes \gls{dbms}. Dabei werden alle Daten nicht wie bei traditionellen \gls{dbms} auf Festplatten gespeichert, sondern im Hauptspeicher gehalten um höhere Zugriffsgeschwindigkeiten zu erreichen.\seFootcite{vgl.}{S.12f}{Kle.10} Außerdem ist neben der zeilenbasierten Organisation der Daten im Speicher auch die spaltenbasierte Organisation möglich. Der Unterschied beider Organisationsarten ist in \vref{fig:vergleich_spalte_zeile} zu sehen. 
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/in-memory-row-column.pdf}
@@ -303,7 +303,7 @@ Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von SAP HANA 
 \subsubsection{Oberon}
 Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. Es wurde ursprünglich als Oberfläche für \gls{glos:bydesign} entwickelt und wird jetzt auch für weitere Anwendungen unter anderem für Anwendungen, die auf SAP HANA und \gls{ngap} basieren, verwendet.\seFootcite{vgl.}{}{Oberon-A} Ein Beispiel eines mit dem Oberon Framework umgesetzte Oberfläche ist in \vref{fig:oberon} zu sehen.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/OberonUI.png}
@@ -318,7 +318,7 @@ Das Oberon Framework ist als Standardframework ausgelegt und versucht, möglichs
 \label{sec:berechnungskomponente}
 Die Berechnungskomponente stellt den wichtigsten Teil des SAP LRM dar. Mit ihr werden alle Berechnungen im Umfeld des Liquiditätsrisikomanagements zentral durchgeführt. Die Berechnung findet auf Basis von Liquiditätsgruppen statt. Mit Hilfe von Liquiditätsgruppen werden sowohl aggregierter Zahlungsströme als auch Kennzahlen einheitlich berechnet. Liquiditätsgruppen können in Polyhierarchien angeordnet werden. Dabei handelt es sich um eine Hierarchie, bei der ein Element mehrere übergeordnete Elemente haben kann. Dadurch können Berechnungen modular aufgebaut, wiederverwendet und einfach nachvollzogen werden. Das Abbilden von komplexen Berechnungsvorschriften wird erleichtert.\seFootcite{vgl.}{S.38}{LRM-PPT.12} Eine Hierarchie ist in \vref{fig:liquigruppe_hierarchie} zu sehen.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=10cm]{images/liquigruppe_hierarchie.PNG}
@@ -331,7 +331,7 @@ Es existieren zwei Arten von Liquiditätsgruppen: Die Datenbankselektion und die
 
 Ein Laufzeitband ist eine spezielle Einteilung der Zeitachse. Der Grund für die Einführung von Laufzeitbändern liegt in der späteren Auswertung der berechneten Werte. Dabei ist für naheliegende Zeiträume, zum Beispiel die nächste Woche, der entsprechende Wert an jedem einzelnen Tag entscheidend. Für den weiteren Horizont, zum Beispiel den Zeitraum zwischen drei und fünf Jahren, ist nicht jeder einzelne Tag  entscheidend, es reichen aggregierte Werte, zum Beispiel nach Monat oder Jahr. Somit kann in einer Auswertung sowohl die aktuelle Situation begutachtet werden, als auch die langfristige Auswirkungen ohne, dass die Auswertung unübersichtlich wird. Jeder Eintrag entspricht dabei einem Behälter. Die Anzahl und Größe der Behälter ist in einem Laufzeitband definiert.\seFootcite{vgl.}{S.44}{LRM-PPT.12} Ein Beispiel für ein Laufzeitband ist in \vref{fig:laufzeitband} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/laufzeitband.PNG}
@@ -368,7 +368,7 @@ Der vorgesehene Ablauf des Erstellens von Dashboards soll an dem Beispiel der Ab
 
 Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die Bereiche sind in \vref{fig:xcelsius_ui_aufbau} dargestellt. Der erste Bereich zeigt die Zeichenfläche, also das eigentliche Dashboard an. Auf der Zeichenfläche können Komponenten beliebig platziert werden. Alle verfügbaren Komponenten werden in dem Bereich 2 auf der linken Seite nach Kategorien geordnet dargestellt. Um eine Komponente auf der Zeichenfläche zu platzieren, wählt der Nutzer die Komponente aus und platziert sie per Drag \& Drop auf der Zeichenfläche. 
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung5-Xcelsius-Oberflaeche.PNG}
@@ -381,7 +381,7 @@ Für das Dashboard der Absatzzahlen werden die Daten in das Tabellenblatt einget
 
 Als nächstes können in Excel Berechnungen durchgeführt werden. In dem Beispiel wird die Summe der Absatzzahlen pro Jahr durch eine Formel berechnet. Um die Interaktivität von Dashboards zu zeigen, soll der Nutzer die Möglichkeit haben, die Auswirkungen von verschiedenen Wachstumsraten interaktiv zu sehen. Dazu werden die veränderten Absatzzahlen (Bereich 2) auf Basis der Quelldaten in Bereich 1 und den Wachstumsdaten in Bereich 3 berechnet.\seFootcite{vgl.}{S.229f}{Egg.09}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung6-Visualisierung-Absatzzahlen.PNG}
@@ -390,7 +390,7 @@ Als nächstes können in Excel Berechnungen durchgeführt werden. In dem Beispie
 
 Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre Daten aus Bereich 2 auslesen. Die Wachstumsraten können mit drei Drehknöpfe festgelegt werden. Die Werte der Drehknöpfe sind mit den Zellen in Bereich 3 verknüpft. Dreht der Nutzer an einem Drehknopf, wird der aktualisierte Wert in die Zelle in Bereich 3 geschrieben. Da die Datenquelle der Diagramme mit Bezug auf die Wachstumswerte berechnet werden, verändert sich dynamisch die Diagramme. Das Prinzip ist schematisch noch einmal in \vref{fig:xcelsius_ablauf_schema} dargestellt. So ist es möglich, mit einfachen Mitteln, interaktive Dashboards zu erstellen.\seFootcite{vgl.}{S.237}{Egg.09}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung4-Arbeitsweise-Xcelsius.pdf}
@@ -400,7 +400,7 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme festgelegt, die ihre D
 \subsection{Architektur}
 \gls{Xcelsius} basiert auf dem \gls{glos:netFramework} von Microsoft und ist in weiten Teilen in C++ geschrieben. Neben C++ wird \gls{glos:actionscript} und das Adobe Flex Framework für die  Benutzeroberfläche eingesetzt. Die Architektur von \gls{Xcelsius} ist modular aufgebaut und besteht aus mehreren Teilen. Ein Überblick ist in \vref{fig:xcelsius_architektur} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung5-Architektur-Xcelsius.pdf}
@@ -437,7 +437,7 @@ In dem derzeitigen Stand des SAP LRM gibt es für die Analyse der aktuellen Liqu
 
 Der Zweck der Kennzahlenanalyse ist die Darstellung von Kennzahlen, die nach einer festen Vorschrift berechnet werden können. Neben internen Kennzahlen, die eine Bank für sich selbst definiert hat, sind hier vor allem offizielle Kennzahlen von Bedeutung. Dazu gehören zum Beispiel im Rahmen von Basel III der \gls{glos:lcr} und der \gls{glos:nsfr}. Somit kann die Kennzahlenanalyse genutzt werden, um offizielle regulatorische Vorschriften zu überwachen. Die Darstellung der Kennzahlen ist ausschließlich in tabellarischer Form möglich. Ein Beispiel zeigt \vref{fig:lrm_istzustand_keyfigureanalysis}.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/KeyFigureAnalysis_Example.png}
@@ -446,7 +446,7 @@ Der Zweck der Kennzahlenanalyse ist die Darstellung von Kennzahlen, die nach ein
 
 Neben der Kennzahlenanalyse existiert die Finanzierungsmatrix. Hier sollen nicht feste Kennzahlen dargestellt werden. Vielmehr wird  die Möglichkeit geboten, die Liquiditätssituation der Bank frei zu analysieren. Sowohl die Finanzierungsmatrix, als auch die Kennzahlenanalyse, nutzen für die Berechnung der Werte die Berechnungskomponente. Bei der Finanzierungsmatrix hat der Nutzer die Möglichkeit, die Selektionskriterien in Form der nötigen Parameter für den Aufruf der Berechnungskomponente zur Laufzeit festlegen. Die Darstellung ist hier auf ein Liniendiagramm festgelegt. \vref{fig:lrm_istzustand_fundingmatrix} zeigt die Finanzierungsmatrix.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Funding_Matrix_Example.png}
@@ -583,7 +583,7 @@ Es können Daten aus relationalen \gls{dbms}, die zum Beispiel in normalisierter
 
 Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{Xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung9-Umsetzung-Universum.pdf}
@@ -597,7 +597,7 @@ Schließlich sind Universen nur für die Verwendung mit BusinessObjects Anwendun
 \section{Webservice}
 Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SAP LRM der Webservice implementiert werden. In \gls{Xcelsius} wird dieser Webservice aufgerufen und somit über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung10-Umsetzung-Webservices.pdf}
@@ -711,7 +711,7 @@ Die Ergebnisse der Orchestrierung müssen in das Tabellenblatt von \gls{Xcelsius
 \subsection{Grundlegende Architektur und Funktionsweise}
 In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-architektur}) über die grundlegende Architektur der Lösung gegeben. Dabei werden Erweiterungen in zwei Systemen, dem SAP LRM und \gls{Xcelsius}, umgesetzt. Gleichzeitig wird die grundlegende Funktionsweise, gerade im Hinblick auf die Interaktion mit dem Nutzer, näher gebracht.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung11-Architektur-Erweiterung.pdf}
@@ -784,7 +784,7 @@ Hierfür bietet das Framework eine Schnittstelle, mit der auf die Objekte über 
 
 Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das Ziel ist immer der Zugriff auf den Webservice der Finanzierungsmatrix oder den Webservice für die Kennzahlen. Die Abhängigkeiten der jeweiligen Webservices sind in \vref{fig:webservice_abhaengigkeiten} dargestellt und sollen im Folgenden erläutert werden:
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung14-Abhaengigkeiten-Webservices.pdf}
