@@ -1,4 +1,4 @@
-% -------------------------------------------------------------------------------------
+﻿% -------------------------------------------------------------------------------------
 % Einlesen der .sty-Dateien
 % -------------------------------------------------------------------------------------
 \input{sty/se-wa-input-styles}
@@ -833,7 +833,7 @@ An dem Dynamischen Modell müssen in der Entwurfsphase nur kleinere Änderungen 
 \caption{Sequemzdiagramm der Entwurfsphase\label{fig:sequenz_entwurf}}
 \end{figure} \todonum{Abbildung erstellen}
 
-In Abschnitt (1) ist die Einbindung des \class{SettingProvider} zu sehen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterfreien Methode \method{updateKPI()} und der privaten Methode \method{getKPI()} sehen. In der Orchestrierung wird nun auch ein \class{CachedObjectProvider} verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen Webservice abgefragt und in seinem Cache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren Aufruf eines Webservice direkt beantworten.
+In dem Sequenzdiagram ist die Einbindung des \class{SettingProvider} zu sehen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterfreien Methode \method{updateKPI()} und der privaten Methode \method{getKPI()} sehen. In der Orchestrierung wird nun auch ein \class{CachedObjectProvider} verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen Webservice abgefragt und in seinem Cache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren Aufruf eines Webservice direkt beantworten.
 
 \subsection{Zielstruktur in \gls{Xcelsius}}
 Eine zentrale Rolle in der Erweiterung spielt die Übergabe der Ergebnisse der Orchestrierung an das Tabellenblatt von \gls{Xcelsius}. Dies muss in einer Art und Weise geschehen, sodass der Nutzer die Daten später einfach weiterverarbeiten oder visualisieren kann.
