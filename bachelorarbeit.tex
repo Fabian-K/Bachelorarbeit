@@ -731,7 +731,7 @@ Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem SAP
 \subsection{Statisches Modell}
 Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und ihre Assoziationen zueinander identifiziert. Das entsprechende Klassendiagramm der Analysephase ist in \vref{fig:klassendiagramm_analyse} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Analyse.pdf}
@@ -751,13 +751,11 @@ Die Klasse \class{WebServiceProvider} muss im SAP LRM implementiert werden. Sie 
 \subsection{Dynamisches Modell}
 Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgenden exemplarisch der Ablauf einer Anfrage durch einen Nutzer erläutert. Das entsprechende Sequenzdiagramm ist in \vref{fig:sequenz_analyse} dargestellt.
 
-\begin{figure}[h]
-\centering
+\begin{figure}[!ht]
 \setlength{\unitlength}{1mm}
-\includegraphics[width=15cm]{Visio/Analyse-Sequenz.pdf}
+\includegraphics[angle=90,height=197mm]{Visio/Analyse-Sequenz-1.pdf}
 \caption{Sequenzdiagramm der Analysephase \label{fig:sequenz_analyse}}
-\end{figure} \todonum{Abbildung erstellen}
-
+\end{figure} 
 
 In dem Beispiel möchte der Nutzer den Wert einer Kennzahl abfragen. Dazu ruft er in der \instance{Orchestrator}-Instanz die Methode \method{updateKPI()} auf.
 
@@ -802,7 +800,7 @@ Der Webservice der Kennzahlen erfordert keine Parameter und kann eigenständig a
 Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durchgeführt und das Resultat der Analyse auch im Hinblick auf die Performance untersucht und optimiert. Das sich daraus ergebene Klassendiagramm ist in \vref{fig:klassendiagramm_entwurf} zu sehen.
 
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Entwurf.pdf}
@@ -828,7 +826,7 @@ Generell wurden alle Klassen um typisierte Attribute erweitert. Den Methoden wur
 
 An dem Dynamischen Modell müssen in der Entwurfsphase nur kleinere Änderungen durch die neu hinzugekommenen Klassen durchgeführt werden. Das angepasste Sequenzdiagramm ist in \vref{fig:sequenz_entwurf} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Entwurf-Sequenz.pdf}
@@ -842,7 +840,7 @@ Eine zentrale Rolle in der Erweiterung spielt die Übergabe der Ergebnisse der O
 
 Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt ist immer eine \class{OrchestratorResult}-Instanz, welche das Ergebnis der Orchestrierung darstellt. Den Aufbau der Instanz ist in \vref{sec:entwurf:statisch:orchestratorresult} dargestellt. Diese Objektstruktur muss in eine Tabellenstruktur in \gls{Xcelsius} umgewandelt werden. Ein konkretes Beispiel für die Objektstruktur zeigt \vref{fig:objektstruktur}, welches in \vref{tab:zielstruktur} entsprechend umgesetzt ist.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Entwurf-Objektstruktur.pdf}
@@ -880,7 +878,7 @@ Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen be
 
 Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{Xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM zunächst nicht möglich, da es durch die Sandbox blockiert wird. Die Beschränkung ist in \vref{fig:flex_sandbox} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung18-Flex-Sandbox.pdf}
@@ -989,7 +987,7 @@ Tritt bei dem Aufruf ein Fehler auf, wird asynchron die Methode \method{onWebSer
 
 Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die \method{onWebServiceSuccess()}-Methode aufgerufen. Der Parameter \class{ResultEvent} enthält die Antwort des Webservice als Zeichenkette. Diese muss nun in die interne Objektstruktur umgewandelt werden. Dazu wird der \class{FundingMatrixObjectDeserializer}  verwendet. Die \gls{xml}-Eingabe für den \class{Deserializer} und die daraus generierte Objektstruktur ist in \vref{fig:umwandlung:ueberblick} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/umwandlung.png}
@@ -1073,7 +1071,7 @@ Durch die Erweiterung ist es nun möglich, \gls{Xcelsius} in Verbindung mit den 
 
 Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Der Dialog zum festlegen der Einstellungen ist  \vref{fig:einstellung} zu sehen. Erforderlich sind hierbei der Nutzer mit entsprechendem Passwort für die Authentifizierung, und die \gls{url}, unter der das SAP LRM erreichbar ist.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=10cm]{images/xcelsius_einstellungen.PNG}
@@ -1094,7 +1092,7 @@ Die Kennzahlenanalyse, die in der ursprünglichen Situation, wie in \vref{fig:lr
 \section{Erfüllung der Anforderungen}
 An die Erweiterung wurden in der Spezifikation in \vref{sec:anforderungen} einige funktionale und nicht-funktionale Anforderungen gestellt. Um diese zu überprüfen wurde ein Beispieldashboard, das in \vref{fig:umsetzung_dashboard} zu sehen ist, erstellt.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/dashboard_preview.PNG}
