@@ -118,23 +118,17 @@ sperrvermerk=nein
 % Erzeugung der Kurzfassung; Verfasser, Firma und Thema werden automatisch \"ubernommen
 % -------------------------------------------------------------------------------------
 \seKurzfassung{}
+\begin{onehalfspacing}
+Nicht zuletzt seit dem Zusammenbruch des US-Immobilienmarktes und der darauf folgenden weltweiten Finanzkrise hat die Behandlung von Liquiditätsrisiken sowohl in der internen Wahrnehmung von Banken als auch der öffentlichen Aufmerksamkeit stark zugenommen. Weiterhin erfordern regulatorische Vorschriften wie zum Beispiel die Mindestliquiditätsquote (Liquidity Coverage Ratio, LCR) im Rahmen von Basel III eine genaue und stetige Überwachung der Liquiditätssituation einer Bank.
 
+Mit dem SAP Liquidity Risk Management (SAP LRM) befindet sich bei der SAP AG eine solche Lösung in Entwicklung. Die Liquiditätssituation kann dabei auf Basis von einzelnen Zahlungsströmen ermittelt und mit Hilfe von Simulationen genauer analysiert werden. Dazu wird eine eigens dafür entwickelte Berechnungskomponente eingesetzt. Die Ergebnisse dieser Komponente können allerdings nur stark eingeschränkt visualisiert werden. Eine weitere Verarbeitung in anderen Anwendungen ist nicht möglich.
 
-% Umfeld der Arbeit
+Im Rahmen dieser Bachelorarbeit wird ein Konzept entwickelt, mit dem weitere Anwendungen die Ergebnisse der Berechnungskomponente einbinden und weiterverarbeiten können. Das Konzept beruht dabei auf der Konsumierung und anschließenden Orchestrierung von Webservices. Des Weiteren wird dieses Konzept für BusinessObjects Xcelsius, eine Anwendung zur Erstellung von interaktiven Dashboards, in Form eines Plugins umgesetzt. Dadurch wird zum einen die Funktionsfähigkeit des Konzeptes sichergestellt. Mit dem Plugin ist zudem eine flexiblere Nutzung des SAP LRM bezüglich der Auswertung und Weiterverarbeitung möglich.
 
-% Was wurde geleistet
-
-% NICHT Gliederung!
-\loreIpsum
-
-\loreIpsum
-
+\end{onehalfspacing}
 \newpage
 
 \glsresetall
-
-% Beispiel f\"ur ein Kapitel, dass vor dem Einleitungskapitel kommt, z. B. ein Vorwort oder eine Danksagung
-%\seKapitelVorEinleitung{Vorwort}
 
 % -------------------------------------------------------------------------------------
 % Ausgabe des Inhaltsverzeichnisses
@@ -336,7 +330,7 @@ Ein Laufzeitband ist eine spezielle Einteilung der Zeitachse. Der Grund für die
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Abbildung4-Laufzeitband.pdf}
 \caption{Mögliche Ausprägung eines Laufzeitband\label{fig:laufzeitband}}
-\end{figure} \todonum{Umsetzen in Illustrator}
+\end{figure}
 
 Neben der Datenbankselektion existiert die Liquiditätsgruppenart Berechnung. Dabei werden aggregierte Zahlungsströme nach verschiedenen Regeln verrechnet. Zur Verfügung stehende unter anderem Addition, Subtraktion, Multiplikation und Division. 
 
@@ -384,7 +378,7 @@ Als nächstes können in Excel Berechnungen durchgeführt werden. In dem Beispie
 \begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
-\includegraphics[width=15cm]{images/Abbildung5-Xcelsius-Oberflaeche-AI.pdf}
+\includegraphics[width=15cm]{images/Abbildung6-Visualisierung-Absatz-Xcelsius-AI.pdf}
 \caption{Visualisierung von Absatzzahlen in BusinessObjects Xcelsius\label{fig:xcelsius_ui_beispiel}}
 \end{figure} 
 
