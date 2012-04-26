@@ -960,9 +960,9 @@ private function getResultForRequest(request:String):Object{
 \subsection{Webservice-Ablauf}
 In diesem Abschnitt soll an dem Beispiel des Finanzierungsmatrix-Webservice exemplarisch gezeigt werden, wie der Aufruf und die Umwandlung in ein internes Objektformat realisiert wird.
 
-Der Ausgangspunkt ist dazu der \class{Orchestrator}, der die \method{getObject}-Methode des \class{FundingMatrixObjectProviders} aufruft. Zunächst wird hier die passende \gls{url} für den Webservice-Aufruf auf Grundlage der Einstellungen generiert. In diesem Fall werden über die \gls{url} die Parameter Liquiditätsgruppen, Liquiditätsszenarien, Laufzeitband und Zielwährung übergeben. Es wird eine \class{WebserviceConnector}-Instanz erzeugt und über die \method{consume()}-Methode des \class{WebserviceConnectors} der eigentliche Aufruf gestartet. Entsprechend dem asynchronen Programmablauf, siehe dazu \vref{sec:asynchron}, wird die eigene Instanz als Callback und der \class{RequestToken} mitgegeben.
+Der Ausgangspunkt ist dazu der \class{Orchestrator}, der die \method{getObject()}-Methode des \class{FundingMatrixObjectProviders} aufruft. Zunächst wird hier die passende \gls{url} für den Webservice-Aufruf auf Grundlage der Einstellungen generiert. In diesem Fall werden über die \gls{url} die Parameter Liquiditätsgruppen, Liquiditätsszenarien, Laufzeitband und Zielwährung übergeben. Es wird eine \class{WebserviceConnector}-Instanz erzeugt und über die \method{consume()}-Methode des \class{WebserviceConnectors} der eigentliche Aufruf gestartet. Entsprechend dem asynchronen Programmablauf, siehe dazu \vref{sec:asynchron}, wird die eigene Instanz als Callback und der \class{RequestToken} mitgegeben.
 
-Tritt bei dem Aufruf ein Fehler auf, wird asynchron die Methode \method{onWebServiceFail()} aufgerufen. Der Fehler muss nur dem \class{Orchestrator} weitergeleitet werden. Dazu wurde auch hier bei dem \method{getObject}-Aufruf eine Referenz auf den \class{Orchestrator} als Callback mitgegeben.
+Tritt bei dem Aufruf ein Fehler auf, wird asynchron die Methode \method{onWebServiceFail()} aufgerufen. Der Fehler muss nur dem \class{Orchestrator} weitergeleitet werden. Dazu wurde auch hier bei dem \method{getObject()}-Aufruf eine Referenz auf den \class{Orchestrator} als Callback mitgegeben.
 
 Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die \method{onWebServiceSuccess()}-Methode aufgerufen. Der Parameter \class{ResultEvent} enthält die Antwort des Webservice als Zeichenkette. Diese muss nun in die interne Objektstruktur umgewandelt werden. Dazu wird der \class{FundingMatrixObjectDeserializer}  verwendet. Die \gls{xml}-Eingabe für den \class{Deserializer} und die daraus generierte Objektstruktur ist in \vref{fig:umwandlung:ueberblick} dargestellt.
 
@@ -1006,7 +1006,7 @@ public override function deserialize(content:String):Object{
 \end{programm}
 
 
-Die \class{ObjectProvider} und \class{Deserializer} für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der \method{getObject}-Methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cache befindet und dann direkt zurückgegeben. Ist es noch nicht vorhanden, wird der Webservice-Aufruf gestartet und nach der Deserialisierung wird das Objekt im Cache für weitere Anfragen gehalten.
+Die \class{ObjectProvider} und \class{Deserializer} für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der \method{getObject()}-Methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cache befindet und dann direkt zurückgegeben. Ist es noch nicht vorhanden, wird der Webservice-Aufruf gestartet und nach der Deserialisierung wird das Objekt im Cache für weitere Anfragen gehalten.
 
 \subsection{\gls{xcelsius} Binding}
 \label{sec:xcelsius_binding}
