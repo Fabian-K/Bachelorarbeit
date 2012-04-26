@@ -225,7 +225,7 @@ Die gesetzlichen Vorschriften können in zwei Dimensionen eingeteilt werden. Die
 
 {
 \setlength{\extrarowheight}{2pt}
-\begin{table}[h]
+\begin{table}[!ht]
 \centering
 \begin{tabular}{| l | >{\centering\arraybackslash} m{4cm} | >{\centering\arraybackslash} m{4cm} |}
 \cline{2-3}
@@ -587,7 +587,8 @@ Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt si
 Schließlich sind Universen nur für die Verwendung mit BusinessObjects Anwendungen ausgelegt. Das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} kann somit nicht garantiert werden.
 
 \section{Webservice}
-Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im \gls{saplrm} der Webservice implementiert werden. In \gls{xcelsius} wird dieser Webservice aufgerufen und somit über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar.
+%SAP LRM wg Blocksatzverletzung ersetzt
+Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SAP LRM der Webservice implementiert werden. In \gls{xcelsius} wird dieser Webservice aufgerufen und somit über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar.
 
 \begin{figure}[!ht]
 \centering
@@ -613,7 +614,7 @@ Für die Auswahl der im Rahmen der Bachelorarbeit angewendeten Umsetzungsmöglic
 
 {
 \setlength{\extrarowheight}{2pt}
-\begin{table}[h]
+\begin{table}[!ht]
 \centering
 \begin{tabular}{| l | >{\centering\arraybackslash} m{5cm} | >{\centering\arraybackslash} m{5cm} |}
 \cline{2-3}
@@ -716,14 +717,15 @@ Die drei restlichen Teile, die im Überblick eingeführt wurden, werden in einem
 
 Der \gls{xcelsius}-Adapter ist über ein Tabellenblatt die Schnittstelle für den Nutzer. Das Tabellenblatt wird dabei in zwei Bereiche unterteilt. Dies sind ein Daten- und ein Ein\-stel\-lungs-Teil. Die Ergebnisse der Erweiterung werden von dem Adapter in den Daten-Teil geschrieben. Damit endet die Zuständigkeit der Erweiterung. Der Nutzer kann die Daten beliebig weiterverarbeiten, in der Regel wird er sie mit Diagrammen visualisieren.
 
-Die Selektionsparameter, die zum Beispiel für die Berechnungskomponente im \gls{saplrm} gebraucht werden (siehe dazu \vref{sec:berechnungskomponente:parameter}), werden aus dem Ein\-stel\-lungs-Teil des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die \gls{xcelsius} standardmäßig bereitstellt.
+%Blocksatzverletzung
+Die Selektionsparameter, die zum Beispiel für die Berechnungskomponente im SAP LRM gebraucht werden (siehe dazu \vref{sec:berechnungskomponente:parameter}), werden aus dem Ein\-stel\-lungs-Teil des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die \gls{xcelsius} standardmäßig bereitstellt.
 
 Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem \gls{saplrm} in \gls{xcelsius} bereit. In welcher Form die Daten weiter verarbeitet werden, wird bewusst komplett offengelassen.
 
 \subsection{Statisches Modell}
 Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und ihre Assoziationen zueinander identifiziert. Das entsprechende Klassendiagramm der Analysephase ist in \vref{fig:klassendiagramm_analyse} dargestellt.
 
-\begin{figure}[ht]
+\begin{figure}[!ht]
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{Visio/Analyse.pdf}
@@ -749,11 +751,9 @@ Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgende
 \caption{Sequenzdiagramm der Analysephase \label{fig:sequenz_analyse}}
 \end{figure} 
 
-In dem Beispiel möchte der Nutzer den Wert einer Kennzahl abfragen. Dazu ruft er in der \instance{Orchestrator}-Instanz die Methode \method{updateKPI()} auf.
+In dem Beispiel möchte der Nutzer den Wert einer Kennzahl abfragen. Dazu ruft er in der \instance{Orchestrator}-Instanz die Methode \method{updateKPI()} auf. Daraufhin werden drei Schritte durchlaufen, die in dem Diagramm auf der linken Seite markiert sind. 
 
-Daraufhin werden drei Schritte durchlaufen, die in dem Diagramm auf der linken Seite markiert sind. Zunächst wird über den \instance{XcelsiusAdapter} die aktuellen Selektionseinstellungen des Nutzers ermittelt. Dazu gehört die Kennzahl, die abgerufen werden soll und eventuell weitere Einstellungen.
-
-Anschließend wird in einem zweiten Schritt ein oder mehrere Webservices über die entsprechenden \instance{WebServiceProvider} konsumiert. Die Objekte, die die \instance{WebServiceProvider} zurückliefern werden durch den \instance{Orchestrator} verbunden.
+Zunächst wird über den \instance{XcelsiusAdapter} die aktuellen Selektionseinstellungen des Nutzers ermittelt. Dazu gehört die Kennzahl, die abgerufen werden soll und eventuell weitere Einstellungen. Anschließend wird in einem zweiten Schritt ein oder mehrere Webservices über die entsprechenden \instance{WebServiceProvider} konsumiert. Die Objekte, die die \instance{WebServiceProvider} zurückliefern werden durch den \instance{Orchestrator} verbunden.
 
 Die \instance{WebServiceProvider} rufen über einen \instance{WebServiceConnector} den \gls{xml}-Inhalt ab. Anschließend wird das Ergebnis an den entsprechenden \instance{Deserializer} weitergegeben. Dieser wandelt es in eine interne Objektstruktur um und gibt die Instanz an den \instance{ObjectProvider} zurück. Dieser leitet es an den \instance{Orchestrator} weiter.
 
@@ -840,7 +840,7 @@ Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt is
 \end{figure} 
 
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
-\begin{table}[h]
+\begin{table}[!ht]
   \centering
   \caption{Ergebnis der Umwandlung durch den XcelsiusAdapter}
     \begin{tabular}{l|r|r}
@@ -893,7 +893,7 @@ Auf der einen Seite kann sich dadurch ein Geschwindigkeitsvorteil ergeben. Falls
 
 Auf der anderen Seite wird für den Aufruf der Webservices in der Klasse \class{WebServiceConnector} die Adobe Flex-Klasse \class{HTTPService} verwendet. Diese bietet nur die Möglichkeit über EventListener auf zwei Events, nämlich dem erfolgreichen Aufruf des Webservice und dem fehlgeschlagen Aufruf zu reagieren. Dabei werden zwei Callback-Methoden angegeben, die dann asynchron aufgerufen werden. Ab diesem Zeitpunkt endet somit der bis dahin ausschließlich synchrone Aufruf. Der entsprechende Quelltext ist in \vref{listing:ws_aufruf} dargestellt.
 
-\begin{programm}[h]
+\begin{programm}[!ht]
 \begin{lstlisting}[language=ActionScript]
 public function consume():void{
 	// HTTPService-Instanz erstellen
@@ -930,7 +930,7 @@ Die Methode \method{onObjectProviderSuccess()} wird asynchron aufgerufen und ver
 
 In \vref{listing:orchestrierung:webservices} ist in allgemeiner Form der erläuterte Ablauf implementiert. Dabei werden zwei beliebige \class{ObjectProvider} abgefragt. Die jeweiligen Ergebnisse können dann in gewünschter Weise orchestriert werden. Die in dem Beispiel verwendeten Klassen wurden teilweise vereinfacht und entsprechen nicht den Klassen in dem statischen Modell der Erweiterung.
 
-\begin{programm}[h]
+\begin{programm}[!ht]
 \begin{lstlisting}[language=ActionScript]
 private function orchestrateWebServices():void{
 	// Verwaltung der Token
@@ -989,7 +989,7 @@ Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die
 Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{xml}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, findet sich in \vref{listing:deserialisierung}.
 
 
-\begin{programm}[h]
+\begin{programm}[!ht]
 \begin{lstlisting}[language=ActionScript]
 public override function deserialize(content:String):Object{			
 	var decoder:SimpleXMLDecoder = new SimpleXMLDecoder();
@@ -1103,7 +1103,7 @@ Die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wird dadurch gewähr
 
 %\item[\anfl{wartbarkeit}] \textbf{Wartbarkeit} \newline
 %Um die Folgekosten der Erweiterung, zum Beispiel im Hinblick auf die Beseitigung von Fehlern, möglichst gering zu halten, soll eine gute Wartbarkeit von Anfang an bei der Entwicklung beachtet werden.
-Durch den modularen Aufbau mit den verschiedenen ObjectProvidern können neue Funktionalitäten durch die Erstellung von weiteren ObjectProvider-Implementierungen leicht umgesetzt werden. Somit kann auch \anfRef{anf:erweiterbarkeit}{} als erfüllt betrachtet werden. Gleichzeitig wird dadurch die \anfRef{anf:erweiterbarkeit}{an die Wartbarkeit } abgedeckt.
+Durch den modularen Aufbau mit den verschiedenen ObjectProvidern können neue Funktionalitäten durch die Erstellung von weiteren Implementierungen leicht umgesetzt werden. Somit kann auch \anfRef{anf:erweiterbarkeit}{} als erfüllt betrachtet werden. Gleichzeitig wird dadurch die \anfRef{anf:erweiterbarkeit}{an die Wartbarkeit } abgedeckt.
 
 %\item[\anfl{korrektheit}] \textbf{Korrektheit der Ergebnisse} \newline
 %Die Daten, die mit Hilfe der Erweiterung in zusätzlichen Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des \gls{saplrm} übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
@@ -1193,7 +1193,8 @@ public class ProxyServlet extends HttpServlet {
 
    // set authorization
    BASE64Encoder encoder = new BASE64Encoder();
-   String encoding = encoder.encode("USER:PW".getBytes());
+   String encoding = encoder.encode(
+    "USER:PW".getBytes());
    conn.setRequestProperty("Authorization",
     "Basic " + encoding);
 
@@ -1220,7 +1221,7 @@ public class ProxyServlet extends HttpServlet {
  }
 \end{lstlisting}
 
-\begin{programm}[h]
+\begin{programm}[!ht]
 \begin{lstlisting}
 }
 \end{lstlisting}
