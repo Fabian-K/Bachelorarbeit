@@ -16,6 +16,7 @@
 %TODO Generell keine Fußnoten nutzen, sondern lieber Glossar oder im Text!
 
 \usepackage{setspace} 
+\usepackage{enumitem} 
 
 \usepackage{todonotes}
 
@@ -612,59 +613,45 @@ Ein mögliches Risiko dieser Umsetzungsmöglichkeit stellt die \anfRef{anf:leist
 \section{Gegenüberstellung und Auswahl der Umsetzungsmöglichkeiten}
 Für die Auswahl der im Rahmen der Bachelorarbeit angewendeten Umsetzungsmöglichkeit wurden die Vor- und Nachteile der Alternativen ermittelt und in \vref{table:vergleich_umsetzung} gegenübergestellt.
 
-{
-\setlength{\extrarowheight}{2pt}
 \begin{table}[!ht]
 \centering
-\begin{tabular}{| l | >{\centering\arraybackslash} m{5cm} | >{\centering\arraybackslash} m{5cm} |}
-\cline{2-3}
-\multicolumn{1}{l|}{}	& Vorteile & Nachteile \\	\hline
-BO Universe 				&
-
-%- Vorteile BOUniverse
-
-\begin{seList}
-\item Standardmäßige Anbindung von Universen
-\end{seList}
-
+\begin{tabular}{p{25mm}|p{55mm}|p{55mm}}
+& \multicolumn{1}{c|}{\textbf{Vorteile}} & \multicolumn{1}{c}{\textbf{Nachteile}} \tabularnewline \hline
+\begin{description}[leftmargin=0pt, topsep=0pt, itemsep=0pt] 
+\item \textbf{Universum}
+\end{description}
 &
-%- Nachteile BOUniverse
-
-
-\begin{seList}
+\begin{itemize}[leftmargin=*, topsep=0pt, itemsep=0pt] 
+\item Standardmäßige Anbindung von Universen
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*, topsep=0pt, itemsep=0pt] 
 \item zusätzliche Infrastruktur notwendig
 \item Übertragbarkeit auf andere Anwendungen
 \item Problem der dynamischen Übergabe von Parametern
 \item Problem der Aktualisierung der berechneten Daten
-\end{seList}
-
-
-\\	\hline
-Webservices 			& 
-%- Vorteile Webservices
-
-\begin{seList}
+\end{itemize}
+\tabularnewline \hline
+\begin{description}[leftmargin=0pt, topsep=0pt, itemsep=0pt] 
+\item \textbf{Webservices}
+\end{description}
+&
+\begin{itemize}[leftmargin=*, topsep=0pt, itemsep=1pt] 
 \item Übergabe von Selektionsparametern einfach möglich
 \item keine zusätzliche Infrastruktur erforderlich
 \item gute Modularisierung und Übertragbarkeit
 \item teilweise Bereitstellung von Webservices durch Framework
-\end{seList}
-
-& 
-
-%- Nachteile Webservices
-
-\begin{seList}
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*, topsep=0pt, itemsep=0pt] 
 \item Komplexe Orchestrierung erforderlich
-\item Performanceprobleme bei Webservice-Aufrufen
+\item Performanceprobleme bei Web\-ser\-vice-\-Aufrufen
 \item Ausfall eines Teil-Webservice führt zum Ausfall des Gesamtsystems
-\end{seList}
-
-\\	\hline
-\end{tabular} 
+\end{itemize}
+\tabularnewline
+\end{tabular}
 \caption{Gegenüberstellung der Vor- und Nachteile der Umsetzungsmöglichkeiten für die Erweiterung \label{table:vergleich_umsetzung}}
 \end{table}
-}
 
 Bei der Gegenüberstellung fällt auf, dass die Umsetzung mit Hilfe von BusinessObjects Universe im Vergleich zu der Umsetzung über Webservices deutlich weniger Vorteile bietet. Gleichzeitig bieten die Möglichkeit mit BusinessObjects Universe zusätzlich noch mehr Nachteile. Unter diesen Nachteilen findet sich auch die ungelöste Frage der Parameterübergabe und die fehlende Übertragbarkeit auf andere Anwendungen, welche als wichtige Anforderung definiert ist.
 
