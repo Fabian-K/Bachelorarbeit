@@ -172,10 +172,10 @@ Die SAP AG entwickelt mit dem SAP LRM eine softwaregestütze Lösung für diese 
 %Überblick über Aufbau der Arbet	//	- welche Schritte werden warum durchgeführt?
 Der Aufbau der Arbeit orientiert sich dabei hauptsächlich an dem Entwicklungsprozess von Software. Sie gliedert sich in sechs Hauptkapitel. In dem ersten Kapitel wird der Themenbereich des Liquiditätsrisikomanagements aus betriebswirtschaftlicher Sicht betrachtet.
 
-In dem darauf folgenden Kapitel wird das SAP LRM und BusinessObjects Xcelsius vorgestellt. Bei Xcelsius handelt es sich um eine Anwendung zur Erstellung von interaktiven Dashboards. Für beide wird sowohl auf die Funktionen, als auch auf die Architektur eingegangen.
+In dem darauf folgenden Kapitel wird das SAP LRM und \gls{xcelsius} vorgestellt. Bei \gls{xcelsius} handelt es sich um eine Anwendung zur Erstellung von interaktiven Dashboards. Für beide wird sowohl auf die Funktionen, als auch auf die Architektur eingegangen.
 Im Anschluss darauf wird das Konzept der Zwischenschicht in Form einer Spezifikation entwickelt. Dabei werden nach einer Bestimmung der Ausgangs- und der Zielsituation konkrete Anforderungen an die Zwischenschicht aufgestellt. Genauer wird hier die gewünschte Interaktion mit der Zwischenschicht erläutert.
 
-Nach der Entwicklung des Konzeptes behandeln die folgenden Kapitel die konkrete Umsetzung der Schnittstelle für Xcelsius. Zunächst werden in einem weiteren Kapitel zwei in Frage kommende Umsetzungsmöglichkeiten evaluiert. Dabei werden eventuelle Probleme aufgezeigt und schließlich in einer Gegenüberstellung die Umsetzungsmöglichkeit für das weitere Vorgehen festgelegt.
+Nach der Entwicklung des Konzeptes behandeln die folgenden Kapitel die konkrete Umsetzung der Schnittstelle für \gls{xcelsius}. Zunächst werden in einem weiteren Kapitel zwei in Frage kommende Umsetzungsmöglichkeiten evaluiert. Dabei werden eventuelle Probleme aufgezeigt und schließlich in einer Gegenüberstellung die Umsetzungsmöglichkeit für das weitere Vorgehen festgelegt.
 
 Die eigentliche Umsetzung wird in einem separaten Kapitel behandelt. Dabei wird der komplette Entwicklungsprozess von der Analyse, über den Entwurf bis zur Implementierung genauer erläutert.
 Im Anschluss daran wird eine Evaluation der entwickelten Schnittstelle durchgeführt. Dabei wurde zur Überprüfung die identifizierten Anforderungen herangezogen. Schließlich endet die Arbeit mit einer Zusammenfassung und einem Fazit.
@@ -248,10 +248,9 @@ Neben der \gls{glos:lcr} existiert mit der \gls{glos:nsfr} eine weitere wichtige
 \section{Zusammenfassung}
 In diesem Kapitel wurde die Motivation für die gesonderte Behandlung des Liquiditätsrisikos insbesondere von Banken dargelegt. Außerdem wurde ein Überblick über die betriebswirtschaftliche Sicht der Liquidität und des Liquiditätsrisikos gegeben. Ausgehend davon ergibt sich die Motivation für die Erstellung von softwaregestützten Lösungen für das Liquiditätsrisikomanagement und schließlich auch die Motivation für die Entwicklung der Zwischenschicht.
 
-\chapter{SAP LRM und BusinessObjects Xcelsius} \todonum{Anderer Titel!}
-
+\chapter{SAP LRM und BusinessObjects Xcelsius}
 \section{Einleitung}
-Im Rahmen der Entwicklung einer Zwischenschicht für den Anschluss der Berechnungskomponente des SAP LRM stehen zwei Anwendungen im Mittelpunkt. Dabei handelt es sich zum einen um das SAP LRM selbst, zum anderen um BusinessObjects Xcelsius, welches ein mögliche Anwendung für den beschriebenen Anschluss ist. Deswegen soll dieses Kapitel einen Überblick über beide Anwendungen bieten. Dabei werden jeweils die Funktionen und die Architektur der Anwendungen näher beschrieben. Im Bereich des SAP LRM wird besonders auf die Berechnungskomponente näher eingegangen.
+Im Rahmen der Entwicklung einer Zwischenschicht für den Anschluss der Berechnungskomponente des SAP LRM stehen zwei Anwendungen im Mittelpunkt. Dabei handelt es sich zum einen um das SAP LRM selbst, zum anderen um \gls{xcelsius}, welches ein mögliche Anwendung für den beschriebenen Anschluss ist. Deswegen soll dieses Kapitel einen Überblick über beide Anwendungen bieten. Dabei werden jeweils die Funktionen und die Architektur der Anwendungen näher beschrieben. Im Bereich des SAP LRM wird besonders auf die Berechnungskomponente näher eingegangen.
 
 \section{SAP LRM}
 
@@ -344,23 +343,22 @@ Das Resultat der Berechnung ist jeweils der Output der festgelegten Liquiditäts
 \section{BusinessObjects Xcelsius}
 \label{sec:xcelsius}
 \subsection{Überblick und Funktionsumfang} 
-\todonum{Xcelsius mit Abkürzung in gesamter Arbeit erstetzen}
-\gls{Xcelsius} ist ein Teil der SAP BusinessObjects-Portfolio. Dabei handelt es sich um Anwendungen, mit denen Daten in einem Unternehmen analysiert und ausgewertet werden können. \gls{Xcelsius} ist davon ein Tool zur Visualisierung von Daten durch die Erstellung von interaktiven Dashboards.
+\gls{xcelsius} ist ein Teil der SAP BusinessObjects-Portfolio. Dabei handelt es sich um Anwendungen, mit denen Daten in einem Unternehmen analysiert und ausgewertet werden können. \gls{xcelsius} ist davon ein Tool zur Visualisierung von Daten durch die Erstellung von interaktiven Dashboards.
 
 Dazu bietet es viele Möglichkeiten um Daten visualisieren und interaktiv beeinflussen zu können. Neben 20 Diagrammtypen, darunter unter anderem Linien-, Kreis-, Balken-  und Flächendiagramme, stehen Schaltflächen zur Manipulation, wie zum Beispiel Schieberegler, Optionsfelder und Drehknöpfe, zur Verfügung. Zusätzlich können Kartenelemente zur Darstellung von Geoinformationen genutzt werden und Bilder und Texte unterstützend in ein Dashboard eingebunden werden. Viele Komponenten bieten zusätzlich Einstellungsmöglichkeiten, durch die das Aussehen oder das Verhalten angepasst werden kann.\seFootcite{vgl.}{S.31f und S.229f}{Egg.09}
 
-Die Daten, auf denen die Visualisierungen in \gls{Xcelsius} basieren, werden durch die Integration von Microsoft Excel verwaltet. Excel steht dabei in vollem Umfang zur Verfügung. Es können sowohl  Berechnungen, als auch Formatierungen mit Excel durchgeführt werden. In \gls{Xcelsius} wird Excel als Schnittstelle zwischen der Datenbeschaffung aus verschiedensten Quellen und der eigentlichen Visualisierung genutzt. Alle Daten, die visualisiert werden sollen, werden in ein Tabellenblatt von Excel geschrieben und von dort aus ausgelesen. Die Daten können demnach vor der Darstellung in Excel beliebig bearbeitet werden.\seFootcite{vgl.}{S.32 und S.236}{Egg.09} 
+Die Daten, auf denen die Visualisierungen in \gls{xcelsius} basieren, werden durch die Integration von Microsoft Excel verwaltet. Excel steht dabei in vollem Umfang zur Verfügung. Es können sowohl  Berechnungen, als auch Formatierungen mit Excel durchgeführt werden. In \gls{xcelsius} wird Excel als Schnittstelle zwischen der Datenbeschaffung aus verschiedensten Quellen und der eigentlichen Visualisierung genutzt. Alle Daten, die visualisiert werden sollen, werden in ein Tabellenblatt von Excel geschrieben und von dort aus ausgelesen. Die Daten können demnach vor der Darstellung in Excel beliebig bearbeitet werden.\seFootcite{vgl.}{S.32 und S.236}{Egg.09} 
 
 Die gesamte Erstellung eines Dashboards findet nach dem \gls{wysiwyg}-Prinzip statt. Der Anwender sieht schon während der Erstellung, wie das Ergebnis aussieht. Durch die Verwendung von Excel und dem Umsetzen des \gls{wysiwyg}-Prinzip benötigen Nutzer meist nur eine geringe Einarbeitungszeit und die Bedienung kann als intuitiv beschrieben werden. Besondere Programmiersprachenkenntnisse sind für die Erstellung von Dashboards nicht erforderlich.\seFootcite{vgl.}{S.32 und S.239}{Egg.09}
 
-Die mit \gls{Xcelsius} erstellten Dashboards werden mit Hilfe der Adobe Flex Technologie dargestellt. Dadurch ist kein spezieller Server oder ein \gls{dbms} notwendig. Es wird nur das Flash-Plugin benötigt. Außerdem muss dafür für die Darstellung keine Netzwerkverbindung zu einem Server oder dem Internet vorhanden sein.  Zusätzlich können Dashboards in verschiedene Formate exportiert werden um sie so in Microsoft PowerPoint-Präsentationen oder auf Internetseiten einzubinden.\seFootcite{vgl.}{S.31f und S.230}{Egg.09}
+Die mit \gls{xcelsius} erstellten Dashboards werden mit Hilfe der Adobe Flex Technologie dargestellt. Dadurch ist kein spezieller Server oder ein \gls{dbms} notwendig. Es wird nur das Flash-Plugin benötigt. Außerdem muss dafür für die Darstellung keine Netzwerkverbindung zu einem Server oder dem Internet vorhanden sein.  Zusätzlich können Dashboards in verschiedene Formate exportiert werden um sie so in Microsoft PowerPoint-Präsentationen oder auf Internetseiten einzubinden.\seFootcite{vgl.}{S.31f und S.230}{Egg.09}
 
 Als Datenquellen für ein Dashboard stehen mehrere Möglichkeiten zur Verfügung. Zum einen können Daten einfach in das Excel kopiert werden.  Es ist auch möglich, ein SAP Business Warehouse System direkt anzuschließen, oder Daten über Webservices zu beziehen. Hierzu wird das \gls{xml}-Format verwendet. Außerdem existieren weitere Möglichkeiten, mit dem Dashboards zum Beispiel untereinander Daten austauschen können.\seFootcite{vgl.}{S.283f}{Egg.09}
 
 \subsection{Bedienungskonzept}
-Der vorgesehene Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absatzzahlen von Produkten verdeutlicht werden. Zunächst soll jedoch die Oberfläche von \gls{Xcelsius} dargestellt werden.
+Der vorgesehene Ablauf des Erstellens von Dashboards soll an dem Beispiel der Absatzzahlen von Produkten verdeutlicht werden. Zunächst soll jedoch die Oberfläche von \gls{xcelsius} dargestellt werden.
 
-Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die Bereiche sind in \vref{fig:xcelsius_ui_aufbau} dargestellt. Der erste Bereich zeigt die Zeichenfläche, also das eigentliche Dashboard an. Auf der Zeichenfläche können Komponenten beliebig platziert werden. Alle verfügbaren Komponenten werden in dem Bereich 2 auf der linken Seite nach Kategorien geordnet dargestellt. Um eine Komponente auf der Zeichenfläche zu platzieren, wählt der Nutzer die Komponente aus und platziert sie per Drag \& Drop auf der Zeichenfläche. 
+Die Oberfläche von \gls{xcelsius} lässt sich in vier Bereiche Aufteilen. Die Bereiche sind in \vref{fig:xcelsius_ui_aufbau} dargestellt. Der erste Bereich zeigt die Zeichenfläche, also das eigentliche Dashboard an. Auf der Zeichenfläche können Komponenten beliebig platziert werden. Alle verfügbaren Komponenten werden in dem Bereich 2 auf der linken Seite nach Kategorien geordnet dargestellt. Um eine Komponente auf der Zeichenfläche zu platzieren, wählt der Nutzer die Komponente aus und platziert sie per Drag \& Drop auf der Zeichenfläche. 
 
 \begin{figure}[!ht]
 \centering
@@ -369,7 +367,7 @@ Die Oberfläche von \gls{Xcelsius} lässt sich in vier Bereiche Aufteilen. Die B
 \caption{Die Oberfläche von BusinessObjects Xcelsius\label{fig:xcelsius_ui_aufbau}}
 \end{figure}
 
-Viele Komponenten bieten Einstellungsmöglichkeiten an, mit denen das Verhalten und das Aussehen der Komponente festgelegt werden kann. Wird eine Komponente auf der Zeichenfläche ausgewählt, werden alle verfügbaren Eigenschaften in Bereich 3 auf der rechten Seite dargestellt. Wichtige Eigenschaften einer Komponente stellen oft die Daten dar, die die Komponenten anzeigen soll. Alle Daten werden in Bereich 4 festgelegt. Die Verbindung zwischen der Datenhalten (Microsoft Excel in Bereich 4) und der Darstellung (Zeichenfläche in Bereich 1) von \gls{Xcelsius} erfolgt durch das Referenzieren von Zellen oder Zellbereichen über die Eigenschaften einer Komponente (Bereich 3).\seFootcite{vgl.}{S.229}{Egg.09}
+Viele Komponenten bieten Einstellungsmöglichkeiten an, mit denen das Verhalten und das Aussehen der Komponente festgelegt werden kann. Wird eine Komponente auf der Zeichenfläche ausgewählt, werden alle verfügbaren Eigenschaften in Bereich 3 auf der rechten Seite dargestellt. Wichtige Eigenschaften einer Komponente stellen oft die Daten dar, die die Komponenten anzeigen soll. Alle Daten werden in Bereich 4 festgelegt. Die Verbindung zwischen der Datenhalten (Microsoft Excel in Bereich 4) und der Darstellung (Zeichenfläche in Bereich 1) von \gls{xcelsius} erfolgt durch das Referenzieren von Zellen oder Zellbereichen über die Eigenschaften einer Komponente (Bereich 3).\seFootcite{vgl.}{S.229}{Egg.09}
 
 Für das Dashboard der Absatzzahlen in \vref{fig:xcelsius_ui_beispiel} werden die Daten in das Tabellenblatt eingetragen. Diese Daten können entweder fest eingegeben werden, meistens werden sie aber dynamisch über eine Datenquelle, zum Beispiel einen Webservice, in das Tabellenblatt geschrieben. In dem Beispiel wurden die Absatzzahlen fest in den Zellbereich 1 eingetragen. 
 
@@ -392,7 +390,7 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme, ein Säulendiagram un
 \end{figure}
 
 \subsection{Architektur}
-\gls{Xcelsius} basiert auf dem \gls{glos:netFramework} von Microsoft und ist in weiten Teilen in C++ geschrieben. Neben C++ wird \gls{glos:actionscript} und das Adobe Flex Framework für die  Benutzeroberfläche eingesetzt. Die Architektur von \gls{Xcelsius} ist modular aufgebaut und besteht aus mehreren Teilen. Ein Überblick ist in \vref{fig:xcelsius_architektur} dargestellt.
+\gls{xcelsius} basiert auf dem \gls{glos:netFramework} von Microsoft und ist in weiten Teilen in C++ geschrieben. Neben C++ wird \gls{glos:actionscript} und das Adobe Flex Framework für die  Benutzeroberfläche eingesetzt. Die Architektur von \gls{xcelsius} ist modular aufgebaut und besteht aus mehreren Teilen. Ein Überblick ist in \vref{fig:xcelsius_architektur} dargestellt.
 
 \begin{figure}[!ht]
 \centering
@@ -403,22 +401,22 @@ Schließlich werden auf der Zeichenfläche zwei Diagramme, ein Säulendiagram un
 
 Das zentrale Element ist das \class{Document}. Dabei handelt es sich um ein Objektmodell, das den aktuellen Zustand des Dashboards repräsentiert. Für die Darstellung wird das \class{Canvas} verwendet, welches in \gls{glos:actionscript} geschrieben ist. Die \class{Canvas}-Komponente nutzt dabei mehrere Hilfskomponenten. Dabei handelt es sich um die Komponenten, die später auf dem Dashboard platziert werden können. Diese Komponenten sind ist auch der Ansatzpunkt für spätere Erweiterungen. Eine Erweiterung ist intern eine zusätzliche Hilfskomponente.
 
-An das \class{Document} ist mittels OLE Automation Microsoft Excel angebunden. OLE Automation ist eine Schnittstelle für die Kommunikation zwischen Prozessen. Speichern und Laden eines Dashboards übernimmt die XLF-Komponente. Diese erstellt oder lädt eine \gls{Xcelsius} File (.xlf), welches intern aus dem Document im \gls{xml}-Format und einer Excel-Datei besteht.
+An das \class{Document} ist mittels OLE Automation Microsoft Excel angebunden. OLE Automation ist eine Schnittstelle für die Kommunikation zwischen Prozessen. Speichern und Laden eines Dashboards übernimmt die XLF-Komponente. Diese erstellt oder lädt eine \gls{xcelsius} File (.xlf), welches intern aus dem Document im \gls{xml}-Format und einer Excel-Datei besteht.
 
 Für den Export von erstellten Dashboards existiert der \class{SWF Generator}. Aus dem \class{Document} und den Daten und Formeln, die in Microsoft Excel erstellt wurden, wird eine .swf-Datei generiert. In dieser werden nun alle Berechnungen, die bis jetzt von Microsoft Excel übernommen wurden, von der Hilfskomponente \class{SpreadsheetEngine} berechnet.\seFootcite{vgl.}{}{Xcelsius-Arch.09}
 
 \subsection{Erweiterungsmöglichkeiten}
 
-Durch die Einstellungsmöglichkeiten der einzelnen Komponenten und die Einbindung des vollen Funktionsumfang von Microsoft Excel ist \gls{Xcelsius} von sich aus sehr flexibel. Zusätzlich dazu existiert noch ein \gls{glos:sdk} mit dem komplett eigene Komponenten erstellt werden können. Dadurch ist es möglich, \gls{Xcelsius} um nahezu beliebige Funktionen zu erweitern.
+Durch die Einstellungsmöglichkeiten der einzelnen Komponenten und die Einbindung des vollen Funktionsumfang von Microsoft Excel ist \gls{xcelsius} von sich aus sehr flexibel. Zusätzlich dazu existiert noch ein \gls{glos:sdk} mit dem komplett eigene Komponenten erstellt werden können. Dadurch ist es möglich, \gls{xcelsius} um nahezu beliebige Funktionen zu erweitern.
 
 Die Erweiterungen, die mit dem \gls{glos:sdk} programmiert werden können, müssen auf dem Adobe Flex SDK 2.0.1 basieren. Die Programmiersprache ist \gls{glos:actionscript}. Es können drei verschiedene Typen von Erweiterungen mit dem \gls{glos:sdk} entwickelt werden. Dabei handelt es sich um visuelle Komponenten, die später auf dem erstellten Dashboard dargestellt werden, um Datenverbindungen, die nicht auf dem Dashboard angezeigt werden, sondern nur im Hintergrund aktiv sind. Die dritte Möglichkeit ist die Erweiterung der Steuerungslogik von Excel, spielt aber im Rahmen dieser Bachelorarbeit keine Rolle. \footnote{\seCite{vgl.}{S.229}{Egg.09} \seCite{und}{S.3f}{Xcelsius-SDK.08}}
 
-Entscheidend für diese Bachelorarbeit ist die Datenverbindung. Dabei handelt es sich um Erweiterungen, die später auf den erstellten Dashboards nicht sichtbar sind. Während der Erstellung der Dashboards werden die Datenverbindungen konfiguriert, um dann später im Hintergrund aktiv zu sein. Eine typische Aufgabe einer Datenverbindung ist das Schreiben von Daten aus beliebigen Quellen in das Tabellenblatt des Dashboards. Von dort aus können die Daten dann in Xcelsius genutzt werden.
+Entscheidend für diese Bachelorarbeit ist die Datenverbindung. Dabei handelt es sich um Erweiterungen, die später auf den erstellten Dashboards nicht sichtbar sind. Während der Erstellung der Dashboards werden die Datenverbindungen konfiguriert, um dann später im Hintergrund aktiv zu sein. Eine typische Aufgabe einer Datenverbindung ist das Schreiben von Daten aus beliebigen Quellen in das Tabellenblatt des Dashboards. Von dort aus können die Daten dann in \gls{xcelsius} genutzt werden.
 
-Das Ergebnis der Entwicklung ist dann eine .swf-Datei. Sie besteht aus einer einfache Oberfläche für die Konfiguration und in \gls{glos:actionscript} geschriebene Klassen, in denen die Logik umgesetzt ist. Die Datei wird, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler, mit dem \gls{Xcelsius} \gls{glos:sdk} zu einem \gls{Xcelsius} Plugin zusammengefügt. Das Resultat kann dann in \gls{Xcelsius} importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}}
+Das Ergebnis der Entwicklung ist dann eine .swf-Datei. Sie besteht aus einer einfache Oberfläche für die Konfiguration und in \gls{glos:actionscript} geschriebene Klassen, in denen die Logik umgesetzt ist. Die Datei wird, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler, mit dem \gls{xcelsius} \gls{glos:sdk} zu einem \gls{xcelsius} Plugin zusammengefügt. Das Resultat kann dann in \gls{xcelsius} importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}}
 
 \section{Zusammenfassung}
-In diesem Kapitel wurde ein Einblick in zwei zentrale Anwendungen der Bachelorarbeit gegeben -- dem SAP LRM und BusinessObjects Xcelsius. Wichtig für den weiteren Verlauf der Bachelorarbeit ist zum Einen die Berechnungskomponente des SAP LRM, da diese als Ergebnis dieser Bachelorarbeit in weiteren Anwendungen genutzt werden soll. Zum anderen wurde BusinessObjects Xcelsius im Hinblick auf das Bedienungskonzept und der Erweiterbarkeit genauer untersucht. Die guten Erweiterungsmöglichkeiten und das offene Bedienkonzept spielen für den weiteren Verlauf eine entscheidende Rolle.
+In diesem Kapitel wurde ein Einblick in zwei zentrale Anwendungen der Bachelorarbeit gegeben -- dem SAP LRM und \gls{xcelsius}. Wichtig für den weiteren Verlauf der Bachelorarbeit ist zum Einen die Berechnungskomponente des SAP LRM, da diese als Ergebnis dieser Bachelorarbeit in weiteren Anwendungen genutzt werden soll. Zum anderen wurde \gls{xcelsius} im Hinblick auf das Bedienungskonzept und der Erweiterbarkeit genauer untersucht. Die guten Erweiterungsmöglichkeiten und das offene Bedienkonzept spielen für den weiteren Verlauf eine entscheidende Rolle.
 
 \chapter{Spezifikation der Zwischenschicht}
 \label{sec:spezifikation}
@@ -567,15 +565,15 @@ In diesem Kapitel wurden die angestrebte Zielsituation, die mit der Erweiterung 
 Dieses Kapitel greift die Ergebnisse der Spezifikation auf und untersucht verschiedene Möglichkeiten der Umsetzung. Dazu werden die in Frage kommenden Alternativen genauer dargestellt und die jeweiligen Vor- und Nachteile ermittelt. Durch einen abschließenden Vergleich wird dann eine Umsetzungsmöglichkeit für das weitere Vorgehen festgelegt.
 
 \section{Rahmenbedingungen}
-Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von \gls{Xcelsius} in \vref{sec:xcelsius}, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des SAP LRM zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem konkreten Beispiel von \gls{Xcelsius} umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von \gls{Xcelsius} an das SAP LRM. Gleichzeitig soll aber bei der Analyse und dem Entwurf die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wenn möglich weiterhin beachtet werden.
+Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von \gls{xcelsius} in \vref{sec:xcelsius}, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des SAP LRM zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem konkreten Beispiel von \gls{xcelsius} umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von \gls{xcelsius} an das SAP LRM. Gleichzeitig soll aber bei der Analyse und dem Entwurf die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wenn möglich weiterhin beachtet werden.
 
 \section{BusinessObjects Universum}
-Eine Möglichkeit, externe Daten in \gls{Xcelsius} zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantische Ebene, die es ermöglicht, Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
+Eine Möglichkeit, externe Daten in \gls{xcelsius} zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantische Ebene, die es ermöglicht, Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
 
 
 Es können Daten aus relationalen \gls{dbms}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden. Das Sternschema ist ein besonderes Datenmodell, welches besonders für Leseoperationen optimiert ist. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
 
-Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{Xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
+Die Einbindung von Universen wird in \gls{xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
 \begin{figure}[!ht]
 \centering
@@ -584,12 +582,12 @@ Die Einbindung von Universen wird in \gls{Xcelsius} standardmäßig unterstützt
 \caption{Umsetzungsmöglichkeit der Erweiterung mittels BusinessObjects Universum \label{fig:umsetzung_universe}}
 \end{figure}
 
-Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt sich die Frage, wie eventuelle Selektionsparameter von \gls{Xcelsius} an die Berechnugnskomponente übergeben werden können. Zusätzlich muss die Berechnung durch die Berechnungskomponente manuell angestoßen werden, um die Tabelle mit den aktuellen Daten zu füllen. Eine automatische, periodische Berechnung, zum Beispiel durch einen eingeplanten Hintergrundprozess, würde stets veraltete Daten liefern.
+Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt sich die Frage, wie eventuelle Selektionsparameter von \gls{xcelsius} an die Berechnugnskomponente übergeben werden können. Zusätzlich muss die Berechnung durch die Berechnungskomponente manuell angestoßen werden, um die Tabelle mit den aktuellen Daten zu füllen. Eine automatische, periodische Berechnung, zum Beispiel durch einen eingeplanten Hintergrundprozess, würde stets veraltete Daten liefern.
 
 Schließlich sind Universen nur für die Verwendung mit BusinessObjects Anwendungen ausgelegt. Das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} kann somit nicht garantiert werden.
 
 \section{Webservice}
-Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SAP LRM der Webservice implementiert werden. In \gls{Xcelsius} wird dieser Webservice aufgerufen und somit über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar.
+Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SAP LRM der Webservice implementiert werden. In \gls{xcelsius} wird dieser Webservice aufgerufen und somit über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar.
 
 \begin{figure}[!ht]
 \centering
@@ -602,13 +600,13 @@ Dadurch, dass der Aufruf direkt im SAP LRM entgegen genommen wird und nicht indi
 
 Werden für die Umsetzung der Webservices offene Standards, wie zum Beispiel \gls{http} für die Übertragung oder \gls{xml} als Beschreibungssprache,  eingesetzt, können die Webservices auch von anderen Anwendungen verwendet werden. Dies ist für das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} wichtig.
 
-Außerdem kommt hinzu, dass bei dieser Umsetzungsmöglichkeit eine gute Modularisierung und Wiederverwendbarkeit erreicht werden kann. Die benötigte Funktionalität kann auf mehrere kleine Webservices aufgeteilt werden. Es entstehen voneinander unabhängige Teile, die leichter gewartet und unabhängig voneinander verwendet werden können. In \gls{Xcelsius} müssen diese Teile dann orchestriert werden.
+Außerdem kommt hinzu, dass bei dieser Umsetzungsmöglichkeit eine gute Modularisierung und Wiederverwendbarkeit erreicht werden kann. Die benötigte Funktionalität kann auf mehrere kleine Webservices aufgeteilt werden. Es entstehen voneinander unabhängige Teile, die leichter gewartet und unabhängig voneinander verwendet werden können. In \gls{xcelsius} müssen diese Teile dann orchestriert werden.
 
 Teile des SAP LRM wurden mit Hilfe eines Frameworks umgesetzt. Dieses bietet die Möglichkeit, bestimmte Klassen ohne zusätzlichen Programmieraufwand automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem die Liquiditätsszenarien und die Laufzeitbänder. Somit könnten Teile der Webservices ohne großen Aufwand umgesetzt werden.
 
 Ein mögliches Risiko dieser Umsetzungsmöglichkeit stellt die \anfRef{anf:leistung}{an die Performance } dar. Der zusätzliche Aufwand für das Aufrufen von mehreren Webservices, in festgelegten Reihenfolgen und Abhängigkeiten, kann zu einer längeren Gesamtlaufzeit führen. Zusätzlich führt der Ausfall eines Teil-Webservice zur Funktionsunfähigkeit der gesamten Erweiterung.
 
-\gls{Xcelsius} bietet zwar eine Möglichkeit zur Einbindung von einzelnen Webservices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des \gls{Xcelsius} \gls{glos:sdk} entwickelt werden.
+\gls{xcelsius} bietet zwar eine Möglichkeit zur Einbindung von einzelnen Webservices, allerdings besteht standardmäßig keine Möglichkeit, mehrere Webservices zusammenzusetzen und zu orchestrieren. Dafür müsste eine eigene Erweiterung auf Basis des \gls{xcelsius} \gls{glos:sdk} entwickelt werden.
 
 \section{Gegenüberstellung und Auswahl der Umsetzungsmöglichkeiten}
 Für die Auswahl der im Rahmen der Bachelorarbeit angewendeten Umsetzungsmöglichkeit wurden die Vor- und Nachteile der Alternativen ermittelt und in \vref{table:vergleich_umsetzung} gegenübergestellt.
@@ -672,38 +670,38 @@ Bei der Gegenüberstellung fällt auf, dass die Umsetzung mit Hilfe von Business
 Aus diesen Gründen wurde sich für die weitere Vorgehensweise für die Umsetzung mit Hilfe von Webservices entschieden.
 
 \section{Zusammenfassung}
-In diesem Kapitel wurde das Ergebnis der Spezifikation auf Umsetzbarkeit überprüft. Dabei wurde eine Umsetzung mittels Webservices  und mit Hilfe von BusinessObjects Universum in Betracht gezogen. Die Ermittlung und Gegenüberstellung von den Vor- und Nachteilen hat ergeben, dass eine Umsetzung mit Webservices erfolgsversprechender ist. Deshalb wurde festgelegt, dass die weitere Umsetzung der Zwischenschicht für BusinessObjects Xcelsius auf der Orchestrierung von Webservices beruht.
+In diesem Kapitel wurde das Ergebnis der Spezifikation auf Umsetzbarkeit überprüft. Dabei wurde eine Umsetzung mittels Webservices  und mit Hilfe von BusinessObjects Universum in Betracht gezogen. Die Ermittlung und Gegenüberstellung von den Vor- und Nachteilen hat ergeben, dass eine Umsetzung mit Webservices erfolgsversprechender ist. Deshalb wurde festgelegt, dass die weitere Umsetzung der Zwischenschicht für \gls{xcelsius} auf der Orchestrierung von Webservices beruht.
 
 \chapter{Umsetzung}
 
 \section{Einleitung}
-In diesem Kapitel wird der komplette Entwicklungsprozess der Erweiterung für BusinessObjects Xcelsius behandelt. Dabei wird die Analyse, der Entwurf und die eigentliche Implementierung abgedeckt. Die Prämisse dafür ist die Umsetzung auf Grundlage von Webservices. Sowohl die Analyse als auch der Entwurf behandeln die komplette Erweiterung. Der Schwerpunkt ist hierbei auf das statische und das dynamische Modell gelegt. In der Implementierung wird die Umsetzung der wichtigsten Kernelemente der Erweiterung näher betrachtet.
+In diesem Kapitel wird der komplette Entwicklungsprozess der Erweiterung für \gls{xcelsius} behandelt. Dabei wird die Analyse, der Entwurf und die eigentliche Implementierung abgedeckt. Die Prämisse dafür ist die Umsetzung auf Grundlage von Webservices. Sowohl die Analyse als auch der Entwurf behandeln die komplette Erweiterung. Der Schwerpunkt ist hierbei auf das statische und das dynamische Modell gelegt. In der Implementierung wird die Umsetzung der wichtigsten Kernelemente der Erweiterung näher betrachtet.
 
 \section{Analyse}
 
 \subsection{Überblick}
 In diesem Abschnitt wird der Analyseprozess der Entwicklung näher betrachtet. Die Ermittlung der Anforderungen an die Anwendung, welches ein Teil der Analysephase ist, wurde in diesem Fall schon in dem allgemeinen Teil der Bachelorarbeit in \vref{sec:anforderungen} durchgeführt. Die dort ermittelten Anforderungen werden ohne Änderungen übernommen und in dem Folgenden nicht noch einmal näher erläutert.
 
-Die Entwicklung der Erweiterung für \gls{Xcelsius} kann in fünf Teilbereiche unterteilt werden. Sie werden für die Strukturierung der Analyse genutzt. Bei den Bereichen handelt es sich um folgende Teile:
+Die Entwicklung der Erweiterung für \gls{xcelsius} kann in fünf Teilbereiche unterteilt werden. Sie werden für die Strukturierung der Analyse genutzt. Bei den Bereichen handelt es sich um folgende Teile:
 
 
 \begin{seToplist} { XX }
 \item[1] Bereitstellung der Webservice im SAP LRM \newline
 Das SAP LRM System stellt über Webservices alle benötigten Daten bereit.
 
-\item[2] Konsumierung der Webservice in \gls{Xcelsius} \newline
+\item[2] Konsumierung der Webservice in \gls{xcelsius} \newline
 Die Webservices werden konsumiert und zunächst in ein internes Objektformat umgewandelt.
 
-\item[3] Orchestrierung der Webservice in \gls{Xcelsius} \newline
+\item[3] Orchestrierung der Webservice in \gls{xcelsius} \newline
 Die Ergebnisse der Konsumierung der Webservices werden miteinander verbunden und in eine interne Zielobjektstruktur umgewandelt.
 
-\item[4] Dateiaustausch zwischen der Erweiterung und \gls{Xcelsius} \newline
-Die Ergebnisse der Orchestrierung müssen in das Tabellenblatt von \gls{Xcelsius} geschrieben und Selektionsparameter aus dem Tabellenblatt gelesen werden.
+\item[4] Dateiaustausch zwischen der Erweiterung und \gls{xcelsius} \newline
+Die Ergebnisse der Orchestrierung müssen in das Tabellenblatt von \gls{xcelsius} geschrieben und Selektionsparameter aus dem Tabellenblatt gelesen werden.
 
 \end{seToplist}
 
 \subsection{Grundlegende Architektur und Funktionsweise}
-In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-architektur}) über die grundlegende Architektur der Lösung gegeben. Dabei werden Erweiterungen in zwei Systemen, dem SAP LRM und \gls{Xcelsius}, umgesetzt. Gleichzeitig wird die grundlegende Funktionsweise, gerade im Hinblick auf die Interaktion mit dem Nutzer, näher gebracht.
+In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-architektur}) über die grundlegende Architektur der Lösung gegeben. Dabei werden Erweiterungen in zwei Systemen, dem SAP LRM und \gls{xcelsius}, umgesetzt. Gleichzeitig wird die grundlegende Funktionsweise, gerade im Hinblick auf die Interaktion mit dem Nutzer, näher gebracht.
 
 \begin{figure}[!ht]
 \centering
@@ -714,13 +712,13 @@ In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-archite
 
 Im SAP LRM System muss für jeden Webservice ein Webservice-Provider bereitgestellt werden. Der Webservice-Provider kann über einfache Funktionsaufrufe entweder Berechnungen über die Berechnungskomponente durchführen lassen, oder auf Objekte des SAP LRM, wie zum Beispiel einem Laufzeitband oder eine Liquiditätsgruppe zugreifen. Das Ergebnis liefert er über \gls{http} im \gls{xml}-Format.
 
-Die drei restlichen Teile, die im Überblick eingeführt wurden, werden in einem Plugin für \gls{Xcelsius} implementiert. Dazu zählt die Konsumierung der bereitgestellten Services und anschließend die Orchestrierung.
+Die drei restlichen Teile, die im Überblick eingeführt wurden, werden in einem Plugin für \gls{xcelsius} implementiert. Dazu zählt die Konsumierung der bereitgestellten Services und anschließend die Orchestrierung.
 
-Der \gls{Xcelsius}-Adapter ist über ein Tabellenblatt die Schnittstelle für den Nutzer. Das Tabellenblatt wird dabei in zwei Bereiche unterteilt. Dies sind ein Daten- und ein Ein\-stel\-lungs-Teil. Die Ergebnisse der Erweiterung werden von dem Adapter in den Daten-Teil geschrieben. Damit endet die Zuständigkeit der Erweiterung. Der Nutzer kann die Daten beliebig weiterverarbeiten, in der Regel wird er sie mit Diagrammen visualisieren.
+Der \gls{xcelsius}-Adapter ist über ein Tabellenblatt die Schnittstelle für den Nutzer. Das Tabellenblatt wird dabei in zwei Bereiche unterteilt. Dies sind ein Daten- und ein Ein\-stel\-lungs-Teil. Die Ergebnisse der Erweiterung werden von dem Adapter in den Daten-Teil geschrieben. Damit endet die Zuständigkeit der Erweiterung. Der Nutzer kann die Daten beliebig weiterverarbeiten, in der Regel wird er sie mit Diagrammen visualisieren.
 
-Die Selektionsparameter, die zum Beispiel für die Berechnungskomponente im SAP LRM gebraucht werden (siehe dazu \vref{sec:berechnungskomponente:parameter}), werden aus dem Ein\-stel\-lungs-Teil des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die \gls{Xcelsius} standardmäßig bereitstellt.
+Die Selektionsparameter, die zum Beispiel für die Berechnungskomponente im SAP LRM gebraucht werden (siehe dazu \vref{sec:berechnungskomponente:parameter}), werden aus dem Ein\-stel\-lungs-Teil des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die \gls{xcelsius} standardmäßig bereitstellt.
 
-Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem SAP LRM in \gls{Xcelsius} bereit. In welcher Form die Daten weiter verarbeitet werden, wird bewusst komplett offengelassen.
+Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem SAP LRM in \gls{xcelsius} bereit. In welcher Form die Daten weiter verarbeitet werden, wird bewusst komplett offengelassen.
 
 \subsection{Statisches Modell}
 Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und ihre Assoziationen zueinander identifiziert. Das entsprechende Klassendiagramm der Analysephase ist in \vref{fig:klassendiagramm_analyse} dargestellt.
@@ -732,9 +730,9 @@ Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und 
 \caption{Klassendiagramm der Analysephase \label{fig:klassendiagramm_analyse}}
 \end{figure}
 
-Das Kernstück der Erweiterung ist die Klasse \class{Orchestrator}. Hier ist die komplette Logik der Orchestrierung für die Kennzahlenanalyse und die Finanzierungsmatrix hinterlegt, das heißt die Ergebnisse der einzelnen Webservices werden kombiniert. Dazu existieren die entsprechenden Methoden \method{updateKPI()} und \method{updateFundingMatrix()}. Für den Datenaustausch mit dem Tabellenblatt von \gls{Xcelsius} existiert zwischen der Klasse \class{Orchestrator} und der Klasse \class{XcelsiusAdapter} eine 1:1 Assoziation.
+Das Kernstück der Erweiterung ist die Klasse \class{Orchestrator}. Hier ist die komplette Logik der Orchestrierung für die Kennzahlenanalyse und die Finanzierungsmatrix hinterlegt, das heißt die Ergebnisse der einzelnen Webservices werden kombiniert. Dazu existieren die entsprechenden Methoden \method{updateKPI()} und \method{updateFundingMatrix()}. Für den Datenaustausch mit dem Tabellenblatt von \gls{xcelsius} existiert zwischen der Klasse \class{Orchestrator} und der Klasse \class{XcelsiusAdapter} eine 1:1 Assoziation.
 
-Die Klasse \class{XcelsiusAdapter} stellt die Verbindung zwischen der Erweiterung und dem Tabellenblatt von \gls{Xcelsius} dar. Mit der Methode \method{writeToXcelsius()} können Daten in das Tabellenblatt geschrieben werden. Zum Lesen von Daten existiert die Methode \method{readFromXcelsius()}.
+Die Klasse \class{XcelsiusAdapter} stellt die Verbindung zwischen der Erweiterung und dem Tabellenblatt von \gls{xcelsius} dar. Mit der Methode \method{writeToXcelsius()} können Daten in das Tabellenblatt geschrieben werden. Zum Lesen von Daten existiert die Methode \method{readFromXcelsius()}.
 
 Eine weitere wichtige Klasse stellt der \class{ObjectProvider} dar. Ein \class{ObjectProvider} ist eine abstrahierte Schicht über einem Webservice. Die Aufgabe eines \class{ObjectProvider} ist der einfache Zugriff auf Objekte, die über einen Webservice bezogen werden. Dieser Zugriff findet über die Methode \method{getObject()} statt. Mehrere \class{ObjectProvider} sind Teil der Klasse \class{Orchestrator}, zwischen diesen beiden Klassen existiert eine Komposition.
 
@@ -759,9 +757,9 @@ Anschließend wird in einem zweiten Schritt ein oder mehrere Webservices über d
 
 Die \instance{WebServiceProvider} rufen über einen \instance{WebServiceConnector} den \gls{xml}-Inhalt ab. Anschließend wird das Ergebnis an den entsprechenden \instance{Deserializer} weitergegeben. Dieser wandelt es in eine interne Objektstruktur um und gibt die Instanz an den \instance{ObjectProvider} zurück. Dieser leitet es an den \instance{Orchestrator} weiter.
 
-Der Aufruf der \instance{WebServiceProvider} durch den \instance{Orchestrator} kann asynchron erfolgen. Hat der \instance{Orchestrator} alle Ergebnisse der \instance{ObjectProvider} erhalten, erfolgt die Umwandlung in das Zielobjektformat und schließlich in dem dritten Schritt das Übergeben des Ergebnis an den \instance{XcelsiusAdapter}. Dieser schreibt die Daten in das Tabellenblatt von \gls{Xcelsius}.
+Der Aufruf der \instance{WebServiceProvider} durch den \instance{Orchestrator} kann asynchron erfolgen. Hat der \instance{Orchestrator} alle Ergebnisse der \instance{ObjectProvider} erhalten, erfolgt die Umwandlung in das Zielobjektformat und schließlich in dem dritten Schritt das Übergeben des Ergebnis an den \instance{XcelsiusAdapter}. Dieser schreibt die Daten in das Tabellenblatt von \gls{xcelsius}.
 
-Dadurch stehen die Daten dem Nutzer in \gls{Xcelsius} zur Verfügung. Der Aufruf von \method{updateKPI()} ist fertig.
+Dadurch stehen die Daten dem Nutzer in \gls{xcelsius} zur Verfügung. Der Aufruf von \method{updateKPI()} ist fertig.
 
 \section{Entwurf}
 
@@ -803,7 +801,7 @@ Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durc
 
 Objekte, wie zum Beispiel ein Liquiditätsszenario oder ein Laufzeitband, werden nur einmal angelegt und danach in der Regel nicht mehr geändert. Bei der Orchestrierung der Webservices müsste allerdings nach dem Ergebnis der Analyse jedes Mal eine neue Abfrage gestartet werden. Um das zu verhindern wird die Klasse \class{ObjectProvider} durch die neu hinzugefügte Klasse \class{CachedObjectProvider} erweitert. Ein \class{CachedObjectProvider} hält alle Objekte, die schon einmal angefragt wurden, in einem internen Cache und liefert bei einer erneuten Nachfrage das Objekt aus dem Cache zurück, ohne einen neuen Webservice aufrufen zu müssen.
 
-Für das Ermitteln der aktuellen Einstellungen, die der Nutzer in dem Tabellenblatt von \gls{Xcelsius} hinterlegt hat, wurde die Klasse \class{SettingProvider} hinzugefügt. Der \class{SettingProvider} nutzt den \class{XcelsiusAdapter} zum Auslesen des Tabellenblattes und liefert über die Methode \method{getSetting()} alle erforderlichen Einstellungen für die Abfragen der Webservices zurück. Dadurch kann der \class{XcelsiusAdapter} sich rein auf das funktionale Lesen und Schreiben des Tabellenblattes beschränken und von der Logik, welche Zelle wie ausgelesen werden muss, befreit werden.
+Für das Ermitteln der aktuellen Einstellungen, die der Nutzer in dem Tabellenblatt von \gls{xcelsius} hinterlegt hat, wurde die Klasse \class{SettingProvider} hinzugefügt. Der \class{SettingProvider} nutzt den \class{XcelsiusAdapter} zum Auslesen des Tabellenblattes und liefert über die Methode \method{getSetting()} alle erforderlichen Einstellungen für die Abfragen der Webservices zurück. Dadurch kann der \class{XcelsiusAdapter} sich rein auf das funktionale Lesen und Schreiben des Tabellenblattes beschränken und von der Logik, welche Zelle wie ausgelesen werden muss, befreit werden.
 
 Für den einfachen Zugriff auf die einzelnen \class{ObjectProvider} wurde der Klasse \class{Orchestrator} die Hilfsmethode \method{getProviderForType()} hinzugefügt. Die später von dem Nutzer aufgerufenen Methoden \method{updateKPI()} und \method{updateFundingMatrix()} nutzen die neuen Hilfsmethoden \method{getKIP()} und \method{getFundingMatrix()}. Durch die neue Signatur kann der \class{XcelsiusAdapter} und der \class{SettingProvider} einfacher angebunden werden.
 
@@ -829,10 +827,10 @@ An dem Dynamischen Modell müssen in der Entwurfsphase nur kleinere Änderungen 
 
 In Abschnitt (1) ist die Einbindung des \class{SettingProvider} zu sehen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterfreien Methode \method{updateKPI()} und der privaten Methode \method{getKPI()} sehen. In der Orchestrierung wird nun auch ein \class{CachedObjectProvider} verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen Webservice abgefragt und in seinem Cache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren Aufruf eines Webservice direkt beantworten.
 
-\subsection{Zielstruktur in \gls{Xcelsius}}
-Eine zentrale Rolle in der Erweiterung spielt die Übergabe der Ergebnisse der Orchestrierung an das Tabellenblatt von \gls{Xcelsius}. Dies muss in einer Art und Weise geschehen, sodass der Nutzer die Daten später einfach weiterverarbeiten oder visualisieren kann.
+\subsection{Zielstruktur in \gls{xcelsius}}
+Eine zentrale Rolle in der Erweiterung spielt die Übergabe der Ergebnisse der Orchestrierung an das Tabellenblatt von \gls{xcelsius}. Dies muss in einer Art und Weise geschehen, sodass der Nutzer die Daten später einfach weiterverarbeiten oder visualisieren kann.
 
-Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt ist immer eine \class{OrchestratorResult}-Instanz, welche das Ergebnis der Orchestrierung darstellt. Den Aufbau der Instanz ist in \vref{sec:entwurf:statisch:orchestratorresult} dargestellt. Diese Objektstruktur muss in eine Tabellenstruktur in \gls{Xcelsius} umgewandelt werden. Ein konkretes Beispiel für die Objektstruktur zeigt \vref{fig:objektstruktur}, welches in \vref{tab:zielstruktur} entsprechend umgesetzt ist.
+Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt ist immer eine \class{OrchestratorResult}-Instanz, welche das Ergebnis der Orchestrierung darstellt. Den Aufbau der Instanz ist in \vref{sec:entwurf:statisch:orchestratorresult} dargestellt. Diese Objektstruktur muss in eine Tabellenstruktur in \gls{xcelsius} umgewandelt werden. Ein konkretes Beispiel für die Objektstruktur zeigt \vref{fig:objektstruktur}, welches in \vref{tab:zielstruktur} entsprechend umgesetzt ist.
 
 \begin{figure}[!ht]
 \centering
@@ -870,7 +868,7 @@ So entsteht die Tabellenstruktur in \vref{tab:zielstruktur}, welche durch den \c
 \subsection{Adobe Flex Sandbox}
 Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen bestimmten Sicherheitsbeschränkungen. Darunter fällt auch die Erweiterung, die im Rahmen dieser Bachelorarbeit entwickelt wird. Die Ausführung von Adobe Flex-Anwendungen erfolgt in einer Sandbox. Dadurch sollen ungewollte Änderungen auf Client-Seite verhindert werden -- die Anwendung darf sich nur ein einem klar definierten Raum bewegen.
 
-Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{Xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM zunächst nicht möglich, da es durch die Sandbox blockiert wird. Die Beschränkung ist in \vref{fig:flex_sandbox} dargestellt.
+Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM zunächst nicht möglich, da es durch die Sandbox blockiert wird. Die Beschränkung ist in \vref{fig:flex_sandbox} dargestellt.
 
 \begin{figure}[!ht]
 \centering
@@ -1023,13 +1021,13 @@ public override function deserialize(content:String):Object{
 
 Die \class{ObjectProvider} und \class{Deserializer} für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der \method{getObject}-Methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cache befindet und dann direkt zurückgegeben. Ist es noch nicht vorhanden, wird der Webservice-Aufruf gestartet und nach der Deserialisierung wird das Objekt im Cache für weitere Anfragen gehalten.
 
-\subsection{\gls{Xcelsius} Binding}
+\subsection{\gls{xcelsius} Binding}
 \label{sec:xcelsius_binding}
-Für den Datenaustausch zwischen der entwickelten Erweiterung und dem Tabellenblatt von \gls{Xcelsius} muss auf die bereitgestellten Funktionen des \gls{Xcelsius} \gls{glos:sdk} zurückgegriffen werden. Dabei wird das Konzept des Bindings genutzt.
+Für den Datenaustausch zwischen der entwickelten Erweiterung und dem Tabellenblatt von \gls{xcelsius} muss auf die bereitgestellten Funktionen des \gls{xcelsius} \gls{glos:sdk} zurückgegriffen werden. Dabei wird das Konzept des Bindings genutzt.
 
 Bei diesem Konzept wird ein Attribut einer Instanz fest mit einem Zellenbereich auf dem Tabellenblatt verbunden. Dabei kann es sich entweder um ein flaches Attribut, wie zum Beispiel eine Zeichenkette oder eine Zahl, handeln, die dann mit einer einzelnen Zelle auf dem Tabellenblatt verbunden wird. Es kann allerdings auch auf Tabellenblatt-Seite ein Bereich festgelegt werden, der dann zum Beispiel mit einem zweidimensionalen Array verbunden wird.
 
-Für solch eine Verbindung muss zusätzlich noch eine Richtung festgelegt werden. Das \gls{Xcelsius} \gls{glos:sdk} bietet dabei drei Möglichkeiten an:
+Für solch eine Verbindung muss zusätzlich noch eine Richtung festgelegt werden. Das \gls{xcelsius} \gls{glos:sdk} bietet dabei drei Möglichkeiten an:
 
 \begin{seToplist}{ XXX }
 
@@ -1053,7 +1051,7 @@ Neben der Wertehilfe für die Liquiditätsszenarien existiert eine weitere Werte
 Eine letzte Wertehilfe wurde für die Laufzeitbänder hinzugefügt. Durch diese Wertehilfen ist es für den Nutzer später einfacher, gültige Selektionskriterien festzulegen. Der Nutzer muss nicht den Namen der existierenden Gruppen, Szenarien oder Laufzeitbänder kennen, er braucht sie nur aus einer Liste auszuwählen.
 
 \section{Zusammenfassung}
-In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Analyse, dem Entwurf und der Implementierung, dargelegt. Das Ergebnis ist eine Erweiterung für Xcelsius, mit der Xcelsius zur Visualisierung der Daten des SAP LRM genutzt werden kann. Dabei werden die Vorteile der Berechnungskomponente des SAP LRM und die Geschwindigkeit von SAP HANA ausgenutzt. Gleichzeitig ist durch die modulare Struktur der Grundstein für zum einen Weiterentwicklungen des SAP LRM als auch die Integration des SAP LRM mit weiteren Anwendungen gelegt. Die Evaluierung der Ergebnisse wird in dem Folgenden Kapitel durchgeführt.
+In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Analyse, dem Entwurf und der Implementierung, dargelegt. Das Ergebnis ist eine Erweiterung für \gls{xcelsius}, mit der \gls{xcelsius} zur Visualisierung der Daten des SAP LRM genutzt werden kann. Dabei werden die Vorteile der Berechnungskomponente des SAP LRM und die Geschwindigkeit von SAP HANA ausgenutzt. Gleichzeitig ist durch die modulare Struktur der Grundstein für zum einen Weiterentwicklungen des SAP LRM als auch die Integration des SAP LRM mit weiteren Anwendungen gelegt. Die Evaluierung der Ergebnisse wird in dem Folgenden Kapitel durchgeführt.
 
 \chapter{Evaluation der Erweiterung für BusinessObjects Xcelsius}
 
@@ -1061,7 +1059,7 @@ In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Ana
 In diesem Kapitel wird die Evaluation der im Rahmen der Bachelorarbeit entwickelten Erweiterung durchgeführt. Dabei wird die Erweiterung insbesondere auf zwei Aspekte hin genauer Untersucht. Zum einen soll aufgezeigt werden, welche neuen Möglichkeiten sich mit der Erweiterung ergeben und wie diese genutzt werden können. Außerdem muss überprüft werden, in wiefern die Anforderungen und die Zielsetzung, die in der Spezifikation in \vref{sec:spezifikation} festgelegt wurden, erfüllt werden können.
 
 \section{Neue Möglichkeiten}
-Durch die Erweiterung ist es nun möglich, \gls{Xcelsius} in Verbindung mit den Daten des SAP LRM zu nutzen. Dazu muss zu einem Dashboard lediglich eine neue Verbindung, die Teil der Erweiterung ist, hinzugefügt werden.
+Durch die Erweiterung ist es nun möglich, \gls{xcelsius} in Verbindung mit den Daten des SAP LRM zu nutzen. Dazu muss zu einem Dashboard lediglich eine neue Verbindung, die Teil der Erweiterung ist, hinzugefügt werden.
 
 Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Der Dialog zum festlegen der Einstellungen ist  \vref{fig:einstellung} zu sehen. Erforderlich sind hierbei der Nutzer mit entsprechendem Passwort für die Authentifizierung, und die \gls{url}, unter der das SAP LRM erreichbar ist.
 
@@ -1078,7 +1076,7 @@ Da die Kennzahlenanalyse keine Parameter erfordert, reicht hier ein Binding für
 
 In dem erstellten Beispieldashboard wurden alle zur Verfügung stehenden Funktionalitäten ausgenutzt. Die Finanzierungsmatrix wurde als Liniendiagramm dargestellt. Die erforderlichen Parameter werden durch die Kombinationsfelder auf der linken Seite festgelegt. Die Auswahlmöglichkeiten beruhen dabei auf der angebotenen Wertehilfe. 
 
-An dieser Stelle wären durchaus auch noch andere Möglichkeiten denkbar, zum Beispiel über Checkboxen oder ähnlichen Auswahlelementen. Dies zeigt, dass die Erweiterung hier keinerlei Beschränkungen vorgibt. Die Form des Parameter-Inputs und der Verarbeitung der Ergebnisse ist komplett offen gehalten und nur durch die Möglichkeiten von Xcelsius beschränkt.
+An dieser Stelle wären durchaus auch noch andere Möglichkeiten denkbar, zum Beispiel über Checkboxen oder ähnlichen Auswahlelementen. Dies zeigt, dass die Erweiterung hier keinerlei Beschränkungen vorgibt. Die Form des Parameter-Inputs und der Verarbeitung der Ergebnisse ist komplett offen gehalten und nur durch die Möglichkeiten von \gls{xcelsius} beschränkt.
 
 Die Kennzahlenanalyse, die in der ursprünglichen Situation, wie in \vref{fig:lrm_istzustand_keyfigureanalysis} zu sehen, nur als einfache Tabelle dargestellt wurden, kann nun beliebig visualisiert werden. In dem Beispiel zeigt sich dies durch die Tachodarstellung.
 
@@ -1117,10 +1115,10 @@ Der Zugang zu den Daten ist, genau wie bei der existierenden iPad-Anwendung, dur
 
 %\item[\anfl{leistung}] \textbf{Leistung} \newline
 %Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch in anderen Anwendungen verfügbar machen.
-Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des Nutzers setzt aus der Zeit für die Berechnung der Werte durch die Berechnungskomponente und der eigentlichen Darstellung zusammen. Die Zeit für die Berechnung ist dabei festgesetzt und kann nicht beeinflusst werden. Die Zeit zur Darstellung ist dabei in Xcelsius mit der Erweiterung sogar schneller, als die Darstellung mit dem Oberon Framework. Ein Hauptgrund ist hierbei das vergleichsweise langsame Rendern des Diagramms durch Oberon. Durch eine echt-parallele Verarbeitung der Webservice-Aufrufe könnte die Leistung der Erweiterung sogar noch gesteigert werden. Auch diese Anforderung ist somit erfüllt, obwohl sie bei der Entwicklung nicht im Mittelpunkt stand.
+Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des Nutzers setzt aus der Zeit für die Berechnung der Werte durch die Berechnungskomponente und der eigentlichen Darstellung zusammen. Die Zeit für die Berechnung ist dabei festgesetzt und kann nicht beeinflusst werden. Die Zeit zur Darstellung ist dabei in \gls{xcelsius} mit der Erweiterung sogar schneller, als die Darstellung mit dem Oberon Framework. Ein Hauptgrund ist hierbei das vergleichsweise langsame Rendern des Diagramms durch Oberon. Durch eine echt-parallele Verarbeitung der Webservice-Aufrufe könnte die Leistung der Erweiterung sogar noch gesteigert werden. Auch diese Anforderung ist somit erfüllt, obwohl sie bei der Entwicklung nicht im Mittelpunkt stand.
 
 \section{Zusammenfassung}
-In diesem Kapitel wurden die Evaluation der Erweiterung für Xcelsius durchgeführt. Diese hat ergeben, dass sich durch die reine Integration der Daten des SAP LRM unter der bewussten Vermeidung von Vorgaben, was die Visualisierung oder die Art des Inputs und des Outputs betrifft, sich sehr viele Möglichkeiten ergeben. Es können alle Funktionen von Xcelsius genutzt werden, wodurch eine größere Flexibilität in der Auswertung der Daten des SAP LRM bietet. Außerdem wurde die Abdeckung der gestellten Anforderungen überprüft und dabei festgestellt, dass die Anforderungen erfolgreich umgesetzt wurden.
+In diesem Kapitel wurden die Evaluation der Erweiterung für \gls{xcelsius} durchgeführt. Diese hat ergeben, dass sich durch die reine Integration der Daten des SAP LRM unter der bewussten Vermeidung von Vorgaben, was die Visualisierung oder die Art des Inputs und des Outputs betrifft, sich sehr viele Möglichkeiten ergeben. Es können alle Funktionen von \gls{xcelsius} genutzt werden, wodurch eine größere Flexibilität in der Auswertung der Daten des SAP LRM bietet. Außerdem wurde die Abdeckung der gestellten Anforderungen überprüft und dabei festgestellt, dass die Anforderungen erfolgreich umgesetzt wurden.
 
 \chapter{Zusammenfassung \& Ausblick}
 % Fragestellung aus Einleitung aufgreifen \loreIpsum
@@ -1129,13 +1127,13 @@ Im Rahmen dieser Bachelorarbeit wurden zwei Ziele verfolgt. Auf der einen Seite 
 
 Das entwickelte Konzept basiert auf der Orchestrierung von Webservices. Dabei werden ein oder mehrere Webservices von der Zielanwendung konsumiert und die jeweiligen Ergebnisse orchestriert. Die Webservices nutzen dabei für den Bezug der Daten die Berechnungskomponente des SAP LRM. Durch die Nutzung von weit verbreiteten Standards wie \gls{http} und \gls{xml} kann das Konzept einfach für verschiedene Anwendungen umgesetzt werden. Durch den modularen Aufbau, der durch die Orchestrierung der Webservices sichergestellt ist, ist auch eine gute Erweiterbarkeit sichergestellt. Durch die Weiterentwicklung des SAP LRM neu hinzugekommene Funktionen können einfach in das Konzept eingearbeitet werden. Außerdem wird durch den modularen Aufbau die spätere Wartung erleichtert.
 
-Neben der Entwicklung des Konzeptes wurde im Rahmen der Bachelorarbeit die Umsetzung für BusinessObjects Xcelsius durchgeführt. Das Ergebnis der Umsetzung ist eine Erweiterung, mit der die Einbindung von Daten, die auf der Berechnungskomponente basieren, erreicht werden kann. Durch die erfolgreiche Implementierung wurde gleichzeitig die Funktionsfähigkeit des Konzeptes gezeigt. Die Erweiterung wurde dabei so umgesetzt, dass die gewonnene Flexibilität von Xcelsius in vollem Umfang genutzt werden kann. Neben der bestehenden Oberfläche des SAP LRM ist somit eine neue Möglichkeit zum Konsumieren der Daten hinzugekommen.
+Neben der Entwicklung des Konzeptes wurde im Rahmen der Bachelorarbeit die Umsetzung für \gls{xcelsius} durchgeführt. Das Ergebnis der Umsetzung ist eine Erweiterung, mit der die Einbindung von Daten, die auf der Berechnungskomponente basieren, erreicht werden kann. Durch die erfolgreiche Implementierung wurde gleichzeitig die Funktionsfähigkeit des Konzeptes gezeigt. Die Erweiterung wurde dabei so umgesetzt, dass die gewonnene Flexibilität von \gls{xcelsius} in vollem Umfang genutzt werden kann. Neben der bestehenden Oberfläche des SAP LRM ist somit eine neue Möglichkeit zum Konsumieren der Daten hinzugekommen.
 
-Mit der Erweiterung besteht erstmalig die Möglichkeit, das Liquiditätsrisikomanagement bei Banken in die Gesamtbanksteuerung einzubinden. Bestehende Dashboards von Xcelsius können mit Informationen über die Liquiditätssituation der Bank erweitert werden. Das erleichtert die Sicherstellung der Einhaltung von regulatorischen Vorschriften, wie zum Beispiel dem \gls{lcr} oder dem \gls{nsfr} im Rahmen von Basel III.
+Mit der Erweiterung besteht erstmalig die Möglichkeit, das Liquiditätsrisikomanagement bei Banken in die Gesamtbanksteuerung einzubinden. Bestehende Dashboards von \gls{xcelsius} können mit Informationen über die Liquiditätssituation der Bank erweitert werden. Das erleichtert die Sicherstellung der Einhaltung von regulatorischen Vorschriften, wie zum Beispiel dem \gls{lcr} oder dem \gls{nsfr} im Rahmen von Basel III.
 
-Basierend auf den Erkenntnissen dieser Arbeit bietet sich eine Umsetzung des Konzeptes für weitere Plattformen an. Eine Möglichkeit stellt dabei Panopticon, eine Anwendung zur Analyse von Echtzeitdaten, dar.\footnote{Panopticon - http://www.panopticon.com/} Bezüglich der Anbindung von Xcelsius ist durch die dargestellte Sandbox-Limitierung und der daraus resultierenden Cross-Domain-Request Problematik Bedarf für Weiterentwicklungen gegeben. Weiterhin muss die Erweiterung stets an die Veränderungen durch die Weiterentwicklung des SAP LRM angepasst werden.
+Basierend auf den Erkenntnissen dieser Arbeit bietet sich eine Umsetzung des Konzeptes für weitere Plattformen an. Eine Möglichkeit stellt dabei Panopticon, eine Anwendung zur Analyse von Echtzeitdaten, dar.\footnote{Panopticon - http://www.panopticon.com/} Bezüglich der Anbindung von \gls{xcelsius} ist durch die dargestellte Sandbox-Limitierung und der daraus resultierenden Cross-Domain-Request Problematik Bedarf für Weiterentwicklungen gegeben. Weiterhin muss die Erweiterung stets an die Veränderungen durch die Weiterentwicklung des SAP LRM angepasst werden.
 
-Zusammengefasst lässt sich sagen, dass die Anbindung von weiteren Anwendungen viele neue Möglichkeiten für das Liquiditätsrisikomanagement bei Banken bietet. Die Implementierung für Xcelsius stellt eine lauffähige Version dar, bietet aber für die Zukunft noch Möglichkeiten für Weiterentwicklungen.
+Zusammengefasst lässt sich sagen, dass die Anbindung von weiteren Anwendungen viele neue Möglichkeiten für das Liquiditätsrisikomanagement bei Banken bietet. Die Implementierung für \gls{xcelsius} stellt eine lauffähige Version dar, bietet aber für die Zukunft noch Möglichkeiten für Weiterentwicklungen.
 
 %	Ergebnisse der Arbeit wiedergeben
 
