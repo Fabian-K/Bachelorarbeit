@@ -121,9 +121,9 @@ sperrvermerk=nein
 \begin{onehalfspacing}
 Nicht zuletzt seit dem Zusammenbruch des US-Immobilienmarktes und der darauf folgenden weltweiten Finanzkrise hat die Behandlung von Liquiditätsrisiken sowohl in der internen Wahrnehmung von Banken als auch der öffentlichen Aufmerksamkeit stark zugenommen. Weiterhin erfordern regulatorische Vorschriften wie zum Beispiel die Mindestliquiditätsquote (Liquidity Coverage Ratio, LCR) im Rahmen von Basel III eine genaue und stetige Überwachung der Liquiditätssituation einer Bank.
 
-Mit dem SAP Liquidity Risk Management (SAP LRM) befindet sich bei der SAP AG eine solche Lösung in Entwicklung. Die Liquiditätssituation kann dabei auf Basis von einzelnen Zahlungsströmen ermittelt und mit Hilfe von Simulationen genauer analysiert werden. Dazu wird eine eigens dafür entwickelte Berechnungskomponente eingesetzt. Die Ergebnisse dieser Komponente können allerdings nur stark eingeschränkt visualisiert werden. Eine weitere Verarbeitung in anderen Anwendungen ist nicht möglich.
+Mit dem \gls{saplrm} befindet sich bei der SAP AG eine solche Lösung in Entwicklung. Die Liquiditätssituation kann dabei auf Basis von einzelnen Zahlungsströmen ermittelt und mit Hilfe von Simulationen genauer analysiert werden. Dazu wird eine eigens dafür entwickelte Berechnungskomponente eingesetzt. Die Ergebnisse dieser Komponente können allerdings nur stark eingeschränkt visualisiert werden. Eine weitere Verarbeitung in anderen Anwendungen ist nicht möglich.
 
-Im Rahmen dieser Bachelorarbeit wird ein Konzept entwickelt, mit dem weitere Anwendungen die Ergebnisse der Berechnungskomponente einbinden und weiterverarbeiten können. Das Konzept beruht dabei auf der Konsumierung und anschließenden Orchestrierung von Webservices. Des Weiteren wird dieses Konzept für BusinessObjects Xcelsius, eine Anwendung zur Erstellung von interaktiven Dashboards, in Form eines Plugins umgesetzt. Dadurch wird zum einen die Funktionsfähigkeit des Konzeptes sichergestellt. Mit dem Plugin ist zudem eine flexiblere Nutzung des SAP LRM bezüglich der Auswertung und Weiterverarbeitung möglich.
+Im Rahmen dieser Bachelorarbeit wird ein Konzept entwickelt, mit dem weitere Anwendungen die Ergebnisse der Berechnungskomponente einbinden und weiterverarbeiten können. Das Konzept beruht dabei auf der Konsumierung und anschließenden Orchestrierung von Webservices. Des Weiteren wird dieses Konzept für BusinessObjects Xcelsius, eine Anwendung zur Erstellung von interaktiven Dashboards, in Form eines Plugins umgesetzt. Dadurch wird zum einen die Funktionsfähigkeit des Konzeptes sichergestellt. Mit dem Plugin ist zudem eine flexiblere Nutzung des \gls{saplrm} bezüglich der Auswertung und Weiterverarbeitung möglich.
 
 \end{onehalfspacing}
 \newpage
@@ -163,19 +163,16 @@ gliederungsebenen=4
 \chapter{Einleitung}
 \pagenumbering{arabic}
 
-
-\gls{saplrm}
-
 % Einleitung	//	Vorstellung des Themas	//	- in größeren Zusammenhang stellen
 Die Problematik des Liquiditätsrisikos hat in letzter Zeit sowohl intern bei Banken, als auch in der öffentlichen Wahrnehmung an Bedeutung gewonnen. Dafür verantwortlich sind nicht zuletzt die Finanzmarktkrise aus dem Jahr 2007 mit dem Zusammenbruch der Lehman Brothers Bank. Als Folge dieser Entwicklung steigen zum einen die rechtlichen Anforderungen an Banken bezüglich ihrer Liquidität und zum anderen die Notwendigkeit für ein explizites Liquiditätsrisikomanagement. 
 
 % Ziel der Arbeit	//	- was soll erreicht werden?	//	- was soll bewiesen werden?
-Die SAP AG entwickelt mit dem SAP LRM eine softwaregestütze Lösung für diese Problemstellung. In dem aktuellen Entwicklungsstand ist die Auswertung und Darstellung der im SAP LRM gewonnenen Erkenntnisse nur in begrenzten Umfang möglich. Im Rahmen dieser Bachelorarbeit soll ein Konzept entwickelt werden, mit dem weitere Anwendungen zur Auswertung und Weiterverarbeitung der Ergebnisse des SAP LRM verwendet werden können. Über diese Schnittstelle ergibt sich dadurch eine höhere Flexibilität für den Einsatz des SAP LRM. Ein weiteres Ziel ist die konkrete Umsetzung und Implementierung des Konzeptes für eine Anwendung.
+Die SAP AG entwickelt mit dem \gls{saplrm} eine softwaregestütze Lösung für diese Problemstellung. In dem aktuellen Entwicklungsstand ist die Auswertung und Darstellung der im \gls{saplrm} gewonnenen Erkenntnisse nur in begrenzten Umfang möglich. Im Rahmen dieser Bachelorarbeit soll ein Konzept entwickelt werden, mit dem weitere Anwendungen zur Auswertung und Weiterverarbeitung der Ergebnisse des \gls{saplrm} verwendet werden können. Über diese Schnittstelle ergibt sich dadurch eine höhere Flexibilität für den Einsatz des \gls{saplrm}. Ein weiteres Ziel ist die konkrete Umsetzung und Implementierung des Konzeptes für eine Anwendung.
 
 %Überblick über Aufbau der Arbet	//	- welche Schritte werden warum durchgeführt?
 Der Aufbau der Arbeit orientiert sich dabei hauptsächlich an dem Entwicklungsprozess von Software. Sie gliedert sich in sechs Hauptkapitel. In dem ersten Kapitel wird der Themenbereich des Liquiditätsrisikomanagements aus betriebswirtschaftlicher Sicht betrachtet.
 
-In dem darauf folgenden Kapitel wird das SAP LRM und \gls{xcelsius} vorgestellt. Bei \gls{xcelsius} handelt es sich um eine Anwendung zur Erstellung von interaktiven Dashboards. Für beide wird sowohl auf die Funktionen, als auch auf die Architektur eingegangen.
+In dem darauf folgenden Kapitel wird das \gls{saplrm} und \gls{xcelsius} vorgestellt. Bei \gls{xcelsius} handelt es sich um eine Anwendung zur Erstellung von interaktiven Dashboards. Für beide wird sowohl auf die Funktionen, als auch auf die Architektur eingegangen.
 Im Anschluss darauf wird das Konzept der Zwischenschicht in Form einer Spezifikation entwickelt. Dabei werden nach einer Bestimmung der Ausgangs- und der Zielsituation konkrete Anforderungen an die Zwischenschicht aufgestellt. Genauer wird hier die gewünschte Interaktion mit der Zwischenschicht erläutert.
 
 Nach der Entwicklung des Konzeptes behandeln die folgenden Kapitel die konkrete Umsetzung der Schnittstelle für \gls{xcelsius}. Zunächst werden in einem weiteren Kapitel zwei in Frage kommende Umsetzungsmöglichkeiten evaluiert. Dabei werden eventuelle Probleme aufgezeigt und schließlich in einer Gegenüberstellung die Umsetzungsmöglichkeit für das weitere Vorgehen festgelegt.
@@ -251,16 +248,16 @@ Neben der \gls{glos:lcr} existiert mit der \gls{glos:nsfr} eine weitere wichtige
 \section{Zusammenfassung}
 In diesem Kapitel wurde die Motivation für die gesonderte Behandlung des Liquiditätsrisikos insbesondere von Banken dargelegt. Außerdem wurde ein Überblick über die betriebswirtschaftliche Sicht der Liquidität und des Liquiditätsrisikos gegeben. Ausgehend davon ergibt sich die Motivation für die Erstellung von softwaregestützten Lösungen für das Liquiditätsrisikomanagement und schließlich auch die Motivation für die Entwicklung der Zwischenschicht.
 
-\chapter{SAP LRM und BusinessObjects Xcelsius}
+\chapter{\gls{saplrm} und BusinessObjects Xcelsius}
 \section{Einleitung}
-Im Rahmen der Entwicklung einer Zwischenschicht für den Anschluss der Berechnungskomponente des SAP LRM stehen zwei Anwendungen im Mittelpunkt. Dabei handelt es sich zum einen um das SAP LRM selbst, zum anderen um \gls{xcelsius}, welches ein mögliche Anwendung für den beschriebenen Anschluss ist. Deswegen soll dieses Kapitel einen Überblick über beide Anwendungen bieten. Dabei werden jeweils die Funktionen und die Architektur der Anwendungen näher beschrieben. Im Bereich des SAP LRM wird besonders auf die Berechnungskomponente näher eingegangen.
+Im Rahmen der Entwicklung einer Zwischenschicht für den Anschluss der Berechnungskomponente des \gls{saplrm} stehen zwei Anwendungen im Mittelpunkt. Dabei handelt es sich zum einen um das \gls{saplrm} selbst, zum anderen um \gls{xcelsius}, welches ein mögliche Anwendung für den beschriebenen Anschluss ist. Deswegen soll dieses Kapitel einen Überblick über beide Anwendungen bieten. Dabei werden jeweils die Funktionen und die Architektur der Anwendungen näher beschrieben. Im Bereich des \gls{saplrm} wird besonders auf die Berechnungskomponente näher eingegangen.
 
-\section{SAP LRM}
+\section{\gls{saplrm}}
 
 \subsection{Funktionen}
-Das SAP LRM ist eine Anwendung für Banken, um Liquiditätsrisiken managen zu können. Es unterstützt den kompletten Risikomanagementprozess von der Identifikation der Risiken, der genaueren Analyse eines Risikos über die Findung von Maßnahmen zur Behandlung des Risikos bis zur Berichtserstellung und Überwachung. Der Schwerpunkt liegt dabei besonders auf dem letzten Teil, der Berichtserstellung und Überwachung. Neben einer Weboberfläche wird der Zugriff auf die Informationen des SAP LRM auch über mobile Endgeräte, wie zum Beispiel dem Apple iPad, durch die Bereitstellung von entsprechenden Applikationen ermöglicht.\seFootcite{vgl.}{S.10 und S.23}{LRM-PPT.12}
+Das \gls{saplrm} ist eine Anwendung für Banken, um Liquiditätsrisiken managen zu können. Es unterstützt den kompletten Risikomanagementprozess von der Identifikation der Risiken, der genaueren Analyse eines Risikos über die Findung von Maßnahmen zur Behandlung des Risikos bis zur Berichtserstellung und Überwachung. Der Schwerpunkt liegt dabei besonders auf dem letzten Teil, der Berichtserstellung und Überwachung. Neben einer Weboberfläche wird der Zugriff auf die Informationen des \gls{saplrm} auch über mobile Endgeräte, wie zum Beispiel dem Apple iPad, durch die Bereitstellung von entsprechenden Applikationen ermöglicht.\seFootcite{vgl.}{S.10 und S.23}{LRM-PPT.12}
 
-Durch den Einsatz der LRM Lösung können Banken rechtliche Anforderungen, wie zum Beispiel die Einhaltung der \gls{glos:lcr} und der \gls{glos:nsfr} im Rahmen von Basel III sicherstellen. Zusätzlich können durch die Bereitstellung einer Berechnungskomponente eigene Kennzahlen zur Steuerung und Überwachung der Bank definiert und umgesetzt werden. Durch den Einsatz von SAP HANA ist es möglich, eine zahlungsstromorientierte Herangehensweise trotz der großen Datenmengen zu ermöglichen und gleichzeitig in Echtzeit mit den Daten zu arbeiten. Die Echtzeitanforderung ist in diesem Kontext auf eine Reaktionszeit von einer Sekunde festgelegt. Im Bereich des Liquiditätsrisikomanagement müssen mehrere Geschäftsbereiche involviert werden. Deshalb bietet das SAP LRM kollaborative Möglichkeiten um dies zu unterstützen.\seFootcite{vgl.}{S.9 und S.17f}{LRM-PPT.12}
+Durch den Einsatz der \gls{saplrm} Lösung können Banken rechtliche Anforderungen, wie zum Beispiel die Einhaltung der \gls{glos:lcr} und der \gls{glos:nsfr} im Rahmen von Basel III sicherstellen. Zusätzlich können durch die Bereitstellung einer Berechnungskomponente eigene Kennzahlen zur Steuerung und Überwachung der Bank definiert und umgesetzt werden. Durch den Einsatz von SAP HANA ist es möglich, eine zahlungsstromorientierte Herangehensweise trotz der großen Datenmengen zu ermöglichen und gleichzeitig in Echtzeit mit den Daten zu arbeiten. Die Echtzeitanforderung ist in diesem Kontext auf eine Reaktionszeit von einer Sekunde festgelegt. Im Bereich des Liquiditätsrisikomanagement müssen mehrere Geschäftsbereiche involviert werden. Deshalb bietet das \gls{saplrm} kollaborative Möglichkeiten um dies zu unterstützen.\seFootcite{vgl.}{S.9 und S.17f}{LRM-PPT.12}
 
 Als Datenquelle für die Zahlungsströme werden neben SAP-Systemen, meist ein \gls{erp}-System, auch nicht-SAP-Systeme unterstützt. Somit kann sichergestellt werden, dass Analysen auf einer vollständigen Datenbasis durchgeführt werden. Für die Analysen können verschiedene Szenarien simuliert werden. Bei jedem Szenario werden dabei Annahmen über die zukünftige finanzielle Entwicklung getroffen. Meist handelt es sich dabei um die Herauf- oder Herabstufung der Kreditwürdigkeit von Kunden, die Entwicklung von Aktienkursen, das Verhalten der Marktteilnehmer oder Währungskursschwankungen. Durch diesen Spielraum ist es möglich, ein genaues Bild über die Liquiditätsrisiken der Bank zu erhalten.\seFootcite{vgl.}{S.18 und S.45}{LRM-PPT.12}
 
@@ -268,7 +265,7 @@ Als Datenquelle für die Zahlungsströme werden neben SAP-Systemen, meist ein \g
 \subsection{Architektur}
 
 \subsubsection{Next Generation ABAP Plattform}
-Die \gls{ngap} stellt die technologische Grundlage für das SAP LRM dar. Sie ist eine Plattform für in \gls{glo:abap} geschriebene Unternehmensanwendungen und soll eine moderne Alternative zu dem \gls{NetWeaver} bieten. Dieser stellte bisher die Grundlage für fast alle Anwendungen der SAP dar. Entscheidende Merkmale ist die Nutzung von SAP HANA im \gls{glo:abap}-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse\footnote{Eclipse - http://www.eclipse.org/} basierenden Entwicklungsumgebung und die vereinfachte Bereitstellung von \gls{glos:rest}-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
+Die \gls{ngap} stellt die technologische Grundlage für das \gls{saplrm} dar. Sie ist eine Plattform für in \gls{glo:abap} geschriebene Unternehmensanwendungen und soll eine moderne Alternative zu dem \gls{NetWeaver} bieten. Dieser stellte bisher die Grundlage für fast alle Anwendungen der SAP dar. Entscheidende Merkmale ist die Nutzung von SAP HANA im \gls{glo:abap}-Umfeld, eine Verschlankung des gesamten Technologiestacks, die Einführung einer auf Eclipse\footnote{Eclipse - http://www.eclipse.org/} basierenden Entwicklungsumgebung und die vereinfachte Bereitstellung von \gls{glos:rest}-basierenden Webservices.\seFootcite{vgl.}{S.1f}{NGAP-FS}
 
 Der \gls{NetWeaver} hat sich als ausgereifte und verlässliche Plattform erweisen, die sowohl einen Java- als auch einen \gls{glo:abap} Stack besitzt und in Verbindung mit vielen Betriebssystemen und Datenbanken genutzt werden kann. Durch die Unterstützung der beiden Programmiersprachen, der Betriebssysteme und der verschiedenen Datenbanken ist das Thema Kompatibilität bei der Weiterentwicklung ein entscheidendes Merkmal. Dadurch wird die Komplexität von Erweiterungen deutlich erhöht und durch die lange Entwicklungszeit des \gls{NetWeaver} sind Codeteile bis zu 20 Jahre alt.\footnote{\seCite{vgl.}{}{NGAP-V2} \seCite{und}{S.1}{NGAP-FS}}
 
@@ -297,7 +294,7 @@ Veränderungen in einem Datensatz einer Tabelle können auf Wunsch nicht in dem 
 Zu den genannten Veränderungen wird in Anwendungen, die auf Basis von SAP HANA entwickelt werden, versucht, ein Teil der Anwendungslogik schon auf der Datenbank selbst zu berechnen.\seFootcite{vgl.}{S.155f}{PZ.11} Erreicht wird dies durch die Erweiterung der Abfragesprache \gls{sql} zu \gls{glos:sqlscript}. Mit \gls{glos:sqlscript} ist es unter anderem durch das Hinzufügen von Datentypen, Prozeduren und Operationen möglich, Anwendungslogik abzubilden. Diese Berechnungen können von der Datenbank durch Parallelisierung sehr schnell durchgeführt werden.\seFootcite{vgl.}{S.9f}{SQLScript.11} Als Resultat kann die Datenübertragung zwischen dem \gls{dbms} und der Anwendung verringert werden. Es muss nur noch das Ergebnis und nicht die Datensätze, auf denen das Ergebnis basiert, übertragen werden. Zusätzlich wird die Komplexität der Anwendung verringert, da ein Teil der Logik von dem \gls{dbms} übernommen wird.
 
 \subsubsection{Oberon}
-Als Oberflächentechnologie wird für das SAP LRM das Oberon Framework genutzt. Es wurde ursprünglich als Oberfläche für \gls{glos:bydesign} entwickelt und wird jetzt auch für weitere Anwendungen unter anderem für Anwendungen, die auf SAP HANA und \gls{ngap} basieren, verwendet.\seFootcite{vgl.}{}{Oberon-A} Ein Beispiel eines mit dem Oberon Framework umgesetzte Oberfläche ist in \vref{fig:oberon} zu sehen.
+Als Oberflächentechnologie wird für das \gls{saplrm} das Oberon Framework genutzt. Es wurde ursprünglich als Oberfläche für \gls{glos:bydesign} entwickelt und wird jetzt auch für weitere Anwendungen unter anderem für Anwendungen, die auf SAP HANA und \gls{ngap} basieren, verwendet.\seFootcite{vgl.}{}{Oberon-A} Ein Beispiel eines mit dem Oberon Framework umgesetzte Oberfläche ist in \vref{fig:oberon} zu sehen.
 
 \begin{figure}[!ht]
 \centering
@@ -312,7 +309,7 @@ Das Oberon Framework ist als Standardframework ausgelegt und versucht, möglichs
 
 \subsection{Berechnungskomponente}
 \label{sec:berechnungskomponente}
-Die Berechnungskomponente stellt den wichtigsten Teil des SAP LRM dar. Mit ihr werden alle Berechnungen im Umfeld des Liquiditätsrisikomanagements zentral durchgeführt. Die Berechnung findet auf Basis von Liquiditätsgruppen statt. Mit Hilfe von Liquiditätsgruppen werden sowohl aggregierter Zahlungsströme als auch Kennzahlen einheitlich berechnet. Liquiditätsgruppen können in Polyhierarchien angeordnet werden. Dabei handelt es sich um eine Hierarchie, bei der ein Element mehrere übergeordnete Elemente haben kann. Dadurch können Berechnungen modular aufgebaut, wiederverwendet und einfach nachvollzogen werden. Das Abbilden von komplexen Berechnungsvorschriften wird erleichtert.\seFootcite{vgl.}{S.38}{LRM-PPT.12} Eine Hierarchie ist in \vref{fig:liquigruppe_hierarchie} zu sehen.
+Die Berechnungskomponente stellt den wichtigsten Teil des \gls{saplrm} dar. Mit ihr werden alle Berechnungen im Umfeld des Liquiditätsrisikomanagements zentral durchgeführt. Die Berechnung findet auf Basis von Liquiditätsgruppen statt. Mit Hilfe von Liquiditätsgruppen werden sowohl aggregierter Zahlungsströme als auch Kennzahlen einheitlich berechnet. Liquiditätsgruppen können in Polyhierarchien angeordnet werden. Dabei handelt es sich um eine Hierarchie, bei der ein Element mehrere übergeordnete Elemente haben kann. Dadurch können Berechnungen modular aufgebaut, wiederverwendet und einfach nachvollzogen werden. Das Abbilden von komplexen Berechnungsvorschriften wird erleichtert.\seFootcite{vgl.}{S.38}{LRM-PPT.12} Eine Hierarchie ist in \vref{fig:liquigruppe_hierarchie} zu sehen.
 
 \begin{figure}[!ht]
 \centering
@@ -419,7 +416,7 @@ Entscheidend für diese Bachelorarbeit ist die Datenverbindung. Dabei handelt es
 Das Ergebnis der Entwicklung ist dann eine .swf-Datei. Sie besteht aus einer einfache Oberfläche für die Konfiguration und in \gls{glos:actionscript} geschriebene Klassen, in denen die Logik umgesetzt ist. Die Datei wird, in Verbindung mit Informationen zu der Komponente, wie zum Beispiel Name, Version, Typ und Entwickler, mit dem \gls{xcelsius} \gls{glos:sdk} zu einem \gls{xcelsius} Plugin zusammengefügt. Das Resultat kann dann in \gls{xcelsius} importiert und die Komponenten so genutzt werden.\footnote{\seCite{vgl.}{S.283f}{Egg.09} \seCite{und}{S.6}{Xcelsius-SDK.08}}
 
 \section{Zusammenfassung}
-In diesem Kapitel wurde ein Einblick in zwei zentrale Anwendungen der Bachelorarbeit gegeben -- dem SAP LRM und \gls{xcelsius}. Wichtig für den weiteren Verlauf der Bachelorarbeit ist zum Einen die Berechnungskomponente des SAP LRM, da diese als Ergebnis dieser Bachelorarbeit in weiteren Anwendungen genutzt werden soll. Zum anderen wurde \gls{xcelsius} im Hinblick auf das Bedienungskonzept und der Erweiterbarkeit genauer untersucht. Die guten Erweiterungsmöglichkeiten und das offene Bedienkonzept spielen für den weiteren Verlauf eine entscheidende Rolle.
+In diesem Kapitel wurde ein Einblick in zwei zentrale Anwendungen der Bachelorarbeit gegeben -- dem \gls{saplrm} und \gls{xcelsius}. Wichtig für den weiteren Verlauf der Bachelorarbeit ist zum Einen die Berechnungskomponente des \gls{saplrm}, da diese als Ergebnis dieser Bachelorarbeit in weiteren Anwendungen genutzt werden soll. Zum anderen wurde \gls{xcelsius} im Hinblick auf das Bedienungskonzept und der Erweiterbarkeit genauer untersucht. Die guten Erweiterungsmöglichkeiten und das offene Bedienkonzept spielen für den weiteren Verlauf eine entscheidende Rolle.
 
 \chapter{Spezifikation der Zwischenschicht}
 \label{sec:spezifikation}
@@ -428,7 +425,7 @@ In diesem Kapitel wurde ein Einblick in zwei zentrale Anwendungen der Bachelorar
 In diesem Kapitel wird die Spezifikation der Erweiterung durchgeführt. Dazu wird in einem ersten Schritt die Ausgangssituation dargestellt und auf Verbesserungspotential untersucht. Anschließend wird die angestrebte Zielsituation skizziert. Ausgehend von der Zielsituation werden dann in einem weitern Schritt die dafür notwendigen Anforderungen festgelegt. Diese dienen später zur Evaluation des Ergebnis. Schließlich werden noch die wichtigsten Anwendungsfälle näher beschrieben, um so eine genauere Vorstellung von der Erweiterung zu erhalten.
 
 \section{Ausgangssituation}
-In dem derzeitigen Stand des SAP LRM gibt es für die Analyse der aktuellen Liquiditätssituation einer Bank zwei Einstiegsmöglichkeiten. Es existiert die Kennzahlenanalyse und die Finanzierungsmatrix. Diese unterschieden sich in ihrer Nutzung.
+In dem derzeitigen Stand des \gls{saplrm} gibt es für die Analyse der aktuellen Liquiditätssituation einer Bank zwei Einstiegsmöglichkeiten. Es existiert die Kennzahlenanalyse und die Finanzierungsmatrix. Diese unterschieden sich in ihrer Nutzung.
 
 Der Zweck der Kennzahlenanalyse ist die Darstellung von Kennzahlen, die nach einer festen Vorschrift berechnet werden können. Neben internen Kennzahlen, die eine Bank für sich selbst definiert hat, sind hier vor allem offizielle Kennzahlen von Bedeutung. Dazu gehören zum Beispiel im Rahmen von Basel III der \gls{glos:lcr} und der \gls{glos:nsfr}. Somit kann die Kennzahlenanalyse genutzt werden, um offizielle regulatorische Vorschriften zu überwachen. Die Darstellung der Kennzahlen ist ausschließlich in tabellarischer Form möglich. Ein Beispiel zeigt \vref{fig:lrm_istzustand_keyfigureanalysis}.
 
@@ -436,7 +433,7 @@ Der Zweck der Kennzahlenanalyse ist die Darstellung von Kennzahlen, die nach ein
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/KeyFigureAnalysis_Example.png}
-\caption{Darstellung der Kennzahlenanalyse im SAP LRM\label{fig:lrm_istzustand_keyfigureanalysis}}
+\caption{Darstellung der Kennzahlenanalyse im \gls{saplrm}\label{fig:lrm_istzustand_keyfigureanalysis}}
 \end{figure}
 
 Neben der Kennzahlenanalyse existiert die Finanzierungsmatrix. Hier sollen nicht feste Kennzahlen dargestellt werden. Vielmehr wird  die Möglichkeit geboten, die Liquiditätssituation der Bank frei zu analysieren. Sowohl die Finanzierungsmatrix, als auch die Kennzahlenanalyse, nutzen für die Berechnung der Werte die Berechnungskomponente. Bei der Finanzierungsmatrix hat der Nutzer die Möglichkeit, die Selektionskriterien in Form der nötigen Parameter für den Aufruf der Berechnungskomponente zur Laufzeit festlegen. Die Darstellung ist hier auf ein Liniendiagramm festgelegt. \vref{fig:lrm_istzustand_fundingmatrix} zeigt die Finanzierungsmatrix.
@@ -445,7 +442,7 @@ Neben der Kennzahlenanalyse existiert die Finanzierungsmatrix. Hier sollen nicht
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/Funding_Matrix_Example.png}
-\caption{Darstellung der Finanzierungsmatrix im SAP LRM\label{fig:lrm_istzustand_fundingmatrix}}
+\caption{Darstellung der Finanzierungsmatrix im \gls{saplrm}\label{fig:lrm_istzustand_fundingmatrix}}
 \end{figure} 
 
 Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit besteht, die Ergebnisse der Berechnungen in irgendeiner Form in anderen Auswertungen, zum Beispiel Auswertungen, die die gesamte Situation der Bank beschrieben, einzubinden. Des Weiteren besteht bei der Darstellung der Ergebnisse keine Formatierungsmöglichkeit. Somit sind zum Beispiel Farbe, Form und Größe des Diagramms fest vorgegeben und nicht durch den Nutzer änderbar.
@@ -453,13 +450,13 @@ Allgemein ist festzustellen, dass in der aktuellen Version keine Möglichkeit be
 \section{Zielsetzung}
 \label{sec:zielsetzung}
 
-Im Rahmen dieser Bachelorarbeit sollen einige Limitierungen, die in der aktuellen Version des SAP LRM vorhanden sind, aufgehoben werden. Hier ist vor allem die Bereitstellung von weiteren Alternativen zu nennen. Neben der Sicht auf die Liquiditätssituation der Bank durch die beiden Einstiegspunkte Kennzahlenanalyse und der Finanzierungsmatrix im SAP LRM soll diese Auswertung mit Hilfe von weiteren Anwendungen durchgeführt werden können.
+Im Rahmen dieser Bachelorarbeit sollen einige Limitierungen, die in der aktuellen Version des \gls{saplrm} vorhanden sind, aufgehoben werden. Hier ist vor allem die Bereitstellung von weiteren Alternativen zu nennen. Neben der Sicht auf die Liquiditätssituation der Bank durch die beiden Einstiegspunkte Kennzahlenanalyse und der Finanzierungsmatrix im \gls{saplrm} soll diese Auswertung mit Hilfe von weiteren Anwendungen durchgeführt werden können.
 
 Durch die Anbindung von weiteren Anwendungen bietet sich die Möglichkeit, die  Liquiditätssteuerung in die Gesamtsteuerung der Bank einzubinden. Ein Ziel ist es, in einen Bericht, der Daten zu der allgemeinen Situation der Bank anzeigt, auch Informationen über das Liquiditätsrisikomanagement aufzunehmen. Dadurch kann die Situation der Bank gesamtheitlich erfasst werden und Entscheidungen unter der Berücksichtigung von weiteren Informationen getroffen werden.
 
-Simultan dazu können durch eine Anbindung des SAP LRM an weitere Anwendungen die jeweiligen Vorteile der angebundenen Anwendung ausgenutzt werden. Hier ist zum Beispiel die Flexibilität in der Darstellung der Daten zu nennen. Wenn die Anwendung weitere grafische Visualisierungsmöglichkeiten bietet, können diese auf die Daten des SAP LRM angewendet werde.
+Simultan dazu können durch eine Anbindung des \gls{saplrm} an weitere Anwendungen die jeweiligen Vorteile der angebundenen Anwendung ausgenutzt werden. Hier ist zum Beispiel die Flexibilität in der Darstellung der Daten zu nennen. Wenn die Anwendung weitere grafische Visualisierungsmöglichkeiten bietet, können diese auf die Daten des \gls{saplrm} angewendet werde.
 
-Insgesamt soll die Anbindung des SAP LRM mit möglichst wenig erforderlichen Einstellungen konfigurierbar sein. Gleichzeitig ist es erstrebenswert, dass das Konzept der Anbindung und die Implementierung, die im Rahmen der Bachelorarbeit entwickelt wird, in der grundsätzlichen Idee und Architektur auch auf weitere Anwendungen übertragen werden kann.
+Insgesamt soll die Anbindung des \gls{saplrm} mit möglichst wenig erforderlichen Einstellungen konfigurierbar sein. Gleichzeitig ist es erstrebenswert, dass das Konzept der Anbindung und die Implementierung, die im Rahmen der Bachelorarbeit entwickelt wird, in der grundsätzlichen Idee und Architektur auch auf weitere Anwendungen übertragen werden kann.
 
 \section{Anforderungen}
 \label{sec:anforderungen}
@@ -470,10 +467,10 @@ Bei den funktionalen Anforderungen existieren die zwei Folgenden Hauptanforderun
 \begin{seToplist}{ XXXXX }
 
 \item[\anfl{kpi}] \textbf{Einbindung von Kennzahlen} \newline
-Die Erweiterung soll es ermöglichen, dass Kennzahlen, die im SAP LRM  mit Hilfe der Berechnungskomponente ermittelt werden und im Bereich der Kennzahlenanalyse zur Verfügung stehen, in weitere Anwendungen integriert werden und dort weiterverarbeitet werden können.
+Die Erweiterung soll es ermöglichen, dass Kennzahlen, die im \gls{saplrm}  mit Hilfe der Berechnungskomponente ermittelt werden und im Bereich der Kennzahlenanalyse zur Verfügung stehen, in weitere Anwendungen integriert werden und dort weiterverarbeitet werden können.
 
 \item[\anfl{fundingMatrix}] \textbf{Freie Analyse der Liquiditätssituation} \newline
-Mit der Erweiterung soll die Einbindung der Ergebnisse von beliebigen Liquiditätsgruppen ermöglicht werden. Die Liquiditätsgruppen sollen in Anlehnung an die Finanzierungsmatrix im SAP LRM eingestellt werden und auf der Berechnungskomponente basieren. Neben den erforderlichen Parametern, wie zum Beispiel dem genutzte Laufzeitband und der Zielwährung sollen weitere Einschränkungsmöglichkeiten geboten werden, welche die Berechnungskomponente unterstützt.
+Mit der Erweiterung soll die Einbindung der Ergebnisse von beliebigen Liquiditätsgruppen ermöglicht werden. Die Liquiditätsgruppen sollen in Anlehnung an die Finanzierungsmatrix im \gls{saplrm} eingestellt werden und auf der Berechnungskomponente basieren. Neben den erforderlichen Parametern, wie zum Beispiel dem genutzte Laufzeitband und der Zielwährung sollen weitere Einschränkungsmöglichkeiten geboten werden, welche die Berechnungskomponente unterstützt.
 
 \end{seToplist}
 
@@ -484,22 +481,22 @@ Neben den funktionalen Anforderungen wurden auch nicht-funktionale Anforderungen
 \begin{seToplist}{ XXXXX }
 
 \item[\anfl{uebertragbarkeit}] \textbf{Übertragbarkeit} \newline
-Im Rahmen der Bachelorarbeit wird exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das SAP LRM implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
+Im Rahmen der Bachelorarbeit wird exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das \gls{saplrm} implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
 
 \item[\anfl{korrektheit}] \textbf{Korrektheit der Ergebnisse} \newline
-Die Daten, die mit Hilfe der Erweiterung in zusätzlichen Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des SAP LRM übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
+Die Daten, die mit Hilfe der Erweiterung in zusätzlichen Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des \gls{saplrm} übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
 
 \item[\anfl{erweiterbarkeit}] \textbf{Erweiterbarkeit} \newline
-Das SAP LRM befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die in einer Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand auch auf die Erweiterung übertragen werden können.
+Das \gls{saplrm} befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die in einer Weiterentwicklungen des \gls{saplrm} eingeführt werden, sollen mit möglichst geringem Aufwand auch auf die Erweiterung übertragen werden können.
 
 \item[\anfl{wartbarkeit}] \textbf{Wartbarkeit} \newline
 Um die Folgekosten der Erweiterung, zum Beispiel im Hinblick auf die Beseitigung von Fehlern, möglichst gering zu halten, soll eine gute Wartbarkeit von Anfang an bei der Entwicklung beachtet werden.
 
 \item[\anfl{sicherheit}] \textbf{Sicherheitsanforderungen} \newline
-Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Es handelt sich dabei um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
+Die Erweiterungen wird Zugang zu den Daten des \gls{saplrm} bieten. Es handelt sich dabei um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
 
 \item[\anfl{leistung}] \textbf{Leistung} \newline
-Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von SAP HANA ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von SAP HANA auch in anderen Anwendungen verfügbar machen.
+Ein wichtiges Unterscheidungsmerkmal des \gls{saplrm} durch die Nutzung von SAP HANA ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von SAP HANA auch in anderen Anwendungen verfügbar machen.
 
 \end{seToplist}
 
@@ -511,7 +508,7 @@ Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsf�
 \useCase{1: Liquiditätskennzahl einsehen}{ \label{useCase:1}
 
 \useCaseEntry{Ziel}{Liquiditätskennzahl der Bank einsehen}
-\useCaseEntry{Vorbedingung}{Die Liquiditätskennzahl ist im SAP LRM angelegt und verfügbar}
+\useCaseEntry{Vorbedingung}{Die Liquiditätskennzahl ist im \gls{saplrm} angelegt und verfügbar}
 \useCaseEntry{Nachbedingung: Erfolg}{Die Liquiditätskennzahl kann eingesehen werden}
 \useCaseEntry{Nachbedingung: Fehlschlag}{Anzeige einer Fehlermeldung}
 \useCaseEntry{Akteure}{Controller, Manager}
@@ -521,7 +518,7 @@ Zum besseren Verständnis des Ziels der Erweiterung werden die Hauptanwendungsf�
 \begin{seToplist}{ x 1 x }
 \vspace*{-4mm}
 \useCaseItem{1}{Die einzusehende Liquiditätskennzahl wird ausgewählt}
-\useCaseItem{2}{Die Daten werden aus dem SAP LRM ermittelt}
+\useCaseItem{2}{Die Daten werden aus dem \gls{saplrm} ermittelt}
 \useCaseItem{3}{Die Daten werden der Anwendung zur Verfügung gestellt}
 \end{seToplist}
 
@@ -532,7 +529,7 @@ Der Anwendungsfall 2\usecaseRef{useCase:2} bezieht sich auf die \anfRef{anf:fund
 \useCase{2: Liquiditätssituation analysieren}{ \label{useCase:2}
 
 \useCaseEntry{Ziel}{Liquiditätssituation der Bank analysieren}
-\useCaseEntry{Vorbedingung}{Erforderliche Zahlungsströme, Liquiditätsszenarien, Liquiditätsgruppen und Laufzeitbänder sind im SAP LRM angelegt und verfügbar}
+\useCaseEntry{Vorbedingung}{Erforderliche Zahlungsströme, Liquiditätsszenarien, Liquiditätsgruppen und Laufzeitbänder sind im \gls{saplrm} angelegt und verfügbar}
 \useCaseEntry{Nachbedingung: Erfolg}{Die Liquiditätssituation kann eingesehen werden}
 \useCaseEntry{Nachbedingung: Fehlschlag}{Anzeige einer Fehlermeldung}
 \useCaseEntry{Akteure}{Controller, Manager}
@@ -545,7 +542,7 @@ Der Anwendungsfall 2\usecaseRef{useCase:2} bezieht sich auf die \anfRef{anf:fund
 \useCaseItem{2}{Die Zielwährung der Analyse wird festgelegt}
 \useCaseItem{3}{Das Liquiditätsszenario wird festgelegt}
 \useCaseItem{4}{Die zu analysierenden Liquiditätsgruppen werden festgelegt}
-\useCaseItem{5}{Die Daten werden aus dem SAP LRM ermittelt}
+\useCaseItem{5}{Die Daten werden aus dem \gls{saplrm} ermittelt}
 \useCaseItem{6}{Die Daten werden der Anwendung zur Verfügung gestellt}
 \end{seToplist}
 
@@ -568,7 +565,7 @@ In diesem Kapitel wurden die angestrebte Zielsituation, die mit der Erweiterung 
 Dieses Kapitel greift die Ergebnisse der Spezifikation auf und untersucht verschiedene Möglichkeiten der Umsetzung. Dazu werden die in Frage kommenden Alternativen genauer dargestellt und die jeweiligen Vor- und Nachteile ermittelt. Durch einen abschließenden Vergleich wird dann eine Umsetzungsmöglichkeit für das weitere Vorgehen festgelegt.
 
 \section{Rahmenbedingungen}
-Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von \gls{xcelsius} in \vref{sec:xcelsius}, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des SAP LRM zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem konkreten Beispiel von \gls{xcelsius} umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von \gls{xcelsius} an das SAP LRM. Gleichzeitig soll aber bei der Analyse und dem Entwurf die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wenn möglich weiterhin beachtet werden.
+Bis zu diesem Zeitpunkt ist die Arbeit, mit Ausnahme der Vorstellung von \gls{xcelsius} in \vref{sec:xcelsius}, allgemein gehalten. Die Spezifikation beschreibt ein allgemeines Konzept für die Einbindung von Daten des \gls{saplrm} zur weiteren Analyse. Für das weitere Vorgehen soll das Konzept an dem konkreten Beispiel von \gls{xcelsius} umgesetzt werden. Der folgende Teil behandelt demnach die konkrete Anbindung von \gls{xcelsius} an das \gls{saplrm}. Gleichzeitig soll aber bei der Analyse und dem Entwurf die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wenn möglich weiterhin beachtet werden.
 
 \section{BusinessObjects Universum}
 Eine Möglichkeit, externe Daten in \gls{xcelsius} zu integrieren, stellt BusinessObjects Universum dar. Dabei handelt es sich um eine Zwischenschicht, die zwischen dem Bereitsteller der Daten und dem Konsumenten geschaltet wird. Ein Universum ist dabei eine semantische Ebene, die es ermöglicht, Daten zu konsumieren, ohne die technischen Aspekte der Datenbank kennen zu müssen.\seFootcite{vgl.}{S.48f}{Universe.06}
@@ -576,7 +573,7 @@ Eine Möglichkeit, externe Daten in \gls{xcelsius} zu integrieren, stellt Busine
 
 Es können Daten aus relationalen \gls{dbms}, die zum Beispiel in normalisierter Form vorliegen, und aus Data-Warehouse-Systeme, die Daten zum Beispiel im Sternschema ablegen, konsumiert werden. Das Sternschema ist ein besonderes Datenmodell, welches besonders für Leseoperationen optimiert ist. Das Universum abstrahiert diese Daten auf Objekte, die dem Nutzer bereitgestellt werden.\seFootcite{vgl.}{S.49}{Universe.06}
 
-Die Einbindung von Universen wird in \gls{xcelsius} standardmäßig unterstützt. Es könnte somit im SAP LRM eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
+Die Einbindung von Universen wird in \gls{xcelsius} standardmäßig unterstützt. Es könnte somit im \gls{saplrm} eine oder mehrere Datenbanktabellen erstellt werden, die mit den Ergebnissen der Berechnungskomponente gefüllt werden. Für diese Datenbanktabellen wird ein Universum erstellt, welches dann schließlich an \gls{xcelsius} angebunden wird. Ein Überblick ist in \vref{fig:umsetzung_universe} dargestellt.
 
 \begin{figure}[!ht]
 \centering
@@ -590,7 +587,7 @@ Da ein Universum allerdings nur lesenden Zugriff auf die Daten bietet, stellt si
 Schließlich sind Universen nur für die Verwendung mit BusinessObjects Anwendungen ausgelegt. Das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} kann somit nicht garantiert werden.
 
 \section{Webservice}
-Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SAP LRM der Webservice implementiert werden. In \gls{xcelsius} wird dieser Webservice aufgerufen und somit über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar.
+Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im \gls{saplrm} der Webservice implementiert werden. In \gls{xcelsius} wird dieser Webservice aufgerufen und somit über den Webservice Daten konsumiert. Ein Überblick stellt \vref{fig:umsetzung_webservice} dar.
 
 \begin{figure}[!ht]
 \centering
@@ -599,13 +596,13 @@ Eine weitere Möglichkeit stellen Webservices dar. Für die Umsetzung muss im SA
 \caption{Umsetzungsmöglichkeit der Erweiterung mittels Webservices \label{fig:umsetzung_webservice}}
 \end{figure} 
 
-Dadurch, dass der Aufruf direkt im SAP LRM entgegen genommen wird und nicht indirekt, zum Beispiel über ein Universum erfolgt, können eventuelle Selektionsparameter dynamisch übergeben werden. Auch das Problem mit veralteten Daten besteht nicht, da die Berechnung bei jedem Aufruf nach Bedarf durchgeführt werden kann.
+Dadurch, dass der Aufruf direkt im \gls{saplrm} entgegen genommen wird und nicht indirekt, zum Beispiel über ein Universum erfolgt, können eventuelle Selektionsparameter dynamisch übergeben werden. Auch das Problem mit veralteten Daten besteht nicht, da die Berechnung bei jedem Aufruf nach Bedarf durchgeführt werden kann.
 
 Werden für die Umsetzung der Webservices offene Standards, wie zum Beispiel \gls{http} für die Übertragung oder \gls{xml} als Beschreibungssprache,  eingesetzt, können die Webservices auch von anderen Anwendungen verwendet werden. Dies ist für das Kriterium der Übertragbarkeit in \anfRef{anf:uebertragbarkeit}{} wichtig.
 
 Außerdem kommt hinzu, dass bei dieser Umsetzungsmöglichkeit eine gute Modularisierung und Wiederverwendbarkeit erreicht werden kann. Die benötigte Funktionalität kann auf mehrere kleine Webservices aufgeteilt werden. Es entstehen voneinander unabhängige Teile, die leichter gewartet und unabhängig voneinander verwendet werden können. In \gls{xcelsius} müssen diese Teile dann orchestriert werden.
 
-Teile des SAP LRM wurden mit Hilfe eines Frameworks umgesetzt. Dieses bietet die Möglichkeit, bestimmte Klassen ohne zusätzlichen Programmieraufwand automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem die Liquiditätsszenarien und die Laufzeitbänder. Somit könnten Teile der Webservices ohne großen Aufwand umgesetzt werden.
+Teile des \gls{saplrm} wurden mit Hilfe eines Frameworks umgesetzt. Dieses bietet die Möglichkeit, bestimmte Klassen ohne zusätzlichen Programmieraufwand automatisch über einen Webservice bereitzustellen. Dazu zählen unter anderem die Liquiditätsszenarien und die Laufzeitbänder. Somit könnten Teile der Webservices ohne großen Aufwand umgesetzt werden.
 
 Ein mögliches Risiko dieser Umsetzungsmöglichkeit stellt die \anfRef{anf:leistung}{an die Performance } dar. Der zusätzliche Aufwand für das Aufrufen von mehreren Webservices, in festgelegten Reihenfolgen und Abhängigkeiten, kann zu einer längeren Gesamtlaufzeit führen. Zusätzlich führt der Ausfall eines Teil-Webservice zur Funktionsunfähigkeit der gesamten Erweiterung.
 
@@ -689,8 +686,8 @@ Die Entwicklung der Erweiterung für \gls{xcelsius} kann in fünf Teilbereiche u
 
 
 \begin{seToplist} { XX }
-\item[1] Bereitstellung der Webservice im SAP LRM \newline
-Das SAP LRM System stellt über Webservices alle benötigten Daten bereit.
+\item[1] Bereitstellung der Webservice im \gls{saplrm} \newline
+Das \gls{saplrm} System stellt über Webservices alle benötigten Daten bereit.
 
 \item[2] Konsumierung der Webservice in \gls{xcelsius} \newline
 Die Webservices werden konsumiert und zunächst in ein internes Objektformat umgewandelt.
@@ -704,7 +701,7 @@ Die Ergebnisse der Orchestrierung müssen in das Tabellenblatt von \gls{xcelsius
 \end{seToplist}
 
 \subsection{Grundlegende Architektur und Funktionsweise}
-In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-architektur}) über die grundlegende Architektur der Lösung gegeben. Dabei werden Erweiterungen in zwei Systemen, dem SAP LRM und \gls{xcelsius}, umgesetzt. Gleichzeitig wird die grundlegende Funktionsweise, gerade im Hinblick auf die Interaktion mit dem Nutzer, näher gebracht.
+In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-architektur}) über die grundlegende Architektur der Lösung gegeben. Dabei werden Erweiterungen in zwei Systemen, dem \gls{saplrm} und \gls{xcelsius}, umgesetzt. Gleichzeitig wird die grundlegende Funktionsweise, gerade im Hinblick auf die Interaktion mit dem Nutzer, näher gebracht.
 
 \begin{figure}[!ht]
 \centering
@@ -713,15 +710,15 @@ In diesem Abschnitt wird ein Überblick (siehe dazu \vref{fig:ueberblick-archite
 \caption{Überblick der grundlegenden Architektur der Erweiterung\label{fig:ueberblick-architektur}}
 \end{figure}
 
-Im SAP LRM System muss für jeden Webservice ein Webservice-Provider bereitgestellt werden. Der Webservice-Provider kann über einfache Funktionsaufrufe entweder Berechnungen über die Berechnungskomponente durchführen lassen, oder auf Objekte des SAP LRM, wie zum Beispiel einem Laufzeitband oder eine Liquiditätsgruppe zugreifen. Das Ergebnis liefert er über \gls{http} im \gls{xml}-Format.
+Im \gls{saplrm} System muss für jeden Webservice ein Webservice-Provider bereitgestellt werden. Der Webservice-Provider kann über einfache Funktionsaufrufe entweder Berechnungen über die Berechnungskomponente durchführen lassen, oder auf Objekte des \gls{saplrm}, wie zum Beispiel einem Laufzeitband oder eine Liquiditätsgruppe zugreifen. Das Ergebnis liefert er über \gls{http} im \gls{xml}-Format.
 
 Die drei restlichen Teile, die im Überblick eingeführt wurden, werden in einem Plugin für \gls{xcelsius} implementiert. Dazu zählt die Konsumierung der bereitgestellten Services und anschließend die Orchestrierung.
 
 Der \gls{xcelsius}-Adapter ist über ein Tabellenblatt die Schnittstelle für den Nutzer. Das Tabellenblatt wird dabei in zwei Bereiche unterteilt. Dies sind ein Daten- und ein Ein\-stel\-lungs-Teil. Die Ergebnisse der Erweiterung werden von dem Adapter in den Daten-Teil geschrieben. Damit endet die Zuständigkeit der Erweiterung. Der Nutzer kann die Daten beliebig weiterverarbeiten, in der Regel wird er sie mit Diagrammen visualisieren.
 
-Die Selektionsparameter, die zum Beispiel für die Berechnungskomponente im SAP LRM gebraucht werden (siehe dazu \vref{sec:berechnungskomponente:parameter}), werden aus dem Ein\-stel\-lungs-Teil des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die \gls{xcelsius} standardmäßig bereitstellt.
+Die Selektionsparameter, die zum Beispiel für die Berechnungskomponente im \gls{saplrm} gebraucht werden (siehe dazu \vref{sec:berechnungskomponente:parameter}), werden aus dem Ein\-stel\-lungs-Teil des Tabellenblatts ausgelesen. Wie die Daten von dem Nutzen in den Bereich geschrieben werden, ist wiederum komplett dem Nutzer überlassen. Eine Möglichkeit sind Kombinationsfelder, die \gls{xcelsius} standardmäßig bereitstellt.
 
-Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem SAP LRM in \gls{xcelsius} bereit. In welcher Form die Daten weiter verarbeitet werden, wird bewusst komplett offengelassen.
+Die Erweiterung stellt nur die Möglichkeit zur Verwendung von Daten aus dem \gls{saplrm} in \gls{xcelsius} bereit. In welcher Form die Daten weiter verarbeitet werden, wird bewusst komplett offengelassen.
 
 \subsection{Statisches Modell}
 Für diese Bereiche wurde in einem ersten Schritt die grundlegenden Klassen und ihre Assoziationen zueinander identifiziert. Das entsprechende Klassendiagramm der Analysephase ist in \vref{fig:klassendiagramm_analyse} dargestellt.
@@ -739,9 +736,9 @@ Die Klasse \class{XcelsiusAdapter} stellt die Verbindung zwischen der Erweiterun
 
 Eine weitere wichtige Klasse stellt der \class{ObjectProvider} dar. Ein \class{ObjectProvider} ist eine abstrahierte Schicht über einem Webservice. Die Aufgabe eines \class{ObjectProvider} ist der einfache Zugriff auf Objekte, die über einen Webservice bezogen werden. Dieser Zugriff findet über die Methode \method{getObject()} statt. Mehrere \class{ObjectProvider} sind Teil der Klasse \class{Orchestrator}, zwischen diesen beiden Klassen existiert eine Komposition.
 
-Um die Webservices abstrahiert darstellen zu können, nutzt ein \class{ObjectProvider} zwei weiteren Klassen, den \class{WebServiceConnector} und den \class{Deserializer}. Hier besteht jeweils eine 1:1 Assoziation. Der \class{WebServiceConnector} übernimmt die Kommunikation zwischen der Erweiterung und dem SAP LRM System über \gls{http}. Der \class{Deserializer} wandelt das Resultat der Kommunikation über den Webservice in ein internes Objektformat um.
+Um die Webservices abstrahiert darstellen zu können, nutzt ein \class{ObjectProvider} zwei weiteren Klassen, den \class{WebServiceConnector} und den \class{Deserializer}. Hier besteht jeweils eine 1:1 Assoziation. Der \class{WebServiceConnector} übernimmt die Kommunikation zwischen der Erweiterung und dem \gls{saplrm} System über \gls{http}. Der \class{Deserializer} wandelt das Resultat der Kommunikation über den Webservice in ein internes Objektformat um.
 
-Die Klasse \class{WebServiceProvider} muss im SAP LRM implementiert werden. Sie nimmt die Anfragen der Erweiterung über \gls{http} entgegen, liest die entsprechenden Objekte aus der Datenbank und serialisiert sie im \gls{xml}-Format.
+Die Klasse \class{WebServiceProvider} muss im \gls{saplrm} implementiert werden. Sie nimmt die Anfragen der Erweiterung über \gls{http} entgegen, liest die entsprechenden Objekte aus der Datenbank und serialisiert sie im \gls{xml}-Format.
 
 \subsection{Dynamisches Modell}
 Um eine bessere Vorstellung von den Vorgängen zu erlangen, wird in dem Folgenden exemplarisch der Ablauf einer Anfrage durch einen Nutzer erläutert. Das entsprechende Sequenzdiagramm ist in \vref{fig:sequenz_analyse} dargestellt.
@@ -767,7 +764,7 @@ Dadurch stehen die Daten dem Nutzer in \gls{xcelsius} zur Verfügung. Der Aufruf
 \section{Entwurf}
 
 \subsection{Orchestrierung der Webservices}
-Durch die Verwendung eines \gls{glo:abap} Frameworks zur Implementierung von wichtigen Klassen im SAP LRM, existieren schon Webservices, die für die Erweiterungen genutzt werden können. Bei den Klassen handelt es sich um:
+Durch die Verwendung eines \gls{glo:abap} Frameworks zur Implementierung von wichtigen Klassen im \gls{saplrm}, existieren schon Webservices, die für die Erweiterungen genutzt werden können. Bei den Klassen handelt es sich um:
 
 \begin{seList}
 \item Laufzeitband
@@ -775,7 +772,7 @@ Durch die Verwendung eines \gls{glo:abap} Frameworks zur Implementierung von wic
 \item Liquiditätsgruppe
 \end{seList}
 
-Hierfür bietet das Framework eine Schnittstelle, mit der auf die Objekte über das \gls{glos:atom} zugegriffen werden kann. Diese Webservices können in der Erweiterung genutzt werden. Zusätzlich befindet sich eine iPad-App für das SAP LRM in Entwicklung. Für diese wurden zwei weitere Webservices entwickelt, die dem Zugriff auf Kennzahlen und die Finanzierungsmatrix bieten.
+Hierfür bietet das Framework eine Schnittstelle, mit der auf die Objekte über das \gls{glos:atom} zugegriffen werden kann. Diese Webservices können in der Erweiterung genutzt werden. Zusätzlich befindet sich eine iPad-App für das \gls{saplrm} in Entwicklung. Für diese wurden zwei weitere Webservices entwickelt, die dem Zugriff auf Kennzahlen und die Finanzierungsmatrix bieten.
 
 Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das Ziel ist immer der Zugriff auf den Webservice der Finanzierungsmatrix oder den Webservice für die Kennzahlen. Die Abhängigkeiten der jeweiligen Webservices sind in \vref{fig:webservice_abhaengigkeiten} dargestellt und sollen im Folgenden erläutert werden:
 
@@ -787,9 +784,9 @@ Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das
 \end{figure}
 
 
-Der Webservice der Finanzierungsmatrix ruft bei einem Aufruf die Berechnungskomponente des SAP LRM auf und muss demnach mit den vier erforderlichen Parametern versorgt werden (siehe dazu \vref{sec:berechnungskomponente:parameter}). Es besteht eine Abhängigkeit zu den drei Webservices, die automatisch durch das Framework  bereit stehen. Der Webservice der Liquiditätsgruppen ist so umgesetzt, dass er ein Liquiditässzenario als Parameter erwartet und darauf alle möglichen Liquiditätsgruppen zurückliefert -- auch hier besteht eine Abhängigkeit.
+Der Webservice der Finanzierungsmatrix ruft bei einem Aufruf die Berechnungskomponente des \gls{saplrm} auf und muss demnach mit den vier erforderlichen Parametern versorgt werden (siehe dazu \vref{sec:berechnungskomponente:parameter}). Es besteht eine Abhängigkeit zu den drei Webservices, die automatisch durch das Framework  bereit stehen. Der Webservice der Liquiditätsgruppen ist so umgesetzt, dass er ein Liquiditässzenario als Parameter erwartet und darauf alle möglichen Liquiditätsgruppen zurückliefert -- auch hier besteht eine Abhängigkeit.
 
-Der Webservice der Kennzahlen erfordert keine Parameter und kann eigenständig aufgerufen werden. Er liefert alle Kennzahlen, die im SAP LRM angelegt und verfügbar sind. Das Resultat beinhaltet allerdings nicht alle Informationen, zum Beispiel zu dem verwendeten Liquiditätsszenario für die Berechnung oder der hinter liegenden Liquiditätsgruppe. Das Ergebnis kann also durch weitere Aufrufe von Webservices angereichert werden.
+Der Webservice der Kennzahlen erfordert keine Parameter und kann eigenständig aufgerufen werden. Er liefert alle Kennzahlen, die im \gls{saplrm} angelegt und verfügbar sind. Das Resultat beinhaltet allerdings nicht alle Informationen, zum Beispiel zu dem verwendeten Liquiditätsszenario für die Berechnung oder der hinter liegenden Liquiditätsgruppe. Das Ergebnis kann also durch weitere Aufrufe von Webservices angereichert werden.
 
 \subsection{Statisches Modell}
 Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durchgeführt und das Resultat der Analyse auch im Hinblick auf die Performance untersucht und optimiert. Das sich daraus ergebene Klassendiagramm ist in \vref{fig:klassendiagramm_entwurf} zu sehen.
@@ -871,7 +868,7 @@ So entsteht die Tabellenstruktur in \vref{tab:zielstruktur}, welche durch den \c
 \subsection{Adobe Flex Sandbox}
 Alle Anwendungen, die mit Hilfe von Adobe Flex programmiert sind, unterliegen bestimmten Sicherheitsbeschränkungen. Darunter fällt auch die Erweiterung, die im Rahmen dieser Bachelorarbeit entwickelt wird. Die Ausführung von Adobe Flex-Anwendungen erfolgt in einer Sandbox. Dadurch sollen ungewollte Änderungen auf Client-Seite verhindert werden -- die Anwendung darf sich nur ein einem klar definierten Raum bewegen.
 
-Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das SAP LRM selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem SAP LRM zunächst nicht möglich, da es durch die Sandbox blockiert wird. Die Beschränkung ist in \vref{fig:flex_sandbox} dargestellt.
+Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabei handelt es sich um einen Aufruf eines Webservice, dessen Ziel eine andere Domain ist. In dem konkreten Beispiel der Erweiterung für \gls{xcelsius} ist die Domain der lokale Computer (localhost). Es ist nur möglich, Webservices aufzurufen, die der Computer selbst bereitstellt. Das \gls{saplrm} selbst läuft nicht auf dem Computer, sondern auf einem Server in einer eigenen Domain. Dadurch ist das Konsumieren von Daten aus dem \gls{saplrm} zunächst nicht möglich, da es durch die Sandbox blockiert wird. Die Beschränkung ist in \vref{fig:flex_sandbox} dargestellt.
 
 \begin{figure}[!ht]
 \centering
@@ -880,9 +877,9 @@ Eine dieser Beschränkungen ist die Verhinderung von Cross-Domain Requests. Dabe
 \caption{Sandbox-Problematik von Adobe Flex\label{fig:flex_sandbox}}
 \end{figure}
 
-Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es möglich, dass der Anbieter des Webservice explizit festlegen kann, dass der Webservice auch über verschiedene Domains hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Bei der Erweiterung wäre das der Anwendungsserver des SAP LRM. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
+Für dieses Problem kommen zwei Lösungsansätze in Frage. Zum einen ist es möglich, dass der Anbieter des Webservice explizit festlegen kann, dass der Webservice auch über verschiedene Domains hinweg konsumiert werden kann. Dies geschieht über eine Datei crossdomain.xml, welche in dem Hauptverzeichnis der Domain abgelegt werden muss. Bei der Erweiterung wäre das der Anwendungsserver des \gls{saplrm}. Änderungen an diesem zu veranlassen würde einen hohen Aufwand benötigen. 
 
-Um diesen Aufwand zu umgehen, wurde der zweite Lösungsansatz umgesetzt. Hierbei wird auf dem Client ein lokaler Webserver installiert. Dieser Webserver ist über die Domain localhost erreichbar. Alle Anfragen der Erweiterung gehen gegen den lokalen Webserver. Dadurch, dass die Adobe Flex-Anwendung auch unter der Domain localhost ausgeführt wird, ist der Zugriff erlaubt. Der Webserver stellt die Anfrage an den richtigen Webservice im SAP LRM und leitet die Antwort an die Erweiterung weiter.
+Um diesen Aufwand zu umgehen, wurde der zweite Lösungsansatz umgesetzt. Hierbei wird auf dem Client ein lokaler Webserver installiert. Dieser Webserver ist über die Domain localhost erreichbar. Alle Anfragen der Erweiterung gehen gegen den lokalen Webserver. Dadurch, dass die Adobe Flex-Anwendung auch unter der Domain localhost ausgeführt wird, ist der Zugriff erlaubt. Der Webserver stellt die Anfrage an den richtigen Webservice im \gls{saplrm} und leitet die Antwort an die Erweiterung weiter.
 
 Für die Umsetzung wurde lokal ein \gls{glos:tomcat}-Webserver installiert. Für diesen wurde ein einfaches Java-HttpServlet entwickelt, welches die geforderte Funktionalität umsetzt. Der Quelltext des Servlets ist in \vref{listing:servlet} zu sehen.
 
@@ -1047,14 +1044,14 @@ Bei dieser Verbindungsart findet zwischen dem Tabellenblatt ein beidseitiger Aus
 
 Für die Umsetzung der Erweiterung spielen Input-Output-Bindings keine Rolle, es werden nur Input- oder Output-Bindings verwendet. Das Auslesen der gewählten Parameter findet über mehrere Input-Bindings statt. Für das Laufzeitband wird dabei eine Zelle mit dem Attribut \class{selectedMaturityBand} des \class{XcelsiusAdapter} verknüpft. Bei den Liquiditätsszenarien und den Liquiditätsgruppen können jeweils mehrere Ausgewählt werden. Hier bezieht sich das Binding demnach nicht auf eine einzelne Zelle, sondern auf einen Zellbereich.
 
-Neben der Berechnung der Finanzierungsmatrix und der Einbindung der Kennzahlenanalyse wird unterstützend eine Wertehilfe angeboten. Auch dafür müssen entsprechende Bindings angelegt werden. Die Wertehilfe bietet zum Einen alle im SAP LRM vorhandenen Liquiditätsszenarien an. Diese können dann als Grundlage für Kombinationsfelder genutzt werden.
+Neben der Berechnung der Finanzierungsmatrix und der Einbindung der Kennzahlenanalyse wird unterstützend eine Wertehilfe angeboten. Auch dafür müssen entsprechende Bindings angelegt werden. Die Wertehilfe bietet zum Einen alle im \gls{saplrm} vorhandenen Liquiditätsszenarien an. Diese können dann als Grundlage für Kombinationsfelder genutzt werden.
 
 Neben der Wertehilfe für die Liquiditätsszenarien existiert eine weitere Wertehilfe für Liquiditätsgruppen. Diese basiert auf den aktuell ausgewählten Liquiditätsszenarien und liefert für diese die existierenden Liquiditätsgruppen zurück.
 
 Eine letzte Wertehilfe wurde für die Laufzeitbänder hinzugefügt. Durch diese Wertehilfen ist es für den Nutzer später einfacher, gültige Selektionskriterien festzulegen. Der Nutzer muss nicht den Namen der existierenden Gruppen, Szenarien oder Laufzeitbänder kennen, er braucht sie nur aus einer Liste auszuwählen.
 
 \section{Zusammenfassung}
-In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Analyse, dem Entwurf und der Implementierung, dargelegt. Das Ergebnis ist eine Erweiterung für \gls{xcelsius}, mit der \gls{xcelsius} zur Visualisierung der Daten des SAP LRM genutzt werden kann. Dabei werden die Vorteile der Berechnungskomponente des SAP LRM und die Geschwindigkeit von SAP HANA ausgenutzt. Gleichzeitig ist durch die modulare Struktur der Grundstein für zum einen Weiterentwicklungen des SAP LRM als auch die Integration des SAP LRM mit weiteren Anwendungen gelegt. Die Evaluierung der Ergebnisse wird in dem Folgenden Kapitel durchgeführt.
+In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Analyse, dem Entwurf und der Implementierung, dargelegt. Das Ergebnis ist eine Erweiterung für \gls{xcelsius}, mit der \gls{xcelsius} zur Visualisierung der Daten des \gls{saplrm} genutzt werden kann. Dabei werden die Vorteile der Berechnungskomponente des \gls{saplrm} und die Geschwindigkeit von SAP HANA ausgenutzt. Gleichzeitig ist durch die modulare Struktur der Grundstein für zum einen Weiterentwicklungen des \gls{saplrm} als auch die Integration des \gls{saplrm} mit weiteren Anwendungen gelegt. Die Evaluierung der Ergebnisse wird in dem Folgenden Kapitel durchgeführt.
 
 \chapter{Evaluation der Erweiterung für BusinessObjects Xcelsius}
 
@@ -1062,9 +1059,9 @@ In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Ana
 In diesem Kapitel wird die Evaluation der im Rahmen der Bachelorarbeit entwickelten Erweiterung durchgeführt. Dabei wird die Erweiterung insbesondere auf zwei Aspekte hin genauer Untersucht. Zum einen soll aufgezeigt werden, welche neuen Möglichkeiten sich mit der Erweiterung ergeben und wie diese genutzt werden können. Außerdem muss überprüft werden, in wiefern die Anforderungen und die Zielsetzung, die in der Spezifikation in \vref{sec:spezifikation} festgelegt wurden, erfüllt werden können.
 
 \section{Neue Möglichkeiten}
-Durch die Erweiterung ist es nun möglich, \gls{xcelsius} in Verbindung mit den Daten des SAP LRM zu nutzen. Dazu muss zu einem Dashboard lediglich eine neue Verbindung, die Teil der Erweiterung ist, hinzugefügt werden.
+Durch die Erweiterung ist es nun möglich, \gls{xcelsius} in Verbindung mit den Daten des \gls{saplrm} zu nutzen. Dazu muss zu einem Dashboard lediglich eine neue Verbindung, die Teil der Erweiterung ist, hinzugefügt werden.
 
-Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Der Dialog zum festlegen der Einstellungen ist  \vref{fig:einstellung} zu sehen. Erforderlich sind hierbei der Nutzer mit entsprechendem Passwort für die Authentifizierung, und die \gls{url}, unter der das SAP LRM erreichbar ist.
+Für diese Verbindung müssen in den Einstellugnen dann einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Der Dialog zum festlegen der Einstellungen ist  \vref{fig:einstellung} zu sehen. Erforderlich sind hierbei der Nutzer mit entsprechendem Passwort für die Authentifizierung, und die \gls{url}, unter der das \gls{saplrm} erreichbar ist.
 
 \begin{figure}[!ht]
 \centering
@@ -1091,50 +1088,50 @@ An die Erweiterung wurden in der Spezifikation in \vref{sec:anforderungen} einig
 \centering
 \setlength{\unitlength}{1mm}
 \includegraphics[width=15cm]{images/dashboard_preview.PNG}
-\caption{BusinessObjects Xcelsius Dashboard mit den Daten des SAP LRM\label{fig:umsetzung_dashboard}}
+\caption{BusinessObjects Xcelsius Dashboard mit den Daten des \gls{saplrm}\label{fig:umsetzung_dashboard}}
 \end{figure} 
 
 Es ist einfach zu erkennen, dass beide funktionalen Anforderungen mit der Erweiterung erfüllt werden können. Sowohl die Daten für die Kennzahlen, als auch die Daten für die Finanzierungsmatrix stehen zur Verfügung. In dem Beispiel ist eine Kennzahl mit dem Tachometer (unten) visualisiert, die Finanzierungsmatrix im oberen Teil als Liniendiagramm.
 
 %\item[\anfl{uebertragbarkeit}] \textbf{Übertragbarkeit} \newline
-%Im Rahmen der Bachelorarbeit wird exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das SAP LRM implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
+%Im Rahmen der Bachelorarbeit wird exemplarisch die Anbindung einer weiteren Anwendung zur Auswertung an das \gls{saplrm} implementiert werden. Das Konzept der Umsetzung soll dennoch auf weitere Anwendungen übertragen werden können.
 Die \anfRef{anf:uebertragbarkeit}{an die Übertragbarkeit } wird dadurch gewährleistet, dass die komplette Analyse programmiersprachenunabhängig durchgeführt wurde. Sie kann mit jeder objektorientierten Programmiersprache umgesetzt werden - es müsste nur die Schnittstelle zu der eigentlichen Anwendung, also der XcelsiusAdapter, entsprechend angepasst werden.
 
 
 %\item[\anfl{erweiterbarkeit}] \textbf{Erweiterbarkeit} \newline
-%Das SAP LRM befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die in einer Weiterentwicklungen des SAP LRM eingeführt werden, sollen mit möglichst geringem Aufwand auch auf die Erweiterung übertragen werden können.
+%Das \gls{saplrm} befindet sich aktuell noch in einer ersten Version in Entwicklung. Weitere Versionen sind schon jetzt in Planung. Zusätzliche Funktionen und Möglichkeiten, die in einer Weiterentwicklungen des \gls{saplrm} eingeführt werden, sollen mit möglichst geringem Aufwand auch auf die Erweiterung übertragen werden können.
 
 %\item[\anfl{wartbarkeit}] \textbf{Wartbarkeit} \newline
 %Um die Folgekosten der Erweiterung, zum Beispiel im Hinblick auf die Beseitigung von Fehlern, möglichst gering zu halten, soll eine gute Wartbarkeit von Anfang an bei der Entwicklung beachtet werden.
 Durch den modularen Aufbau mit den verschiedenen ObjectProvidern können neue Funktionalitäten durch die Erstellung von weiteren ObjectProvider-Implementierungen leicht umgesetzt werden. Somit kann auch \anfRef{anf:erweiterbarkeit}{} als erfüllt betrachtet werden. Gleichzeitig wird dadurch die \anfRef{anf:erweiterbarkeit}{an die Wartbarkeit } abgedeckt.
 
 %\item[\anfl{korrektheit}] \textbf{Korrektheit der Ergebnisse} \newline
-%Die Daten, die mit Hilfe der Erweiterung in zusätzlichen Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des SAP LRM übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
-Die Korrektheit der Ergebnisse, siehe \anfRef{anf:korrektheit}{}, wird dadurch sichergestellt, dass die Berechnungskomponente des SAP LRM über die selbe Schnittstelle aufgerufen wird, wie es auch die Benutzeroberfläche in Oberon macht. Somit stimmen die Ergebnisse überein.
+%Die Daten, die mit Hilfe der Erweiterung in zusätzlichen Anwendungen verfügbar gemacht werden, müssen mit den Ergebnissen des \gls{saplrm} übereinstimmen. Nur wenn das sichergestellt ist, kann die Erweiterung sinnvoll genutzt werden.
+Die Korrektheit der Ergebnisse, siehe \anfRef{anf:korrektheit}{}, wird dadurch sichergestellt, dass die Berechnungskomponente des \gls{saplrm} über die selbe Schnittstelle aufgerufen wird, wie es auch die Benutzeroberfläche in Oberon macht. Somit stimmen die Ergebnisse überein.
 
 %\item[\anfl{sicherheit}] \textbf{Sicherheitsanforderungen} \newline
-%Die Erweiterungen wird Zugang zu den Daten des SAP LRM bieten. Es handelt sich dabei um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
+%Die Erweiterungen wird Zugang zu den Daten des \gls{saplrm} bieten. Es handelt sich dabei um vertrauliche Daten, die  Zugangsbeschränkungen unterliegen. Es muss sichergestellt sein, dass die Zugangsbeschränkungen eingehalten werden und Daten nicht von unberechtigten Personen ausgelesen werden können.
 Der Zugang zu den Daten ist, genau wie bei der existierenden iPad-Anwendung, durch Nutzer und Password vor unberechtigtem Zugriff geschützt. Dabei wird die gleiche Authentifizierungsmethode verwendet. Für potentielle Angreifer ist somit der Aufwand für unberechtigten Zugriff nicht geringer geworden -- \anfRef{anf:sicherheit}{} ist abgedeckt.
 
 %\item[\anfl{leistung}] \textbf{Leistung} \newline
-%Ein wichtiges Unterscheidungsmerkmal des SAP LRM durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch in anderen Anwendungen verfügbar machen.
+%Ein wichtiges Unterscheidungsmerkmal des \gls{saplrm} durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch in anderen Anwendungen verfügbar machen.
 Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des Nutzers setzt aus der Zeit für die Berechnung der Werte durch die Berechnungskomponente und der eigentlichen Darstellung zusammen. Die Zeit für die Berechnung ist dabei festgesetzt und kann nicht beeinflusst werden. Die Zeit zur Darstellung ist dabei in \gls{xcelsius} mit der Erweiterung sogar schneller, als die Darstellung mit dem Oberon Framework. Ein Hauptgrund ist hierbei das vergleichsweise langsame Rendern des Diagramms durch Oberon. Durch eine echt-parallele Verarbeitung der Webservice-Aufrufe könnte die Leistung der Erweiterung sogar noch gesteigert werden. Auch diese Anforderung ist somit erfüllt, obwohl sie bei der Entwicklung nicht im Mittelpunkt stand.
 
 \section{Zusammenfassung}
-In diesem Kapitel wurden die Evaluation der Erweiterung für \gls{xcelsius} durchgeführt. Diese hat ergeben, dass sich durch die reine Integration der Daten des SAP LRM unter der bewussten Vermeidung von Vorgaben, was die Visualisierung oder die Art des Inputs und des Outputs betrifft, sich sehr viele Möglichkeiten ergeben. Es können alle Funktionen von \gls{xcelsius} genutzt werden, wodurch eine größere Flexibilität in der Auswertung der Daten des SAP LRM bietet. Außerdem wurde die Abdeckung der gestellten Anforderungen überprüft und dabei festgestellt, dass die Anforderungen erfolgreich umgesetzt wurden.
+In diesem Kapitel wurden die Evaluation der Erweiterung für \gls{xcelsius} durchgeführt. Diese hat ergeben, dass sich durch die reine Integration der Daten des \gls{saplrm} unter der bewussten Vermeidung von Vorgaben, was die Visualisierung oder die Art des Inputs und des Outputs betrifft, sich sehr viele Möglichkeiten ergeben. Es können alle Funktionen von \gls{xcelsius} genutzt werden, wodurch eine größere Flexibilität in der Auswertung der Daten des \gls{saplrm} bietet. Außerdem wurde die Abdeckung der gestellten Anforderungen überprüft und dabei festgestellt, dass die Anforderungen erfolgreich umgesetzt wurden.
 
 \chapter{Zusammenfassung \& Ausblick}
 % Fragestellung aus Einleitung aufgreifen \loreIpsum
 
-Im Rahmen dieser Bachelorarbeit wurden zwei Ziele verfolgt. Auf der einen Seite sollte ein Konzept für die Nutzung weiterer Anwendungen in Verbindung mit der Berechnungskomponente des SAP LRM entwickelt werden. Auf der anderen Seite sollte dieses Konzept für eine Anwendung beispielsweise umgesetzt werden. 
+Im Rahmen dieser Bachelorarbeit wurden zwei Ziele verfolgt. Auf der einen Seite sollte ein Konzept für die Nutzung weiterer Anwendungen in Verbindung mit der Berechnungskomponente des \gls{saplrm} entwickelt werden. Auf der anderen Seite sollte dieses Konzept für eine Anwendung beispielsweise umgesetzt werden. 
 
-Das entwickelte Konzept basiert auf der Orchestrierung von Webservices. Dabei werden ein oder mehrere Webservices von der Zielanwendung konsumiert und die jeweiligen Ergebnisse orchestriert. Die Webservices nutzen dabei für den Bezug der Daten die Berechnungskomponente des SAP LRM. Durch die Nutzung von weit verbreiteten Standards wie \gls{http} und \gls{xml} kann das Konzept einfach für verschiedene Anwendungen umgesetzt werden. Durch den modularen Aufbau, der durch die Orchestrierung der Webservices sichergestellt ist, ist auch eine gute Erweiterbarkeit sichergestellt. Durch die Weiterentwicklung des SAP LRM neu hinzugekommene Funktionen können einfach in das Konzept eingearbeitet werden. Außerdem wird durch den modularen Aufbau die spätere Wartung erleichtert.
+Das entwickelte Konzept basiert auf der Orchestrierung von Webservices. Dabei werden ein oder mehrere Webservices von der Zielanwendung konsumiert und die jeweiligen Ergebnisse orchestriert. Die Webservices nutzen dabei für den Bezug der Daten die Berechnungskomponente des \gls{saplrm}. Durch die Nutzung von weit verbreiteten Standards wie \gls{http} und \gls{xml} kann das Konzept einfach für verschiedene Anwendungen umgesetzt werden. Durch den modularen Aufbau, der durch die Orchestrierung der Webservices sichergestellt ist, ist auch eine gute Erweiterbarkeit sichergestellt. Durch die Weiterentwicklung des \gls{saplrm} neu hinzugekommene Funktionen können einfach in das Konzept eingearbeitet werden. Außerdem wird durch den modularen Aufbau die spätere Wartung erleichtert.
 
-Neben der Entwicklung des Konzeptes wurde im Rahmen der Bachelorarbeit die Umsetzung für \gls{xcelsius} durchgeführt. Das Ergebnis der Umsetzung ist eine Erweiterung, mit der die Einbindung von Daten, die auf der Berechnungskomponente basieren, erreicht werden kann. Durch die erfolgreiche Implementierung wurde gleichzeitig die Funktionsfähigkeit des Konzeptes gezeigt. Die Erweiterung wurde dabei so umgesetzt, dass die gewonnene Flexibilität von \gls{xcelsius} in vollem Umfang genutzt werden kann. Neben der bestehenden Oberfläche des SAP LRM ist somit eine neue Möglichkeit zum Konsumieren der Daten hinzugekommen.
+Neben der Entwicklung des Konzeptes wurde im Rahmen der Bachelorarbeit die Umsetzung für \gls{xcelsius} durchgeführt. Das Ergebnis der Umsetzung ist eine Erweiterung, mit der die Einbindung von Daten, die auf der Berechnungskomponente basieren, erreicht werden kann. Durch die erfolgreiche Implementierung wurde gleichzeitig die Funktionsfähigkeit des Konzeptes gezeigt. Die Erweiterung wurde dabei so umgesetzt, dass die gewonnene Flexibilität von \gls{xcelsius} in vollem Umfang genutzt werden kann. Neben der bestehenden Oberfläche des \gls{saplrm} ist somit eine neue Möglichkeit zum Konsumieren der Daten hinzugekommen.
 
 Mit der Erweiterung besteht erstmalig die Möglichkeit, das Liquiditätsrisikomanagement bei Banken in die Gesamtbanksteuerung einzubinden. Bestehende Dashboards von \gls{xcelsius} können mit Informationen über die Liquiditätssituation der Bank erweitert werden. Das erleichtert die Sicherstellung der Einhaltung von regulatorischen Vorschriften, wie zum Beispiel dem \gls{lcr} oder dem \gls{nsfr} im Rahmen von Basel III.
 
-Basierend auf den Erkenntnissen dieser Arbeit bietet sich eine Umsetzung des Konzeptes für weitere Plattformen an. Eine Möglichkeit stellt dabei Panopticon, eine Anwendung zur Analyse von Echtzeitdaten, dar.\footnote{Panopticon - http://www.panopticon.com/} Bezüglich der Anbindung von \gls{xcelsius} ist durch die dargestellte Sandbox-Limitierung und der daraus resultierenden Cross-Domain-Request Problematik Bedarf für Weiterentwicklungen gegeben. Weiterhin muss die Erweiterung stets an die Veränderungen durch die Weiterentwicklung des SAP LRM angepasst werden.
+Basierend auf den Erkenntnissen dieser Arbeit bietet sich eine Umsetzung des Konzeptes für weitere Plattformen an. Eine Möglichkeit stellt dabei Panopticon, eine Anwendung zur Analyse von Echtzeitdaten, dar.\footnote{Panopticon - http://www.panopticon.com/} Bezüglich der Anbindung von \gls{xcelsius} ist durch die dargestellte Sandbox-Limitierung und der daraus resultierenden Cross-Domain-Request Problematik Bedarf für Weiterentwicklungen gegeben. Weiterhin muss die Erweiterung stets an die Veränderungen durch die Weiterentwicklung des \gls{saplrm} angepasst werden.
 
 Zusammengefasst lässt sich sagen, dass die Anbindung von weiteren Anwendungen viele neue Möglichkeiten für das Liquiditätsrisikomanagement bei Banken bietet. Die Implementierung für \gls{xcelsius} stellt eine lauffähige Version dar, bietet aber für die Zukunft noch Möglichkeiten für Weiterentwicklungen.
 
