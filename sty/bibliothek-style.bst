@@ -886,7 +886,7 @@ FUNCTION {internetquelle}{
 	"URL: "
 	url
 	*
-	" (Abgerufen am 25. Oktober 2011)"
+	" (Abgerufen am 1. Mai 2012)"
 	*
 	output
 }
