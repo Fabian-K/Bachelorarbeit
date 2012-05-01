@@ -891,7 +891,7 @@ FUNCTION {internetquelle}{
 	output
 }
 
-FUNCTION {internetdoc}{
+FUNCTION {www}{
   output.bibitem
   format.authors output
   title howpublished new.block.checkc
