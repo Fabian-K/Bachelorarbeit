@@ -156,12 +156,12 @@ gliederungsebenen=4
 \pagenumbering{arabic}
 \glsresetall
 % Einleitung	//	Vorstellung des Themas	//	- in größeren Zusammenhang stellen
-Die Problematik des Liquiditätsrisikos hat in letzter Zeit sowohl intern bei Banken als auch in der öffentlichen Wahrnehmung an Bedeutung gewonnen. Dafür verantwortlich ist nicht zuletzt die Finanzmarktkrise aus dem Jahr 2007 mit dem Zusammenbruch der Lehman Brothers Bank. Als Folge dieser Entwicklung steigen zum einen die rechtlichen Anforderungen an Banken bezüglich ihrer Liquidität und zum anderen die Notwendigkeit für ein explizites Liquiditätsrisikomanagement. 
+Die Problematik des Liquiditätsrisikos hat in letzter Zeit sowohl intern bei Banken als auch in der öffentlichen Wahrnehmung an Bedeutung gewonnen. Dafür verantwortlich ist nicht zuletzt die Finanzmarktkrise ab dem Jahr 2007 mit dem Zusammenbruch der Lehman Brothers Bank. Als Folge dieser Entwicklung steigen zum einen die rechtlichen Anforderungen an Banken bezüglich ihrer Liquidität und zum anderen die Notwendigkeit für ein explizites Liquiditätsrisikomanagement. 
 
 % Ziel der Arbeit	//	- was soll erreicht werden?	//	- was soll bewiesen werden?
-Die SAP AG entwickelt mit dem \gls{saplrm} eine softwaregestützte Lösung für diese Problemstellung. Mit dem \gls{saplrm} kann die Liquiditätssituation einer Bank jederzeit festgestellt und analysiert werden. Dazu wird eine eigens dafür entwickelte Berechnungskomponente verwendet. In dem aktuellen Entwicklungsstand ist die Auswertung und Darstellung der im \gls{saplrm} gewonnenen Erkenntnisse nur in begrenztem Umfang möglich -- die Vorteile der Berechnungskomponente können nicht überall ausgenutzt werden.
+Die SAP AG entwickelt mit \gls{saplrm} eine softwaregestützte Lösung zur Behandlung diese Problemstellung. Mit dem \gls{saplrm} kann die Liquiditätssituation einer Bank jederzeit festgestellt und analysiert werden. Dazu wird eine eigens dafür entwickelte Berechnungskomponente verwendet. In dem aktuellen Entwicklungsstand ist die Auswertung und Darstellung der im \gls{saplrm} gewonnenen Erkenntnisse nur in begrenztem Umfang möglich -- die Vorteile der Berechnungskomponente können nicht überall ausgenutzt werden.
 
-Im Rahmen dieser Bachelorarbeit soll das Konzept einer Zwischenschicht entwickelt werden, mit dem weitere Anwendungen zur Auswertung und Weiterverarbeitung der Ergebnisse des \gls{saplrm} auf Basis der Berechnungskomponente verwendet werden können. Über diese Zwischenschicht ergibt sich dadurch eine höhere Flexibilität für den Einsatz des \gls{saplrm}. Ein weiteres Ziel ist die konkrete Umsetzung und Implementierung des Konzeptes für die Anwendung \gls{xcelsius}.
+Im Rahmen dieser Bachelorarbeit soll das Konzept für eine Zwischenschicht entwickelt werden, mit dem weitere Anwendungen zur Auswertung und Weiterverarbeitung der Ergebnisse des \gls{saplrm} auf Basis der Berechnungskomponente verwendet werden können. Über diese Zwischenschicht ergibt sich dadurch eine höhere Flexibilität für den Einsatz des \gls{saplrm}. Ein weiteres Ziel ist die konkrete Umsetzung und Implementierung des Konzeptes für die Anwendung \gls{xcelsius}.
 
 %Überblick über Aufbau der Arbet	//	- welche Schritte werden warum durchgeführt?
 Der Aufbau der Arbeit orientiert sich dabei hauptsächlich an dem Entwicklungsprozess von Software. Sie gliedert sich in sechs Hauptkapitel. In dem ersten Kapitel wird der Themenbereich des Liquiditätsrisikomanagements aus betriebswirtschaftlicher Sicht betrachtet. Dabei werden unter anderem die Begriffe Liquidität und Liquiditätsrisiko näher erläutert
@@ -754,7 +754,7 @@ Durch die Verwendung eines \gls{glo:abap} Frameworks zur Implementierung von wic
 \item Liquiditätsgruppe
 \end{seList}
 
-Hierfür bietet das Framework eine Schnittstelle, mit der auf die Objekte über das \gls{glos:atom} zugegriffen werden kann. Diese Webservices können in der Erweiterung genutzt werden. Zusätzlich befindet sich eine iPad-App für das \gls{saplrm} in Entwicklung. Für diese wurden zwei weitere Webservices entwickelt, die dem Zugriff auf Kennzahlen und die Finanzierungsmatrix bieten.
+Hierfür bietet das Framework eine Schnittstelle, mit der auf die Objekte über das \gls{glos:atom} zugegriffen werden kann. Diese Webservices können für die Erweiterung genutzt werden. Zusätzlich befindet sich eine iPad-App für das \gls{saplrm} in Entwicklung. Für diese wurden zwei weitere Webservices entwickelt, die den Zugriff auf Kennzahlen und die Finanzierungsmatrix bieten.
 
 Es ergeben sich fünf nutzbare Webservices, die orchestriert werden müssen. Das Ziel ist immer der Zugriff auf den Webservice der Finanzierungsmatrix oder den Webservice für die Kennzahlen. Die Abhängigkeiten der jeweiligen Webservices sind in \vref{fig:webservice_abhaengigkeiten} dargestellt und sollen im Folgenden erläutert werden:
 
@@ -781,7 +781,7 @@ Im Gegensatz zu der Analyse wird der Entwurf auf einer höheren Detailstufe durc
 \caption{Klassendiagramm der Entwurfsphase\label{fig:klassendiagramm_entwurf}}
 \end{figure}
 
-Objekte, wie zum Beispiel ein Liquiditätsszenario oder ein Laufzeitband, werden nur einmal angelegt und danach in der Regel nicht mehr geändert. Bei der Orchestrierung der Webservices müsste allerdings nach dem Ergebnis der Analyse jedes Mal eine neue Abfrage gestartet werden. Um das zu verhindern, wird die Klasse \class{ObjectProvider} durch die neu hinzugefügte Klasse \class{CachedObjectProvider} erweitert. Ein \class{CachedObjectProvider} hält alle Objekte, die schon einmal angefragt wurden, in einem internen Cache und liefert bei einer erneuten Nachfrage das Objekt aus dem Cache zurück, ohne einen neuen Webservice aufrufen zu müssen.
+Objekte, wie zum Beispiel ein Liquiditätsszenario oder ein Laufzeitband, werden nur einmal angelegt und danach in der Regel nicht mehr geändert. Bei der Orchestrierung der Webservices müsste allerdings nach dem Ergebnis der Analyse jedes Mal eine neue Abfrage gestartet werden. Um das zu verhindern, wird die Klasse \class{ObjectProvider} durch die neu hinzugefügte Klasse \class{CachedObjectProvider} erweitert. Ein \class{CachedObjectProvider} hält alle Objekte, die schon einmal angefragt wurden, in einem internen Cache und liefert bei einer erneuten Nachfrage das Objekt aus dem Cache zurück, ohne einen Webservice erneut aufrufen zu müssen.
 
 Für das Ermitteln der aktuellen Einstellungen, die der Nutzer in dem Tabellenblatt von \gls{xcelsius} hinterlegt hat, wurde die Klasse \class{SettingProvider} hinzugefügt. Der \class{SettingProvider} nutzt den \class{XcelsiusAdapter} zum Auslesen des Tabellenblattes und liefert über die Methode \method{getSetting()} alle erforderlichen Einstellungen für die Abfragen der Webservices zurück. Dadurch kann der \class{XcelsiusAdapter} sich rein auf das funktionale Lesen und Schreiben des Tabellenblattes beschränken und von der Logik, welche Zelle in welcher Art ausgelesen werden muss, befreit werden.
 
@@ -790,15 +790,15 @@ Für den einfachen Zugriff auf die einzelnen \class{ObjectProvider} wurde der Kl
 \label{sec:entwurf:statisch:orchestratorresult}
 Zudem wird mit der Klasse \class{OrchestratorResult} die Zielobjektstruktur der Orchestrierung festgelegt. Eine Instanz der Klasse \class{OrchestratorResult} besteht dabei aus beliebig vielen \class{Result}-Instanzen. Genauer gesagt wird für jede abgefragte Liquiditätsgruppe eine \class{Result}-Instanz erzeugt.
 
-Eine \class{Result}-Instanz hat zum einen mehrere Parameter. Diese sind, um eine gute Erweiterbarkeit zu erreichen, in einfachen Key-Value Paaren verwaltet. Beispiele für Parameter können die Liquiditätsgruppe und das genutzte Liquiditätsszenario sein. Zum anderen werden in dem Attribut \class{values} die einzelnen Werte gespeichert.
+Eine \class{Result}-Instanz hat zum einen mehrere Parameter. Diese werden, um einfache Erweiterungen zu ermöglichen, in Key-Value Paaren verwaltet. Beispiele für Parameter können die Liquiditätsgruppe und das genutzte Liquiditätsszenario sein. Zum anderen werden in dem Attribut \class{values} die einzelnen Werte gespeichert.
 
 Die Werte beziehen sich in ihrer Reihenfolge auf das zugrundeliegende Laufzeitband. Dieses ist für alle \class{Result}-Instanzen das Gleiche und ist deshalb nur einmal als Attribut des \class{OrchestratorResult} vorhanden. Die einzelnen Abschnitte des Laufzeitbandes sind in dem Attribut \class{parts} abgelegt. Ein Laufzeitbandabschnitt hat eine Beschreibung, ein Start- und ein End-Datum.
 
-Generell wurden alle Klassen um typisierte Attribute erweitert. Den Methoden wurde die Signatur hinzugefügt.
+Generell wurden alle Klassen um typisierte Attribute erweitert. Den Methoden wurden die Signaturen hinzugefügt.
 
 \subsection{Dynamisches Modell}
 
-An dem Dynamischen Modell müssen in der Entwurfsphase nur kleinere Änderungen durch die neu hinzugekommenen Klassen durchgeführt werden. Das angepasste Sequenzdiagramm ist in \vref{fig:sequenz_entwurf} dargestellt.
+An dem Dynamischen Modell müssen in der Entwurfsphase nur kleinere Änderungen aufgrund der neu hinzugekommenen Klassen durchgeführt werden. Das angepasste Sequenzdiagramm ist in \vref{fig:sequenz_entwurf} dargestellt.
 
 \begin{figure}[!ht]
 \centering
@@ -807,12 +807,12 @@ An dem Dynamischen Modell müssen in der Entwurfsphase nur kleinere Änderungen 
 \caption{Sequenzdiagramm der Entwurfsphase\label{fig:sequenz_entwurf}}
 \end{figure}
 
-Am Anfang ist die Einbindung des \class{SettingProvider} zu sehen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterlosen Methode \method{updateKPI()} und der privaten Methode \method{getKPI()} sehen. In der Orchestrierung wird nun auch ein \class{CachedObjectProvider} verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen Webservice abgefragt und in seinem Cache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren Aufruf eines Webservices direkt beantworten.
+Zu Beginn ist die Einbindung des \class{SettingProvider} zu erkennen. Außerdem lässt sich das Zusammenspiel zwischen der öffentlichen, parameterlosen Methode \method{updateKPI()} und der privaten Methode \method{getKPI()} sehen. In der Orchestrierung wird nun auch ein \class{CachedObjectProvider} verwendet. Dieser hatte das angeforderte Objekt schon einmal über seinen Webservice abgefragt und in seinem Cache zwischengespeichert. Dieser Vorgang ist in dem Sequenzdiagramm aus Platzgründen nicht abgebildet. Die erneute Anfrage kann er ohne einen weiteren Aufruf eines Webservices direkt beantworten.
 
 \subsection{Zielstruktur in BusinessObjects Xcelsius}
 Eine zentrale Rolle in der Erweiterung spielt die Übergabe der Ergebnisse der Orchestrierung an das Tabellenblatt von \gls{xcelsius}. Dies muss in einer Art und Weise geschehen, sodass der Nutzer die Daten später einfach weiterverarbeiten oder visualisieren kann.
 
-Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt ist immer eine \class{OrchestratorResult}-Instanz, welche das Ergebnis der Orchestrierung darstellt. Den Aufbau der Instanz ist in \vref{sec:entwurf:statisch:orchestratorresult} dargestellt. Diese Objektstruktur muss in eine Tabellenstruktur in \gls{xcelsius} umgewandelt werden. Ein konkretes Beispiel für die Objektstruktur zeigt \vref{fig:objektstruktur}, welches in \vref{tab:zielstruktur} entsprechend umgesetzt ist.
+Diese Aufgabe wird von dem \class{XcelsiusAdapter} übernommen. Ausgangspunkt ist immer eine \class{OrchestratorResult}-Instanz, welche das Ergebnis der Orchestrierung darstellt. Der Aufbau der Instanz ist in \vref{sec:entwurf:statisch:orchestratorresult} dargestellt. Diese Objektstruktur muss in eine Tabellenstruktur in \gls{xcelsius} umgewandelt werden. Ein konkretes Beispiel für die Objektstruktur zeigt \vref{fig:objektstruktur}, welches in \vref{tab:zielstruktur} entsprechend umgesetzt ist.
 
 \begin{figure}[ht]
 \centering
@@ -902,15 +902,15 @@ public function onHttpRequestFailure(event:FaultEvent):void{
 \caption{Aufruf eines Webservices in der Erweiterung\label{listing:ws_aufruf}}
 \end{programm}
 
-Durch die Asynchronität ändert sich entsprechend die Signatur der Methoden. Der Rückgabewert entfällt, stattdessen wird ein zusätzlicher Parameter mitgegeben. Bei \gls{glos:actionscript} kann dies entweder eine Methode eines Objektes sein, siehe dazu \vref{listing:ws_aufruf}. Alternativ kann auch eine Objekt-Instanz übergeben werden. Auf dieser Instanz wird dann zu dem entsprechenden Zeitpunkt eine festgelegte Methode aufgerufen.
+Durch die Asynchronität ändert sich entsprechend die Signatur der Methoden. Der Rückgabewert entfällt, stattdessen wird ein zusätzlicher Parameter mitgegeben. Bei \gls{glos:actionscript} kann dies eine Methode eines Objektes sein, siehe dazu \vref{listing:ws_aufruf}. Alternativ kann auch eine Objekt-Instanz übergeben werden. Auf dieser Instanz wird dann zu dem entsprechenden Zeitpunkt eine festgelegte Methode aufgerufen.
 
 Anfang und Ende eines Aufrufes von einem Webservice über den \class{ObjectProvider} und den \class{Deserializer} ist der \class{Orchestrator}. Dieser startet die Aufrufe in der Methode \method{getKPI()} oder \method{getFundingMatrix()} und erhält die Antworten durch die Asynchronität in beliebiger Reihenfolge in der Methode \method{onObjectProviderSuccess()}. Um die Aufrufe unterscheiden und identifizieren zu können, wird bei dem Aufruf ein \class{RequestToken} mitgegeben. Dieser wird weitergereicht und schließlich auch der Methode \method{onObjectProviderSuccess()} als Parameter zurückgegeben.
 
-Um festzustellen, ob alle Anfragen erfolgreich zurückgekommen sind und somit mit der finalen Orchestrierung begonnen werden kann, werden die \class{RequestToken} in einer internen Liste verwaltet. Diese Liste enthält alle Anfragen, von denen die Antwort noch aussteht. Wird die Antwort erhalten, wird der Token aus der Liste entfernt, in einen \class{ResultToken} umgewandelt, indem das eigentliche Ergebnis angehängt wird, und in einer weiteren Liste zwischengespeichert. Wurden alle Anfragen erfolgreich beantwortet, kann die Orchestrierung durchgeführt werden. Die einzelnen Ergebnisse können dann aus der Liste mit den \class{ResultToken}-Instanzen bezogen werden.
+Um festzustellen, ob alle Anfragen erfolgreich zurückgekommen sind und somit mit der finalen Orchestrierung begonnen werden kann, werden die \class{RequestToken} in einer internen Liste verwaltet. Diese Liste enthält alle Anfragen, deren Antworten noch ausstehen. Wird die Antwort erhalten, wird der Token aus der Liste entfernt. Außerdem wird er in einen \class{ResultToken} umgewandelt, indem das eigentliche Ergebnis angehängt wird, und in einer weiteren Liste zwischengespeichert. Wurden alle Anfragen erfolgreich beantwortet, kann die Orchestrierung durchgeführt werden. Die einzelnen Ergebnisse können dann aus der Liste mit den \class{ResultToken}-Instanzen bezogen werden.
 
 Die Methode \method{onObjectProviderSuccess()} wird asynchron aufgerufen und verändert unter anderem die beiden Listen zur Verwaltung der Token. Demnach handelt es sich hierbei normalerweise um einen kritischen Abschnitt, in dem kritische Daten verändert werden. Der Zugriff auf diese Methode müsste synchronisiert werden. Da aber die Anwendung später auf nur einem Thread ausgeführt wird, kann auf eine Synchronisation verzichtet werden.
 
-In \vref{listing:orchestrierung:webservices} ist in allgemeiner Form der erläuterte Ablauf implementiert. Dabei werden zwei beliebige \class{ObjectProvider} abgefragt. Die jeweiligen Ergebnisse können dann in gewünschter Weise orchestriert werden. Die in dem Beispiel verwendeten Klassen wurden teilweise vereinfacht und entsprechen nicht den Klassen in dem statischen Modell der Erweiterung.
+In \vref{listing:orchestrierung:webservices} ist in allgemeiner Form der zuvor erläuterte Ablauf implementiert. Dabei werden zwei beliebige \class{ObjectProvider} abgefragt. Die jeweiligen Ergebnisse können dann in gewünschter Weise orchestriert werden. Die in dem Beispiel verwendeten Klassen wurden teilweise vereinfacht und entsprechen nicht den Klassen des statischen Modells der Erweiterung.
 
 \begin{programm}[ht]
 \begin{lstlisting}[language=ActionScript]
@@ -968,7 +968,7 @@ Wenn kein Fehler auftritt, wird statt der Methode zur Behandlung des Fehlers die
 \caption{Umwandlung der XML-Antwort in die interne Objektstruktur\label{fig:umwandlung:ueberblick}}
 \end{figure}
 
-Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann einfach ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{xml}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, findet sich in \vref{listing:deserialisierung}.
+Bei der Deserialisierung kann wiederum auf Hilfsklassen von Adobe Flex zugegriffen werden. Über die Klasse \class{SimpleXMLDecoder} kann auf einfache Weise ein Proxy-Objekt erzeugt werden. Dadurch kann auf die einzelnen Elemente in der \gls{xml}-Struktur wie auf Attribute eines Objektes zugegriffen werden. Der Quellcode der Umwandlung, wie sie in \vref{fig:umwandlung:ueberblick} dargestellt ist, findet sich in \vref{listing:deserialisierung}.
 
 
 \begin{programm}[ht]
@@ -1001,15 +1001,15 @@ public override function deserialize(content:String):Object{
 \end{programm}
 
 
-Die \class{ObjectProvider} und \class{Deserializer} für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der \method{getObject()}-Methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cache befindet und dann direkt zurückgegeben. Ist es noch nicht vorhanden, wird der Webservice-Aufruf gestartet und nach der Deserialisierung wird das Objekt im Cache für weitere Anfragen gehalten.
+Die \class{ObjectProvider} und \class{Deserializer} für die weiteren Webservices sind analog dazu programmiert. Bei einem \class{CachedObjectProvider} wird in der \method{getObject()}-Methode zunächst ermittelt, ob sich das angeforderte Objekt schon im Cache befindet und dann direkt zurückgegeben. Ist es noch nicht vorhanden, wird der Webservice-Aufruf gestartet und nach der Deserialisierung das Objekt im Cache für weitere Anfragen gehalten.
 
 \subsection{BusinessObjects Xcelsius Binding}
 \label{sec:xcelsius_binding}
 Für den Datenaustausch zwischen der entwickelten Erweiterung und dem Tabellenblatt von \gls{xcelsius} muss auf die bereitgestellten Funktionen des \gls{xcelsius} \gls{glos:sdk} zurückgegriffen werden. Dabei wird das Konzept des Bindings genutzt.
 
-Bei diesem Konzept wird ein Attribut einer Instanz fest mit einem Zellenbereich auf dem Tabellenblatt verbunden. Dabei kann es sich entweder um ein flaches Attribut, wie zum Beispiel eine Zeichenkette oder eine Zahl, handeln, die dann mit einer einzelnen Zelle auf dem Tabellenblatt verbunden wird. Es kann allerdings auch auf einer Tabellenblatt-Seite ein Bereich festgelegt werden, der dann zum Beispiel mit einem zweidimensionalen Array verbunden wird.
+Bei diesem Konzept wird ein Attribut einer Instanz fest mit einem Zellenbereich auf dem Tabellenblatt verbunden. Dabei kann es sich um ein flaches Attribut, wie zum Beispiel eine Zeichenkette oder eine Zahl, handeln, die dann mit einer einzelnen Zelle auf dem Tabellenblatt verbunden wird. Es kann allerdings auch auf einer Tabellenblatt-Seite ein Bereich festgelegt werden, der dann zum Beispiel mit einem zweidimensionalen Array verbunden wird.
 
-Für solch eine Verbindung muss zusätzlich noch eine Richtung festgelegt werden. Das \gls{xcelsius} \gls{glos:sdk} bietet dabei drei Möglichkeiten an:
+Für solch eine Verbindung muss zusätzlich noch eine Richtung festgelegt werden. Das \gls{xcelsius} \gls{glos:sdk} bietet dafür drei Möglichkeiten an:
 
 \begin{seToplist}{ XXX }
 
@@ -1017,7 +1017,7 @@ Für solch eine Verbindung muss zusätzlich noch eine Richtung festgelegt werden
 Bei einem Input-Binding findet der Datenfluss nur von dem Tabellenblatt zu der Erweiterung statt. Er dient damit ausschließlich dazu, auf das Tabellenblatt lesend zuzugreifen. Sobald sich der Wert im Tabellenblatt ändert, wird diese Änderung auf das Attribut übertragen.
 
 \item[2.] \textbf{Output-Binding} \newline
-Das Output-Binding bietet ausschließlich schreibenden Zugriff auf das Tabellenblatt. Wird also der Attributswert verändert, wird die dazugehörige Zelle oder der Zellenbereich entsprechend angepasst. Der Datenfluss findet nur von der Erweiterung zu dem Tabellenblatt statt.
+Das Output-Binding bietet ausschließlich schreibenden Zugriff auf das Tabellenblatt. Wird der Attributswert verändert, wird die dazugehörige Zelle oder der Zellenbereich entsprechend angepasst. Der Datenfluss findet nur von der Erweiterung zu dem Tabellenblatt statt.
 
 \item[3.] \textbf{Input-Output-Binding} \newline
 Bei dieser Verbindungsart findet zwischen dem Tabellenblatt und der Instanz ein beidseitiger Austausch statt. Von beiden Seiten her werden Veränderungen auf die jeweils andere Seite übertragen. Der Wert der Zelle wird mit dem Attributswert synchronisiert.
@@ -1030,20 +1030,20 @@ Neben der Berechnung der Finanzierungsmatrix und der Einbindung der Kennzahlenan
 
 Neben der Wertehilfe für die Liquiditätsszenarien existiert eine weitere Wertehilfe für Liquiditätsgruppen. Diese basiert auf den aktuell ausgewählten Liquiditätsszenarien und liefert für diese die existierenden Liquiditätsgruppen zurück.
 
-Eine letzte Wertehilfe wurde für die Laufzeitbänder hinzugefügt. Durch diese Wertehilfen ist es für den Nutzer später einfacher, gültige Selektionskriterien festzulegen. Der Nutzer muss nicht den Namen der existierenden Gruppen, Szenarien oder Laufzeitbänder kennen, er braucht sie nur aus einer Liste auszuwählen.
+Eine letzte Wertehilfe wurde für die Laufzeitbänder hinzugefügt. Durch diese Wertehilfen ist es für den Nutzer später einfacher, gültige Selektionskriterien festzulegen. Der Nutzer muss nicht die Namen der existierenden Gruppen, Szenarien oder Laufzeitbänder kennen. Er braucht sie nur aus einer Liste auszuwählen.
 
 \section{Zusammenfassung}
-In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Analyse, dem Entwurf und der Implementierung, dargelegt. Das Ergebnis ist eine Erweiterung für \gls{xcelsius}, mit der \gls{xcelsius} zur Visualisierung der Daten des \gls{saplrm} genutzt werden kann. Dabei werden die Vorteile der Berechnungskomponente des \gls{saplrm} und die Geschwindigkeit von SAP HANA ausgenutzt. Gleichzeitig ist durch die modulare Struktur der Grundstein für zum einen Weiterentwicklungen des \gls{saplrm} als auch die Integration des \gls{saplrm} mit weiteren Anwendungen gelegt. Die Evaluierung der Ergebnisse wird in dem folgenden Kapitel durchgeführt.
+In diesem Kapitel wurde der komplette Entwicklungsprozess, bestehend aus der Analyse, dem Entwurf und der Implementierung, dargelegt. Das Ergebnis ist eine Erweiterung für \gls{xcelsius}, mit der \gls{xcelsius} zur Visualisierung der Daten des \gls{saplrm} genutzt werden kann. Dabei werden die Vorteile der Berechnungskomponente des \gls{saplrm} und die Geschwindigkeit von SAP HANA ausgenutzt. Gleichzeitig ist durch die modulare Struktur der Grundstein sowohl für Weiterentwicklungen des \gls{saplrm} als auch die Integration des \gls{saplrm} mit weiteren Anwendungen gelegt. Die Evaluierung der Ergebnisse wird in dem folgenden Kapitel durchgeführt.
 
 \chapter{Evaluation der Erweiterung für BusinessObjects Xcelsius}
 
 \section{Einleitung}
-In diesem Kapitel wird die Evaluation der im Rahmen der Bachelorarbeit entwickelten Erweiterung durchgeführt. Dabei wird die Erweiterung insbesondere auf zwei Aspekte hin genauer untersucht. Zum einen soll aufgezeigt werden, welche neuen Möglichkeiten sich mit der Erweiterung ergeben und wie diese genutzt werden können. Außerdem muss überprüft werden, in wiefern die Anforderungen und die Zielsetzung, die in der Spezifikation in \vref{sec:spezifikation} festgelegt wurden, erfüllt werden können.
+In diesem Kapitel wird die Evaluation, der im Rahmen dieser Bachelorarbeit entwickelten Erweiterung, durchgeführt. Dabei wird die Erweiterung insbesondere auf zwei Aspekte hin genauer untersucht. Zum einen soll aufgezeigt werden, welche neuen Möglichkeiten sich mit der Erweiterung ergeben und wie diese genutzt werden können. Außerdem muss überprüft werden, in wiefern die Anforderungen und die Zielsetzung, die in der Spezifikation in \vref{sec:spezifikation} festgelegt wurden, erfüllt werden.
 
 \section{Neue Möglichkeiten}
 Durch die Erweiterung ist es nun möglich, \gls{xcelsius} in Verbindung mit den Daten des \gls{saplrm} zu nutzen. Dazu muss zu einem Dashboard lediglich eine neue Verbindung, die Teil der Erweiterung ist, hinzugefügt werden.
 
-Für diese Verbindung müssen in den Einstellungen dann einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Der Dialog zum Festlegen der Einstellungen ist in \vref{fig:einstellung} zu sehen. Erforderlich sind hierbei der Nutzer, das entsprechende Passwort für die Authentifizierung und die \gls{url}, unter der das \gls{saplrm} erreichbar ist.
+Für diese Verbindung müssen in den Einstellungen anschließend einige erforderliche Bindings, siehe dazu \vref{sec:xcelsius_binding}, festgelegt werden. Der Dialog zum Festlegen der Einstellungen ist in \vref{fig:einstellung} zu sehen. Erforderlich sind hierbei der Nutzer, das entsprechende Passwort für die Authentifizierung und die \gls{url}, unter der das \gls{saplrm} erreichbar ist.
 
 \begin{figure}[ht]
 \centering
@@ -1096,19 +1096,19 @@ Der Zugang zu den Daten ist, genau wie bei der existierenden iPad-Anwendung, dur
 
 %\item[\anfl{leistung}] \textbf{Leistung} \newline
 %Ein wichtiges Unterscheidungsmerkmal des \gls{saplrm} durch die Nutzung von \gls{HANA} ist die schnelle Analyse von Daten. Die Erweiterung soll die Geschwindigkeitsvorteile von \gls{HANA} auch in anderen Anwendungen verfügbar machen.
-Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des Nutzers setzt sich aus der Zeit für die Berechnung der Werte durch die Berechnungskomponente und der eigentlichen Darstellung zusammen. Die Zeit für die Berechnung ist dabei festgesetzt und kann nicht beeinflusst werden. Die Zeit zur Darstellung ist in \gls{xcelsius} mit der Erweiterung sogar schneller als die Darstellung mit dem Oberon Framework. Ein Hauptgrund ist hierbei das vergleichsweise langsame Rendern des Diagramms durch Oberon. Durch eine echt-parallele Verarbeitung der Webservice-Aufrufe könnte die Leistung der Erweiterung sogar noch gesteigert werden. Auch diese Anforderung ist somit erfüllt, obwohl sie bei der Entwicklung nicht im Mittelpunkt stand.
+Schließlich bleibt noch \anfRef{anf:leistung}{}. Die Leistung aus der Sicht des Nutzers setzt sich aus der Zeit für die Berechnung der Werte durch die Berechnungskomponente und der eigentlichen Darstellung zusammen. Die Zeit für die Berechnung ist dabei festgesetzt und kann nicht beeinflusst werden. Die Zeit zur Darstellung ist in \gls{xcelsius} mit der Erweiterung sogar schneller als die Darstellung mit Hilfe des Oberon Frameworks. Ein Hauptgrund ist hierbei das vergleichsweise langsame Rendern des Diagramms durch Oberon. Durch eine echt-parallele Verarbeitung der Webservice-Aufrufe könnte die Leistung der Erweiterung sogar noch gesteigert werden. Auch diese Anforderung ist somit erfüllt, obwohl sie bei der Entwicklung nicht im Mittelpunkt stand.
 
 \section{Zusammenfassung}
-In diesem Kapitel wurden die Evaluation der Erweiterung für \gls{xcelsius} durchgeführt. Diese hat ergeben, dass sich durch die reine Integration der Daten des \gls{saplrm} unter der bewussten Vermeidung von Vorgaben, was die Visualisierung oder die Art des Inputs und des Outputs betrifft, sich sehr viele Möglichkeiten ergeben. Es können alle Funktionen von \gls{xcelsius} genutzt werden, wodurch sich eine größere Flexibilität in der Auswertung der Daten des \gls{saplrm} bietet. Außerdem wurde die Abdeckung der gestellten Anforderungen überprüft und dabei festgestellt, dass die Anforderungen erfolgreich umgesetzt wurden.
+In diesem Kapitel wurden die Evaluation der Erweiterung für \gls{xcelsius} durchgeführt. Diese hat ergeben, dass sich durch die reine Integration der Daten des \gls{saplrm} unter der bewussten Vermeidung von Vorgaben, was die Visualisierung oder die Art des Inputs und des Outputs betrifft, sehr viele Möglichkeiten ergeben. Es können alle Funktionen von \gls{xcelsius} genutzt werden, wodurch sich eine größere Flexibilität in der Auswertung der Daten des \gls{saplrm} bietet. Außerdem wurde die Abdeckung der gestellten Anforderungen überprüft und dabei festgestellt, dass alle Anforderungen erfolgreich umgesetzt wurden.
 
 \chapter{Zusammenfassung \& Ausblick}
 % Fragestellung aus Einleitung aufgreifen \loreIpsum
 
-Im Rahmen dieser Bachelorarbeit wurden zwei Ziele verfolgt. Auf der einen Seite sollte ein Konzept für die Nutzung weiterer Anwendungen in Verbindung mit der Berechnungskomponente des \gls{saplrm} entwickelt werden. Auf der anderen Seite sollte dieses Konzept für eine Anwendung beispielsweise umgesetzt werden. 
+Im Rahmen dieser Bachelorarbeit wurden zwei Ziele verfolgt. Auf der einen Seite sollte ein Konzept für die Nutzung weiterer Anwendungen in Verbindung mit der Berechnungskomponente des \gls{saplrm} entwickelt werden. Auf der anderen Seite sollte dieses Konzept für eine Anwendung in Form eines Beispiels umgesetzt werden. 
 
-Das entwickelte Konzept basiert auf der Orchestrierung von Webservices. Dabei werden ein oder mehrere Webservices von der Zielanwendung konsumiert und die jeweiligen Ergebnisse orchestriert. Die Webservices nutzen dabei für den Bezug der Daten die Berechnungskomponente des \gls{saplrm}. Das Konzept sieht dabei die Nutzung von weit verbreiteten Standards wie \gls{http} und \gls{xml} vor. Dadurch kann es einfach für verschiedene Anwendungen umgesetzt werden, da viele Anwendungen diese Standards unterstützten. Durch den modularen Aufbau, der durch die Orchestrierung der Webservices erreicht wird, ist auch eine gute Erweiterbarkeit sichergestellt. Durch eine Weiterentwicklung des \gls{saplrm} neu hinzugekommene Funktionen können einfach in das Konzept eingearbeitet werden. Außerdem wird durch den modularen Aufbau die spätere Wartung erleichtert.
+Das entwickelte Konzept basiert auf der Orchestrierung von Webservices. Dabei werden ein oder mehrere Webservices von der Zielanwendung konsumiert und die jeweiligen Ergebnisse orchestriert. Die Webservices nutzen dabei für den Bezug der Daten die Berechnungskomponente des \gls{saplrm}. Das Konzept sieht dabei die Nutzung von weit verbreiteten Standards wie \gls{http} und \gls{xml} vor. Dadurch kann es auf einfache Weise für verschiedene Anwendungen umgesetzt werden, da viele Anwendungen diese Standards unterstützten. Aufgrund des modularen Aufbaus, der durch die Orchestrierung der Webservices erreicht wird, ist auch eine gute Erweiterbarkeit sichergestellt. Die, durch eine Weiterentwicklung des \gls{saplrm}, neu hinzugekommene Funktionen können einfach in das Konzept eingearbeitet werden. Außerdem wird durch den modularen Aufbau die spätere Wartung erleichtert.
 
-Neben der Entwicklung des Konzeptes wurde im Rahmen der Bachelorarbeit die Umsetzung für \gls{xcelsius} durchgeführt. Das Ergebnis der Umsetzung ist eine Erweiterung, mit der die Einbindung von Daten, die auf der Berechnungskomponente basieren, erreicht werden kann. Die Erweiterung wurde dabei so umgesetzt, dass die gewonnene Flexibilität von \gls{xcelsius} in vollem Umfang genutzt werden kann. Durch die erfolgreiche Implementierung wurde gleichzeitig die Funktionsfähigkeit des Konzeptes gezeigt. Die Abdeckung der an die Zwischenschicht gestellten Anforderungen wurde anhand der Umsetzung eines Beispieldashboards im Rahmen der Evaluation überprüft. Neben der bestehenden Oberfläche des \gls{saplrm} ist somit eine neue Möglichkeit zum Konsumieren der Daten hinzugekommen. Es ergeben sich dadurch neue Möglichkeiten und eine flexiblere Nutzung des \gls{saplrm}.
+Neben der Entwicklung des Konzeptes wurde im Rahmen der Bachelorarbeit die Umsetzung für \gls{xcelsius} durchgeführt. Das Ergebnis der Umsetzung ist eine Erweiterung, mit der die Einbindung von Daten, die auf der Berechnungskomponente basieren, erreicht werden kann. Die Erweiterung wurde dabei so umgesetzt, dass die gewonnene Flexibilität von \gls{xcelsius} in vollem Umfang genutzt werden kann. Durch die erfolgreiche Implementierung wurde gleichzeitig die Funktionsfähigkeit des Konzeptes gezeigt. Die Abdeckung, der an die Zwischenschicht gestellten Anforderungen, wurde anhand der Umsetzung eines Beispieldashboards im Rahmen der Evaluation überprüft. Neben der bestehenden Oberfläche des \gls{saplrm} ist somit eine neue Möglichkeit zum Konsumieren der Daten hinzugekommen. Es ergeben sich dadurch neue Möglichkeiten und eine flexiblere Nutzung des \gls{saplrm}.
 
 Mit der Erweiterung besteht erstmalig die Möglichkeit, das Liquiditätsrisikomanagement bei Banken in die Gesamtbankensteuerung einzubinden. Bestehende Dashboards von \gls{xcelsius} können mit Informationen über die Liquiditätssituation der Bank erweitert werden. Das erleichtert die Sicherstellung der Einhaltung von regulatorischen Vorschriften, wie zum Beispiel der \gls{lcr} oder der \gls{nsfr} im Rahmen von Basel III.
 
